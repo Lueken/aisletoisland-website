@@ -10,8 +10,8 @@
 /* Typography */
 @font-face {
     font-family: 'Josefin Sans';
-    src: url("C:/Users/31686/Documents/GitHub/Tailored-Experience-Travel/dist/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff2'),
-        url("C:/Users/31686/Documents/GitHub/Tailored-Experience-Travel/dist/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff');
+    src: url("https://github.com/Lueken/Tailored-Experience-Travel/blob/main/dist/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff2'),
+        url("https://github.com/Lueken/Tailored-Experience-Travel/blob/main/dist/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff');
     font-weight: 300;
     font-style: normal;
 }
