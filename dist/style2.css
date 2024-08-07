@@ -1,0 +1,312 @@
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography */
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url("C:/Users/31686/Documents/GitHub/Tailored-Experience-Travel/dist/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff2'),
+        url("C:/Users/31686/Documents/GitHub/Tailored-Experience-Travel/dist/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    padding-top: 52px;
+}
+
+/* Layout */
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    position: relative;
+    width: 100%;
+}
+
+/* Header and Navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 52px;
+    background-color: #262626;
+    color: white;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-name-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.company-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav ul.nav-links {
+    display: flex;
+    list-style-type: none;
+    font-size: 20px;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #F2A057;
+}
+
+/* Top Bar */
+.top-bar {
+    position: fixed;
+    top: 52px;
+    /* This should be the same as the header height */
+    left: 0;
+    width: 100%;
+    height: 52px;
+    background-color: #262626;
+    z-index: 999;
+    /* Just below the header */
+}
+
+
+/* Typography Sizes */
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+/* Media queries for fine-tuning */
+@media (max-width: 1200px) {
+    .intro-text h1 {
+        font-size: 6vw;
+    }
+}
+
+
+/* Prevent text from becoming too large on very wide screens */
+@media (min-width: 1600px) {
+    .intro-text h1 {
+        font-size: 80px;
+    }
+}
+
+@media (min-width: 614px) and (max-width: 768px) {
+
+    header,
+    .top-bar {
+        height: 52px;
+        /* Ensure consistent height */
+    }
+
+    .top-bar {
+        top: 52px;
+        /* Reinforce positioning */
+    }
+
+    main {
+        padding-top: 52px;
+        /* Reinforce padding */
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+    }
+
+}
+
+
+/* Tablets and smaller desktops */
+@media (max-width: 1024px) {
+    .intro-text h1 {
+        font-size: 5vw;
+    }
+
+    .info-text,
+    .consults {
+        font-size: 20px;
+    }
+
+    .consult-links a {
+        width: 350px;
+        font-size: 20px;
+    }
+
+    .reviews {
+        font-size: 40px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        height: auto;
+        min-height: 52px;
+        /* Ensure minimum height */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-bar {
+        top: 52px;
+        /* Adjust if header height changes */
+    }
+
+    /* main {
+        padding-top: 104px;
+    } */
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+    }
+
+    .intro-text h1 {
+        font-size: 7vw;
+
+    }
+
+    .info-text,
+    .consults {
+        font-size: 22px;
+    }
+
+    .consult-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .consult-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .consult-links li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .consult-links a {
+        width: 90%;
+        max-width: 350px;
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .reviews {
+        font-size: 30px;
+    }
+
+    #review-container {
+        flex-direction: column;
+    }
+
+    .review {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .foot-logo-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .footer-text {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-row {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #phone-number .phone-link {
+        display: inline;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    #phone-number .phone-text {
+        display: none;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .intro-text h1 {
+        font-size: 7vw;
+    }
+
+    .info-text,
+    .consults {
+        font-size: 16px;
+    }
+
+    .consult-links a {
+        font-size: 16px;
+    }
+
+    .reviews {
+        font-size: 24px;
+    }
+}
