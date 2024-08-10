@@ -10,8 +10,8 @@
 /* Typography */
 @font-face {
     font-family: 'Josefin Sans';
-    src: url("https://github.com/Lueken/Tailored-Experience-Travel/blob/main/dist/Josefin_Sans/") format('woff2'),
-        url("https://github.com/Lueken/Tailored-Experience-Travel/blob/main/dist/Josefin_Sans/") format('woff');
+    src: url("main/dist/Josefin_Sans/") format('woff2'),
+        url("/main/dist/Josefin_Sans/") format('woff');
     font-weight: 300;
     font-style: normal;
 }
