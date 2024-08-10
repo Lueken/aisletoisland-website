@@ -19,6 +19,7 @@
 body {
     font-family: "Josefin Sans", sans-serif;
     padding-top: 52px;
+    background-color: #262626;
 }
 
 /* Layout */
@@ -31,6 +32,7 @@ body {
 main {
     position: relative;
     width: 100%;
+
 }
 
 /* Header and Navigation */
