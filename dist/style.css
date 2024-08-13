@@ -200,7 +200,7 @@ nav ul.nav-links {
     margin: 0 auto;
     padding: 50px 0;
     text-align: center;
-    font-size: 25px;
+    font-size: 1.4rem;
     color: white;
     background-color: #262626;
 }
@@ -209,6 +209,7 @@ nav ul.nav-links {
     display: flex;
     justify-content: center;
     width: 100%;
+    padding-top: 20px;
 }
 
 .consult-links {
@@ -284,8 +285,13 @@ nav ul.nav-links {
     text-align: center;
     display: flex;
     flex-direction: column;
+
 }
 
+.review a {
+    text-decoration: none;
+    color: white;
+}
 .review p {
     font-size: 1.2rem;
     line-height: 1.6;
@@ -309,7 +315,7 @@ nav ul.nav-links {
 }
 
 
-.reviewer a:hover {
+.review a:hover {
     text-decoration: none;
     color: #F2A057;
     transition: color 0.3s ease;
