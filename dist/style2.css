@@ -112,7 +112,7 @@ main {
 
 .title {
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     display: flex;
     justify-content: center;
     margin: 45px;
@@ -123,7 +123,7 @@ main {
     justify-content: center;
     color:white;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .about-me {
