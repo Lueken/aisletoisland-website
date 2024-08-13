@@ -10,8 +10,8 @@
 /* Typography */
 @font-face {
     font-family: 'Josefin Sans';
-    src: url("main/dist/Josefin_Sans/") format('woff2'),
-        url("/main/dist/Josefin_Sans/") format('woff');
+    src: url("/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff2'),
+        url("/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff');
     font-weight: 300;
     font-style: normal;
 }
