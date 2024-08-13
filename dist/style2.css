@@ -10,8 +10,8 @@
 /* Typography */
 @font-face {
     font-family: 'Josefin Sans';
-    src: url("C:/Users/31686/Documents/GitHub/Tailored-Experience-Travel/dist/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff2'),
-        url("C:/Users/31686/Documents/GitHub/Tailored-Experience-Travel/dist/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff');
+    src: url("/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff2'),
+        url("/Josefin_Sans/JosefinSans-VariableFont_wght.ttf") format('woff');
     font-weight: 300;
     font-style: normal;
 }
@@ -104,6 +104,165 @@ nav ul.nav-links {
     /* Just below the header */
 }
 
+main {
+    position: relative;
+    width: 100%;
+
+}
+
+.title {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 45px;
+}
+
+.my-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.about-me {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    padding: 40px;
+    margin: 15px;
+}
+
+.about-me-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.consult-link a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    /* Fixed width */
+    height: 50px;
+    /* Fixed height */
+    background-color: #F2A057;
+    /* Orange color */
+    color: #262626;
+    text-decoration: none;
+    border-radius: 8px;
+    /* Rounded corners */
+    transition: background-color 0.7s ease;
+    font-size: 25px;
+    font-weight: bold;
+    /* Adjust as needed */
+    text-align: center;
+}
+
+.consult-link a:hover {
+    background-color: #cf804d;
+
+    /* Darker orange on hover */
+}
+
+#consult-container {
+    width: 100%;
+    /*max-width: 1200px; !* Adjust as needed *!*/
+    padding: 40px 0;
+    text-align: center;
+    background-color: #168C8C;
+}
+
+.consult-link {
+    /*margin-bottom: 20px;*/
+}
+.consult-link a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #F2A057;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+
+@media (max-width: 768px) {
+    #review-container {
+        flex-direction: column;
+    }
+
+    .review {
+        margin-bottom: 20px;
+    }
+}
+
+footer {
+    background-color: #262626;
+    /* Adjust as needed */
+    color: white;
+    padding: 20px 0;
+
+}
+
+.footer-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.foot-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.foot-logo-container img {
+    margin-bottom: 10px;
+}
+
+.foot-logo-container span {
+    text-align: center;
+    font-weight: bold;
+}
+
+.footer-text {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.footer-row {
+    flex-basis: 30%;
+}
+
+.footer-row h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.footer-row p {
+    margin: 5px 0;
+}
+
+.footer-row a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-row a:hover {
+    color: #F2A057;
+}
+
+#phone-number .phone-link {
+    display: none;
+}
+
+#phone-number .phone-text {
+    display: inline;
+}
 
 /* Typography Sizes */
 h1 {
@@ -116,199 +275,4 @@ h2 {
 
 p {
     font-size: 1.2rem;
-}
-
-/* Media queries for fine-tuning */
-@media (max-width: 1200px) {
-    .intro-text h1 {
-        font-size: 6vw;
-    }
-}
-
-
-/* Prevent text from becoming too large on very wide screens */
-@media (min-width: 1600px) {
-    .intro-text h1 {
-        font-size: 80px;
-    }
-}
-
-@media (min-width: 614px) and (max-width: 768px) {
-
-    header,
-    .top-bar {
-        height: 52px;
-        /* Ensure consistent height */
-    }
-
-    .top-bar {
-        top: 52px;
-        /* Reinforce positioning */
-    }
-
-    main {
-        padding-top: 52px;
-        /* Reinforce padding */
-    }
-
-    .nav-links a {
-        margin: 10px 0;
-    }
-
-}
-
-
-/* Tablets and smaller desktops */
-@media (max-width: 1024px) {
-    .intro-text h1 {
-        font-size: 5vw;
-    }
-
-    .info-text,
-    .consults {
-        font-size: 20px;
-    }
-
-    .consult-links a {
-        width: 350px;
-        font-size: 20px;
-    }
-
-    .reviews {
-        font-size: 40px;
-    }
-}
-
-/* Mobile devices */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-
-    header {
-        height: auto;
-        min-height: 52px;
-        /* Ensure minimum height */
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .top-bar {
-        top: 52px;
-        /* Adjust if header height changes */
-    }
-
-    /* main {
-        padding-top: 104px;
-    } */
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .nav-links a {
-        margin: 10px 0;
-    }
-
-    .intro-text h1 {
-        font-size: 7vw;
-
-    }
-
-    .info-text,
-    .consults {
-        font-size: 22px;
-    }
-
-    .consult-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .consult-links {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .consult-links li {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .consult-links a {
-        width: 90%;
-        max-width: 350px;
-        margin: 10px 0;
-        font-size: 18px;
-    }
-
-    .reviews {
-        font-size: 30px;
-    }
-
-    #review-container {
-        flex-direction: column;
-    }
-
-    .review {
-        width: 90%;
-        margin: 10px auto;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .foot-logo-container {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .footer-text {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-row {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    #phone-number .phone-link {
-        display: inline;
-        color: inherit;
-        text-decoration: none;
-    }
-
-    #phone-number .phone-text {
-        display: none;
-    }
-}
-
-/* Small mobile devices */
-@media (max-width: 480px) {
-    .intro-text h1 {
-        font-size: 7vw;
-    }
-
-    .info-text,
-    .consults {
-        font-size: 16px;
-    }
-
-    .consult-links a {
-        font-size: 16px;
-    }
-
-    .reviews {
-        font-size: 24px;
-    }
 }
