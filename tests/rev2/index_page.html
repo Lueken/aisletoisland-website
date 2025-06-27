@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tailored Experience | Luxury Destination Weddings & Honeymoons</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-charcoal: #2c2c2c;
+            --muted-teal: #0f5f5f;
+            --soft-teal: #4a9999;
+            --warm-orange: #d4956b;
+            --muted-orange: #b8835a;
+            --cream: #faf8f5;
+            --soft-gray: #f5f3f0;
+            --text-light: #6a6a6a;
+            --text-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .sans-serif {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 60px;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(15, 95, 95, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--muted-teal) 0%, var(--soft-teal) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 11px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--muted-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-charcoal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-gray) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(15, 95, 95, 0.03) 100%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1.2s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            color: var(--muted-teal);
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 30px;
+            color: var(--dark-charcoal);
+            letter-spacing: -1px;
+        }
+
+        .hero-highlight {
+            color: var(--muted-teal);
+            position: relative;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            animation: fadeInRight 1.2s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .visual-card {
+            position: absolute;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(44, 44, 44, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(15, 95, 95, 0.05);
+        }
+
+        .visual-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(44, 44, 44, 0.12);
+        }
+
+        .card-main {
+            width: 350px;
+            height: 450px;
+            top: 50px;
+            left: 0;
+            background: linear-gradient(135deg, var(--soft-gray) 0%, #f0efeb 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--muted-teal) 0%, var(--soft-teal) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            margin-bottom: 15px;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-small {
+            width: 180px;
+            height: 140px;
+            top: 0;
+            right: 20px;
+            background: white;
+            padding: 25px;
+        }
+
+        .card-accent {
+            width: 220px;
+            height: 180px;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--warm-orange) 0%, var(--muted-orange) 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-number {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 60px;
+            background: white;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--muted-teal);
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .service-card {
+            padding: 60px 50px;
+            background: var(--soft-gray);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(15, 95, 95, 0.05);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--muted-teal) 0%, var(--soft-teal) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.03;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(15, 95, 95, 0.15);
+            border-color: rgba(15, 95, 95, 0.1);
+        }
+
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--muted-teal) 0%, var(--soft-teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-description {
+            font-size: 16px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted-orange);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-link:hover {
+            transform: translateX(5px);
+            color: var(--warm-orange);
+        }
+
+        .service-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .service-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 120px 60px;
+            background: var(--dark-charcoal);
+            color: white;
+        }
+
+        .expertise-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .expertise-content {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .expertise-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .expertise-description {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+        }
+
+        .expertise-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--muted-orange);
+        }
+
+        .expertise-number {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--warm-orange);
+            margin-bottom: 15px;
+        }
+
+        .expertise-label {
+            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 60px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-gray) 100%);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: var(--dark-charcoal);
+            letter-spacing: -0.5px;
+        }
+
+        .cta-description {
+            font-size: 18px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            margin-bottom: 50px;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 45px;
+            background: linear-gradient(135deg, var(--muted-teal) 0%, var(--soft-teal) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+            box-shadow: 0 15px 40px rgba(15, 95, 95, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(15, 95, 95, 0.3);
+            background: linear-gradient(135deg, var(--soft-teal) 0%, var(--muted-teal) 100%);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 30px;
+            }
+
+            .nav-links {
+                gap: 25px;
+            }
+
+            .hero {
+                padding: 120px 30px 60px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+
+            .hero-visual {
+                height: 400px;
+                margin: 0 auto;
+                max-width: 400px;
+            }
+
+            .card-main {
+                width: 280px;
+                height: 350px;
+            }
+
+            .card-small {
+                width: 150px;
+                height: 120px;
+                padding: 20px;
+            }
+
+            .card-accent {
+                width: 180px;
+                height: 150px;
+                padding: 25px;
+            }
+
+            .services,
+            .expertise,
+            .cta {
+                padding: 80px 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .service-card {
+                padding: 40px 35px;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo-container">
+                <div class="logo-icon">🏔️</div>
+                <div>
+                    <div class="logo-text">The Tailored Experience</div>
+                    <div class="tagline">It's not just the destination, it's the experience</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Jessica</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-subtitle">Luxury Travel Planning</div>
+                <h1 class="hero-title">Creating <span class="hero-highlight">Extraordinary</span> Moments</h1>
+                <p class="hero-description">We bridge the gap between your unique romantic vision and bringing it to fruition, helping discerning couples achieve truly memorable destination weddings and honeymoons through practical creativity and seamless organization.</p>
+            </div>
+
+            <div class="hero-visual">
+                <div class="visual-card card-main">
+                    <div class="card-icon">✨</div>
+                    <h3 class="card-title">Bespoke Planning</h3>
+                    <p class="card-subtitle">Tailored to Perfection</p>
+                </div>
+
+                <div class="visual-card card-small">
+                    <div class="card-number" style="font-size: 2rem; color: var(--muted-teal); margin-bottom: 8px;">127</div>
+                    <div class="card-text" style="font-size: 12px; color: var(--text-light);">Dream celebrations created</div>
+                </div>
+
+                <div class="visual-card card-accent">
+                    <div class="card-number">18</div>
+                    <div class="card-text">Countries & destinations where we've created magical moments</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services-container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Specialties</div>
+                <h2 class="section-title">Tailored to Perfection</h2>
+                <p class="section-description">With deep expertise in luxury hospitality and an eye for extraordinary detail, we create experiences that exceed expectations and memories that last a lifetime.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💍</div>
+                    <h3 class="service-title">Destination Weddings</h3>
+                    <p class="service-description">From intimate ceremonies on secluded beaches to grand celebrations in historic venues, we orchestrate every element of your perfect day in the world's most breathtaking locations.</p>
+                    <a href="#destination-weddings" class="service-link">Explore Wedding Services</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🥂</div>
+                    <h3 class="service-title">Luxury Honeymoons</h3>
+                    <p class="service-description">Begin your married life with an unforgettable journey. We design romantic escapes that perfectly balance adventure, relaxation, and intimate moments in extraordinary settings.</p>
+                    <a href="#honeymoons" class="service-link">Discover Honeymoon Experiences</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise">
+        <div class="expertise-container">
+            <div class="expertise-content">
+                <h2 class="expertise-title">Proven Excellence</h2>
+                <p class="expertise-description">Years of experience and countless successful celebrations have established us as trusted partners for the most discerning couples.</p>
+            </div>
+
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <div class="expertise-number">89</div>
+                    <div class="expertise-label">Weddings Planned</div>
+                </div>
+
+                <div class="expertise-item">
+                    <div class="expertise-number">38</div>
+                    <div class="expertise-label">Honeymoons Curated</div>
+                </div>
+
+                <div class="expertise-item">
+                    <div class="expertise-number">18</div>
+                    <div class="expertise-label">Countries</div>
+                </div>
+
+                <div class="expertise-item">
+                    <div class="expertise-number">100%</div>
+                    <div class="expertise-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-container">
+            <h2 class="cta-title">Begin Your Journey</h2>
+            <p class="cta-description">Let's discuss how we can bring your vision to life. Schedule a complimentary consultation to explore the possibilities for your extraordinary celebration.</p>
+            <a href="#contact" class="cta-button">Schedule Consultation</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(250, 248, 245, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(15, 95, 95, 0.08)';
+            } else {
+                nav.style.background = 'rgba(250, 248, 245, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate service cards and expertise items
+        document.querySelectorAll('.service-card, .expertise-item').forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = `all 0.8s ease ${index * 0.1}s`;
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Wedding Planning | The Tailored Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-charcoal: #2c2c2c;
+            --muted-teal: #0f5f5f;
+            --soft-teal: #4a9999;
+            --warm-orange: #d4956b;
+            --muted-orange: #b8835a;
+            --cream: #faf8f5;
+            --soft-gray: #f5f3f0;
+            --text-light: #6a6a6a;
+            --text-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .sans-serif {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 60px;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(15, 95, 95, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--muted-teal) 0%, var(--soft-teal) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 11px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--muted-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-charcoal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 60px 80px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-gray) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(15, 95, 95, 0.02) 100%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        .breadcrumb a {
+            color: var(--muted-teal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--soft-teal);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 30px;
+            color: var(--dark-charcoal);
+            letter-spacing: -1px;
+        }
+
+        .hero-highlight {
+            color: var(--muted-teal);
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 80px;
+            margin-top: 60px;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--muted-teal);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 120px 60px;
+            background: white;
+        }
+
+        .process-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 100px;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--muted-teal);
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .process-timeline {
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--soft-teal) 0%, var(--muted-orange) 100%);
+            opacity: 0.3;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 0 0 80px 140px;
+            margin-bottom: 60px;
+        }
+
+        .step-indicator {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--muted-teal) 0%, var(--soft-teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 15px 40px rgba(15, 95, 95, 0.2);
+        }
+
+        .step-content {
+            background: var(--soft-gray);
+            padding: 50px 45px;
+            border-radius: 20px;
+            border-left: 5px solid var(--muted-orange);
+            transition: all 0.3s ease;
+        }
+
+        .step-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(44, 44, 44, 0.08);
+        }
+
+        .step-phase {
+            font-size: 13px;
+            color: var(--muted-orange);
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-title {
+            font-size: 1.9rem;
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .step-description {
+            font-size: 16px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .step-details {
+            list-style: none;
+        }
+
+        .step-details li {
+            font-size: 15px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .step-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--muted-teal);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Results Section */
+        .results {
+            padding: 120px 60px;
+            background: var(--dark-charcoal);
+            color: white;
+        }
+
+        .results-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .results-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .results-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .results-content {
+            max-width: 500px;
+        }
+
+        .results-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .results-list li {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .results-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--warm-orange);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .results-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--warm-orange);
+        }
+
+        .result-card.featured {
+            grid-row: span 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(212, 149, 107, 0.1) 0%, rgba(184, 131, 90, 0.1) 100%);
+            border-color: var(--warm-orange);
+        }
+
+        .result-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .result-number {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--warm-orange);
+            margin-bottom: 10px;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Destinations Section */
+        .destinations {
+            padding: 120px 60px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-gray) 100%);
+        }
+
+        .destinations-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .destination-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 1px solid rgba(15, 95, 95, 0.05);
+            box-shadow: 0 10px 30px rgba(44, 44, 44, 0.06);
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(15, 95, 95, 0.15);
+            border-color: var(--muted-teal);
+        }
+
+        .destination-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--muted-teal) 0%, var(--soft-teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+        }
+
+        .destination-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .destination-content {
+            padding: 35px 30px;
+        }
+
+        .destination-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .destination-description {
+            font-size: 15px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 60px;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: var(--dark-charcoal);
+            letter-spacing: -0.5px;
+        }
+
+        .cta-description {
+            font-size: 18px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            margin-bottom: 50px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, var(--muted-teal) 0%, var(--soft-teal) 100%);
+            color: white;
+            box-shadow: 0 15px 40px rgba(15, 95, 95, 0.2);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(15, 95, 95, 0.3);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--muted-teal);
+            border: 2px solid var(--muted-teal);
+        }
+
+        .cta-secondary:hover {
+            background: var(--muted-teal);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 30px;
+            }
+
+            .hero {
+                padding: 120px 30px 60px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .process,
+            .results,
+            .destinations,
+            .cta {
+                padding: 80px 30px;
+            }
+
+            .process-step {
+                padding-left: 120px;
+            }
+
+            .step-indicator {
+                width: 80px;
+                height: 80px;
+                font-size: 1.5rem;
+            }
+
+            .timeline-line {
+                left: 40px;
+            }
+
+            .step-content {
+                padding: 35px 25px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .destinations-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo-container">
+                <div class="logo-icon">🏔️</div>
+                <div>
+                    <div class="logo-text">The Tailored Experience</div>
+                    <div class="tagline">It's not just the destination, it's the experience</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Jessica</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="breadcrumb">
+                <a href="#home">Home</a> / <span>Destination Weddings</span>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Destination <span class="hero-highlight">Wedding</span> Planning</h1>
+                <p class="hero-description">Transform your vision into reality with our comprehensive destination wedding planning service. From intimate beachside ceremonies to grand resort celebrations, we orchestrate every detail of your perfect day in the world's most extraordinary locations.</p>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">89</div>
+                        <div class="stat-label">Weddings Planned</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="process-container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Process</div>
+                <h2 class="section-title">From Vision to Celebration</h2>
+                <p class="section-description">Our comprehensive approach ensures every aspect of your destination wedding is meticulously planned and flawlessly executed, allowing you to focus on what matters most—celebrating your love.</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="timeline-line"></div>
+
+                <div class="process-step">
+                    <div class="step-indicator">💭</div>
+                    <div class="step-content">
+                        <div class="step-phase">Phase 1 • 12-18 Months Before</div>
+                        <h3 class="step-title">Vision & Discovery</h3>
+                        <p class="step-description">We begin with an in-depth consultation to understand your dreams, style preferences, guest list, and budget. This foundation guides every decision throughout the planning process.</p>
+                        <ul class="step-details">
+                            <li>Comprehensive vision consultation and style assessment</li>
+                            <li>Destination research based on your preferences and guest needs</li>
+                            <li>Budget planning and realistic timeline creation</li>
+                            <li>Initial venue scouting and curated recommendations</li>
+                            <li>Guest travel considerations and accessibility planning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-indicator">📋</div>
+                    <div class="step-content">
+                        <div class="step-phase">Phase 2 • 8-12 Months Before</div>
+                        <h3 class="step-title">Detailed Planning & Coordination</h3>
+                        <p class="step-description">With your vision clear, we dive into the intricate details. Every vendor is vetted, every contract negotiated, and every element designed to reflect your unique style and love story.</p>
+                        <ul class="step-details">
+                            <li>Vendor selection, vetting, and contract negotiation</li>
+                            <li>Guest travel coordination and group booking management</li>
+                            <li>Menu planning with dietary restrictions and cultural preferences</li>
+                            <li>Design concept development and decor coordination</li>
+                            <li>Legal requirements research and documentation assistance</li>
+                            <li>Photography and videography coordination</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-indicator">✨</div>
+                    <div class="step-content">
+                        <div class="step-phase">Phase 3 • 1-3 Months Before</div>
+                        <h3 class="step-title">Finalization & Preparation</h3>
+                        <p class="step-description">As your wedding approaches, we finalize all details, confirm arrangements, and prepare comprehensive timelines to ensure seamless execution of your celebration.</p>
+                        <ul class="step-details">
+                            <li>Final guest count confirmation and seating arrangements</li>
+                            <li>Detailed timeline creation and vendor coordination schedules</li>
+                            <li>Final dress fittings and beauty appointment coordination</li>
+                            <li>Guest welcome package preparation and distribution planning</li>
+                            <li>Weather contingency planning and backup arrangements</li>
+                            <li>Final site visits and logistics confirmation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-indicator">🎉</div>
+                    <div class="step-content">
+                        <div class="step-phase">Phase 4 • Wedding Week</div>
+                        <h3 class="step-title">Execution & Celebration</h3>
+                        <p class="step-description">Your wedding week is where all our planning comes together. We manage every detail behind the scenes, ensuring you can be fully present for your celebration while we handle the logistics.</p>
+                        <ul class="step-details">
+                            <li>On-site coordination and comprehensive vendor management</li>
+                            <li>Guest arrival assistance and welcome event coordination</li>
+                            <li>Day-of wedding timeline management and seamless execution</li>
+                            <li>Real-time problem solving and immediate issue resolution</li>
+                            <li>Ceremony and reception oversight with attention to every detail</li>
+                            <li>Post-wedding cleanup coordination and departure assistance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results">
+        <div class="results-container">
+            <div class="results-header">
+                <h2 class="results-title">What You Can Expect</h2>
+                <p class="results-subtitle">Our meticulous planning process and attention to detail deliver wedding experiences that exceed expectations and create memories to last a lifetime.</p>
+            </div>
+
+            <div class="results-grid">
+                <div class="results-content">
+                    <ul class="results-list">
+                        <li>Stress-free planning experience with dedicated personal support</li>
+                        <li>Seamless travel coordination for you and all your guests</li>
+                        <li>Carefully vetted vendors who understand and execute your vision</li>
+                        <li>Flawless day-of execution with professional behind-the-scenes coordination</li>
+                        <li>Unique personal touches that reflect your love story and style</li>
+                        <li>Professional photography and videography arrangements</li>
+                        <li>Exceptional guest experiences that create lasting memories</li>
+                        <li>Complete peace of mind throughout the entire planning process</li>
+                    </ul>
+                </div>
+
+                <div class="results-visual">
+                    <div class="result-card">
+                        <div class="result-number">150+</div>
+                        <div class="result-label">Hours of planning</div>
+                    </div>
+                    <div class="result-card featured">
+                        <div class="result-icon">🌍</div>
+                        <div style="color: var(--warm-orange); font-size: 1.3rem; margin-bottom: 10px;">Worldwide Excellence</div>
+                        <div style="color: rgba(255,255,255,0.8); font-size: 14px; text-align: center;">Trusted partnerships in premier destinations globally</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">25+</div>
+                        <div class="result-label">Vendor partnerships</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="destinations">
+        <div class="destinations-container">
+            <div class="section-header">
+                <div class="section-subtitle">Featured Destinations</div>
+                <h2 class="section-title">Where Dreams Come True</h2>
+                <p class="section-description">From tropical paradises to historic venues, we specialize in the world's most sought-after wedding destinations, each offering unique beauty and exceptional experiences.</p>
+            </div>
+
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-image">🏝️</div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">Caribbean Islands</h3>
+                        <p class="destination-description">Pristine beaches, crystal-clear waters, and world-class resorts create the perfect backdrop for romantic beachside celebrations and intimate ceremonies.</p>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">🏛️</div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">European Venues</h3>
+                        <p class="destination-description">Historic villas, charming countryside estates, and iconic coastal locations throughout Europe offer timeless elegance and cultural richness.</p>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">🌺</div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">South Pacific</h3>
+                        <p class="destination-description">Overwater bungalows, tropical gardens, and stunning sunset ceremonies in paradise destinations like Bora Bora and Fiji.</p>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">⛰️</div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">Mountain Retreats</h3>
+                        <p class="destination-description">Dramatic landscapes, luxury lodges, and intimate settings in breathtaking mountain locations from the Alps to the Rockies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-container">
+            <h2 class="cta-title">Ready to Begin Planning?</h2>
+            <p class="cta-description">Let's discuss your vision and explore how we can create the destination wedding of your dreams. Schedule a complimentary consultation to get started on this incredible journey.</p>
+
+            <div class="cta-buttons">
+                <a href="#" class="cta-button cta-primary">Schedule Consultation</a>
+                <a href="#" class="cta-button cta-secondary">View Our Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(250, 248, 245, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(15, 95, 95, 0.08)';
+            } else {
+                nav.style.background = 'rgba(250, 248, 245, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate process steps
+        document.querySelectorAll('.process-step').forEach((step, index) => {
+            step.style.opacity = '0';
+            step.style.transform = 'translateY(30px)';
+            step.style.transition = `all 0.8s ease ${index * 0.15}s`;
+            observer.observe(step);
+        });
+
+        // Animate destination cards
+        document.querySelectorAll('.destination-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
