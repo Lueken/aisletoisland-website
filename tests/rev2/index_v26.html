@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tailored Experience | Bridging Vision to Reality for Discerning Couples</title>
+    <title>The Tailored Experience Travel | Bridging Vision to Reality for Discerning Couples</title>
     <style>
         * {
             margin: 0;
@@ -74,6 +74,27 @@
             color: white;
             font-size: 18px;
             font-weight: 400;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .logo-mark.logo-bg {
+            background-image: url('tailored_experience_logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+        }
+
+        .logo-mark.text-logo {
+            background: linear-gradient(135deg, var(--sophisticated-teal) 0%, var(--elegant-teal) 100%);
         }
 
         .brand-text {
@@ -327,6 +348,14 @@
             justify-content: center;
             text-align: center;
             padding: 40px 30px;
+        }
+
+        /* Image card styling */
+        .main-card.with-image {
+            background-image: url('/dist/pexels-emma-bauso-1183828-3585806.jpg');
+            background-size: cover;
+            background-position: center;
+            justify-content: flex-end;
         }
 
         .card-icon {
@@ -699,55 +728,6 @@
             letter-spacing: 1px;
         }
 
-        /* Final CTA */
-        .final-cta {
-            padding: 120px 60px;
-            background: white;
-            text-align: center;
-        }
-
-        .cta-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-size: clamp(2.2rem, 4vw, 3rem);
-            font-weight: 400;
-            color: var(--warm-charcoal);
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-
-        .cta-description {
-            font-size: 17px;
-            color: var(--subtle-gray);
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-
-        .cta-button-large {
-            display: inline-block;
-            padding: 20px 45px;
-            background: linear-gradient(135deg, var(--sophisticated-teal) 0%, var(--elegant-teal) 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-            transition: all 0.4s ease;
-            box-shadow: 0 12px 35px rgba(15, 95, 95, 0.2);
-        }
-
-        .cta-button-large:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 45px rgba(15, 95, 95, 0.3);
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             nav {
@@ -793,8 +773,7 @@
 
             .problem-solution,
             .services-preview,
-            .social-proof,
-            .final-cta {
+            .social-proof {
                 padding: 80px 30px;
             }
 
@@ -824,9 +803,9 @@
     <nav>
         <div class="nav-content">
             <div class="logo-container">
-                <div class="logo-mark">T</div>
+                <div class="logo-mark logo-bg"></div>
                 <div>
-                    <div class="brand-text">The Tailored Experience</div>
+                    <div class="brand-text">The Tailored Experience Travel</div>
                     <div class="brand-tagline">It's not just the destination, it's the experience</div>
                 </div>
             </div>
@@ -847,25 +826,21 @@
                 <h1 class="hero-title">Your Vision, <span class="title-emphasis">Expertly Planned</span></h1>
 
                 <div class="value-proposition">
-                    <p class="value-text">"I help discerning couples achieve their unique destination wedding vision through practical creativity and seamless organization - creating celebrations that are truly memorable for years to come."</p>
-                </div>
-
-                <div class="cta-group">
-                    <a href="#consultation" class="cta-primary">Schedule Your Consultation</a>
-                    <a href="#process" class="cta-secondary">See How We Work</a>
+                    <p class="value-text">"We bridge the gap between your unique romantic vision and bringing it to fruition, helping discerning couples achieve truly memorable destination weddings and honeymoons through practical creativity and seamless organization."</p>
                 </div>
             </div>
 
             <div class="hero-visual">
-                <div class="visual-element main-card">
-                    <div class="card-icon">🎯</div>
-                    <h3 class="card-title">Vision to Celebration</h3>
-                    <p class="card-subtitle">Your Dreams, Carefully Planned</p>
+                <div class="visual-element main-card with-image">
+                    <div style="background: rgba(255, 255, 255, 0.95); padding: 25px 20px; border-radius: 8px; text-align: center; backdrop-filter: blur(5px);">
+                        <h3 class="card-title">Vision to Celebration</h3>
+                        <p class="card-subtitle">Your Dreams, Carefully Planned</p>
+                    </div>
                 </div>
 
                 <div class="visual-element accent-card">
-                    <div class="metric-number">89</div>
-                    <div class="metric-label">Weddings Planned<br>Stress-Free</div>
+                    <div class="metric-number">24</div>
+                    <div class="metric-label">Events Planned<br>Stress-Free</div>
                 </div>
 
                 <div class="visual-element detail-card">
@@ -891,9 +866,8 @@
                         <li>Pinterest vision doesn't match real-world possibilities</li>
                         <li>Coordinating details from thousands of miles away</li>
                         <li>No time to properly vet vendors in unfamiliar locations</li>
-                        <li>Worried about things going wrong on your special day</li>
+                        <li>Struggling to handle your guest's travel arrangements and details</li>
                         <li>Overwhelmed by conflicting advice and information</li>
-                        <li>Struggling to find trusted local connections</li>
                     </ul>
                 </div>
 
@@ -904,9 +878,8 @@
                         <li>Practical creativity that transforms Pinterest inspiration into tangible plans</li>
                         <li>Comprehensive planning and vendor coordination</li>
                         <li>Pre-vetted vendor network with proven track records</li>
-                        <li>Detailed planning with contingency options</li>
+                        <li>Professional guest travel and payment organization</li>
                         <li>Clear guidance from trusted experts who listen</li>
-                        <li>Established relationships with premier local partners</li>
                     </ul>
                 </div>
             </div>
@@ -944,12 +917,12 @@
 
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">89</div>
+                    <div class="stat-number">24</div>
                     <div class="stat-label">Weddings Planned</div>
                 </div>
 
                 <div class="stat-item">
-                    <div class="stat-number">38</div>
+                    <div class="stat-number">16</div>
                     <div class="stat-label">Honeymoons Curated</div>
                 </div>
 
@@ -959,83 +932,218 @@
                 </div>
 
                 <div class="stat-item">
-                    <div class="stat-number">127</div>
+                    <div class="stat-number">62</div>
                     <div class="stat-label">Dream Celebrations</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="final-cta">
-        <div class="cta-container">
-            <h2 class="cta-title">Ready to Begin Your Planning Journey?</h2>
-            <p class="cta-description">Let's discuss your vision and explore how we can transform your wedding dreams into a comprehensive plan. Schedule a complimentary consultation designed for busy professionals like you.</p>
-            <a href="#contact" class="cta-button-large">Begin Your Journey</a>
-        </div>
-    </section>
-
     <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuration constants
+            const CONFIG = {
+                scrollDuration: 900,
+                animationTrigger: 0.6,  // 60% through scroll
+                animationDuration: '0.8s',
+                animationStagger: 5,
+                scrollThreshold: 50
+            };
+
+            // Cache DOM elements
+            const sections = document.querySelectorAll('section');
+            const animatedSelector = '.service-card, .stat-item, .problems-side, .solutions-side, .process-step, .destination-card, .result-card, .experience-card';
+
+            // State variables
+            let currentSection = 0;
+            let isAnimating = false;
+            const totalSections = sections.length;
+
+            // Add hover effects for visual elements
+            document.querySelectorAll('.visual-element').forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    element.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                element.addEventListener('mouseleave', () => {
+                    element.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add required CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                section { min-height: 100vh; }
+                html, body { scroll-behavior: auto; }
+                .scroll-hidden {
+                    opacity: 0 !important;
+                    transform: translateY(30px) !important;
+                    transition: none !important;
+                }
+                .scroll-animated {
+                    transition: all ${CONFIG.animationDuration} ease-out !important;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Main scroll function
+            function snapToSection(targetIndex, animate = true) {
+                if (targetIndex < 0 || targetIndex >= totalSections || isAnimating) return;
+
+                isAnimating = true;
+                resetAnimations(currentSection);
+                currentSection = targetIndex;
+
+                const targetTop = sections[targetIndex].offsetTop;
+
+                if (animate) {
+                    smoothScrollTo(targetTop, CONFIG.scrollDuration, targetIndex, () => {
+                        isAnimating = false;
                     });
+                } else {
+                    window.scrollTo(0, targetTop);
+                    isAnimating = false;
                 }
-            });
-        });
-
-        // Enhanced navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(250, 248, 245, 0.98)';
-                nav.style.boxShadow = '0 4px 24px rgba(15, 95, 95, 0.08)';
-                nav.style.borderBottom = '1px solid rgba(15, 95, 95, 0.12)';
-            } else {
-                nav.style.background = 'rgba(250, 248, 245, 0.97)';
-                nav.style.boxShadow = 'none';
-                nav.style.borderBottom = '1px solid rgba(15, 95, 95, 0.08)';
             }
-        });
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            // Optimized smooth scroll with built-in animation trigger
+            function smoothScrollTo(targetY, duration, targetSectionIndex, callback) {
+                const startY = window.scrollY;
+                const distance = targetY - startY;
+                const startTime = performance.now();
+                let animationsTriggered = false;
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                function animate(currentTime) {
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+                    window.scrollTo(0, startY + distance * easeProgress);
+
+                    // Trigger animations at configured progress point
+                    if (progress >= CONFIG.animationTrigger && !animationsTriggered) {
+                        animationsTriggered = true;
+                        triggerAnimations(targetSectionIndex);
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        window.scrollTo(0, targetY);
+                        callback?.();
+                    }
                 }
-            });
-        }, observerOptions);
 
-        // Animate elements on scroll
-        document.querySelectorAll('.service-card, .stat-item, .problems-side, .solutions-side').forEach((element, index) => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = `all 0.8s ease ${index * 0.1}s`;
-            observer.observe(element);
-        });
+                requestAnimationFrame(animate);
+            }
 
-        // Add hover effects for visual elements
-        document.querySelectorAll('.visual-element').forEach((element, index) => {
-            element.addEventListener('mouseenter', () => {
-                element.style.transform = 'translateY(-8px) scale(1.02)';
-            });
+            // Optimized animation functions using CSS classes
+            function resetAnimations(sectionIndex) {
+                if (sectionIndex < 0 || sectionIndex >= totalSections) return;
 
-            element.addEventListener('mouseleave', () => {
-                element.style.transform = 'translateY(0) scale(1)';
-            });
+                const elements = sections[sectionIndex].querySelectorAll(animatedSelector);
+                elements.forEach(element => {
+                    element.classList.add('scroll-hidden');
+                    element.classList.remove('scroll-animated');
+                    // Force reflow then restore transition
+                    element.offsetHeight;
+                    element.classList.add('scroll-animated');
+                    element.classList.remove('scroll-hidden');
+                });
+            }
+
+            function triggerAnimations(sectionIndex) {
+                if (sectionIndex < 0 || sectionIndex >= totalSections) return;
+
+                const elements = sections[sectionIndex].querySelectorAll(animatedSelector);
+                elements.forEach((element, index) => {
+                    setTimeout(() => {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, index * CONFIG.animationStagger);
+                });
+            }
+
+            // Event handlers with improved efficiency
+            function handleWheel(e) {
+                e.preventDefault();
+                if (isAnimating) return;
+
+                if (Math.abs(e.deltaY) > CONFIG.scrollThreshold) {
+                    const direction = e.deltaY > 0 ? 1 : -1;
+                    const targetSection = currentSection + direction;
+                    snapToSection(targetSection);
+                }
+            }
+
+            function handleKeydown(e) {
+                if (isAnimating) return;
+
+                const keyActions = {
+                    'ArrowDown': () => snapToSection(currentSection + 1),
+                    'PageDown': () => snapToSection(currentSection + 1),
+                    ' ': () => snapToSection(currentSection + 1),
+                    'ArrowUp': () => snapToSection(currentSection - 1),
+                    'PageUp': () => snapToSection(currentSection - 1)
+                };
+
+                if (keyActions[e.key]) {
+                    e.preventDefault();
+                    keyActions[e.key]();
+                }
+            }
+
+            // Initialize animations on all sections
+            function initializeAnimations() {
+                const allElements = document.querySelectorAll(animatedSelector);
+
+                allElements.forEach(element => {
+                    const sectionIndex = Array.from(sections).findIndex(section =>
+                        section.contains(element)
+                    );
+
+                    element.style.transition = `all ${CONFIG.animationDuration} ease-out`;
+
+                    if (sectionIndex > 0) {
+                        element.style.opacity = '0';
+                        element.style.transform = 'translateY(30px)';
+                    }
+                });
+
+                // Animate first section
+                triggerAnimations(0);
+            }
+
+            // Find current section based on scroll position with debouncing
+            let scrollTimeout;
+            function findCurrentSection() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const scrollPos = window.scrollY + window.innerHeight / 2;
+
+                    const newSection = sections.findIndex((section, index) => {
+                        const top = section.offsetTop;
+                        const bottom = top + section.offsetHeight;
+                        const nextTop = sections[index + 1]?.offsetTop ?? Infinity;
+
+                        return scrollPos >= top && scrollPos < nextTop;
+                    });
+
+                    currentSection = Math.max(0, newSection);
+                }, 10);
+            }
+
+            // Bind events
+            window.addEventListener('wheel', handleWheel, { passive: false });
+            window.addEventListener('keydown', handleKeydown, { passive: false });
+
+            // Initialize
+            findCurrentSection();
+            initializeAnimations();
+
+            // Snap to current section after short delay
+            setTimeout(() => snapToSection(currentSection, false), 100);
+
+            console.log(`Scroll snap initialized: ${totalSections} sections, starting at section ${currentSection}`);
         });
     </script>
 </body>
-</html> //this is a test
+</html>
