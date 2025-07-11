@@ -412,47 +412,36 @@
             font-weight: 500;
         }
 
-        /* Hero Visual */
+        /* ==========================================
+           CLEAN IMAGE GRID - NO GREY BOXES
+        ========================================== */
         .hero-visual {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 500px;
             position: relative;
+            height: 600px;
+            width: 100%;
+            max-width: 550px;
+            margin: 0 auto;
         }
 
         .visual-card {
-            background: white;
+            position: absolute;
             border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(44, 44, 44, 0.06);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(15, 95, 95, 0.05);
             overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(44, 44, 44, 0.15);
+            /* Removed default white background */
         }
 
         .visual-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(44, 44, 44, 0.1);
-        }
-
-        .visual-card.large {
-            grid-row: span 2;
-            font-size: 4rem;
-            background: linear-gradient(135deg, var(--background-gray) 0%, #f0efeb 100%);
-            flex-direction: column;
-            gap: 20px;
-            justify-content: center;
+            box-shadow: 0 25px 60px rgba(44, 44, 44, 0.25);
         }
 
         .visual-card.with-image {
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            justify-content: flex-end;
-            position: relative;
+            background-color: transparent;
         }
 
         .visual-card.with-image::before {
@@ -462,20 +451,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, rgba(15, 95, 95, 0.1) 0%, rgba(212, 149, 107, 0.1) 100%);
             border-radius: 16px;
         }
 
-        .bg-cover { background-size: cover !important; }
-
-        .visual-card.large.with-image {
-            justify-content: flex-end;
-            align-items: stretch;
-            flex-direction: column;
+        /* Large card - main focal point */
+        .visual-card.large {
+            width: 360px;
+            height: 500px;
+            top: 50px;
+            left: 0;
+            z-index: 1;
         }
 
-        .visual-card.large.with-image.overlay-top {
-            justify-content: flex-start;
+        /* Small cards - positioned to create visual balance */
+        .visual-card.small {
+            width: 240px;
+            height: 240px;
+            z-index: 2;
+        }
+
+        .visual-card.small:nth-child(2) {
+            top: 0;
+            right: 0;
+        }
+
+        .visual-card.small:nth-child(3) {
+            bottom: 0;
+            right: 30px;
         }
 
         .card-overlay {
@@ -487,16 +490,6 @@
             margin: 20px;
             position: relative;
             z-index: 2;
-        }
-
-        .overlay-top .card-overlay {
-            margin: 20px 20px auto 20px;
-        }
-
-        .visual-card.small {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-muted) 100%);
-            color: white;
         }
 
         .card-title {
@@ -791,7 +784,124 @@
             outline: none;
         }
 
-        /* Enhanced Responsive Design */
+        /* ==========================================
+           IMPROVED RESPONSIVE DESIGN
+        ========================================== */
+
+        /* Large Desktop (1441px+) */
+        @media (min-width: 1441px) {
+            .hero-container,
+            .experiences-container,
+            .process-container,
+            .cta-container {
+                max-width: 1600px;
+            }
+
+            .hero,
+            .experiences,
+            .process,
+            .cta {
+                padding-left: 80px;
+                padding-right: 80px;
+            }
+        }
+
+        /* Tablet (769px - 1024px) */
+        @media (max-width: 1024px) {
+            .hero-container {
+                gap: 60px;
+            }
+
+            .experiences-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .hero-visual {
+                max-width: 480px;
+                height: 550px;
+            }
+
+            .visual-card.large {
+                width: 320px;
+                height: 450px;
+            }
+
+            .visual-card.small {
+                width: 160px;
+                height: 200px;
+            }
+        }
+
+        /* Mobile (481px - 768px) */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                padding: 15px 30px;
+            }
+
+            .hero {
+                padding: 120px 30px 60px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .hero-visual {
+                height: 480px;
+                max-width: 400px;
+            }
+
+            .visual-card.large {
+                width: 280px;
+                height: 380px;
+                top: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .visual-card.small {
+                width: 120px;
+                height: 160px;
+            }
+
+            .visual-card.small:nth-child(2) {
+                top: 10px;
+                right: 20px;
+                transform: none;
+            }
+
+            .visual-card.small:nth-child(3) {
+                bottom: 20px;
+                right: 30px;
+                transform: none;
+            }
+
+            .experiences,
+            .process,
+            .cta {
+                padding: 80px 30px;
+            }
+
+            .experiences-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
 
         /* Small Mobile (320px - 480px) */
         @media (max-width: 480px) {
@@ -819,103 +929,48 @@
                 padding: 20px 15px;
             }
 
+            .hero-visual {
+                height: 380px;
+                max-width: 320px;
+            }
+
+            .visual-card.large {
+                width: 220px;
+                height: 300px;
+                top: 40px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .visual-card.small {
+                width: 90px;
+                height: 120px;
+            }
+
+            .visual-card.small:nth-child(2) {
+                top: 5px;
+                right: 15px;
+                transform: none;
+            }
+
+            .visual-card.small:nth-child(3) {
+                bottom: 15px;
+                right: 20px;
+                transform: none;
+            }
+
             .experiences,
             .process,
             .cta {
                 padding: 60px 20px;
             }
 
-            .experiences-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
             .experience-content {
                 padding: 25px 20px;
             }
 
-            .process-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
             .process-step {
                 padding: 35px 20px;
-            }
-        }
-
-        /* Mobile (481px - 768px) */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: flex;
-            }
-
-            nav {
-                padding: 15px 30px;
-            }
-
-            .hero {
-                padding: 120px 30px 60px;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .hero-visual {
-                height: 300px;
-                margin: 0 auto;
-                max-width: 400px;
-            }
-
-            .experiences,
-            .process,
-            .cta {
-                padding: 80px 30px;
-            }
-
-            .experiences-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .process-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        /* Tablet (769px - 1024px) */
-        @media (max-width: 1024px) {
-            .hero-container {
-                gap: 60px;
-            }
-
-            .experiences-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
-        /* Large Desktop (1441px+) */
-        @media (min-width: 1441px) {
-            .hero-container,
-            .experiences-container,
-            .process-container,
-            .cta-container {
-                max-width: 1600px;
-            }
-
-            .hero,
-            .experiences,
-            .process,
-            .cta {
-                padding-left: 80px;
-                padding-right: 80px;
             }
         }
 
@@ -964,7 +1019,7 @@
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="destination_wedding.html" role="menuitem">Destination Wedding</a></li>
-                <li role="none"><a href="luxury_honeymoon.html" role="menuitem" aria-current="page"> Luxury Honeymoon</a></li>
+                <li role="none"><a href="luxury_honeymoon.html" role="menuitem" aria-current="page">Luxury Honeymoon</a></li>
             </ul>
 
             <!-- Mobile Menu Toggle -->
@@ -1003,20 +1058,31 @@
                 </div>
 
                 <div class="hero-visual">
-                    <!-- LARGE CARD: Custom positioning with overlay at top -->
-                    <div class="visual-card large with-image overlay-top bg-cover" style="background-image: url('/pexels-asadphoto-11118954.jpg'); background-position: left 50% -10%;">
-<!--                        <div class="card-overlay">-->
-<!--                            <h3 class="card-title">Romance Redefined</h3>-->
-<!--                            <p class="card-subtitle">Your Love Story, Beautifully Planned</p>-->
-<!--                        </div>-->
+                    <!-- LARGE CARD - Main focal point -->
+                    <div class="visual-card large with-image" style="
+                        background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+                        background-image: url('/pexels-asadphoto-11118954.jpg');
+                        background-size: cover;
+                        background-position: center;
+                    ">
                     </div>
 
-                    <!-- SMALL CARD 1 -->
-                    <div class="visual-card small with-image bg-cover" style="background-image: url('/pexels-asadphoto-1024967.jpg'); background-size: 185%; background-position: center 30%">
+                    <!-- SMALL CARD 1 - Top right -->
+                    <div class="visual-card small with-image" style="
+                        background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-muted) 100%);
+                        background-image: url('/pexels-asadphoto-1024967.jpg');
+                        background-size: cover;
+                        background-position: center;
+                    ">
                     </div>
 
-                    <!-- SMALL CARD 2 -->
-                    <div class="visual-card small with-image bg-cover" style="background-image: url('/pexels-leeloothefirst-4679176.jpg'); background-position: center 50%">
+                    <!-- SMALL CARD 2 - Bottom right -->
+                    <div class="visual-card small with-image" style="
+                        background: linear-gradient(135deg, var(--secondary-teal) 0%, var(--primary-teal) 100%);
+                        background-image: url('/pexels-leeloothefirst-4679176.jpg');
+                        background-size: cover;
+                        background-position: center;
+                    ">
                     </div>
                 </div>
             </div>
@@ -1032,7 +1098,12 @@
 
                 <div class="experiences-grid">
                     <div class="experience-card fade-in-element">
-                        <div class="experience-image bg-cover" style="background-image: url('/515019669_1344256274371738_7042377272218687027_n.jpg'); background-position: center 30%;"></div>
+                        <div class="experience-image" style="
+                            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+                            background-image: url('https://cdn.pixabay.com/photo/2016/12/09/21/22/beach-1897129_1280.jpg');
+                            background-size: cover;
+                            background-position: center 30%;
+                        "></div>
                         <div class="experience-content">
                             <h3 class="experience-title">Tropical Paradise</h3>
                             <p class="experience-description">Pristine beaches, overwater villas, and endless azure waters create the ultimate romantic escape for newlyweds seeking pure relaxation.</p>
@@ -1046,7 +1117,12 @@
                     </div>
 
                     <div class="experience-card fade-in-element">
-                        <div class="experience-image bg-cover" style="background-image: url('/pexels-gustavo-fring-4172923.jpg'); background-position: center 30%;"></div>
+                        <div class="experience-image" style="
+                            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-muted) 100%);
+                            background-image: url('https://cdn.pixabay.com/photo/2020/01/09/01/00/travel-4751183_1280.jpg');
+                            background-size: cover;
+                            background-position: center 30%;
+                        "></div>
                         <div class="experience-content">
                             <h3 class="experience-title">Mountain Romance</h3>
                             <p class="experience-description">Luxury chateaus, lush landscapes, and private pools create moments in stunning tropical settings perfect for intimate connections.</p>
@@ -1060,7 +1136,12 @@
                     </div>
 
                     <div class="experience-card fade-in-element">
-                        <div class="experience-image bg-cover" style="background-image: url('/pexels-fran-bertucci-117223268-11351507.jpg'); background-position: center 40%;"></div>
+                        <div class="experience-image" style="
+                            background: linear-gradient(135deg, var(--secondary-teal) 0%, var(--primary-teal) 100%);
+                            background-image: url('https://cdn.pixabay.com/photo/2017/12/16/22/22/beach-3023488_1280.jpg');
+                            background-size: cover;
+                            background-position: center 40%;
+                        "></div>
                         <div class="experience-content">
                             <h3 class="experience-title">Adventure & Luxury</h3>
                             <p class="experience-description">Combine thrilling adventures with luxurious comfort for couples who seek excitement and new experiences together.</p>
@@ -1108,9 +1189,9 @@
         <section class="cta" aria-labelledby="cta-title">
             <div class="cta-container">
                 <h2 id="cta-title" class="cta-title">Begin Your Love Story</h2>
-                <p class="cta-description">Let's create a honeymoon that's as unique and beautiful as your love. Schedule a complimentary consultation to start planning your extraordinary journey together as newlyweds.</p>
+                <p class="cta-description">Let's create a honeymoon that's as unique and beautiful as your love. Schedule a consultation to start planning your extraordinary journey together as newlyweds.</p>
 
-                <a href="https://travefy.com/f/6ws9rquqfchqra2uwxztcdby3tlbsv6jga" class="cta-button" target="_blank" rel="noopener noreferrer">Design Your Honeymoon</a>
+                <a href="https://travefy.com/f/6ws9rquqfchqra2uwxztcdby3tlbsv6jga" class="cta-primary-final" target="_blank" rel="noopener noreferrer">Design Your Honeymoon</a>
             </div>
         </section>
     </main>
