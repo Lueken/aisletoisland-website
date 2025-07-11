@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tailored Experience Travel | Bridging Vision to Reality for Discerning Couples</title>
+    <title>Destination Wedding Planning | The Tailored Experience</title>
     <style>
         * {
             margin: 0;
@@ -94,7 +94,7 @@
             transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
         }
 
-        /* Navigation - Improved responsiveness and functionality */
+        /* Navigation - Same improved version from homepage */
         nav {
             position: fixed;
             top: 0;
@@ -160,7 +160,6 @@
             margin-top: 1px;
         }
 
-        /* Desktop Navigation */
         .nav-links {
             display: flex;
             list-style: none;
@@ -278,12 +277,12 @@
             outline: none;
         }
 
-        /* Hero Section - Enhanced animations */
+        /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            padding: 120px 60px 60px;
+            padding: 120px 60px 80px;
             background: linear-gradient(135deg, var(--background-cream) 0%, var(--background-gray) 100%);
             position: relative;
         }
@@ -303,9 +302,28 @@
             margin: 0 auto;
             width: 100%;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            grid-column: 1 / -1;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-teal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-teal);
         }
 
         .hero-content {
@@ -344,26 +362,25 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent-orange) 0%, transparent 100%);
+            background: linear-gradient(90deg, var(--accent-orange-muted) 0%, transparent 100%);
             opacity: 0.6;
         }
 
-        .value-proposition {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(44, 44, 44, 0.04);
-            border-left: 4px solid var(--accent-orange);
+        .hero-subtitle {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
             margin-bottom: 40px;
+            max-width: 620px;
         }
 
-        .value-text {
-            font-size: clamp(14px, 2vw, 16px);
-            color: var(--primary-dark);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            line-height: 1.7;
-            font-style: italic;
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 40px;
         }
 
         .cta-primary {
@@ -379,7 +396,6 @@
             letter-spacing: 0.5px;
             transition: all 0.4s ease;
             box-shadow: 0 8px 25px rgba(15, 95, 95, 0.15);
-            margin-bottom: 40px;
         }
 
         .cta-primary:hover,
@@ -389,412 +405,269 @@
             outline: none;
         }
 
-        /* Hero Visual - Fixed Positioning */
-        .hero-visual {
-            position: relative;
-            height: 550px;
-            /* Animation properties handled separately */
-        }
-
-        .visual-element {
-            position: absolute;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 12px 40px rgba(44, 44, 44, 0.06);
-            border: 1px solid rgba(15, 95, 95, 0.05);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            backface-visibility: hidden;
-            transform-style: preserve-3d;
-        }
-
-        .visual-element:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(44, 44, 44, 0.1);
-        }
-
-        .main-card {
-            width: 320px;
-            height: 400px;
-            top: 80px;
-            left: 0;
-            background: linear-gradient(135deg, var(--background-gray) 0%, #f0efeb 100%);
+        .hero-stats {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 30px;
-        }
-
-        .main-card.with-image {
-            background-image: url('../tests/rev2/pexels-emma-bauso-1183828-3585806.jpg');
-            background-size: cover;
-            background-position: center;
-            justify-content: flex-end;
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: var(--primary-dark);
-            margin-bottom: 12px;
-            letter-spacing: -0.2px;
-        }
-
-        .card-subtitle {
-            font-size: 12px;
-            color: var(--text-light);
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .accent-card {
-            width: 200px;
-            height: 160px;
-            top: 0;
-            right: 20px;
-            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-muted) 100%);
-            color: white;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .metric-number {
-            font-size: 2.2rem;
-            font-weight: 300;
-            margin-bottom: 8px;
-        }
-
-        .metric-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            line-height: 1.4;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-
-        .detail-card {
-            width: 180px;
-            height: 120px;
-            bottom: 20px;
-            right: 0;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .detail-number {
-            font-size: 1.8rem;
-            color: var(--primary-teal);
-            font-weight: 300;
-            margin-bottom: 6px;
-        }
-
-        .detail-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            color: var(--text-light);
-            line-height: 1.3;
-        }
-
-        /* Problem Solution Section */
-        .problem-solution {
-            padding: 120px 60px;
-            cursor: default;
-            background: white;
-        }
-
-        .problem-solution-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-intro {
-            text-align: center;
-            margin-bottom: 80px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400;
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-
-        .section-description {
-            font-size: clamp(15px, 2vw, 17px);
-            color: var(--text-light);
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            line-height: 1.7;
-        }
-
-        .split-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 60px;
-            align-items: start;
+            flex-wrap: wrap;
         }
 
-        .problems-side,
-        .solutions-side {
-            background: var(--background-gray);
-            padding: 40px 35px;
-            border-radius: 16px;
-            border-left: 4px solid var(--accent-orange-muted);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            backface-visibility: hidden;
-            transform-style: preserve-3d;
-        }
-
-        .solutions-side {
-            border-left-color: var(--primary-teal);
-        }
-
-        .side-title {
-            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-            font-weight: 400;
-            margin-bottom: 25px;
-            letter-spacing: -0.3px;
-        }
-
-        .problems-side .side-title {
-            color: var(--accent-orange-muted);
-        }
-
-        .solutions-side .side-title {
-            color: var(--primary-teal);
-        }
-
-        .point-list {
-            list-style: none;
-        }
-
-        .point-list li {
-            font-size: clamp(14px, 1.8vw, 15px);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            line-height: 1.6;
-            margin-bottom: 18px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .problems-side .point-list li {
-            color: var(--primary-dark);
-        }
-
-        .solutions-side .point-list li {
-            color: var(--primary-teal);
-        }
-
-        .problems-side .point-list li::before {
-            content: '×';
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-weight: bold;
-            font-size: 18px;
-            color: var(--accent-orange);
-        }
-
-        .solutions-side .point-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-weight: bold;
-            font-size: 16px;
-            color: var(--secondary-teal);
-        }
-
-        /* Services Preview */
-        .services-preview {
-            padding: 120px 60px;
-            background: var(--primary-dark);
-            color: white;
-        }
-
-        .services-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .services-intro {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .services-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-
-        .services-subtitle {
-            font-size: clamp(15px, 2vw, 17px);
-            color: rgba(255, 255, 255, 0.8);
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            line-height: 1.7;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .service-card {
-            display: block;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 50px 40px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-            backface-visibility: hidden;
-            transform-style: preserve-3d;
-        }
-
-        .service-card:hover,
-        .service-card:focus {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent-orange);
-            outline: none;
-            box-shadow: 0 8px 32px rgba(212, 149, 107, 0.15);
-        }
-
-        .service-card:focus {
-            outline: 2px solid var(--accent-orange);
-            outline-offset: 2px;
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-muted) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: white;
-            margin: 0 auto 25px;
-        }
-
-        .service-title {
-            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
-            font-weight: 400;
-            margin-bottom: 15px;
-            letter-spacing: -0.2px;
-            color: white !important;
-        }
-
-        .service-description {
-            font-size: clamp(14px, 1.8vw, 15px);
-            color: rgba(255, 255, 255, 0.8);
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .service-button {
-            display: inline-block;
-            padding: 12px 20px;
-            background: var(--accent-orange-muted);
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: 14px;
-            letter-spacing: 0.3px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            margin-top: 5px;
-        }
-
-        .service-card:hover .service-button,
-        .service-card:focus .service-button {
-            background: var(--accent-orange);
-            color: white;
-            box-shadow: 0 8px 25px rgba(212, 149, 107, 0.3);
-        }
-
-        /* Social Proof */
-        .social-proof {
-            padding: 120px 60px;
-            background: linear-gradient(135deg, var(--background-cream) 0%, var(--background-gray) 100%);
-        }
-
-        .proof-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .proof-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400;
-            color: var(--primary-dark);
-            margin-bottom: 60px;
-            letter-spacing: -0.5px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        .stat-item {
-            background: white;
-            padding: 40px 30px;
-            cursor: default;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(44, 44, 44, 0.04);
-            border: 1px solid rgba(15, 95, 95, 0.05);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            backface-visibility: hidden;
-            transform-style: preserve-3d;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(15, 95, 95, 0.08);
+        .stat {
+            text-align: left;
         }
 
         .stat-number {
             font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 300;
             color: var(--primary-teal);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .stat-label {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-light);
             font-family: 'Inter', sans-serif;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            height: 550px;
+        }
+
+        .hero-image-box {
+            width: 100%;
+            height: 100%;
+            min-height: 550px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(44, 44, 44, 0.08);
+            border: 1px solid rgba(15, 95, 95, 0.05);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background-image: url('../tests/rev2/pexels-alexander-mass-748453803-26201422.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .hero-image-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .hero-image-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(44, 44, 44, 0.12);
+        }
+
+        .image-overlay {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            margin: 25px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .overlay-title {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            letter-spacing: -0.2px;
+        }
+
+        .overlay-subtitle {
+            font-size: 13px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 120px 60px;
+            cursor: default;
+            background: white;
+        }
+
+        .process-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 80px;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--primary-teal);
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: clamp(16px, 2vw, 18px);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .process-timeline {
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--secondary-teal) 0%, var(--accent-orange-muted) 100%);
+            opacity: 0.3;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 0 0 60px 140px;
+            margin-bottom: 60px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .step-indicator {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 15px 40px rgba(15, 95, 95, 0.2);
+        }
+
+        .step-content {
+            background: var(--background-gray);
+            padding: 40px 35px;
+            border-radius: 20px;
+            border-left: 5px solid var(--accent-orange-muted);
+            transition: all 0.3s ease;
+        }
+
+        .step-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(44, 44, 44, 0.08);
+        }
+
+        .step-phase {
+            font-size: 13px;
+            color: var(--accent-orange-muted);
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-title {
+            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .step-description {
+            font-size: clamp(14px, 1.8vw, 16px);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 60px;
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-description {
+            font-size: clamp(16px, 2vw, 18px);
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            margin-bottom: 50px;
+            line-height: 1.7;
+        }
+
+        .cta-button-final {
+            display: inline-block;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+            box-shadow: 0 15px 40px rgba(15, 95, 95, 0.2);
+        }
+
+        .cta-button-final:hover,
+        .cta-button-final:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(15, 95, 95, 0.3);
+            outline: none;
         }
 
         /* Enhanced Responsive Design */
@@ -823,61 +696,54 @@
 
             .hero-visual {
                 height: 300px;
-                margin: 0 auto;
-                max-width: 300px;
+                width: 100%;
+                max-width: 100%;
                 position: relative;
+                margin: 0 auto;
             }
 
-            .main-card {
-                width: 200px;
-                height: 250px;
-                top: 25px;
-                left: 50%;
-                transform: translateX(-50%);
+            .hero-image-box {
+                min-height: 300px;
+                width: 100%;
+                height: 100%;
             }
 
-            .accent-card {
-                width: 140px;
-                height: 110px;
+            .image-overlay {
                 padding: 15px;
-                top: -5px;
-                right: 5px;
+                margin: 15px;
             }
 
-            .detail-card {
-                width: 130px;
-                height: 90px;
-                padding: 12px;
-                bottom: -5px;
-                right: 0;
+            .overlay-title {
+                font-size: 1.1rem;
             }
 
-            .value-proposition {
-                padding: 20px;
+            .hero-stats {
+                gap: 30px;
+                justify-content: center;
+                margin-top: 30px;
             }
 
-            .problem-solution,
-            .services-preview,
-            .social-proof {
+            .process,
+            .cta {
                 padding: 60px 20px;
             }
 
-            .split-content {
-                gap: 30px;
+            .process-step {
+                padding-left: 100px;
             }
 
-            .problems-side,
-            .solutions-side {
+            .step-indicator {
+                width: 70px;
+                height: 70px;
+                font-size: 1.4rem;
+            }
+
+            .timeline-line {
+                left: 35px;
+            }
+
+            .step-content {
                 padding: 25px 20px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .stat-item {
-                padding: 30px 20px;
             }
         }
 
@@ -906,54 +772,56 @@
             }
 
             .hero-visual {
-                height: 350px;
+                height: 400px;
                 margin: 0 auto;
-                max-width: 350px;
+                max-width: 100%;
+                width: 100%;
                 position: relative;
             }
 
-            .main-card {
-                width: 250px;
-                height: 300px;
-                top: 25px;
-                left: 50%;
-                transform: translateX(-50%);
+            .hero-image-box {
+                width: 100%;
+                height: 100%;
+                min-height: 400px;
             }
 
-            .accent-card {
-                width: 160px;
-                height: 130px;
+            .image-overlay {
                 padding: 20px;
-                top: -10px;
-                right: 10px;
+                margin: 20px;
             }
 
-            .detail-card {
-                width: 150px;
-                height: 100px;
-                padding: 15px;
-                bottom: -10px;
-                right: 0;
+            .hero-stats {
+                justify-content: center;
+                gap: 40px;
+                margin-top: 40px;
             }
 
-            .problem-solution,
-            .services-preview,
-            .social-proof {
+            .process,
+            .cta {
                 padding: 80px 30px;
             }
 
-            .split-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .process-step {
+                padding-left: 120px;
             }
 
-            .services-grid {
-                gap: 30px;
+            .step-indicator {
+                width: 80px;
+                height: 80px;
+                font-size: 1.5rem;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
+            .timeline-line {
+                left: 40px;
+            }
+
+            .step-content {
+                padding: 30px 25px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                gap: 15px;
             }
         }
 
@@ -963,7 +831,7 @@
                 gap: 60px;
             }
 
-            .split-content {
+            .hero-stats {
                 gap: 50px;
             }
         }
@@ -971,24 +839,20 @@
         /* Large Desktop (1441px+) */
         @media (min-width: 1441px) {
             .hero-container,
-            .problem-solution-container,
-            .services-container,
-            .proof-container {
+            .process-container,
+            .cta-container {
                 max-width: 1600px;
             }
 
-            .hero {
-                padding: 140px 80px 80px;
-            }
-
-            .problem-solution,
-            .services-preview,
-            .social-proof {
-                padding: 140px 80px;
+            .hero,
+            .process,
+            .cta {
+                padding-left: 80px;
+                padding-right: 80px;
             }
         }
 
-        /* Focus and Accessibility Improvements */
+        /* Focus and Accessibility */
         *:focus {
             outline: 2px solid var(--primary-teal);
             outline-offset: 2px;
@@ -1006,7 +870,7 @@
             border-width: 0;
         }
 
-        /* Reduced Motion Preferences */
+        /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -1032,7 +896,7 @@
             <!-- Desktop Navigation -->
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                <li role="none"><a href="wedding_page.html" role="menuitem">Destination Wedding</a></li>
+                <li role="none"><a href="wedding_page.html" role="menuitem" aria-current="page">Destination Wedding</a></li>
                 <li role="none"><a href="honeymoon_page.html" role="menuitem">Luxury Honeymoon</a></li>
             </ul>
 
@@ -1047,7 +911,7 @@
         <!-- Mobile Navigation -->
         <div class="mobile-nav" role="menu">
             <a href="index.html" role="menuitem">Home</a>
-            <a href="wedding_page.html" role="menuitem">Destination Wedding</a>
+            <a href="wedding_page.html" role="menuitem" aria-current="page">Destination Wedding</a>
             <a href="honeymoon_page.html" role="menuitem">Luxury Honeymoon</a>
         </div>
     </nav>
@@ -1055,134 +919,112 @@
     <main>
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-container">
-                <div class="hero-content hero-animate">
-                    <div class="hero-badge">Luxury Travel Planning</div>
-                    <h1 id="hero-title" class="hero-title">Your Vision, <span class="title-emphasis">Expertly Planned</span></h1>
+                <div class="breadcrumb">
+                    <a href="../tests/rev2/index.html">Home</a> / <span>Destination Weddings</span>
+                </div>
 
-                    <div class="value-proposition">
-                        <p class="value-text">"I bridge the gap between your unique romantic vision and bringing it to fruition, helping discerning couples achieve truly memorable destination weddings and honeymoons through practical creativity and seamless organization."</p>
+                <div class="hero-content hero-animate">
+<!--                    <div class="hero-badge">Destination Wedding Planning</div>-->
+                    <h1 id="hero-title" class="hero-title">Your <span class="title-emphasis">Wedding</span>, From Inspiration to "I Do"</h1>
+
+                    <p class="hero-subtitle">Transform your vision into reality with our destination wedding planning service. From intimate beachside ceremonies to grand resort celebrations, we help orchestrate every detail of your perfect day in the world's most extraordinary locations.</p>
+
+                    <div class="cta-group">
+                        <a href="https://travefy.com/f/6ws9rquq7jtara2uwxzeyw6kr93lbu5k7q" class="cta-primary" target="_blank" rel="noopener noreferrer">Plan Your Wedding</a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">24</div>
+                            <div class="stat-label">Weddings Planned</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">18</div>
+                            <div class="stat-label">Countries</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hero-visual" role="img" aria-label="Wedding planning showcase">
-                    <div class="visual-element main-card with-image">
-                        <div style="background: rgba(255, 255, 255, 0.95); padding: 25px 20px; border-radius: 8px; text-align: center; backdrop-filter: blur(5px);">
-                            <h3 class="card-title">Vision to Celebration</h3>
-                            <p class="card-subtitle">Your Dreams, Carefully Planned</p>
+                <div class="hero-visual">
+                    <div class="hero-image-box" role="img" aria-label="Beautiful destination wedding setting">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process" aria-labelledby="process-title">
+            <div class="process-container">
+                <div class="section-header">
+                    <div class="section-subtitle">Our Process</div>
+                    <h2 id="process-title" class="section-title">Bridging Your Vision to Celebration</h2>
+                    <p class="section-description">Our practical approach ensures every aspect of your destination wedding is meticulously planned, allowing you to focus on what matters most—celebrating your love.</p>
+                </div>
+
+                <div class="process-timeline">
+                    <div class="timeline-line" aria-hidden="true"></div>
+
+                    <div class="process-step fade-in-element">
+                        <div class="step-indicator" aria-hidden="true">1</div>
+                        <div class="step-content">
+                            <div class="step-phase">Phase 1 • 12-18 Months Before</div>
+                            <h3 class="step-title">Vision & Discovery</h3>
+                            <p class="step-description">We begin with an in-depth consultation to understand your dreams, style preferences, guest list, and budget. This foundation guides every decision throughout the process.</p>
                         </div>
                     </div>
 
-                    <div class="visual-element accent-card">
-                        <div class="metric-number">62</div>
-                        <div class="metric-label">Events Planned<br>Stress-Free</div>
+                    <div class="process-step fade-in-element">
+                        <div class="step-indicator" aria-hidden="true">2</div>
+                        <div class="step-content">
+                            <div class="step-phase">Phase 2 • 8-12 Months Before</div>
+                            <h3 class="step-title">Detailed Planning & Coordination</h3>
+                            <p class="step-description">With your vision clear, we dive into the intricate details. Every vendor is vetted, every contract negotiated, and every element designed to reflect your unique style and love story.</p>
+                        </div>
                     </div>
 
-                    <div class="visual-element detail-card">
-                        <div class="detail-number">18</div>
-                        <div class="detail-text">Countries<br>Worldwide</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="problem-solution" aria-labelledby="problem-solution-title">
-            <div class="problem-solution-container">
-                <div class="section-intro">
-                    <h2 id="problem-solution-title" class="section-title">From Overwhelm to Confidence</h2>
-                    <p class="section-description">We understand the unique challenges facing busy professionals planning destination celebrations. Here's how we transform your experience into something extraordinary.</p>
-                </div>
-
-                <div class="split-content">
-                    <div class="problems-side fade-in-element">
-                        <h3 class="side-title">What Keeps You Up at Night</h3>
-                        <ul class="point-list">
-                            <li>Drowning in endless venue options and vendor research</li>
-                            <li>Pinterest vision doesn't match real-world possibilities</li>
-                            <li>Coordinating details from thousands of miles away</li>
-                            <li>No time to properly vet vendors in unfamiliar locations</li>
-                            <li>Struggling to handle your guest's travel arrangements and details</li>
-                            <li>Overwhelmed by conflicting advice and information</li>
-                        </ul>
+                    <div class="process-step fade-in-element">
+                        <div class="step-indicator" aria-hidden="true">3</div>
+                        <div class="step-content">
+                            <div class="step-phase">Phase 3 • 1-3 Months Before</div>
+                            <h3 class="step-title">Finalization & Preparation</h3>
+                            <p class="step-description">As your wedding approaches, we finalize all details, confirm arrangements, and prepare comprehensive timelines with your venue to ensure seamless execution of your celebration.</p>
+                        </div>
                     </div>
 
-                    <div class="solutions-side fade-in-element">
-                        <h3 class="side-title">How We Transform Your Experience</h3>
-                        <ul class="point-list">
-                            <li>Curated options tailored specifically to your style and needs</li>
-                            <li>Practical creativity that transforms Pinterest inspiration into tangible plans</li>
-                            <li>Comprehensive planning and vendor coordination</li>
-                            <li>Pre-vetted vendor network with proven track records</li>
-                            <li>Professional guest travel and payment organization</li>
-                            <li>Clear guidance from trusted experts who listen</li>
-                        </ul>
+                    <div class="process-step fade-in-element">
+                        <div class="step-indicator" aria-hidden="true">4</div>
+                        <div class="step-content">
+                            <div class="step-phase">Phase 4 • Wedding Week</div>
+                            <h3 class="step-title">Execution & Celebration</h3>
+                            <p class="step-description">Your wedding week is where all our orchestration comes together. We've managed every detail behind the scenes while your venue handles all the logistics, ensuring you can be fully present for your celebration.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="services-preview" aria-labelledby="services-title">
-            <div class="services-container">
-                <div class="services-intro">
-                    <h2 id="services-title" class="services-title">Specialized for Success</h2>
-                    <p class="services-subtitle">Two distinct services designed to eliminate stress and create unique plans for discerning couples who value excellence.</p>
-                </div>
+        <section class="cta" aria-labelledby="cta-title">
+            <div class="cta-container">
+                <h2 id="cta-title" class="cta-title">Ready to Begin Planning?</h2>
+                <p class="cta-description">Let's discuss your vision and explore how we can create the destination wedding that perfectly reflects your love story. Schedule a complimentary consultation to get started on this incredible journey.</p>
 
-                <div class="services-grid">
-                    <a href="../tests/rev2/wedding_page.html" class="service-card fade-in-element" aria-label="Learn more about destination wedding planning services">
-                        <div class="service-icon" aria-hidden="true">💍</div>
-                        <h3 class="service-title">Destination Weddings</h3>
-                        <p class="service-description">From intimate ceremonies to grand celebrations, we plan every element of your perfect day in the world's most breathtaking locations, handling all the complexity so you can focus on each other.</p>
-                        <div class="service-button">Explore Wedding Services</div>
-                    </a>
-
-                    <a href="../tests/rev2/honeymoon_page.html" class="service-card fade-in-element" aria-label="Learn more about luxury honeymoon planning services">
-                        <div class="service-icon" aria-hidden="true">🥂</div>
-                        <h3 class="service-title">Luxury Honeymoons</h3>
-                        <p class="service-description">Begin your married life with an extraordinary journey designed exclusively for you. We plan romantic escapes that perfectly balance adventure, relaxation, and intimate moments.</p>
-                        <div class="service-button">Discover Honeymoon Experiences</div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="social-proof" aria-labelledby="proof-title">
-            <div class="proof-container">
-                <h2 id="proof-title" class="proof-title">Trusted by Discerning Couples Worldwide</h2>
-
-                <div class="stats-grid">
-                    <div class="stat-item fade-in-element">
-                        <div class="stat-number">24</div>
-                        <div class="stat-label">Weddings Planned</div>
-                    </div>
-
-                    <div class="stat-item fade-in-element">
-                        <div class="stat-number">16</div>
-                        <div class="stat-label">Honeymoons Curated</div>
-                    </div>
-
-                    <div class="stat-item fade-in-element">
-                        <div class="stat-number">18</div>
-                        <div class="stat-label">Countries</div>
-                    </div>
-
-                    <div class="stat-item fade-in-element">
-                        <div class="stat-number">62</div>
-                        <div class="stat-label">Dream Celebrations</div>
-                    </div>
-                </div>
+                <a href="https://travefy.com/f/6ws9rquq7jtara2uwxzeyw6kr93lbu5k7q" class="cta-button-final" target="_blank" rel="noopener noreferrer">Plan Your Wedding</a>
             </div>
         </section>
     </main>
 
     <script>
-        console.log('🚀 BULLETPROOF ANIMATIONS LOADING...');
+        console.log('🚀 WEDDING PAGE - BULLETPROOF ANIMATIONS LOADING...');
 
         // ==========================================
         // BULLETPROOF ANIMATION SYSTEM
         // ==========================================
 
         function initBulletproofAnimations() {
-            console.log('💫 Initializing bulletproof animations...');
+            console.log('💫 Initializing wedding page animations...');
 
             // Step 1: Hero animations first
             setTimeout(() => {
@@ -1191,12 +1033,12 @@
 
                 if (heroContent) {
                     heroContent.classList.add('loaded');
-                    console.log('✅ Hero content animated');
+                    console.log('✅ Wedding hero content animated');
                 }
 
                 if (heroVisual) {
                     heroVisual.classList.add('loaded');
-                    console.log('✅ Hero visual animated');
+                    console.log('✅ Wedding hero visual animated');
                 }
             }, 300);
 
@@ -1210,13 +1052,13 @@
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach((entry, index) => {
                         if (entry.isIntersecting) {
-                            console.log('🎯 Element entering viewport:', entry.target.className);
+                            console.log('🎯 Wedding element entering viewport:', entry.target.className);
 
                             // Add slight delay to prevent all animations firing at once
                             setTimeout(() => {
                                 entry.target.classList.add('is-visible');
-                                console.log('✨ Animation applied to:', entry.target.className);
-                            }, index * 100);
+                                console.log('✨ Wedding animation applied to:', entry.target.className);
+                            }, index * 150);
 
                             // Stop observing once animated
                             observer.unobserve(entry.target);
@@ -1226,24 +1068,24 @@
 
                 // Find all elements to animate
                 const animateElements = document.querySelectorAll('.fade-in-element');
-                console.log(`🎭 Found ${animateElements.length} elements to animate`);
+                console.log(`🎭 Found ${animateElements.length} wedding elements to animate`);
 
                 // Start observing with staggered delays
                 animateElements.forEach((element, index) => {
-                    element.style.transitionDelay = `${index * 0.1}s`;
+                    element.style.transitionDelay = `${index * 0.15}s`;
                     observer.observe(element);
                 });
 
-                console.log('👀 Intersection Observer initialized');
+                console.log('👀 Wedding Intersection Observer initialized');
             } else {
                 // Fallback for older browsers
-                console.log('⚠️ Intersection Observer not supported, using fallback');
+                console.log('⚠️ Intersection Observer not supported, using wedding fallback');
 
                 setTimeout(() => {
                     document.querySelectorAll('.fade-in-element').forEach((element, index) => {
                         setTimeout(() => {
                             element.classList.add('is-visible');
-                        }, index * 200 + 1000);
+                        }, index * 300 + 1000);
                     });
                 }, 500);
             }
@@ -1297,10 +1139,10 @@
                     }
                 });
             }
-            console.log('📱 Mobile menu initialized');
+            console.log('📱 Wedding mobile menu initialized');
         }
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         function initSmoothScrolling() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1315,7 +1157,7 @@
                     }
                 });
             });
-            console.log('🔗 Smooth scrolling initialized');
+            console.log('🔗 Wedding smooth scrolling initialized');
         }
 
         // Enhanced navbar effects
@@ -1345,16 +1187,15 @@
             }
 
             window.addEventListener('scroll', requestTick, { passive: true });
-            console.log('🎛️ Navbar effects initialized');
+            console.log('🎛️ Wedding navbar effects initialized');
         }
 
         // Performance optimizations
         function initPerformanceOptimizations() {
-            // Respect user's motion preferences
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
             if (prefersReducedMotion.matches) {
-                console.log('♿ Reduced motion detected, disabling animations');
+                console.log('♿ Reduced motion detected for wedding page');
                 const style = document.createElement('style');
                 style.textContent = `
                     *, *::before, *::after {
@@ -1366,7 +1207,6 @@
                 document.head.appendChild(style);
             }
 
-            // Pause animations when page is not visible
             document.addEventListener('visibilitychange', () => {
                 const elements = document.querySelectorAll('.fade-in-element, .hero-animate');
                 elements.forEach(element => {
@@ -1377,22 +1217,22 @@
                     }
                 });
             });
-            console.log('⚡ Performance optimizations applied');
+            console.log('⚡ Wedding performance optimizations applied');
         }
 
         // Manual test function (available in console)
-        window.testAnimations = function() {
-            console.log('🧪 MANUAL ANIMATION TEST');
+        window.testWeddingAnimations = function() {
+            console.log('🧪 WEDDING MANUAL ANIMATION TEST');
             const elements = document.querySelectorAll('.fade-in-element');
             elements.forEach((element, index) => {
-                console.log(`Testing element ${index + 1}:`, element);
+                console.log(`Testing wedding element ${index + 1}:`, element);
                 element.classList.toggle('is-visible');
             });
         };
 
         // Initialize everything with proper timing
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('📄 DOM loaded, starting initialization...');
+            console.log('📄 Wedding DOM loaded, starting initialization...');
 
             // Initialize core functionality first
             initPerformanceOptimizations();
@@ -1403,14 +1243,14 @@
             // Initialize animations with delay to ensure CSS is ready
             setTimeout(() => {
                 initBulletproofAnimations();
-                console.log('🎉 ALL SYSTEMS INITIALIZED!');
-                console.log('💡 Try typing "testAnimations()" in console to manually test');
+                console.log('🎉 WEDDING PAGE - ALL SYSTEMS INITIALIZED!');
+                console.log('💡 Try typing "testWeddingAnimations()" in console to manually test');
             }, 100);
         });
 
         // Additional debugging
         window.addEventListener('load', () => {
-            console.log('🏁 Page fully loaded');
+            console.log('🏁 Wedding page fully loaded');
         });
     </script>
 </body>
