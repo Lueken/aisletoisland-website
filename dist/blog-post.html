@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Blog Post | The Tailored Experience Travel</title>
+    <meta name="description" id="page-description" content="Expert travel and wedding planning insights from The Tailored Experience Travel.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" id="og-title" content="Blog Post | The Tailored Experience Travel">
+    <meta property="og:description" id="og-description" content="Expert travel and wedding planning insights from The Tailored Experience Travel.">
+    <meta property="og:image" id="og-image" content="/tailored_experience_logo.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" id="og-url" content="">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twitter-title" content="Blog Post | The Tailored Experience Travel">
+    <meta name="twitter:description" id="twitter-description" content="Expert travel and wedding planning insights from The Tailored Experience Travel.">
+    <meta name="twitter:image" id="twitter-image" content="/tailored_experience_logo.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #2c2c2c;
+            --primary-teal: #0f5f5f;
+            --secondary-teal: #4a9999;
+            --accent-orange: #d4956b;
+            --accent-orange-muted: #b8835a;
+            --background-cream: #faf8f5;
+            --background-gray: #f5f3f0;
+            --text-light: #6a6a6a;
+            --text-dark: #1a1a1a;
+        }
+
+        @font-face {
+            font-family: 'Josefin Sans';
+            src: url('Josefin_Sans/JosefinSans-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animation System */
+        .fade-in-element {
+            opacity: 0 !important;
+            transform: translateY(50px) !important;
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        }
+
+        .fade-in-element.is-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .hero-animate {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero-animate.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            background: rgba(250, 248, 245, 0.97);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(15, 95, 95, 0.08);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .logo-mark.logo-bg {
+            background-image: url('/tailored_experience_logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--primary-dark);
+            letter-spacing: -0.3px;
+        }
+
+        .tagline {
+            font-size: 10px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-top: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange-muted);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--primary-dark);
+            outline: none;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(250, 248, 245, 0.98);
+            backdrop-filter: blur(25px);
+            border-top: 1px solid rgba(15, 95, 95, 0.08);
+            padding: 20px;
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 15px 0;
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(15, 95, 95, 0.05);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
+            color: var(--primary-dark);
+            outline: none;
+        }
+
+        /* Article Header */
+        .article-header {
+            padding: 120px 60px 80px;
+            background: linear-gradient(135deg, var(--background-cream) 0%, var(--background-gray) 100%);
+            position: relative;
+        }
+
+        .article-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(15, 95, 95, 0.02) 100%);
+        }
+
+        .article-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-teal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-teal);
+        }
+
+        .article-category {
+            display: inline-block;
+            background: var(--primary-teal);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            color: var(--primary-dark);
+            letter-spacing: -1px;
+        }
+
+        .article-excerpt {
+            font-size: clamp(18px, 2.5vw, 22px);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .meta-icon {
+            font-size: 16px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .author-details h4 {
+            font-size: 16px;
+            color: var(--primary-dark);
+            margin-bottom: 2px;
+        }
+
+        .author-details p {
+            font-size: 14px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Article Content */
+        .article-content {
+            background: white;
+            padding: 80px 60px;
+        }
+
+        .article-content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+            border-radius: 20px;
+            margin-bottom: 60px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .article-body {
+            font-size: 18px;
+            line-height: 1.8;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+        }
+
+        .article-body h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin: 50px 0 25px;
+            letter-spacing: -0.5px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .article-body h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin: 40px 0 20px;
+            letter-spacing: -0.3px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .article-body h4 {
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            font-weight: 500;
+            color: var(--primary-dark);
+            margin: 30px 0 15px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .article-body p {
+            margin-bottom: 25px;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin: 25px 0;
+            padding-left: 30px;
+        }
+
+        .article-body li {
+            margin-bottom: 8px;
+        }
+
+        .article-body blockquote {
+            background: var(--background-gray);
+            border-left: 4px solid var(--accent-orange);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 12px;
+            font-style: italic;
+            font-size: 20px;
+            color: var(--primary-dark);
+        }
+
+        .article-body a {
+            color: var(--primary-teal);
+            text-decoration: none;
+            border-bottom: 2px solid rgba(15, 95, 95, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .article-body a:hover {
+            color: var(--secondary-teal);
+            border-bottom-color: var(--secondary-teal);
+        }
+
+        /* Social Sharing */
+        .social-sharing {
+            padding: 40px 0;
+            border-top: 1px solid var(--background-gray);
+            border-bottom: 1px solid var(--background-gray);
+            margin: 60px 0;
+        }
+
+        .sharing-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .sharing-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border: 2px solid var(--background-gray);
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            border-color: var(--primary-teal);
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        .share-btn.facebook:hover {
+            border-color: #1877f2;
+            background: #1877f2;
+        }
+
+        .share-btn.twitter:hover {
+            border-color: #1da1f2;
+            background: #1da1f2;
+        }
+
+        .share-btn.linkedin:hover {
+            border-color: #0077b5;
+            background: #0077b5;
+        }
+
+        .share-btn.email:hover {
+            border-color: var(--accent-orange);
+            background: var(--accent-orange);
+        }
+
+        /* Related Posts */
+        .related-posts {
+            padding: 80px 60px;
+            background: var(--background-gray);
+        }
+
+        .related-posts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .related-posts-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .related-post-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(44, 44, 44, 0.06);
+            border: 1px solid rgba(15, 95, 95, 0.05);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .related-post-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(15, 95, 95, 0.15);
+        }
+
+        .related-post-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .related-post-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .related-post-content {
+            padding: 25px;
+        }
+
+        .related-post-title {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            letter-spacing: -0.2px;
+            line-height: 1.3;
+        }
+
+        .related-post-excerpt {
+            font-size: 14px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .related-post-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Loading and Error States */
+        .loading, .error-state {
+            text-align: center;
+            padding: 100px 20px;
+            color: var(--text-light);
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--background-gray);
+            border-top: 4px solid var(--primary-teal);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-state h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .error-state p {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .error-state a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--primary-teal);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .error-state a:hover {
+            background: var(--secondary-teal);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                padding: 15px 30px;
+            }
+
+            .article-header {
+                padding: 120px 30px 60px;
+            }
+
+            .article-content {
+                padding: 60px 30px;
+            }
+
+            .related-posts {
+                padding: 60px 30px;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .sharing-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .share-btn {
+                justify-content: center;
+            }
+
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-header {
+                padding: 100px 20px 40px;
+            }
+
+            .article-content {
+                padding: 40px 20px;
+            }
+
+            .related-posts {
+                padding: 40px 20px;
+            }
+
+            .article-body {
+                font-size: 16px;
+            }
+
+            .featured-image {
+                height: 250px;
+                margin-bottom: 40px;
+            }
+        }
+
+        /* Focus states */
+        *:focus {
+            outline: 2px solid var(--primary-teal);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <div class="logo-container">
+                <div class="logo-mark logo-bg" role="img" aria-label="The Tailored Experience Travel logo"></div>
+                <div>
+                    <div class="logo-text">The Tailored Experience Travel</div>
+                    <div class="tagline">It's not just the destination, it's the experience</div>
+                </div>
+            </div>
+
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="destination_wedding.html" role="menuitem">Destination Wedding</a></li>
+                <li role="none"><a href="luxury_honeymoon.html" role="menuitem">Luxury Honeymoon</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+            </ul>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="mobile-nav" role="menu">
+            <a href="index.html" role="menuitem">Home</a>
+            <a href="destination_wedding.html" role="menuitem">Destination Wedding</a>
+            <a href="luxury_honeymoon.html" role="menuitem">Luxury Honeymoon</a>
+            <a href="blog.html" role="menuitem">Blog</a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="loading">Loading post...</div>
+    </main>
+
+    <script>
+        console.log('🚀 BLOG POST PAGE LOADING...');
+
+        // ==========================================
+        // CONFIGURATION
+        // ==========================================
+
+        const sanityClient = {
+            projectId: 'etjqucnf', // Get this from sanity.io dashboard
+            dataset: 'production', // or your dataset name
+            apiVersion: '2024-01-01',
+            useCdn: true
+        };
+
+        // ==========================================
+        // MOCK DATA FOR DEVELOPMENT
+        // ==========================================
+
+        const mockPosts = {
+            'destination-wedding-bali-guide': {
+                _id: '1',
+                title: 'The Ultimate Guide to Planning Your Destination Wedding in Bali',
+                slug: { current: 'destination-wedding-bali-guide' },
+                excerpt: 'Discover the secrets to planning an unforgettable destination wedding in Bali, from choosing the perfect venue to navigating local customs and creating magical moments.',
+                publishedAt: '2024-01-15T10:00:00Z',
+                mainImage: {
+                    asset: {
+                        url: '/pexels-alexander-mass-748453803-26201422.jpg'
+                    }
+                },
+                category: {
+                    title: 'Destination Weddings',
+                    slug: { current: 'destination-weddings' }
+                },
+                author: {
+                    name: 'Jessica',
+                    slug: { current: 'jessica' },
+                    bio: 'Expert Wedding & Travel Planner'
+                },
+                body: `
+                    <h2>Why Choose Bali for Your Destination Wedding?</h2>
+                    <p>Bali has become one of the most sought-after destinations for couples looking to celebrate their love in paradise. With its stunning beaches, lush tropical landscapes, and rich cultural heritage, the Island of the Gods offers an unforgettable backdrop for your special day.</p>
+
+                    <p>The island offers a perfect combination of natural beauty, cultural richness, and modern amenities. From clifftop ceremonies overlooking the Indian Ocean to intimate beachside celebrations, Bali provides countless stunning venues that can accommodate weddings of any size and style.</p>
+
+                    <h3>Best Time to Get Married in Bali</h3>
+                    <p>The dry season (April to October) is considered the best time for weddings in Bali. During this period, you'll enjoy minimal rainfall, clear skies, and comfortable temperatures perfect for outdoor ceremonies and celebrations.</p>
+
+                    <h2>Choosing the Perfect Venue</h2>
+                    <p>Bali offers an incredible variety of wedding venues, each with its own unique charm and character. Here are some of the most popular options:</p>
+
+                    <h3>Beachfront Venues</h3>
+                    <p>Exchange vows with your toes in the sand at one of Bali's pristine beaches. Popular locations include Jimbaran Bay, Sanur Beach, and the exclusive beaches of Nusa Dua. These venues offer stunning sunset ceremonies and the romantic sound of waves as your wedding soundtrack.</p>
+
+                    <h3>Clifftop Ceremonies</h3>
+                    <p>For couples seeking drama and breathtaking views, Uluwatu's clifftop venues offer an unforgettable setting. Perched high above the ocean, these locations provide spectacular panoramic views and create truly magical moments.</p>
+
+                    <h2>Legal Requirements and Documentation</h2>
+                    <p>Planning a legal wedding in Bali requires careful attention to documentation and legal requirements. Many couples choose to have a legal ceremony in their home country and celebrate with a blessing ceremony in Bali, which offers more flexibility and fewer legal complications.</p>
+
+                    <h2>Working with Local Vendors</h2>
+                    <p>Bali has a thriving wedding industry with talented local vendors who can bring your vision to life. From florists who create stunning tropical arrangements to photographers who capture the island's natural beauty, working with experienced local professionals ensures your wedding reflects the unique charm of Bali.</p>
+
+                    <h2>Creating Unforgettable Experiences for Your Guests</h2>
+                    <p>A destination wedding in Bali offers the perfect opportunity to create a multi-day celebration that your guests will remember forever. Consider organizing welcome dinners, cultural experiences, spa days, and adventure activities that showcase the best of what Bali has to offer.</p>
+
+                    <blockquote>
+                        "Planning a destination wedding in Bali is an adventure in itself, but with proper planning and the right support, it can be the most magical and stress-free experience of your life."
+                    </blockquote>
+
+                    <h2>Final Thoughts</h2>
+                    <p>The island's natural beauty, warm hospitality, and incredible vendors make it the perfect place to begin your married life together. With careful planning and expert guidance, your Bali destination wedding will be everything you've dreamed of and more.</p>
+                `,
+                featured: true
+            },
+            'luxury-honeymoon-destinations-2024': {
+                _id: '2',
+                title: 'Top 10 Luxury Honeymoon Destinations for 2024',
+                slug: { current: 'luxury-honeymoon-destinations-2024' },
+                excerpt: 'Explore the most romantic and luxurious honeymoon destinations that offer the perfect blend of adventure, relaxation, and intimate moments for newlyweds.',
+                publishedAt: '2024-01-10T14:30:00Z',
+                mainImage: {
+                    asset: {
+                        url: '/pexels-asadphoto-11118954.jpg'
+                    }
+                },
+                category: {
+                    title: 'Honeymoons',
+                    slug: { current: 'honeymoons' }
+                },
+                author: {
+                    name: 'Jessica',
+                    slug: { current: 'jessica' },
+                    bio: 'Expert Wedding & Travel Planner'
+                },
+                body: `
+                    <h2>The Art of Luxury Honeymoon Planning</h2>
+                    <p>Your honeymoon is the perfect opportunity to celebrate your new marriage and create lasting memories together. In 2024, luxury travel has evolved to offer more personalized, intimate, and sustainable experiences that cater to modern couples' desires for both adventure and relaxation.</p>
+
+                    <p>From overwater bungalows in the Maldives to private villas in Tuscany, this year's top destinations offer unparalleled luxury, privacy, and romance. Let's explore the most exclusive honeymoon destinations that will make your first trip as newlyweds absolutely unforgettable.</p>
+
+                    <h2>1. Maldives - Ultimate Overwater Romance</h2>
+                    <p>The Maldives continues to reign supreme as the ultimate luxury honeymoon destination. With its crystal-clear waters, pristine white sand beaches, and world-class overwater villas, it offers the perfect blend of romance and luxury that newlyweds crave.</p>
+
+                    <h2>2. Santorini, Greece - Sunset Paradise</h2>
+                    <p>With its iconic blue-domed churches, dramatic cliff-top views, and world-famous sunsets, Santorini provides a romantic backdrop that's hard to match. Luxury cave hotels and private infinity pools make this Greek island a honeymoon favorite.</p>
+
+                    <h2>3. Bora Bora, French Polynesia - Tropical Perfection</h2>
+                    <p>Known as the "Pearl of the Pacific," Bora Bora offers stunning lagoons, luxurious overwater bungalows, and world-class spa treatments. It's the perfect destination for couples seeking ultimate relaxation and natural beauty.</p>
+
+                    <blockquote>
+                        "The best honeymoon destinations offer more than just beautiful views—they provide experiences that bring couples closer together and create memories that last a lifetime."
+                    </blockquote>
+
+                    <h2>Planning Your Perfect Luxury Honeymoon</h2>
+                    <p>When planning your luxury honeymoon, consider what type of experience you want to create together. Are you seeking adventure, relaxation, cultural immersion, or a perfect blend of all three? The key is choosing a destination that reflects your shared interests and relationship goals.</p>
+
+                    <p>Remember that luxury isn't just about expensive accommodations—it's about personalized service, unique experiences, and the peace of mind that comes with expert planning. Working with a professional travel planner ensures every detail is handled, allowing you to focus on what matters most: celebrating your love.</p>
+                `,
+                featured: false
+            }
+        };
+
+        // Related posts data
+        const relatedPostsData = {
+            'destination-weddings': [
+                {
+                    title: 'Wedding Planning Timeline: 12 Months to Your Perfect Day',
+                    excerpt: 'A comprehensive month-by-month guide to planning your destination wedding.',
+                    slug: 'wedding-planning-timeline-12-months',
+                    image: '/pexels-emma-bauso-1183828-3585806.jpg',
+                    publishedAt: '2024-01-05T09:15:00Z'
+                },
+                {
+                    title: 'Creating Unforgettable Moments: Wedding Guest Experience',
+                    excerpt: 'Learn how to create an extraordinary experience for your wedding guests.',
+                    slug: 'wedding-guest-experience-guide',
+                    image: '/pexels-gustavo-fring-4172923.jpg',
+                    publishedAt: '2023-12-28T11:20:00Z'
+                }
+            ],
+            'honeymoons': [
+                {
+                    title: 'Honeymoon Photography: Capturing Your Love Story',
+                    excerpt: 'Professional tips for capturing beautiful honeymoon photos.',
+                    slug: 'honeymoon-photography-tips',
+                    image: '/pexels-asadphoto-1024967.jpg',
+                    publishedAt: '2023-12-25T13:00:00Z'
+                },
+                {
+                    title: 'The Ultimate Guide to Planning Your Destination Wedding in Bali',
+                    excerpt: 'Discover the secrets to planning an unforgettable destination wedding in Bali.',
+                    slug: 'destination-wedding-bali-guide',
+                    image: '/pexels-alexander-mass-748453803-26201422.jpg',
+                    publishedAt: '2024-01-15T10:00:00Z'
+                }
+            ]
+        };
+
+        // ==========================================
+        // UTILITY FUNCTIONS
+        // ==========================================
+
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        function updateMetaTags(post) {
+            const title = `${post.title} | The Tailored Experience Travel`;
+            const description = post.excerpt;
+            const imageUrl = post.mainImage?.asset?.url || '/tailored_experience_logo.png';
+            const currentUrl = window.location.href;
+
+            // Update title and description
+            document.getElementById('page-title').textContent = title;
+            document.getElementById('page-description').setAttribute('content', description);
+
+            // Update Open Graph tags
+            document.getElementById('og-title').setAttribute('content', title);
+            document.getElementById('og-description').setAttribute('content', description);
+            document.getElementById('og-image').setAttribute('content', imageUrl);
+            document.getElementById('og-url').setAttribute('content', currentUrl);
+
+            // Update Twitter Card tags
+            document.getElementById('twitter-title').setAttribute('content', title);
+            document.getElementById('twitter-description').setAttribute('content', description);
+            document.getElementById('twitter-image').setAttribute('content', imageUrl);
+
+            // Update page title
+            document.title = title;
+        }
+
+        function renderRelatedPosts(categorySlug) {
+            const posts = relatedPostsData[categorySlug] || [];
+
+            if (posts.length === 0) {
+                return '<p style="text-align: center; color: var(--text-light); font-family: Inter, sans-serif;">No related posts found.</p>';
+            }
+
+            return posts.map(post => `
+                <a href="blog-post.html?slug=${post.slug}" class="related-post-card fade-in-element">
+                    <div class="related-post-image" style="background-image: url('${post.image}')"></div>
+                    <div class="related-post-content">
+                        <h3 class="related-post-title">${post.title}</h3>
+                        <p class="related-post-excerpt">${post.excerpt}</p>
+                        <div class="related-post-meta">${formatDate(post.publishedAt)}</div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        function renderPortableText(body) {
+            if (!body || !Array.isArray(body)) {
+                return '<p>No content available.</p>';
+            }
+
+            return body.map(block => {
+                if (block._type === 'block') {
+                    const text = block.children?.map(child => child.text).join('') || '';
+
+                    switch (block.style) {
+                        case 'h1':
+                            return `<h1>${text}</h1>`;
+                        case 'h2':
+                            return `<h2>${text}</h2>`;
+                        case 'h3':
+                            return `<h3>${text}</h3>`;
+                        case 'h4':
+                            return `<h4>${text}</h4>`;
+                        case 'blockquote':
+                            return `<blockquote>${text}</blockquote>`;
+                        default:
+                            return text ? `<p>${text}</p>` : '';
+                    }
+                }
+                return '';
+            }).filter(Boolean).join('');
+        }
+
+        function calculateReadTime(body) {
+            let wordCount = 0;
+
+            if (typeof body === 'string') {
+                // If it's HTML string (mock data)
+                const textContent = body.replace(/<[^>]*>/g, '');
+                wordCount = textContent.split(/\s+/).filter(word => word.length > 0).length;
+            } else if (Array.isArray(body)) {
+                // If it's Portable Text (Sanity data)
+                body.forEach(block => {
+                    if (block._type === 'block' && block.children) {
+                        block.children.forEach(child => {
+                            if (child.text) {
+                                wordCount += child.text.split(/\s+/).filter(word => word.length > 0).length;
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Average reading speed: 200 words per minute
+            const readTime = Math.ceil(wordCount / 200);
+            return Math.max(1, readTime); // Minimum 1 minute
+        }
+
+        function renderBlogPost(post) {
+            const imageUrl = post.mainImage?.asset?.url || '/pexels-emma-bauso-1183828-3585806.jpg';
+            const categoryTitle = post.category?.title || 'General';
+            const authorName = post.author?.name || 'Jessica';
+            const authorBio = post.author?.bio || 'Expert Wedding & Travel Planner';
+            const authorInitial = authorName.charAt(0).toUpperCase();
+
+            const postContent = `
+                <article class="article-header">
+                    <div class="article-header-container">
+                        <nav class="breadcrumb">
+                            <a href="index.html">Home</a> / <a href="blog.html">Blog</a> / <span>${post.title}</span>
+                        </nav>
+
+                        <div class="hero-animate">
+                            <div class="article-category">${categoryTitle}</div>
+                            <h1 class="article-title">${post.title}</h1>
+                            <p class="article-excerpt">${post.excerpt}</p>
+
+                            <div class="article-meta">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📅</span>
+                                    <span>${formatDate(post.publishedAt)}</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">⏱️</span>
+                                    <span>${calculateReadTime(post.body)} min read</span>
+                                </div>
+                            </div>
+
+                            <div class="author-info">
+                                <div class="author-avatar">${authorInitial}</div>
+                                <div class="author-details">
+                                    <h4>By ${authorName}</h4>
+                                    <p>${authorBio}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <section class="article-content">
+                    <div class="article-content-container">
+                        <div class="featured-image fade-in-element" style="background-image: url('${imageUrl}')"></div>
+
+                        <div class="article-body fade-in-element">
+                            ${typeof post.body === 'string' ? post.body : renderPortableText(post.body)}
+                        </div>
+
+                        <div class="social-sharing fade-in-element">
+                            <h3 class="sharing-title">Share this article</h3>
+                            <div class="sharing-buttons">
+                                <button class="share-btn facebook" onclick="shareOnFacebook()">
+                                    <span>📘</span> Facebook
+                                </button>
+                                <button class="share-btn twitter" onclick="shareOnTwitter()">
+                                    <span>🐦</span> Twitter
+                                </button>
+                                <button class="share-btn linkedin" onclick="shareOnLinkedIn()">
+                                    <span>💼</span> LinkedIn
+                                </button>
+                                <button class="share-btn email" onclick="shareViaEmail()">
+                                    <span>📧</span> Email
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="related-posts">
+                    <div class="related-posts-container">
+                        <h2 class="related-posts-title">Related Articles</h2>
+                        <div class="related-posts-grid">
+                            ${renderRelatedPosts(post.category?.slug?.current || 'general')}
+                        </div>
+                    </div>
+                </section>
+            `;
+
+            document.getElementById('main-content').innerHTML = postContent;
+            updateMetaTags(post);
+        }
+
+        // ==========================================
+        // SOCIAL SHARING FUNCTIONS
+        // ==========================================
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.title);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareViaEmail() {
+            const subject = encodeURIComponent(document.title);
+            const body = encodeURIComponent(`Check out this article: ${window.location.href}`);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+
+        // ==========================================
+        // MAIN LOAD FUNCTION
+        // ==========================================
+
+        async function loadBlogPost(slug) {
+            try {
+                const query = `*[_type == "post" && slug.current == "${slug}" && publishedAt <= now()][0] {
+                    _id,
+                    title,
+                    slug,
+                    excerpt,
+                    publishedAt,
+                    mainImage { asset->{ url } },
+                    category->{ title, slug },
+                    author->{ name, slug, bio },
+                    body[]{
+                        _type,
+                        style,
+                        children[]{
+                            _type,
+                            text
+                        }
+                    },
+                    featured
+                }`;
+
+                const url = `https://${sanityClient.projectId}.api.sanity.io/v${sanityClient.apiVersion}/data/query/${sanityClient.dataset}?query=${encodeURIComponent(query)}`;
+                const response = await fetch(url);
+                const data = await response.json();
+                const post = data.result;
+
+                if (!post) {
+                    // Fall back to mock data for development
+                    const mockPost = mockPosts[slug];
+                    if (mockPost) {
+                        renderBlogPost(mockPost);
+                    } else {
+                        throw new Error('Post not found');
+                    }
+                } else {
+                    renderBlogPost(post);
+                }
+
+                setTimeout(() => {
+                    initScrollAnimations();
+                    initHeroAnimation();
+                }, 100);
+
+            } catch (error) {
+                console.error('Error loading blog post:', error);
+                document.getElementById('main-content').innerHTML = `
+                    <div class="error-state">
+                        <h2>Post Not Found</h2>
+                        <p>The blog post you're looking for doesn't exist or has been moved.</p>
+                        <a href="blog.html">← Back to Blog</a>
+                    </div>
+                `;
+            }
+        }
+
+        // ==========================================
+        // ANIMATION FUNCTIONS
+        // ==========================================
+
+        function initScrollAnimations() {
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                document.querySelectorAll('.fade-in-element').forEach(element => {
+                    observer.observe(element);
+                });
+            }
+        }
+
+        function initHeroAnimation() {
+            const heroContent = document.querySelector('.hero-animate');
+            if (heroContent) {
+                heroContent.classList.add('loaded');
+            }
+        }
+
+        // ==========================================
+        // MOBILE MENU
+        // ==========================================
+
+        function initMobileMenu() {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNav = document.querySelector('.mobile-nav');
+
+            if (toggle && mobileNav) {
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+                    toggle.classList.toggle('active');
+                    toggle.setAttribute('aria-expanded', !isExpanded);
+
+                    if (!isExpanded) {
+                        mobileNav.classList.add('active');
+                        mobileNav.style.display = 'block';
+                    } else {
+                        mobileNav.classList.remove('active');
+                        setTimeout(() => {
+                            mobileNav.style.display = 'none';
+                        }, 300);
+                    }
+                });
+
+                // Close mobile menu when clicking links
+                const links = mobileNav.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        toggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        toggle.setAttribute('aria-expanded', 'false');
+                        setTimeout(() => {
+                            mobileNav.style.display = 'none';
+                        }, 300);
+                    });
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                        toggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        toggle.setAttribute('aria-expanded', 'false');
+                        setTimeout(() => {
+                            mobileNav.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+
+        // Make functions globally available
+        window.shareOnFacebook = shareOnFacebook;
+        window.shareOnTwitter = shareOnTwitter;
+        window.shareOnLinkedIn = shareOnLinkedIn;
+        window.shareViaEmail = shareViaEmail;
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📄 Blog post DOM loaded, initializing...');
+
+            initMobileMenu();
+
+            // Get post slug from URL
+            const slug = getUrlParameter('slug');
+
+            if (slug) {
+                loadBlogPost(slug);
+            } else {
+                // Redirect to blog index if no slug provided
+                window.location.href = 'blog.html';
+            }
+
+            console.log('🎉 Blog post page initialized!');
+        });
+    </script>
+</body>
+</html>
