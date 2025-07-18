@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Insights & Wedding Planning Tips | The Tailored Experience Travel</title>
+    <meta name="description" content="Expert insights on destination wedding planning, luxury honeymoon destinations, and travel tips from The Tailored Experience Travel.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #2c2c2c;
+            --primary-teal: #0f5f5f;
+            --secondary-teal: #4a9999;
+            --accent-orange: #d4956b;
+            --accent-orange-muted: #b8835a;
+            --background-cream: #faf8f5;
+            --background-gray: #f5f3f0;
+            --text-light: #6a6a6a;
+            --text-dark: #1a1a1a;
+        }
+
+        @font-face {
+            font-family: 'Josefin Sans';
+            src: url('Josefin_Sans/JosefinSans-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animation System */
+        .fade-in-element {
+            opacity: 0 !important;
+            transform: translateY(50px) !important;
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+            will-change: opacity, transform;
+        }
+
+        .fade-in-element.is-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .hero-animate {
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .hero-animate.loaded {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            background: rgba(250, 248, 245, 0.97);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(15, 95, 95, 0.08);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-mark.logo-bg {
+            background-image: url('/tailored_experience_logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--primary-dark);
+            letter-spacing: -0.3px;
+        }
+
+        .tagline {
+            font-size: 10px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-top: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange-muted);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--primary-dark);
+            outline: none;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(250, 248, 245, 0.98);
+            backdrop-filter: blur(25px);
+            border-top: 1px solid rgba(15, 95, 95, 0.08);
+            padding: 20px;
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 15px 0;
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(15, 95, 95, 0.05);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
+            color: var(--primary-dark);
+            outline: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 60px 80px;
+            background: linear-gradient(135deg, var(--background-cream) 0%, var(--background-gray) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(15, 95, 95, 0.02) 100%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-teal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-teal);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--primary-dark);
+            letter-spacing: -1px;
+        }
+
+        .title-emphasis {
+            color: var(--primary-teal);
+            position: relative;
+        }
+
+        .title-emphasis::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-orange-muted) 0%, transparent 100%);
+            opacity: 0.6;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search and Filter Section */
+        .search-section {
+            padding: 60px 60px 40px;
+            background: white;
+            border-bottom: 1px solid rgba(15, 95, 95, 0.05);
+        }
+
+        .search-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid var(--background-gray);
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+            background: var(--background-cream);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 20px;
+        }
+
+        .category-filter {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--background-gray);
+            background: white;
+            border-radius: 25px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--primary-teal);
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        /* Blog Posts Grid */
+        .blog-posts {
+            padding: 80px 60px 120px;
+            background: white;
+        }
+
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(44, 44, 44, 0.06);
+            border: 1px solid rgba(15, 95, 95, 0.05);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .post-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(15, 95, 95, 0.15);
+            border-color: var(--primary-teal);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .post-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .post-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: var(--primary-teal);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .post-content {
+            padding: 30px 25px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .post-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .post-title {
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+        }
+
+        .post-excerpt {
+            font-size: clamp(14px, 1.8vw, 15px);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-teal);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--secondary-teal);
+        }
+
+        .read-more::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Featured Post */
+        .featured-post {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--background-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .featured-post .post-image {
+            height: 400px;
+            border-radius: 0;
+        }
+
+        .featured-post .post-content {
+            padding: 50px 40px;
+        }
+
+        .featured-post .post-title {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            margin-bottom: 20px;
+        }
+
+        .featured-post .post-excerpt {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--background-gray);
+            border-top: 4px solid var(--primary-teal);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-light);
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .empty-state p {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 60px;
+        }
+
+        .pagination-btn {
+            padding: 12px 20px;
+            border: 2px solid var(--background-gray);
+            background: white;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            border-color: var(--primary-teal);
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                padding: 15px 30px;
+            }
+
+            .hero {
+                padding: 120px 30px 60px;
+            }
+
+            .search-section {
+                padding: 40px 30px;
+            }
+
+            .search-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .search-box {
+                min-width: 100%;
+            }
+
+            .blog-posts {
+                padding: 60px 30px 80px;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-post .post-image {
+                height: 250px;
+            }
+
+            .featured-post .post-content {
+                padding: 30px 25px;
+            }
+
+            .category-filter {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 20px 40px;
+            }
+
+            .search-section {
+                padding: 30px 20px;
+            }
+
+            .blog-posts {
+                padding: 40px 20px 60px;
+            }
+
+            .post-content {
+                padding: 25px 20px;
+            }
+
+            .featured-post .post-content {
+                padding: 25px 20px;
+            }
+        }
+
+        /* Focus states */
+        *:focus {
+            outline: 2px solid var(--primary-teal);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <div class="logo-container">
+                <div class="logo-mark logo-bg" role="img" aria-label="The Tailored Experience Travel logo"></div>
+                <div>
+                    <div class="logo-text">The Tailored Experience Travel</div>
+                    <div class="tagline">It's not just the destination, it's the experience</div>
+                </div>
+            </div>
+
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="destination_wedding.html" role="menuitem">Destination Wedding</a></li>
+                <li role="none"><a href="luxury_honeymoon.html" role="menuitem">Luxury Honeymoon</a></li>
+                <li role="none"><a href="blog.html" role="menuitem" aria-current="page">Blog</a></li>
+            </ul>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="mobile-nav" role="menu">
+            <a href="index.html" role="menuitem">Home</a>
+            <a href="destination_wedding.html" role="menuitem">Destination Wedding</a>
+            <a href="luxury_honeymoon.html" role="menuitem">Luxury Honeymoon</a>
+            <a href="blog.html" role="menuitem" aria-current="page">Blog</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="breadcrumb">
+                    <a href="../tests/rev2/index.html">Home</a> / <span>Blog</span>
+                </div>
+
+                <div class="hero-content hero-animate">
+                    <h1 id="hero-title" class="hero-title">Travel <span class="title-emphasis">Insights</span> & Planning Tips</h1>
+                    <p class="hero-subtitle">Expert guidance on destination wedding planning, luxury honeymoon destinations, and travel insights from our years of creating extraordinary celebrations worldwide.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search articles..." id="searchInput" aria-label="Search blog posts">
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                </div>
+                <div class="category-filter">
+                    <button class="filter-btn active" data-category="all">All Posts</button>
+                    <button class="filter-btn" data-category="destination-weddings">Destination Weddings</button>
+                    <button class="filter-btn" data-category="honeymoons">Honeymoons</button>
+                    <button class="filter-btn" data-category="travel-tips">Travel Tips</button>
+                    <button class="filter-btn" data-category="planning-guides">Planning Guides</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-posts">
+            <div class="blog-container">
+                <div id="postsContainer" class="posts-grid">
+                    <!-- Posts will be loaded here -->
+                    <div class="loading">Loading posts...</div>
+                </div>
+                <div class="pagination" id="pagination" style="display: none;">
+                    <!-- Pagination will be generated here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        console.log('🚀 BLOG PAGE LOADING...');
+
+        // ==========================================
+        // SANITY CLIENT SETUP
+        // ==========================================
+
+        // Initialize Sanity Client - Replace with your project details
+        const sanityClient = {
+            projectId: 'etjqucnf', // Replace with your Sanity project ID
+            dataset: 'production', // Replace with your dataset name
+            apiVersion: '2024-01-01',
+            useCdn: true
+        };
+
+        // Sanity query builder
+        function buildSanityQuery(category = 'all', searchTerm = '', offset = 0, limit = 9) {
+            let query = `*[_type == "post" && publishedAt <= now()`;
+
+            if (category !== 'all') {
+                query += ` && category->slug.current == "${category}"`;
+            }
+
+            if (searchTerm) {
+                query += ` && (title match "${searchTerm}*" || excerpt match "${searchTerm}*")`;
+            }
+
+            query += `] | order(publishedAt desc) {
+                _id,
+                title,
+                slug,
+                excerpt,
+                publishedAt,
+                mainImage {
+                    asset->{
+                        _id,
+                        url
+                    }
+                },
+                category->{
+                    title,
+                    slug
+                },
+                author->{
+                    name,
+                    slug
+                },
+                featured
+            }`;
+
+            return query;
+        }
+
+        // Mock data for development (remove when connected to Sanity)
+        const mockPosts = [
+            {
+                _id: '1',
+                title: 'The Ultimate Guide to Planning Your Destination Wedding in Bali',
+                slug: { current: 'destination-wedding-bali-guide' },
+                excerpt: 'Discover the secrets to planning an unforgettable destination wedding in Bali, from choosing the perfect venue to navigating local customs and creating magical moments.',
+                publishedAt: '2024-01-15T10:00:00Z',
+                mainImage: {
+                    asset: {
+                        url: '/pexels-alexander-mass-748453803-26201422.jpg'
+                    }
+                },
+                category: {
+                    title: 'Destination Weddings',
+                    slug: { current: 'destination-weddings' }
+                },
+                author: {
+                    name: 'Jessica',
+                    slug: { current: 'jessica' }
+                },
+                featured: true
+            },
+            {
+                _id: '2',
+                title: 'Top 10 Luxury Honeymoon Destinations for 2024',
+                slug: { current: 'luxury-honeymoon-destinations-2024' },
+                excerpt: 'Explore the most romantic and luxurious honeymoon destinations that offer the perfect blend of adventure, relaxation, and intimate moments for newlyweds.',
+                publishedAt: '2024-01-10T14:30:00Z',
+                mainImage: {
+                    asset: {
+                        url: '/pexels-asadphoto-11118954.jpg'
+                    }
+                },
+                category: {
+                    title: 'Honeymoons',
+                    slug: { current: 'honeymoons' }
+                },
+                author: {
+                    name: 'Jessica',
+                    slug: { current: 'jessica' }
+                },
+                featured: false
+            },
+            {
+                _id: '3',
+                title: 'Wedding Planning Timeline: 12 Months to Your Perfect Day',
+                slug: { current: 'wedding-planning-timeline-12-months' },
+                excerpt: 'A comprehensive month-by-month guide to planning your destination wedding, ensuring no detail is overlooked and stress is minimized.',
+                publishedAt: '2024-01-05T09:15:00Z',
+                mainImage: {
+                    asset: {
+                        url: '/pexels-emma-bauso-1183828-3585806.jpg'
+                    }
+                },
+                category: {
+                    title: 'Planning Guides',
+                    slug: { current: 'planning-guides' }
+                },
+                author: {
+                    name: 'Jessica',
+                    slug: { current: 'jessica' }
+                },
+                featured: false
+            },
+            {
+                _id: '4',
+                title: 'Travel Tips: What to Pack for Your Tropical Wedding',
+                slug: { current: 'tropical-wedding-packing-tips' },
+                excerpt: 'Essential packing tips for couples getting married in tropical destinations, including weather considerations and travel-friendly wedding attire.',
+                publishedAt: '2024-01-01T16:45:00Z',
+                mainImage: {
+                    asset: {
+                        url: '/pexels-leeloothefirst-4679176.jpg'
+                    }
+                },
+                category: {
+                    title: 'Travel Tips',
+                    slug: { current: 'travel-tips' }
+                },
+                author: {
+                    name: 'Jessica',
+                    slug: { current: 'jessica' }
+                },
+                featured: false
+            },
+            {
+                _id: '5',
+                title: 'Creating Unforgettable Moments: Wedding Guest Experience',
+                slug: { current: 'wedding-guest-experience-guide' },
+                excerpt: 'Learn how to create an extraordinary experience for your wedding guests, from welcome packages to local experiences and thoughtful touches.',
+                publishedAt: '2023-12-28T11:20:00Z',
+                mainImage: {
+                    asset: {
+                        url: '/pexels-gustavo-fring-4172923.jpg'
+                    }
+                },
+                category: {
+                    title: 'Destination Weddings',
+                    slug: { current: 'destination-weddings' }
+                },
+                author: {
+                    name: 'Jessica',
+                    slug: { current: 'jessica' }
+                },
+                featured: false
+            },
+            {
+                _id: '6',
+                title: 'Honeymoon Photography: Capturing Your Love Story',
+                slug: { current: 'honeymoon-photography-tips' },
+                excerpt: 'Professional tips for capturing beautiful honeymoon photos, from choosing the right photographer to creating lasting memories of your romantic journey.',
+                publishedAt: '2023-12-25T13:00:00Z',
+                mainImage: {
+                    asset: {
+                        url: '/pexels-asadphoto-1024967.jpg'
+                    }
+                },
+                category: {
+                    title: 'Honeymoons',
+                    slug: { current: 'honeymoons' }
+                },
+                author: {
+                    name: 'Jessica',
+                    slug: { current: 'jessica' }
+                },
+                featured: false
+            }
+        ];
+
+        // ==========================================
+        // BLOG FUNCTIONALITY
+        // ==========================================
+
+        let currentPosts = [];
+        let filteredPosts = [];
+        let currentPage = 1;
+        const postsPerPage = 9;
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Create post card HTML
+        function createPostCard(post, featured = false) {
+            const imageUrl = post.mainImage?.asset?.url || '/pexels-emma-bauso-1183828-3585806.jpg';
+            const categoryTitle = post.category?.title || 'General';
+            const categorySlug = post.category?.slug?.current || 'general';
+
+            if (featured) {
+                return `
+                    <article class="post-card featured-post fade-in-element">
+                        <div class="post-image" style="background-image: url('${imageUrl}')"></div>
+                        <div class="post-content">
+                            <div class="featured-badge">Featured</div>
+                            <div class="post-meta">
+                                <span class="post-date">📅 ${formatDate(post.publishedAt)}</span>
+                                <span class="post-category">${categoryTitle}</span>
+                            </div>
+                            <h2 class="post-title">${post.title}</h2>
+                            <p class="post-excerpt">${post.excerpt}</p>
+                            <a href="blog-post.html?slug=${post.slug.current}" class="read-more">Read Full Article</a>
+                        </div>
+                    </article>
+                `;
+            }
+
+            return `
+                <article class="post-card fade-in-element">
+                    <div class="post-image" style="background-image: url('${imageUrl}')">
+                        <span class="post-category">${categoryTitle}</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date">📅 ${formatDate(post.publishedAt)}</span>
+                        </div>
+                        <h2 class="post-title">${post.title}</h2>
+                        <p class="post-excerpt">${post.excerpt}</p>
+                        <a href="blog-post.html?slug=${post.slug.current}" class="read-more">Read Full Article</a>
+                    </div>
+                </article>
+            `;
+        }
+
+        // Load posts (mock data for now)
+        async function loadPosts(category = 'all', searchTerm = '') {
+            const container = document.getElementById('postsContainer');
+            container.innerHTML = '<div class="loading">Loading posts...</div>';
+
+            try {
+                // Build the query
+                let query = `*[_type == "post" && publishedAt <= now()`;
+
+                if (category !== 'all') {
+                    query += ` && category->slug.current == "${category}"`;
+                }
+
+                if (searchTerm) {
+                    query += ` && (title match "${searchTerm}*" || excerpt match "${searchTerm}*")`;
+                }
+
+                query += `] | order(publishedAt desc) {
+                    _id,
+                    title,
+                    slug,
+                    excerpt,
+                    publishedAt,
+                    mainImage {
+                        asset->{
+                            _id,
+                            url
+                        }
+                    },
+                    category->{
+                        title,
+                        slug
+                    },
+                    author->{
+                        name,
+                        slug
+                    },
+                    featured
+                }`;
+
+                const url = `https://${sanityClient.projectId}.api.sanity.io/v${sanityClient.apiVersion}/data/query/${sanityClient.dataset}?query=${encodeURIComponent(query)}`;
+                const response = await fetch(url);
+                const data = await response.json();
+
+                currentPosts = data.result;
+                filteredPosts = currentPosts;
+
+                displayPosts();
+
+            } catch (error) {
+                console.error('Error loading posts:', error);
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>Unable to load posts</h3>
+                        <p>Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Display posts
+        function displayPosts() {
+            const container = document.getElementById('postsContainer');
+
+            if (filteredPosts.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>No posts found</h3>
+                        <p>Try adjusting your search or filter criteria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const startIndex = (currentPage - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToShow = filteredPosts.slice(startIndex, endIndex);
+
+            let html = '';
+
+            // Show featured post on first page
+            if (currentPage === 1) {
+                const featuredPost = filteredPosts.find(post => post.featured);
+                if (featuredPost) {
+                    html += createPostCard(featuredPost, true);
+                    // Remove featured post from regular posts
+                    const remainingPosts = postsToShow.filter(post => post._id !== featuredPost._id);
+                    html += remainingPosts.map(post => createPostCard(post, false)).join('');
+                } else {
+                    html = postsToShow.map(post => createPostCard(post, false)).join('');
+                }
+            } else {
+                html = postsToShow.map(post => createPostCard(post, false)).join('');
+            }
+
+            container.innerHTML = html;
+
+            // Update pagination
+            updatePagination();
+
+            // Trigger animations
+            setTimeout(() => {
+                initScrollAnimations();
+            }, 100);
+        }
+
+        // Update pagination
+        function updatePagination() {
+            const pagination = document.getElementById('pagination');
+            const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+            if (totalPages <= 1) {
+                pagination.style.display = 'none';
+                return;
+            }
+
+            pagination.style.display = 'flex';
+
+            let html = '';
+
+            // Previous button
+            if (currentPage > 1) {
+                html += `<button class="pagination-btn" onclick="changePage(${currentPage - 1})">← Previous</button>`;
+            }
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const active = i === currentPage ? 'active' : '';
+                html += `<button class="pagination-btn ${active}" onclick="changePage(${i})">${i}</button>`;
+            }
+
+            // Next button
+            if (currentPage < totalPages) {
+                html += `<button class="pagination-btn" onclick="changePage(${currentPage + 1})">Next →</button>`;
+            }
+
+            pagination.innerHTML = html;
+        }
+
+        // Change page
+        function changePage(page) {
+            currentPage = page;
+            displayPosts();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ==========================================
+        // SEARCH AND FILTER FUNCTIONALITY
+        // ==========================================
+
+        // Search functionality
+        let searchTimeout;
+        function handleSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                currentPage = 1;
+                const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
+                loadPosts(activeCategory, searchTerm);
+            }, 300);
+        }
+
+        // Filter functionality
+        function handleCategoryFilter(category) {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+
+            currentPage = 1;
+            const searchTerm = document.getElementById('searchInput').value;
+            loadPosts(category, searchTerm);
+        }
+
+        // ==========================================
+        // ANIMATION SYSTEM
+        // ==========================================
+
+        function initScrollAnimations() {
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                document.querySelectorAll('.fade-in-element').forEach(element => {
+                    observer.observe(element);
+                });
+            }
+        }
+
+        function initHeroAnimation() {
+            setTimeout(() => {
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent) {
+                    heroContent.classList.add('loaded');
+                }
+            }, 300);
+        }
+
+        // ==========================================
+        // MOBILE MENU
+        // ==========================================
+
+        function initMobileMenu() {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNav = document.querySelector('.mobile-nav');
+
+            if (toggle && mobileNav) {
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+                    toggle.classList.toggle('active');
+                    toggle.setAttribute('aria-expanded', !isExpanded);
+
+                    if (!isExpanded) {
+                        mobileNav.classList.add('active');
+                        mobileNav.style.display = 'block';
+                    } else {
+                        mobileNav.classList.remove('active');
+                        setTimeout(() => {
+                            mobileNav.style.display = 'none';
+                        }, 300);
+                    }
+                });
+
+                // Close mobile menu when clicking links
+                const links = mobileNav.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        toggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        toggle.setAttribute('aria-expanded', 'false');
+                        setTimeout(() => {
+                            mobileNav.style.display = 'none';
+                        }, 300);
+                    });
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                        toggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        toggle.setAttribute('aria-expanded', 'false');
+                        setTimeout(() => {
+                            mobileNav.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+
+        // Make functions globally available
+        window.changePage = changePage;
+        window.handleCategoryFilter = handleCategoryFilter;
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📄 Blog DOM loaded, initializing...');
+
+            initMobileMenu();
+            initHeroAnimation();
+
+            // Set up search
+            document.getElementById('searchInput').addEventListener('input', handleSearch);
+
+            // Set up category filters
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    handleCategoryFilter(btn.dataset.category);
+                });
+            });
+
+            // Load initial posts
+            loadPosts();
+
+            console.log('🎉 Blog page initialized!');
+        });
+
+        // Debug function
+        window.debugBlog = function() {
+            console.log('Current posts:', currentPosts);
+            console.log('Filtered posts:', filteredPosts);
+            console.log('Current page:', currentPage);
+        };
+    </script>
+</body>
+</html>
