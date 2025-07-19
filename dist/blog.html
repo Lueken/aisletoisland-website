@@ -462,6 +462,40 @@
             background: rgba(0, 0, 0, 0.1);
         }
 
+        /* Fading edge for regular blog post images (bottom fade) - exclude featured posts */
+        .post-card:not(.featured-post) .post-image::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to bottom,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 40%,
+                rgba(255, 255, 255, 0.8) 70%,
+                white 100%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Fading edge for featured blog post image (right fade) */
+        .featured-post .post-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -1px;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(to right,
+                transparent 0%,
+                rgba(245, 243, 240, 0.3) 30%,
+                rgba(245, 243, 240, 0.8) 60%,
+                var(--background-gray) 100%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
         .post-category {
             position: absolute;
             top: 15px;
@@ -799,7 +833,7 @@
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-container">
                 <div class="breadcrumb">
-                    <a href="../tests/rev2/index.html">Home</a> / <span>Blog</span>
+                    <a href="index.html">Home</a> / <span>Blog</span>
                 </div>
 
                 <div class="hero-content hero-animate">
