@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | The Tailored Experience Travel</title>
+    <meta name="description" content="Ready to plan your destination wedding or luxury honeymoon? Contact The Tailored Experience Travel to start creating your perfect celebration.">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z92QX7TK22"></script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="ywcRht9p5oOpmSuHT2WXlQ" async></script>
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/inquire.css">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <div class="logo-container">
+                <div class="logo-mark logo-bg" role="img" aria-label="The Tailored Experience Travel logo"></div>
+                <div>
+                    <div class="logo-text">The Tailored Experience Travel</div>
+                    <div class="tagline">It's not just the destination, it's the experience</div>
+                </div>
+            </div>
+
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="destination-wedding.html" role="menuitem">Destination Wedding</a></li>
+                <li role="none"><a href="luxury-honeymoon.html" role="menuitem">Luxury Honeymoon</a></li>
+<!--                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>-->
+                <li role="none"><a href="inquire.html" role="menuitem" aria-current="page">Inquire</a></li>
+            </ul>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="mobile-nav" role="menu">
+            <a href="index.html" role="menuitem">Home</a>
+            <a href="destination-wedding.html" role="menuitem">Destination Wedding</a>
+            <a href="luxury-honeymoon.html" role="menuitem">Luxury Honeymoon</a>
+<!--            <a href="blog.html" role="menuitem">Blog</a>-->
+            <a href="inquire.html" role="menuitem" aria-current="page">Inquire</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section - Standardized layout for breadcrumb alignment -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <!-- Breadcrumb spans full width like other pages -->
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> / <span>Inquire</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <!-- Header -->
+                <div class="contact-header hero-animate">
+                    <h1 id="hero-title" class="contact-title">Let's Talk</h1>
+                    <p class="contact-subtitle">Ready to bridge the gap between your unique romantic vision and bringing it to fruition? We'd love to hear about your celebration plans.</p>
+                </div>
+
+                <!-- Contact Grid -->
+                <div class="contact-grid">
+                    <!-- Contact Image -->
+                    <div class="contact-image fade-in-element"></div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form fade-in-element">
+                        <!-- Success/Error Messages -->
+                        <div class="message success" id="successMessage">
+                            <div class="message-icon">🎉</div>
+                            <h3>Thank You!</h3>
+                            <p>We've received your inquiry and will be in touch within 48-72 hours.</p>
+                        </div>
+
+                        <div class="message error" id="errorMessage">
+                            <div class="message-icon">⚠️</div>
+                            <h3>Something Went Wrong</h3>
+                            <p>Please try again or contact us directly using the information below.</p>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <form id="contactForm" method="POST" action="https://formspree.io/f/xnnzzlqz" novalidate>
+                            <!-- Formspree Configuration -->
+                            <input type="hidden" name="_subject" value="New Wedding & Travel Inquiry - The Tailored Experience">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Bride's Name<span class="required">*</span></label>
+                                    <input type="text" name="brides_name" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Groom's Name<span class="required">*</span></label>
+                                    <input type="text" name="grooms_name" class="form-input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Your Email<span class="required">*</span></label>
+                                <input type="email" name="email" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Your Phone Number<span class="required">*</span></label>
+                                <input type="phone" name="phone" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">What is your celebration date?<span class="required">*</span></label>
+                                <input type="date" name="celebration_date" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Please select all services you are interested in:<span class="required">*</span></label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="radio" name="services[]" value="destination-wedding" class="checkbox-input" id="destination-wedding">
+                                        <label for="destination-wedding" class="checkbox-label">Destination Wedding</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="radio" name="services[]" value="luxury-honeymoon" class="checkbox-input" id="luxury-honeymoon">
+                                        <label for="luxury-honeymoon" class="checkbox-label">Honeymoon</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="radio" name="services[]" value="both-services" class="checkbox-input" id="coordination">
+                                        <label for="coordination" class="checkbox-label">Destination Wedding & Honeymoon</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="radio" name="services[]" value="other" class="checkbox-input" id="coordination">
+                                        <label for="coordination" class="checkbox-label">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Where will your celebration take place?<span class="required">*</span></label>
+                                <input type="text" name="celebration_location" class="form-input" placeholder="e.g., Tuscany, Bali, Caribbean, or open to suggestions" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Optional: Is there anything else you would like me to know?</label>
+                                <textarea name="additional_info" class="form-textarea" rows="4" placeholder="Tell us about your vision, timeline, budget range, special requirements, or any questions you have..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Optional: How did you hear about The Tailored Experience Travel?</label>
+                                <select name="referral_source" class="form-select">
+                                    <option value="">Select an option</option>
+                                    <option value="past-client">Past Client Referral</option>
+                                    <option value="google">Google Search</option>
+                                    <option value="social-media">Social Media (Instagram/Facebook)</option>
+                                    <option value="venue">Wedding Venue Recommendation</option>
+                                    <option value="friend-family">Friend/Family Recommendation</option>
+                                    <option value="wedding-website">Wedding Website (The Knot, etc.)</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                Send My Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info Footer -->
+        <section class="contact-footer">
+            <div class="contact-footer-container">
+
+                <div class="office-hours">
+                    <h4>Office Hours</h4>
+                    <p><strong>Monday - Friday:</strong> 9:00 AM - 4:00 PM PST</p>
+                    <p><em>We often spend our days in meetings with clients, so please allow 48-72 hours for a personal response to your inquiry.</em></p>
+                </div>
+
+<!--                <div class="footer-links">-->
+<!--                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>-->
+<!--                    <span class="footer-separator">•</span>-->
+<!--                    <a href="terms-conditions.html" class="footer-link">Terms & Conditions</a>-->
+<!--                </div>-->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-mark logo-bg"></div>
+                    <div>
+                        <div class="footer-logo-text">The Tailored Experience Travel</div>
+                        <div class="footer-tagline">It's not just the destination, it's the experience</div>
+                    </div>
+                </div>
+<!--                <p class="footer-description">Specializing in destination weddings and luxury honeymoons that bridge the gap between your unique romantic vision and bringing it to fruition.</p>-->
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
+                    <li><a href="luxury-honeymoon.html">Luxury Honeymoon Planning</a></li>
+                    <li><a href="inquire.html">Consultation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="inquire.html">Inquire</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+<!--                    <li><a href="terms-of-service.html">Terms of Service</a></li>-->
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="Pinterest">Pinterest</a>
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 The Tailored Experience Travel. All rights reserved.</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        console.log('🚀 FORMSPREE-INTEGRATED CONTACT PAGE LOADING...');
+
+        // ==========================================
+        // URL PARAMETER FUNCTIONS
+        // ==========================================
+
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to auto-select service based on URL parameter
+        function autoSelectService() {
+            const serviceParam = getUrlParameter('service');
+
+            if (serviceParam) {
+                const radioButton = document.getElementById(serviceParam);
+                if (radioButton) {
+                    radioButton.checked = true;
+
+                    // Optional: Add visual feedback that the selection was pre-made
+                    const formGroup = radioButton.closest('.form-group');
+                    if (formGroup) {
+                        formGroup.style.background = 'rgba(15, 95, 95, 0.05)';
+                        formGroup.style.borderRadius = '8px';
+                        formGroup.style.padding = '15px';
+                        formGroup.style.transition = 'all 0.3s ease';
+
+                        // Remove the highlight after a few seconds
+                        setTimeout(() => {
+                            formGroup.style.background = '';
+                            formGroup.style.padding = '';
+                        }, 3000);
+                    }
+
+                    console.log(`✅ Auto-selected service: ${serviceParam}`);
+                }
+            }
+        }
+
+        // ==========================================
+        // SIMPLE CONTACT FORM
+        // ==========================================
+
+        class SimpleContactForm {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.initHeroAnimation();
+                this.initMobileMenu();
+                this.initScrollAnimations();
+                this.setMinDate();
+            }
+
+            bindEvents() {
+                const form = document.getElementById('contactForm');
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleSubmit();
+                });
+
+                // Real-time validation
+                const inputs = form.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => this.validateField(input));
+                    input.addEventListener('input', () => this.clearFieldErrors(input));
+                });
+            }
+
+            validateField(field) {
+                const isRequired = field.hasAttribute('required');
+                const value = field.value.trim();
+
+                // Clear previous errors
+                this.clearFieldErrors(field);
+
+                if (isRequired && !value) {
+                    this.setFieldError(field, 'This field is required');
+                    return false;
+                }
+
+                // Email validation
+                if (field.type === 'email' && value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value)) {
+                        this.setFieldError(field, 'Please enter a valid email address');
+                        return false;
+                    }
+                }
+
+                // Checkbox validation for services
+                if (field.name === 'services[]') {
+                    const checkboxes = document.querySelectorAll('input[name="services[]"]');
+                    const checkedBoxes = Array.from(checkboxes).filter(cb => cb.checked);
+
+                    if (checkedBoxes.length === 0) {
+                        this.setFieldError(checkboxes[0], 'Please select at least one service');
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            setFieldError(field, message) {
+                const formGroup = field.closest('.form-group');
+                if (!formGroup) return;
+
+                formGroup.style.borderColor = 'var(--error-red)';
+
+                if (!formGroup.querySelector('.error-text')) {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-text';
+                    errorDiv.style.color = 'var(--error-red)';
+                    errorDiv.style.fontSize = '14px';
+                    errorDiv.style.marginTop = '5px';
+                    errorDiv.textContent = message;
+                    formGroup.appendChild(errorDiv);
+                }
+            }
+
+            clearFieldErrors(field) {
+                const formGroup = field.closest('.form-group');
+                if (!formGroup) return;
+
+                formGroup.style.borderColor = '';
+                const errorText = formGroup.querySelector('.error-text');
+                if (errorText) {
+                    errorText.remove();
+                }
+            }
+
+            validateForm() {
+                const form = document.getElementById('contactForm');
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!this.validateField(field)) {
+                        isValid = false;
+                    }
+                });
+
+                // Validate services checkboxes
+                const checkboxes = document.querySelectorAll('input[name="services[]"]');
+                const checkedBoxes = Array.from(checkboxes).filter(cb => cb.checked);
+
+                if (checkedBoxes.length === 0) {
+                    this.setFieldError(checkboxes[0], 'Please select at least one service');
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            async handleSubmit() {
+                if (!this.validateForm()) {
+                    return;
+                }
+
+                const submitBtn = document.getElementById('submitBtn');
+                const successMessage = document.getElementById('successMessage');
+                const errorMessage = document.getElementById('errorMessage');
+                const form = document.getElementById('contactForm');
+
+                // Show loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                try {
+                    const formData = new FormData(form);
+
+                    // Add timestamp and summary for better organization
+                    formData.append('form_submitted_at', new Date().toISOString());
+
+                    console.log('📤 Submitting to Formspree:', Object.fromEntries(formData));
+
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Hide form and show success message
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Track conversion (if you have analytics)
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'form_submit', {
+                                'event_category': 'contact',
+                                'event_label': 'contact_form'
+                            });
+                        }
+                    } else {
+                        const data = await response.json();
+                        console.error('Formspree error:', data);
+
+                        if (data && data.errors) {
+                            throw new Error(`Formspree validation error: ${data.errors.map(e => e.message).join(', ')}`);
+                        } else {
+                            throw new Error(`Server error: ${response.status}`);
+                        }
+                    }
+
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+
+                    // Show error message
+                    errorMessage.style.display = 'block';
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+
+                    // Scroll to error message
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            setMinDate() {
+                // Set minimum date to today
+                const today = new Date().toISOString().split('T')[0];
+                const dateInput = document.querySelector('input[type="date"]');
+                if (dateInput) {
+                    dateInput.min = today;
+                }
+            }
+
+            initHeroAnimation() {
+                setTimeout(() => {
+                    const heroElements = document.querySelectorAll('.hero-animate');
+                    heroElements.forEach(element => {
+                        element.classList.add('loaded');
+                    });
+                }, 300);
+            }
+
+            initScrollAnimations() {
+                if ('IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('is-visible');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        threshold: 0.1,
+                        rootMargin: '0px 0px -50px 0px'
+                    });
+
+                    document.querySelectorAll('.fade-in-element').forEach(element => {
+                        observer.observe(element);
+                    });
+                }
+            }
+
+            initMobileMenu() {
+                const toggle = document.querySelector('.mobile-menu-toggle');
+                const mobileNav = document.querySelector('.mobile-nav');
+
+                if (toggle && mobileNav) {
+                    toggle.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+                        toggle.classList.toggle('active');
+                        toggle.setAttribute('aria-expanded', !isExpanded);
+
+                        if (!isExpanded) {
+                            mobileNav.classList.add('active');
+                            mobileNav.style.display = 'block';
+                        } else {
+                            mobileNav.classList.remove('active');
+                            setTimeout(() => {
+                                mobileNav.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+
+                    // Close mobile menu when clicking links
+                    const links = mobileNav.querySelectorAll('a');
+                    links.forEach(link => {
+                        link.addEventListener('click', () => {
+                            toggle.classList.remove('active');
+                            mobileNav.classList.remove('active');
+                            toggle.setAttribute('aria-expanded', 'false');
+                            setTimeout(() => {
+                                mobileNav.style.display = 'none';
+                            }, 300);
+                        });
+                    });
+
+                    // Close mobile menu when clicking outside
+                    document.addEventListener('click', (e) => {
+                        if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                            toggle.classList.remove('active');
+                            mobileNav.classList.remove('active');
+                            toggle.setAttribute('aria-expanded', 'false');
+                            setTimeout(() => {
+                                mobileNav.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                }
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new SimpleContactForm();
+
+            // Add the auto-select functionality
+            autoSelectService();
+
+            console.log('🎉 Formspree-integrated contact form with auto-select initialized!');
+        });
+    </script>
+</body>
+</html>

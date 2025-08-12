@@ -1,0 +1,522 @@
+/* ==========================================
+   INQUIRE.CSS - CONTACT PAGE STYLES (TWO-COLUMN LAYOUT)
+   For: contact.html - Standardized layout to match other pages
+========================================== */
+
+/* ==========================================
+   HERO SECTION - Minimal section for breadcrumb alignment only
+========================================== */
+
+.hero {
+    padding: 120px 60px 30px;
+    background: var(--background-cream);
+    position: relative;
+    min-height: auto; /* Override the default 85vh */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    /*background: linear-gradient(135deg, transparent 0%, rgba(15, 95, 95, 0.02) 100%);*/
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start; /* Changed from center to start to minimize height */
+}
+
+.breadcrumb {
+    grid-column: 1 / -1;
+}
+
+/* ==========================================
+   CONTACT SECTION STYLING
+========================================== */
+
+.contact-section {
+    padding: 40px 60px 120px;
+    background: var(--background-cream);
+}
+
+.contact-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.contact-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    color: var(--primary-dark);
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.contact-subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   CONTACT GRID
+========================================== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* ==========================================
+   CONTACT IMAGE
+========================================== */
+
+.contact-image {
+    width: 400px;
+    height: 800px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background-image: url("../images/hero/couple-at-alter.jpg");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 25px 80px rgba(44, 44, 44, 0.15);
+    justify-self: center /* Aligns to the right edge of the grid column */
+}
+
+.contact-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 95, 95, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+/* ==========================================
+   CONTACT FORM
+========================================== */
+
+.contact-form {
+    background: var(--background-gray);
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 25px 80px rgba(44, 44, 44, 0.1);
+    border: 1px solid rgba(15, 95, 95, 0.08);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.required {
+    color: var(--accent-orange);
+    margin-left: 3px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid rgba(15, 95, 95, 0.1);
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    background: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-dark);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-teal);
+    box-shadow: 0 0 0 4px rgba(15, 95, 95, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ==========================================
+   CHECKBOX GROUP
+========================================== */
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkbox-input {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(15, 95, 95, 0.3);
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-input:checked {
+    background: var(--primary-teal);
+    border-color: var(--primary-teal);
+}
+
+.checkbox-input:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.checkbox-label {
+    font-size: 15px;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.submit-btn {
+    width: 100%;
+    padding: 18px 32px;
+    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(15, 95, 95, 0.2);
+    margin-top: 15px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(15, 95, 95, 0.3);
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ==========================================
+   LOADING STATE
+========================================== */
+
+.submit-btn.loading {
+    position: relative;
+    color: transparent;
+}
+
+.submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   SUCCESS/ERROR MESSAGES
+========================================== */
+
+.message {
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: none;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message.success {
+    background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+    color: white;
+}
+
+.message.error {
+    background: linear-gradient(135deg, var(--error-red) 0%, #dc2626 100%);
+    color: white;
+}
+
+.message-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* ==========================================
+   CONTACT INFO FOOTER
+========================================== */
+
+.contact-footer {
+    background: var(--background-cream);
+    padding: 60px;
+    text-align: center;
+}
+
+.contact-footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.office-hours {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-orange);
+    margin-bottom: 30px;
+}
+
+.office-hours h4 {
+    font-size: 16px;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.office-hours p {
+    font-size: 14px;
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+}
+
+.footer-links {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(15, 95, 95, 0.1);
+}
+
+.footer-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--primary-teal);
+}
+
+.footer-separator {
+    margin: 0 15px;
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+/* Large Desktop (1441px+) */
+@media (min-width: 1441px) {
+    .hero-container,
+    .contact-container {
+        max-width: 1600px;
+    }
+
+    .hero,
+    .contact-section {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: 60px;
+    }
+}
+
+/* Mobile (481px - 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 120px 20px 30px; /* Reduced side padding */
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .contact-section {
+        padding: 40px 20px 80px; /* Reduced side padding */
+    }
+
+    .contact-container {
+        padding: 0; /* Remove any additional padding */
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin: 0; /* Ensure no margin overflow */
+    }
+
+    .contact-image {
+        width: 100%; /* Full width instead of fixed 400px */
+        max-width: 100%;
+        height: 300px;
+        order: -1;
+        justify-self: stretch; /* Override the justify-self: end */
+        margin: 0; /* Remove any margins */
+    }
+
+    .contact-form {
+        padding: 30px 20px; /* Reduced padding */
+        margin: 0; /* Ensure no margin overflow */
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-footer {
+        padding: 40px 20px; /* Reduced side padding */
+    }
+}
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 15px 20px; /* Even more reduced padding */
+    }
+
+    .hero-container {
+        gap: 30px;
+    }
+
+    .contact-section {
+        padding: 30px 15px 60px; /* Even more reduced padding */
+    }
+
+    .contact-form {
+        padding: 25px 15px; /* Minimal padding */
+        border-radius: 15px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 14px 16px; /* Slightly reduced input padding */
+    }
+
+    .contact-footer {
+        padding: 30px 15px; /* Minimal padding */
+    }
+
+    .contact-image {
+        height: 250px;
+    }
+
+    .form-row {
+        gap: 15px;
+    }
+}
