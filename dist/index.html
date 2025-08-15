@@ -14,9 +14,42 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="The Tailored Experience Travel">
 
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/core.css" as="style">
+    <link rel="preload" href="css/homepage.css" as="style">
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="Josefin_Sans/JosefinSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+
+    <script>
+      // Load Google Analytics asynchronously to avoid blocking
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z92QX7TK22', {
+        // Optimize for Core Web Vitals
+        'send_page_view': false,
+        'transport_type': 'beacon'
+      });
+
+      // Send page view after page loads
+      window.addEventListener('load', function() {
+        gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href
+        });
+      });
+    </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z92QX7TK22"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-Z92QX7TK22"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
