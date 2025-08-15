@@ -1,0 +1,8 @@
+# Redirect old URLs to new clean URLs
+/destination-wedding-planning.html /destination-wedding.html 301
+/luxury-honeymoon-planning.html /luxury-honeymoon.html 301
+/contact.html /inquire.html 301
+
+# Ensure trailing slash consistency
+/destination-wedding/ /destination-wedding.html 301
+/luxury-honeymoon/ /luxury-honeymoon.html 301
