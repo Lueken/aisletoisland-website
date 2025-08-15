@@ -5,8 +5,6 @@
 *.swo
 *~
 
-# Unfinished/Development files (not ready for SEO)
-dev/
 
 # OS generated files
 .DS_Store
