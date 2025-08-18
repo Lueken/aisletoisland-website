@@ -1,8 +1,24 @@
-# Redirect old URLs to new clean URLs
-/destination-wedding-planning.html /destination-wedding.html 301
-/luxury-honeymoon-planning.html /luxury-honeymoon.html 301
-/contact.html /inquire.html 301
+# Handle extensionless URLs (most common user behavior)
+/privacy                    /privacy.html                    301
+/destination-wedding        /destination-wedding.html        301
+/luxury-honeymoon          /luxury-honeymoon.html           301
+/inquire                   /inquire.html                    301
 
-# Ensure trailing slash consistency
-/destination-wedding/ /destination-wedding.html 301
-/luxury-honeymoon/ /luxury-honeymoon.html 301
+# Legacy URL redirects (old website structure)
+/destination-wedding-planning.html  /destination-wedding.html  301
+/luxury-honeymoon-planning.html     /luxury-honeymoon.html     301
+/contact.html                       /inquire.html              301
+
+# Trailing slash consistency (clean URLs)
+/destination-wedding/       /destination-wedding.html        301
+/luxury-honeymoon/         /luxury-honeymoon.html           301
+/privacy/                  /privacy.html                    301
+/inquire/                  /inquire.html                    301
+
+# Ensure www consistency (if you prefer non-www)
+https://www.thetailoredexperiencetravel.com/*  https://thetailoredexperiencetravel.com/:splat  301!
+
+# Handle common typos/variations (optional but helpful)
+/contact                   /inquire.html                    301
+/wedding                   /destination-wedding.html        301
+/honeymoon                 /luxury-honeymoon.html           301
