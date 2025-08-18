@@ -24,12 +24,12 @@
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-   <url>
+   <!--<url>
       <loc>https://www.thetailoredexperiencetravel.com/blog.html</loc>
       <lastmod>2025-01-15</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
-   </url>
+   </url>-->
    <url>
       <loc>https://www.thetailoredexperiencetravel.com/privacy.html</loc>
       <lastmod>2025-01-15</lastmod>
