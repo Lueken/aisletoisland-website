@@ -1,17 +1,22 @@
 # Handle extensionless URLs (most common user behavior)
 /privacy                    /privacy.html                    301
 /destination-wedding        /destination-wedding.html        301
-/luxury-honeymoon          /luxury-honeymoon.html           301
+/curated-honeymoon         /curated-honeymoon.html          301
 /inquire                   /inquire.html                    301
 
 # Legacy URL redirects (old website structure)
 /destination-wedding-planning.html  /destination-wedding.html  301
-/luxury-honeymoon-planning.html     /luxury-honeymoon.html     301
+/luxury-honeymoon-planning.html     /curated-honeymoon.html    301
 /contact.html                       /inquire.html              301
+
+# OLD LUXURY HONEYMOON REDIRECTS (redirect to new curated honeymoon)
+/luxury-honeymoon.html             /curated-honeymoon.html    301
+/luxury-honeymoon                  /curated-honeymoon.html    301
+/luxury-honeymoon/                 /curated-honeymoon.html    301
 
 # Trailing slash consistency (clean URLs)
 /destination-wedding/       /destination-wedding.html        301
-/luxury-honeymoon/         /luxury-honeymoon.html           301
+/curated-honeymoon/        /curated-honeymoon.html          301
 /privacy/                  /privacy.html                    301
 /inquire/                  /inquire.html                    301
 
@@ -21,4 +26,6 @@ https://www.thetailoredexperiencetravel.com/*  https://thetailoredexperiencetrav
 # Handle common typos/variations (optional but helpful)
 /contact                   /inquire.html                    301
 /wedding                   /destination-wedding.html        301
-/honeymoon                 /luxury-honeymoon.html           301
+/honeymoon                 /curated-honeymoon.html          301
+/luxury                    /curated-honeymoon.html          301
+/curated                   /curated-honeymoon.html          301
