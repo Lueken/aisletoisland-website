@@ -96,46 +96,46 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label">Bride's Name<span class="required">*</span></label>
-                                    <input type="text" name="Bride's Name" class="form-input" required>
+                                    <input type="text" name="brides_name" class="form-input" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Groom's Name<span class="required">*</span></label>
-                                    <input type="text" name="Groom's Name" class="form-input" required>
+                                    <input type="text" name="grooms_name" class="form-input" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Your Email<span class="required">*</span></label>
-                                <input type="email" name="Email" class="form-input" required>
+                                <input type="email" name="email" class="form-input" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Your Phone Number<span class="required">*</span></label>
-                                <input type="phone" name="Phone" class="form-input" required>
+                                <input type="phone" name="phone" class="form-input" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">What is your celebration date?<span class="required">*</span></label>
-                                <input type="date" name="Celebration Date" class="form-input" required>
+                                <input type="date" name="celebration_date" class="form-input" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Please select all services you are interested in:<span class="required">*</span></label>
                                 <div class="checkbox-group">
                                     <div class="checkbox-item">
-                                        <input type="radio" name="Service" value="destination-wedding" class="checkbox-input" id="destination-wedding">
+                                        <input type="radio" name="services[]" value="destination-wedding" class="checkbox-input" id="destination-wedding">
                                         <label for="destination-wedding" class="checkbox-label">Destination Wedding</label>
                                     </div>
                                     <div class="checkbox-item">
-                                        <input type="radio" name="Service" value="curated-honeymoon" class="checkbox-input" id="curated-honeymoon">
+                                        <input type="radio" name="services[]" value="curated-honeymoon" class="checkbox-input" id="curated-honeymoon">
                                         <label for="curated-honeymoon" class="checkbox-label">Honeymoon</label>
                                     </div>
                                     <div class="checkbox-item">
-                                        <input type="radio" name="Service" value="both-services" class="checkbox-input" id="coordination">
+                                        <input type="radio" name="services[]" value="both-services" class="checkbox-input" id="coordination">
                                         <label for="coordination" class="checkbox-label">Destination Wedding & Honeymoon</label>
                                     </div>
                                     <div class="checkbox-item">
-                                        <input type="radio" name="Service" value="other" class="checkbox-input" id="coordination">
+                                        <input type="radio" name="services[]" value="other" class="checkbox-input" id="coordination">
                                         <label for="coordination" class="checkbox-label">Other</label>
                                     </div>
                                 </div>
@@ -143,27 +143,27 @@
 
                             <div class="form-group">
                                 <label class="form-label">Where will your celebration take place?<span class="required">*</span></label>
-                                <input type="text" name="Location" class="form-input" placeholder="e.g., Tuscany, Bali, Caribbean, or open to suggestions" required>
+                                <input type="text" name="celebration_location" class="form-input" placeholder="e.g., Tuscany, Bali, Caribbean, or open to suggestions" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">What is your planned total investment (in USD)?<span class="required">*</span></label>
-                                <input type="number" name="Planned Budget" class="form-input" required>
+                                <input type="number" name="planned_investment" class="form-input" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">What is your planned total guest count?<span class="required">*</span></label>
-                                <input type="number" name="Guest Count" class="form-input" required>
+                                <input type="number" name="guest_count" class="form-input" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Optional: What is the greatest challenge you have right now with your planning?</label>
-                                <textarea name="Additional Info" class="form-textarea" rows="4" placeholder="finding time, vetting vendors, family pressures…"></textarea>
+                                <textarea name="additional_info" class="form-textarea" rows="4" placeholder="finding time, vetting vendors, family pressures…"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Optional: How did you hear about us?</label>
-                                <select name="Referral Source" class="form-select">
+                                <select name="referral_source" class="form-select">
                                     <option value="">Select an option</option>
                                     <option value="past-client">Past Client Referral</option>
                                     <option value="google">Google Search</option>
