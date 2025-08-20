@@ -20,8 +20,8 @@
 /privacy/                  /privacy.html                    301
 /inquire/                  /inquire.html                    301
 
-# Ensure www consistency (if you prefer non-www)
-https://www.thetailoredexperiencetravel.com/*  https://thetailoredexperiencetravel.com/:splat  301!
+# Ensure www consistency (prefer non-www for new domain)
+https://www.aisletoisland.com/*  https://aisletoisland.com/:splat  301!
 
 # Handle common typos/variations (optional but helpful)
 /contact                   /inquire.html                    301
@@ -29,3 +29,7 @@ https://www.thetailoredexperiencetravel.com/*  https://thetailoredexperiencetrav
 /honeymoon                 /curated-honeymoon.html          301
 /luxury                    /curated-honeymoon.html          301
 /curated                   /curated-honeymoon.html          301
+
+# Handle old domain references that might slip through
+/thetailoredexperiencetravel  /                              301
+/tailored                     /                              301
