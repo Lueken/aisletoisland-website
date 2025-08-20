@@ -322,7 +322,7 @@
 }
 
 .message.success {
-    background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+    background: var(--text-light);
     color: white;
 }
 
