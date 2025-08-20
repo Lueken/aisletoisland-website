@@ -150,8 +150,31 @@ nav {
     position: relative;
 }
 
+.logo-mark-foot {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    overflow: hidden;
+    position: relative;
+}
+
 .logo-mark.logo-bg {
-    background-image: url("../images/logos/tailored_experience_logo.webp");
+    background-image: url("../images/logos/aisle-to-islands-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+}
+
+.logo-mark-foot.logo-bg-foot {
+    background-image: url("../images/logos/aisle-to-islands-brand-logo.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -165,14 +188,14 @@ nav {
     letter-spacing: -0.3px;
 }
 
-.tagline {
+/*.tagline {
     font-size: 10px;
     color: var(--text-light);
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     margin-top: 1px;
-}
+}*/
 
 /* Desktop Navigation */
 .nav-links {
@@ -451,43 +474,44 @@ nav {
 .footer-logo {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center the logo content */
     gap: 15px;
     margin-bottom: 25px;
+    /* Remove the background: white; line */
+
+    /* Add a contained background for just the logo area */
+    width: fit-content; /* Only as wide as the content */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1px 30px; /* Add some padding around the logo */
+    background: var(--background-cream); /* Subtle background that fits the dark theme */
+    border-radius: 12px; /* Rounded corners for a modern look */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
 }
 
+/* Alternative option - if you want a more prominent white background */
+.footer-logo.white-bg {
+    background: white;
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust logo mark for the new container */
 .footer-logo .logo-mark {
-    width: 45px;
+    width: 45px; /* Slightly larger for better visibility */
     height: 45px;
     flex-shrink: 0;
 }
 
-.footer-logo-text {
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
-    font-family: 'Josefin Sans', sans-serif;
-    letter-spacing: -0.3px;
-    line-height: 1.2;
+/* Update text colors if using white background variant */
+.footer-logo.white-bg .footer-logo-text {
+    color: var(--primary-dark); /* Dark text on white background */
 }
 
-.footer-tagline {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 3px;
-}
-
-.footer-description {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.8);
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    margin: 0;
-    max-width: 320px;
+.footer-logo.white-bg .footer-tagline {
+    color: var(--text-light); /* Lighter text for tagline on white background */
 }
 
 /* ==========================================
@@ -682,7 +706,13 @@ nav {
     }
 
     .footer-logo {
-        justify-content: center;
+        padding: 18px 25px;
+        margin-bottom: 30px;
+    }
+
+    .footer-logo .logo-mark {
+        width: 40px;
+        height: 40px;
     }
 
     .footer-description {
@@ -739,6 +769,16 @@ nav {
 
     .footer-logo-text {
         font-size: 18px;
+    }
+
+    .footer-logo {
+        padding: 15px 20px;
+        gap: 12px;
+    }
+
+    .footer-logo .logo-mark {
+        width: 35px;
+        height: 35px;
     }
 
     .footer-tagline {
