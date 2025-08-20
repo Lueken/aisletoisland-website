@@ -5,6 +5,7 @@
 *.swo
 *~
 
+_redirects
 
 # OS generated files
 .DS_Store
