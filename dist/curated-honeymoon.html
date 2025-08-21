@@ -6,13 +6,30 @@
     <title>Curated Honeymoon Planning | Tailored Experience</title>
     <meta name="description" content="Curated honeymoon planning for discerning couples. From tropical paradises to cultural adventures - perfectly tailored romantic escapes.">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T6MTW0MC1H"></script>
+    <!-- Instead of the default GA code, use this approach -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('config', 'G-Z92QX7TK22', {
+        // Optimize for Core Web Vitals
+        'send_page_view': false,
+        'transport_type': 'beacon'
+      });
 
-      gtag('config', 'G-T6MTW0MC1H');
+      // Load GA after page loads
+      window.addEventListener('load', function() {
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z92QX7TK22';
+        script.async = true;
+        document.head.appendChild(script);
+
+        // Send page view after loading
+        gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href
+        });
+      });
     </script>
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>      <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/honeymoon.css">
