@@ -166,7 +166,7 @@ nav {
 }
 
 .logo-mark.logo-bg {
-    background-image: url("../images/logos/aisle-to-islands-logo.png");
+    background-image: url("../images/logos/aisle-to-islands-logo.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -174,7 +174,7 @@ nav {
 }
 
 .logo-mark-foot.logo-bg-foot {
-    background-image: url("../images/logos/aisle-to-islands-brand-logo.png");
+    background-image: url("../images/logos/aisle-to-islands-brand-logo.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
