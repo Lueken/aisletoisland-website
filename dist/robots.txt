@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.thetailoredexperiencetravel.com/sitemap.xml
+# Allow analytics scripts
+Allow: /analytics.js
+Allow: https://analytics.ahrefs.com/analytics.js
+
+Sitemap: https://aisle-to-islands.com/sitemap.xml
