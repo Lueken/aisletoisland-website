@@ -6,39 +6,10 @@
     <title>Destination Wedding Planning | Tailored Experience</title>
     <meta name="description" content="Expert destination wedding planning for discerning couples. Seamless coordination transforms your vision into celebrations worldwide.">
 
-    <!-- Instead of the default GA code, use this approach -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Z92QX7TK22', {
-        // Optimize for Core Web Vitals
-        'send_page_view': false,
-        'transport_type': 'beacon'
-      });
-
-      // Load GA after page loads
-      window.addEventListener('load', function() {
-        const script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z92QX7TK22';
-        script.async = true;
-        document.head.appendChild(script);
-
-        // Send page view after loading
-        gtag('event', 'page_view', {
-          page_title: document.title,
-          page_location: window.location.href
-        });
-      });
-    </script>
-
-    <!--ahrefs tracking-->
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>
     <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/destination-wedding.css">
-    <link rel="canonical" href="https://aisle-to-islands.com/destination-wedding">
-
-
+    <link rel="canonical" href="https://Aisle-to-Island.com/destination-wedding.html">
 </head>
 <body>
     <nav role="navigation" aria-label="Main navigation">
@@ -47,7 +18,6 @@
                 <div class="logo-mark logo-bg" role="img" aria-label="Aisle to Islands logo"></div>
                 <div>
                     <div class="logo-text">Aisle to Islands</div>
-<!--                    <div class="tagline">It's not just the destination, it's the experience</div>-->
                 </div>
             </div>
 
@@ -56,7 +26,6 @@
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="destination-wedding.html" role="menuitem" aria-current="page">Destination Wedding</a></li>
                 <li role="none"><a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
-<!--                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>-->
                 <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
             </ul>
 
@@ -73,7 +42,6 @@
             <a href="index.html" role="menuitem">Home</a>
             <a href="destination-wedding.html" role="menuitem" aria-current="page">Destination Wedding</a>
             <a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
-<!--            <a href="blog.html" role="menuitem" aria-current="page">Blog</a>-->
             <a href="inquire.html" role="menuitem">Inquire</a>
         </div>
     </nav>
@@ -86,7 +54,6 @@
                 </div>
 
                 <div class="hero-content hero-animate">
-<!--                    <div class="hero-badge">Destination Wedding Planning</div>-->
                     <h1 id="hero-title" class="hero-title">Your <span class="title-emphasis">Wedding</span>, Inspiration to "I Do"</h1>
 
                     <p class="hero-subtitle">Transform your vision into reality with our destination wedding planning service. From intimate mountainside ceremonies to grand beach resort celebrations, we thoughtfully create every detail of your perfect day in the world's most distinguished locations.</p>
@@ -113,7 +80,6 @@
 
                 <div class="hero-visual">
                     <div class="hero-image-box" role="img" aria-label="Beautiful destination wedding setting">
-
                     </div>
                 </div>
             </div>
@@ -174,7 +140,7 @@
                 <h2 id="cta-title" class="cta-title">Ready to Begin?</h2>
                 <p class="cta-description">Let's discuss your vision and explore how we can create the destination wedding that perfectly reflects your love story. Schedule a complimentary consultation to get started on this incredible journey.</p>
 
-                <a href="inquire.html?value=destination-wedding" class="cta-button-final">Plan Your Wedding</a>
+                <a href="inquire.html?service=destination-wedding" class="cta-button-final">Plan Your Wedding</a>
             </div>
         </section>
     </main>
@@ -184,10 +150,6 @@
             <div class="footer-section">
                 <div class="footer-logo">
                     <div class="logo-mark-foot logo-bg-foot"></div>
-                    <!--<div>
-                        <div class="footer-logo-text">Aisle to Island</div>
-                        <div class="footer-tagline">It's not just the destination, it's the experience</div>
-                    </div>-->
                 </div>
             </div>
 
@@ -206,17 +168,10 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="inquire.html">Inquire</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
-<!--                    <li><a href="terms-of-service.html">Terms of Service</a></li>-->
                 </ul>
             </div>
 
             <div class="footer-section">
-<!--                <h4>Connect</h4>-->
-<!--                <div class="social-links">-->
-<!--                    <a href="#" aria-label="Instagram">Instagram</a>-->
-<!--                    <a href="#" aria-label="Pinterest">Pinterest</a>-->
-<!--                    <a href="#" aria-label="Facebook">Facebook</a>-->
-<!--                </div>-->
             </div>
         </div>
 
@@ -227,242 +182,44 @@
         </div>
     </footer>
 
+    <!-- Core JavaScript Module -->
+    <script src="js/core.js"></script>
+
+    <!-- Page-specific initialization -->
     <script>
-        console.log('🚀 WEDDING PAGE - BULLETPROOF ANIMATIONS LOADING...');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('💒 Destination Wedding page initialization starting...');
 
-        // ==========================================
-        // BULLETPROOF ANIMATION SYSTEM
-        // ==========================================
-
-        function initBulletproofAnimations() {
-            console.log('💫 Initializing wedding page animations...');
-
-            // Step 1: Hero animations first
-            setTimeout(() => {
-                const heroContent = document.querySelector('.hero-content');
-                const heroVisual = document.querySelector('.hero-visual');
-
-                if (heroContent) {
-                    heroContent.classList.add('loaded');
-                    console.log('✅ Wedding hero content animated');
-                }
-
-                if (heroVisual) {
-                    heroVisual.classList.add('loaded');
-                    console.log('✅ Wedding hero visual animated');
-                }
-            }, 300);
-
-            // Step 2: Setup scroll animations
-            if ('IntersectionObserver' in window) {
-                const observerOptions = {
-                    threshold: 0.2,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach((entry, index) => {
-                        if (entry.isIntersecting) {
-                            console.log('🎯 Wedding element entering viewport:', entry.target.className);
-
-                            // Add slight delay to prevent all animations firing at once
-                            setTimeout(() => {
-                                entry.target.classList.add('is-visible');
-                                console.log('✨ Wedding animation applied to:', entry.target.className);
-                            }, index * 150);
-
-                            // Stop observing once animated
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, observerOptions);
-
-                // Find all elements to animate
-                const animateElements = document.querySelectorAll('.fade-in-element');
-                console.log(`🎭 Found ${animateElements.length} wedding elements to animate`);
-
-                // Start observing with staggered delays
-                animateElements.forEach((element, index) => {
-                    element.style.transitionDelay = `${index * 0.15}s`;
-                    observer.observe(element);
-                });
-
-                console.log('👀 Wedding Intersection Observer initialized');
-            } else {
-                // Fallback for older browsers
-                console.log('⚠️ Intersection Observer not supported, using wedding fallback');
-
-                setTimeout(() => {
-                    document.querySelectorAll('.fade-in-element').forEach((element, index) => {
-                        setTimeout(() => {
-                            element.classList.add('is-visible');
-                        }, index * 300 + 1000);
-                    });
-                }, 500);
-            }
-        }
-
-        // Enhanced mobile menu functionality
-        function initMobileMenu() {
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            const mobileNav = document.querySelector('.mobile-nav');
-
-            if (toggle && mobileNav) {
-                toggle.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-                    toggle.classList.toggle('active');
-                    toggle.setAttribute('aria-expanded', !isExpanded);
-
-                    if (!isExpanded) {
-                        mobileNav.classList.add('active');
-                        mobileNav.style.display = 'block';
-                        mobileNav.offsetHeight;
-                    } else {
-                        mobileNav.classList.remove('active');
-                        setTimeout(() => {
-                            mobileNav.style.display = 'none';
-                        }, 300);
-                    }
-                });
-
-                const links = mobileNav.querySelectorAll('a');
-                links.forEach(link => {
-                    link.addEventListener('click', () => {
-                        toggle.classList.remove('active');
-                        mobileNav.classList.remove('active');
-                        toggle.setAttribute('aria-expanded', 'false');
-                        setTimeout(() => {
-                            mobileNav.style.display = 'none';
-                        }, 300);
-                    });
-                });
-
-                document.addEventListener('click', (e) => {
-                    if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
-                        toggle.classList.remove('active');
-                        mobileNav.classList.remove('active');
-                        toggle.setAttribute('aria-expanded', 'false');
-                        setTimeout(() => {
-                            mobileNav.style.display = 'none';
-                        }, 300);
-                    }
+            // Initialize core with destination wedding specific config
+            if (window.AisleToIslands && !window.AisleToIslands.isInitialized) {
+                window.AisleToIslands.init({
+                    // Destination wedding page specific settings
+                    animationDelay: 300,
+                    staggerDelay: 150,
+                    intersectionThreshold: 0.2
                 });
             }
-            console.log('📱 Wedding mobile menu initialized');
-        }
 
-        // Smooth scrolling
-        function initSmoothScrolling() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        const offsetTop = target.offsetTop - 100;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            console.log('🔗 Wedding smooth scrolling initialized');
-        }
+            // Initialize Google Analytics
+            window.AisleToIslands.initGoogleAnalytics();
 
-        // Enhanced navbar effects
-        function initNavbarEffects() {
-            const nav = document.querySelector('nav');
-            let ticking = false;
+            console.log('💒 Destination Wedding page fully initialized');
+        });
 
-            function updateNavbar() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        // Page fully loaded
+        window.addEventListener('load', () => {
+            console.log('✅ Destination Wedding page assets loaded');
+        });
 
-                if (scrollTop > 50) {
-                    nav.style.background = 'rgba(250, 248, 245, 0.98)';
-                    nav.style.boxShadow = '0 2px 20px rgba(15, 95, 95, 0.08)';
-                } else {
-                    nav.style.background = 'rgba(250, 248, 245, 0.97)';
-                    nav.style.boxShadow = 'none';
-                }
-
-                ticking = false;
-            }
-
-            function requestTick() {
-                if (!ticking) {
-                    requestAnimationFrame(updateNavbar);
-                    ticking = true;
-                }
-            }
-
-            window.addEventListener('scroll', requestTick, { passive: true });
-            console.log('🎛️ Wedding navbar effects initialized');
-        }
-
-        // Performance optimizations
-        function initPerformanceOptimizations() {
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-            if (prefersReducedMotion.matches) {
-                console.log('♿ Reduced motion detected for wedding page');
-                const style = document.createElement('style');
-                style.textContent = `
-                    *, *::before, *::after {
-                        animation-duration: 0.01ms !important;
-                        animation-iteration-count: 1 !important;
-                        transition-duration: 0.01ms !important;
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-
-            document.addEventListener('visibilitychange', () => {
-                const elements = document.querySelectorAll('.fade-in-element, .hero-animate');
-                elements.forEach(element => {
-                    if (document.hidden) {
-                        element.style.animationPlayState = 'paused';
-                    } else {
-                        element.style.animationPlayState = 'running';
-                    }
-                });
-            });
-            console.log('⚡ Wedding performance optimizations applied');
-        }
-
-        // Manual test function (available in console)
-        window.testWeddingAnimations = function() {
-            console.log('🧪 WEDDING MANUAL ANIMATION TEST');
+        // Debug function specific to this page
+        window.testDestinationWeddingAnimations = function() {
+            console.log('🧪 DESTINATION WEDDING ANIMATION TEST');
             const elements = document.querySelectorAll('.fade-in-element');
             elements.forEach((element, index) => {
-                console.log(`Testing wedding element ${index + 1}:`, element);
+                console.log(`Testing destination wedding element ${index + 1}:`, element);
                 element.classList.toggle('is-visible');
             });
         };
-
-        // Initialize everything with proper timing
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('📄 Wedding DOM loaded, starting initialization...');
-
-            // Initialize core functionality first
-            initPerformanceOptimizations();
-            initMobileMenu();
-            initSmoothScrolling();
-            initNavbarEffects();
-
-            // Initialize animations with delay to ensure CSS is ready
-            setTimeout(() => {
-                initBulletproofAnimations();
-                console.log('🎉 WEDDING PAGE - ALL SYSTEMS INITIALIZED!');
-                console.log('💡 Try typing "testWeddingAnimations()" in console to manually test');
-            }, 100);
-        });
-
-        // Additional debugging
-        window.addEventListener('load', () => {
-            console.log('🏁 Wedding page fully loaded');
-        });
     </script>
 </body>
 </html>

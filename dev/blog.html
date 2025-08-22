@@ -5,46 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Insights & Wedding Planning Tips | Aisle to Islands</title>
     <meta name="description" content="Expert insights on destination wedding planning, luxury honeymoon destinations, and travel tips from Aisle to Islands.">
-    <!-- Google tag (gtag.js) -->
-    <!-- Instead of the default GA code, use this approach -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Z92QX7TK22', {
-        // Optimize for Core Web Vitals
-        'send_page_view': false,
-        'transport_type': 'beacon'
-      });
 
-      // Load GA after page loads
-      window.addEventListener('load', function() {
-        const script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z92QX7TK22';
-        script.async = true;
-        document.head.appendChild(script);
-
-        // Send page view after loading
-        gtag('event', 'page_view', {
-          page_title: document.title,
-          page_location: window.location.href
-        });
-      });
-    </script>
-<!--    <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>-->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Z92QX7TK22');
-    </script>
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="ywcRht9p5oOpmSuHT2WXlQ" async></script>
-    <link rel="stylesheet" href="css/core.css">
-    <link rel="stylesheet" href="css/blog.css">
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>
+    <link rel="stylesheet" href="../dist/css/core.css">
+    <link rel="stylesheet" href="../dev/blog.css">
     <link rel="canonical" href="https://Aisle-to-Island.com/blog.html">
-
-
 </head>
 <body>
     <nav role="navigation" aria-label="Main navigation">
@@ -53,14 +18,13 @@
                 <div class="logo-mark logo-bg" role="img" aria-label="Aisle to Islands logo"></div>
                 <div>
                     <div class="logo-text">Aisle to Islands</div>
-<!--                    <div class="tagline">It's not just the destination, it's the experience</div>-->
                 </div>
             </div>
 
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="destination-wedding.html" role="menuitem">Destination Wedding</a></li>
-                <li role="none"><a href="luxury-honeymoon.html" role="menuitem">Luxury Honeymoon</a></li>
+                <li role="none"><a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
                 <li role="none"><a href="blog.html" role="menuitem" aria-current="page">Blog</a></li>
                 <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
             </ul>
@@ -75,9 +39,9 @@
         <div class="mobile-nav" role="menu">
             <a href="index.html" role="menuitem">Home</a>
             <a href="destination-wedding.html" role="menuitem">Destination Wedding</a>
-            <a href="luxury-honeymoon.html" role="menuitem">Luxury Honeymoon</a>
+            <a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
             <a href="blog.html" role="menuitem" aria-current="page">Blog</a>
-            <a href="inquire.html" role="menuitem" aria-current="page">Inquire</a>
+            <a href="inquire.html" role="menuitem">Inquire</a>
         </div>
     </nav>
 
@@ -114,11 +78,11 @@
         <section class="blog-posts">
             <div class="blog-container">
                 <div id="postsContainer" class="posts-grid">
-                    <!-- Posts will be loaded here -->
+                    <!-- Posts will be loaded here by blog.js -->
                     <div class="loading">Loading posts...</div>
                 </div>
                 <div class="pagination" id="pagination" style="display: none;">
-                    <!-- Pagination will be generated here -->
+                    <!-- Pagination will be generated here by blog.js -->
                 </div>
             </div>
         </section>
@@ -129,20 +93,15 @@
             <div class="footer-section">
                 <div class="footer-logo">
                     <div class="logo-mark-foot logo-bg-foot"></div>
-                    <!--<div>
-                        <div class="footer-logo-text">Aisle to Islands</div>
-                        <div class="footer-tagline">It's not just the destination, it's the experience</div>
-                    </div>-->
                 </div>
-<!--                <p class="footer-description">Specializing in destination weddings and luxury honeymoons that bridge the gap between your unique romantic vision and bringing it to fruition.</p>-->
             </div>
 
             <div class="footer-section">
                 <h4>Services</h4>
                 <ul>
                     <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
-                    <li><a href="luxury-honeymoon.html">Luxury Honeymoon Planning</a></li>
-                    <li><a href="inquire.html">Consultation</a></li>
+                    <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
+                    <li><a href="inquire.html">Inquire</a></li>
                 </ul>
             </div>
 
@@ -152,20 +111,10 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="inquire.html">Inquire</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
-<!--                    <li><a href="terms-of-service.html">Terms of Service</a></li>-->
                 </ul>
             </div>
 
             <div class="footer-section">
-<!--                <h4>Connect</h4>-->
-<!--                <div class="social-links">-->
-<!--                    <a href="#" aria-label="Instagram">Instagram</a>-->
-<!--                    <a href="#" aria-label="Pinterest">Pinterest</a>-->
-<!--                    <a href="#" aria-label="Facebook">Facebook</a>-->
-<!--                </div>-->
-<!--                <div class="contact-info">-->
-<!--                    <p>travel@AisletoIsland.com</p>-->
-<!--                </div>-->
             </div>
         </div>
 
@@ -176,546 +125,83 @@
         </div>
     </footer>
 
+    <!-- Core JavaScript Module -->
+    <script src="../dist/js/core.js"></script>
+
+    <!-- Blog Module -->
+    <script src="../dist/js/blog.js"></script>
+
+    <!-- Page-specific initialization -->
     <script>
-        console.log('🚀 BLOG PAGE LOADING...');
-
-        // ==========================================
-        // SANITY CLIENT SETUP
-        // ==========================================
-
-        // Initialize Sanity Client - Replace with your project details
-        const sanityClient = {
-            projectId: 'etjqucnf', // Replace with your Sanity project ID
-            dataset: 'production', // Replace with your dataset name
-            apiVersion: '2024-01-01',
-            useCdn: true
-        };
-
-        // Sanity query builder
-        function buildSanityQuery(category = 'all', searchTerm = '', offset = 0, limit = 9) {
-            let query = `*[_type == "post" && publishedAt <= now()`;
-
-            if (category !== 'all') {
-                query += ` && category->slug.current == "${category}"`;
-            }
-
-            if (searchTerm) {
-                query += ` && (title match "${searchTerm}*" || excerpt match "${searchTerm}*")`;
-            }
-
-            query += `] | order(publishedAt desc) {
-                _id,
-                title,
-                slug,
-                excerpt,
-                publishedAt,
-                mainImage {
-                    asset->{
-                        _id,
-                        url
-                    }
-                },
-                category->{
-                    title,
-                    slug
-                },
-                author->{
-                    name,
-                    slug
-                },
-                featured
-            }`;
-
-            return query;
-        }
-
-        // Mock data for development (remove when connected to Sanity)
-        const mockPosts = [
-            {
-                _id: '1',
-                title: 'The Ultimate Guide to Planning Your Destination Wedding in Bali',
-                slug: { current: 'destination-wedding-bali-guide' },
-                excerpt: 'Discover the secrets to planning an unforgettable destination wedding in Bali, from choosing the perfect venue to navigating local customs and creating magical moments.',
-                publishedAt: '2024-01-15T10:00:00Z',
-                mainImage: {
-                    asset: {
-                        url: '/pexels-alexander-mass-748453803-26201422.jpg'
-                    }
-                },
-                category: {
-                    title: 'Destination Weddings',
-                    slug: { current: 'destination-weddings' }
-                },
-                author: {
-                    name: 'Jessica',
-                    slug: { current: 'jessica' }
-                },
-                featured: true
-            },
-            {
-                _id: '2',
-                title: 'Top 10 Luxury Honeymoon Destinations for 2024',
-                slug: { current: 'luxury-honeymoon-destinations-2024' },
-                excerpt: 'Explore the most romantic and luxurious honeymoon destinations that offer the perfect blend of adventure, relaxation, and intimate moments for newlyweds.',
-                publishedAt: '2024-01-10T14:30:00Z',
-                mainImage: {
-                    asset: {
-                        url: '/pexels-asadphoto-11118954.jpg'
-                    }
-                },
-                category: {
-                    title: 'Honeymoons',
-                    slug: { current: 'honeymoons' }
-                },
-                author: {
-                    name: 'Jessica',
-                    slug: { current: 'jessica' }
-                },
-                featured: false
-            },
-            {
-                _id: '3',
-                title: 'Wedding Planning Timeline: 12 Months to Your Perfect Day',
-                slug: { current: 'wedding-planning-timeline-12-months' },
-                excerpt: 'A comprehensive month-by-month guide to planning your destination wedding, ensuring no detail is overlooked and stress is minimized.',
-                publishedAt: '2024-01-05T09:15:00Z',
-                mainImage: {
-                    asset: {
-                        url: '/pexels-emma-bauso-1183828-3585806.jpg'
-                    }
-                },
-                category: {
-                    title: 'Planning Guides',
-                    slug: { current: 'planning-guides' }
-                },
-                author: {
-                    name: 'Jessica',
-                    slug: { current: 'jessica' }
-                },
-                featured: false
-            },
-            {
-                _id: '4',
-                title: 'Travel Tips: What to Pack for Your Tropical Wedding',
-                slug: { current: 'tropical-wedding-packing-tips' },
-                excerpt: 'Essential packing tips for couples getting married in tropical destinations, including weather considerations and travel-friendly wedding attire.',
-                publishedAt: '2024-01-01T16:45:00Z',
-                mainImage: {
-                    asset: {
-                        url: '/pexels-leeloothefirst-4679176.jpg'
-                    }
-                },
-                category: {
-                    title: 'Travel Tips',
-                    slug: { current: 'travel-tips' }
-                },
-                author: {
-                    name: 'Jessica',
-                    slug: { current: 'jessica' }
-                },
-                featured: false
-            },
-            {
-                _id: '5',
-                title: 'Creating Unforgettable Moments: Wedding Guest Experience',
-                slug: { current: 'wedding-guest-experience-guide' },
-                excerpt: 'Learn how to create an extraordinary experience for your wedding guests, from welcome packages to local experiences and thoughtful touches.',
-                publishedAt: '2023-12-28T11:20:00Z',
-                mainImage: {
-                    asset: {
-                        url: '/pexels-gustavo-fring-4172923.jpg'
-                    }
-                },
-                category: {
-                    title: 'Destination Weddings',
-                    slug: { current: 'destination-weddings' }
-                },
-                author: {
-                    name: 'Jessica',
-                    slug: { current: 'jessica' }
-                },
-                featured: false
-            },
-            {
-                _id: '6',
-                title: 'Honeymoon Photography: Capturing Your Love Story',
-                slug: { current: 'honeymoon-photography-tips' },
-                excerpt: 'Professional tips for capturing beautiful honeymoon photos, from choosing the right photographer to creating lasting memories of your romantic journey.',
-                publishedAt: '2023-12-25T13:00:00Z',
-                mainImage: {
-                    asset: {
-                        url: '/pexels-asadphoto-1024967.jpg'
-                    }
-                },
-                category: {
-                    title: 'Honeymoons',
-                    slug: { current: 'honeymoons' }
-                },
-                author: {
-                    name: 'Jessica',
-                    slug: { current: 'jessica' }
-                },
-                featured: false
-            }
-        ];
-
-        // ==========================================
-        // BLOG FUNCTIONALITY
-        // ==========================================
-
-        let currentPosts = [];
-        let filteredPosts = [];
-        let currentPage = 1;
-        const postsPerPage = 9;
-
-        // Format date
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-        }
-
-        // Create post card HTML
-        function createPostCard(post, featured = false) {
-            const imageUrl = post.mainImage?.asset?.url || '/pexels-emma-bauso-1183828-3585806.jpg';
-            const categoryTitle = post.category?.title || 'General';
-            const categorySlug = post.category?.slug?.current || 'general';
-
-            if (featured) {
-                return `
-                    <article class="post-card featured-post fade-in-element">
-                        <div class="post-image" style="background-image: url('${imageUrl}')"></div>
-                        <div class="post-content">
-                            <div class="featured-badge">Featured</div>
-                            <div class="post-meta">
-                                <span class="post-date">📅 ${formatDate(post.publishedAt)}</span>
-                                <span class="post-category">${categoryTitle}</span>
-                            </div>
-                            <h2 class="post-title">${post.title}</h2>
-                            <p class="post-excerpt">${post.excerpt}</p>
-                            <a href="blog-post.html?slug=${post.slug.current}" class="read-more">Read Full Article</a>
-                        </div>
-                    </article>
-                `;
-            }
-
-            return `
-                <article class="post-card fade-in-element">
-                    <div class="post-image" style="background-image: url('${imageUrl}')">
-                        <span class="post-category">${categoryTitle}</span>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">📅 ${formatDate(post.publishedAt)}</span>
-                        </div>
-                        <h2 class="post-title">${post.title}</h2>
-                        <p class="post-excerpt">${post.excerpt}</p>
-                        <a href="blog-post.html?slug=${post.slug.current}" class="read-more">Read Full Article</a>
-                    </div>
-                </article>
-            `;
-        }
-
-        // Load posts (mock data for now)
-        async function loadPosts(category = 'all', searchTerm = '') {
-            const container = document.getElementById('postsContainer');
-            container.innerHTML = '<div class="loading">Loading posts...</div>';
-
-            try {
-                // Build the query
-                let query = `*[_type == "post" && publishedAt <= now()`;
-
-                if (category !== 'all') {
-                    query += ` && category->slug.current == "${category}"`;
-                }
-
-                if (searchTerm) {
-                    query += ` && (title match "${searchTerm}*" || excerpt match "${searchTerm}*")`;
-                }
-
-                query += `] | order(publishedAt desc) {
-                    _id,
-                    title,
-                    slug,
-                    excerpt,
-                    publishedAt,
-                    mainImage {
-                        asset->{
-                            _id,
-                            url
-                        }
-                    },
-                    category->{
-                        title,
-                        slug
-                    },
-                    author->{
-                        name,
-                        slug
-                    },
-                    featured
-                }`;
-
-                const url = `https://${sanityClient.projectId}.api.sanity.io/v${sanityClient.apiVersion}/data/query/${sanityClient.dataset}?query=${encodeURIComponent(query)}`;
-                const response = await fetch(url);
-                const data = await response.json();
-
-                currentPosts = data.result;
-                filteredPosts = currentPosts;
-
-                displayPosts();
-
-            } catch (error) {
-                console.error('Error loading posts:', error);
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <h3>Unable to load posts</h3>
-                        <p>Please try again later.</p>
-                    </div>
-                `;
-            }
-        }
-
-        // Display posts
-        function displayPosts() {
-            const container = document.getElementById('postsContainer');
-
-            if (filteredPosts.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <h3>No posts found</h3>
-                        <p>Try adjusting your search or filter criteria.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            const startIndex = (currentPage - 1) * postsPerPage;
-            const endIndex = startIndex + postsPerPage;
-            const postsToShow = filteredPosts.slice(startIndex, endIndex);
-
-            let html = '';
-
-            // Show featured post on first page
-            if (currentPage === 1) {
-                const featuredPost = filteredPosts.find(post => post.featured);
-                if (featuredPost) {
-                    html += createPostCard(featuredPost, true);
-                    // Remove featured post from regular posts
-                    const remainingPosts = postsToShow.filter(post => post._id !== featuredPost._id);
-                    html += remainingPosts.map(post => createPostCard(post, false)).join('');
-                } else {
-                    html = postsToShow.map(post => createPostCard(post, false)).join('');
-                }
-            } else {
-                html = postsToShow.map(post => createPostCard(post, false)).join('');
-            }
-
-            container.innerHTML = html;
-
-            // Update pagination
-            updatePagination();
-
-            // Trigger animations
-            setTimeout(() => {
-                initScrollAnimations();
-            }, 100);
-        }
-
-        // Update pagination
-        function updatePagination() {
-            const pagination = document.getElementById('pagination');
-            const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-
-            if (totalPages <= 1) {
-                pagination.style.display = 'none';
-                return;
-            }
-
-            pagination.style.display = 'flex';
-
-            let html = '';
-
-            // Previous button
-            if (currentPage > 1) {
-                html += `<button class="pagination-btn" onclick="changePage(${currentPage - 1})">← Previous</button>`;
-            }
-
-            // Page numbers
-            for (let i = 1; i <= totalPages; i++) {
-                const active = i === currentPage ? 'active' : '';
-                html += `<button class="pagination-btn ${active}" onclick="changePage(${i})">${i}</button>`;
-            }
-
-            // Next button
-            if (currentPage < totalPages) {
-                html += `<button class="pagination-btn" onclick="changePage(${currentPage + 1})">Next →</button>`;
-            }
-
-            pagination.innerHTML = html;
-        }
-
-        // Change page
-        function changePage(page) {
-            currentPage = page;
-            displayPosts();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // ==========================================
-        // SEARCH AND FILTER FUNCTIONALITY
-        // ==========================================
-
-        // Search functionality
-        let searchTimeout;
-        function handleSearch() {
-            const searchTerm = document.getElementById('searchInput').value;
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                currentPage = 1;
-                const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
-                loadPosts(activeCategory, searchTerm);
-            }, 300);
-        }
-
-        // Filter functionality
-        function handleCategoryFilter(category) {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`[data-category="${category}"]`).classList.add('active');
-
-            currentPage = 1;
-            const searchTerm = document.getElementById('searchInput').value;
-            loadPosts(category, searchTerm);
-        }
-
-        // ==========================================
-        // ANIMATION SYSTEM
-        // ==========================================
-
-        function initScrollAnimations() {
-            if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                });
-
-                document.querySelectorAll('.fade-in-element').forEach(element => {
-                    observer.observe(element);
-                });
-            }
-        }
-
-        function initHeroAnimation() {
-            setTimeout(() => {
-                const heroContent = document.querySelector('.hero-content');
-                if (heroContent) {
-                    heroContent.classList.add('loaded');
-                }
-            }, 300);
-        }
-
-        // ==========================================
-        // MOBILE MENU
-        // ==========================================
-
-        function initMobileMenu() {
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            const mobileNav = document.querySelector('.mobile-nav');
-
-            if (toggle && mobileNav) {
-                toggle.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-                    toggle.classList.toggle('active');
-                    toggle.setAttribute('aria-expanded', !isExpanded);
-
-                    if (!isExpanded) {
-                        mobileNav.classList.add('active');
-                        mobileNav.style.display = 'block';
-                    } else {
-                        mobileNav.classList.remove('active');
-                        setTimeout(() => {
-                            mobileNav.style.display = 'none';
-                        }, 300);
-                    }
-                });
-
-                // Close mobile menu when clicking links
-                const links = mobileNav.querySelectorAll('a');
-                links.forEach(link => {
-                    link.addEventListener('click', () => {
-                        toggle.classList.remove('active');
-                        mobileNav.classList.remove('active');
-                        toggle.setAttribute('aria-expanded', 'false');
-                        setTimeout(() => {
-                            mobileNav.style.display = 'none';
-                        }, 300);
-                    });
-                });
-
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
-                        toggle.classList.remove('active');
-                        mobileNav.classList.remove('active');
-                        toggle.setAttribute('aria-expanded', 'false');
-                        setTimeout(() => {
-                            mobileNav.style.display = 'none';
-                        }, 300);
-                    }
-                });
-            }
-        }
-
-        // ==========================================
-        // INITIALIZATION
-        // ==========================================
-
-        // Make functions globally available
-        window.changePage = changePage;
-        window.handleCategoryFilter = handleCategoryFilter;
-
-        // Initialize everything
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('📄 Blog DOM loaded, initializing...');
+            console.log('📚 Blog page initialization starting...');
 
-            initMobileMenu();
-            initHeroAnimation();
-
-            // Set up search
-            document.getElementById('searchInput').addEventListener('input', handleSearch);
-
-            // Set up category filters
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    handleCategoryFilter(btn.dataset.category);
+            // Initialize core with blog-specific config
+            if (window.AisleToIslands && !window.AisleToIslands.isInitialized) {
+                window.AisleToIslands.init({
+                    // Blog page specific settings
+                    animationDelay: 200,
+                    staggerDelay: 100,
+                    intersectionThreshold: 0.15  // Earlier trigger for content
                 });
-            });
+            }
 
-            // Load initial posts
-            loadPosts();
+            // Initialize Google Analytics
+            window.AisleToIslands.initGoogleAnalytics();
 
-            console.log('🎉 Blog page initialized!');
+            console.log('📚 Blog page fully initialized');
         });
 
-        // Debug function
-        window.debugBlog = function() {
-            console.log('Current posts:', currentPosts);
-            console.log('Filtered posts:', filteredPosts);
-            console.log('Current page:', currentPage);
+        // Page fully loaded
+        window.addEventListener('load', () => {
+            console.log('✅ Blog page assets loaded');
+        });
+
+        // Debug functions specific to blog page
+        window.debugBlogPage = function() {
+            if (window.BlogManager) {
+                console.log('📊 Blog Manager Status:', window.BlogManager.getState());
+                console.log('🔍 Available Debug Commands:');
+                console.log('  • window.BlogManager.search("term")');
+                console.log('  • window.BlogManager.filterByCategory("category")');
+                console.log('  • window.BlogManager.changePage(pageNumber)');
+                console.log('  • window.BlogManager.refresh()');
+            } else {
+                console.log('❌ Blog Manager not initialized');
+            }
         };
+
+        window.testBlogSearch = function(term = 'wedding') {
+            if (window.BlogManager) {
+                console.log(`🔍 Testing search with term: "${term}"`);
+                window.BlogManager.search(term);
+            }
+        };
+
+        window.testBlogFilter = function(category = 'destination-weddings') {
+            if (window.BlogManager) {
+                console.log(`🏷️ Testing filter with category: "${category}"`);
+                window.BlogManager.filterByCategory(category);
+            }
+        };
+
+        window.testBlogAnimations = function() {
+            console.log('🧪 BLOG ANIMATION TEST');
+            const elements = document.querySelectorAll('.fade-in-element');
+            elements.forEach((element, index) => {
+                console.log(`Testing blog element ${index + 1}:`, element);
+                element.classList.toggle('is-visible');
+            });
+        };
+
+        // Add helpful console hints after page loads
+        setTimeout(() => {
+            console.log('💡 Blog Debug Commands Available:');
+            console.log('  • debugBlogPage() - Show blog manager status');
+            console.log('  • testBlogSearch("term") - Test search functionality');
+            console.log('  • testBlogFilter("category") - Test category filtering');
+            console.log('  • testBlogAnimations() - Test page animations');
+        }, 3000);
     </script>
 </body>
 </html>
