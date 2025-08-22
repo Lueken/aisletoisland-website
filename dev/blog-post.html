@@ -358,7 +358,7 @@
                     <div class="related-post-content">
                         <h3 class="related-post-title">${post.title}</h3>
                         <p class="related-post-excerpt">${post.excerpt}</p>
-                        <div class="related-post-meta">${formatDate(post.publishedAt)}</div>
+<!--                        <div class="related-post-meta">${formatDate(post.publishedAt)}</div>-->
                     </div>
                 </a>
             `).join('');
@@ -437,10 +437,7 @@
                             <p class="article-excerpt">${post.excerpt}</p>
 
                             <div class="article-meta">
-                                <div class="meta-item">
-                                    <span class="meta-icon">📅</span>
-                                    <span>${formatDate(post.publishedAt)}</span>
-                                </div>
+
                                 <div class="meta-item">
                                     <span class="meta-icon">⏱️</span>
                                     <span>${calculateReadTime(post.body)} min read</span>
