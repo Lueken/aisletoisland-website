@@ -165,7 +165,23 @@
     </script>
 </head>
 <body>
-    <nav role="navigation" aria-label="Main navigation">
+<!-- Splash Section -->
+<section class="splash" aria-label="Welcome splash screen">
+    <div class="splash-content">
+        <h1 class="splash-title">Aisle to Islands</h1>
+        <p class="splash-subtitle">Luxury Destination Weddings & Honeymoons</p>
+        <p class="splash-tagline">Where Every Moment Becomes a Memory</p>
+    </div>
+
+    <!-- Move scroll indicator OUTSIDE of splash-content -->
+<!--    <a href="#main-navigation" class="splash-scroll-indicator" aria-label="Scroll to main content">
+        <span class="scroll-text">Explore</span>
+        <span class="scroll-arrow">↓</span>
+    </a>-->
+</section>
+
+    <!-- Navigation with homepage-specific class - positioned after splash -->
+    <nav role="navigation" aria-label="Main navigation" id="main-navigation" class="homepage-nav">
         <div class="nav-content">
             <div class="logo-container">
                 <div class="logo-mark logo-bg" role="img" aria-label="Aisle to Islands logo"></div>
@@ -285,7 +301,7 @@
             </div>
         </section>
 
-        <section class="social-proof" aria-labelledby="proof-title">
+        <!--<section class="social-proof" aria-labelledby="proof-title">
             <div class="proof-container">
                 <h2 id="proof-title" class="proof-title">Trusted by Discerning Couples</h2>
 
@@ -311,7 +327,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
     </main>
 
     <footer class="site-footer">

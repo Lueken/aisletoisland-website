@@ -23,6 +23,41 @@ class AisleToIslandsCore {
     // INITIALIZATION
     // ==========================================
 
+    initHomepageNav() {
+        const nav = document.querySelector('nav.homepage-nav');
+        const splash = document.querySelector('.splash');
+        const main = document.querySelector('main');
+
+        if (!nav || !splash || !main) return;
+
+        // Get EXACT nav height including padding and borders
+        const navHeight = nav.getBoundingClientRect().height;
+        console.log('Actual nav height:', navHeight); // Check this value!
+
+        const stickyPoint = splash.offsetHeight;
+        let isSticky = false;
+
+        const handleScroll = () => {
+            const scrollTop = window.pageYOffset;
+
+            if (scrollTop >= stickyPoint && !isSticky) {
+                // Set padding and position in ONE operation
+                main.style.cssText = `padding-top: ${navHeight}px !important`;
+                nav.style.cssText = `position: fixed !important; top: 0 !important; width: 100% !important;`;
+                nav.classList.add('homepage-nav-sticky');
+                isSticky = true;
+            } else if (scrollTop < stickyPoint && isSticky) {
+                main.style.cssText = '';
+                nav.style.cssText = '';
+                nav.classList.remove('homepage-nav-sticky');
+                isSticky = false;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+    }
+
     init(pageConfig = {}) {
         if (this.isInitialized) {
             console.warn('🔄 Core already initialized');
@@ -36,7 +71,14 @@ class AisleToIslandsCore {
         // Initialize core functionality
         this.initPerformanceOptimizations();
         this.initMobileMenu();
-        this.initNavbarEffects();
+
+        // Check if this is the homepage with special nav
+        if (document.querySelector('nav.homepage-nav')) {
+            this.initHomepageNav();
+        } else {
+            this.initNavbarEffects();
+        }
+
         this.initSmoothScrolling();
         this.initYearsExperience();
 
@@ -49,6 +91,9 @@ class AisleToIslandsCore {
 
         this.isInitialized = true;
     }
+
+
+
 
     // ==========================================
     // ANIMATION SYSTEM
@@ -192,34 +237,43 @@ class AisleToIslandsCore {
     // NAVBAR EFFECTS
     // ==========================================
 
-    initNavbarEffects() {
+    initSplashStickyNav() {
+        const splash = document.querySelector('.splash');
         const nav = document.querySelector('nav');
-        if (!nav) return;
+        const body = document.body;
 
-        let ticking = false;
-        const scrollHandler = () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (!splash || !nav) return;
 
-                    if (scrollTop > this.config.scrollThreshold) {
-                        nav.style.background = 'rgba(250, 248, 245, 0.98)';
-                        nav.style.boxShadow = '0 2px 20px rgba(15, 95, 95, 0.08)';
-                    } else {
-                        nav.style.background = 'rgba(250, 248, 245, 0.97)';
-                        nav.style.boxShadow = 'none';
-                    }
+        // Add class to body to indicate splash page
+        body.classList.add('has-splash');
 
-                    ticking = false;
-                });
-                ticking = true;
+        // Get the nav's initial position
+        const navOffset = splash.offsetHeight;
+        let isSticky = false;
+
+        const stickyHandler = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop >= navOffset && !isSticky) {
+                nav.classList.add('is-sticky');
+                body.classList.add('nav-is-sticky');
+                isSticky = true;
+                console.log('📌 Nav stuck to top');
+            } else if (scrollTop < navOffset && isSticky) {
+                nav.classList.remove('is-sticky');
+                body.classList.remove('nav-is-sticky');
+                isSticky = false;
+                console.log('📍 Nav returned to normal position');
             }
         };
 
-        window.addEventListener('scroll', scrollHandler, { passive: true });
-        this.eventListeners.set('navbarScroll', { element: window, event: 'scroll', handler: scrollHandler });
+        window.addEventListener('scroll', stickyHandler, { passive: true });
+        this.eventListeners.set('splashStickyNav', { element: window, event: 'scroll', handler: stickyHandler });
 
-        console.log('🎛️ Navbar effects initialized');
+        // Check initial position
+        stickyHandler();
+
+        console.log('🎬 Splash sticky nav initialized');
     }
 
     // ==========================================
