@@ -64,6 +64,36 @@ body {
     font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Sticky nav modifications for splash page */
+body.has-splash nav {
+    position: relative; /* Normal document flow initially */
+    top: 0;
+    transition: all 0.3s ease;
+}
+
+body.has-splash nav.is-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    animation: slideDown 0.3s ease-out;
+    box-shadow: 0 2px 20px rgba(15, 95, 95, 0.08);
+}
+
+/* Add padding to main when nav becomes sticky */
+body.has-splash.nav-is-sticky main {
+    padding-top: 82px; /* Adjust based on your nav height */
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 /* ==========================================
    ANIMATION SYSTEM
 ========================================== */

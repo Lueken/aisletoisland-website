@@ -4,20 +4,259 @@
 ========================================== */
 
 /* ==========================================
+   SPLASH SCREEN SECTION
+========================================== */
+
+.splash {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+            url('../images/hero/couple-sunset.webp'),
+            linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
+    background-size: cover, cover; /* Changed from contain to cover */
+    background-position: center center, center center; /* Center the image */
+    background-repeat: no-repeat, no-repeat; /* Prevent repeating */
+    background-blend-mode: luminosity, normal;
+    background-attachment: fixed;
+}
+
+.splash::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+            135deg,
+            rgba(15, 95, 95, 0.1) 0%,
+            rgba(0, 0, 0, 0.05) 50%,
+            rgba(15, 95, 95, 0.1) 100%
+    );
+    pointer-events: none;
+}
+
+.splash-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 50px 40px;
+    animation: fadeInUp 1.5s ease-out;
+
+    /* Subtle glassmorphism effect */
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.splash-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+    text-shadow:
+            0 2px 4px rgba(255, 255, 255, 0.6),
+            0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.splash-subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: var(--primary-teal);
+    /*text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);*/
+    position: relative;
+}
+
+.splash-tagline {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-dark);
+    letter-spacing: 1px;
+    /*text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);*/
+    position: relative;
+}
+
+/* Properly positioned scroll indicator */
+.splash-scroll-indicator {
+    position: absolute; /* Attached to splash section */
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 3;
+    background: transparent;
+    padding: 10px;
+}
+
+.scroll-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-dark);
+    opacity: 0.7;
+    text-shadow:
+            0 2px 4px rgba(255, 255, 255, 0.9),
+            0 1px 2px rgba(255, 255, 255, 1);
+}
+
+.scroll-arrow {
+    font-size: 24px;
+    animation: bounce 2s infinite;
+    color: var(--primary-teal);
+    opacity: 0.8;
+    text-shadow:
+            0 2px 4px rgba(255, 255, 255, 0.9),
+            0 1px 2px rgba(255, 255, 255, 1);
+}
+
+.splash-scroll-indicator:hover {
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.splash-scroll-indicator:hover .scroll-text,
+.splash-scroll-indicator:hover .scroll-arrow {
+    opacity: 1;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .splash-content {
+        padding: 40px 30px;
+        margin: 0 20px;
+    }
+
+    .splash-scroll-indicator {
+        bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .splash-content {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .splash-scroll-indicator {
+        bottom: 25px;
+    }
+}
+
+/* ==========================================
+   HOMEPAGE-SPECIFIC NAVIGATION
+========================================== */
+
+/* Override core.css for homepage nav */
+nav.homepage-nav {
+    position: static !important; /* Override fixed positioning from core.css */
+    top: auto !important;
+    width: 100%;
+    padding: 20px 60px;
+    background: rgba(250, 248, 245, 0.97);
+    backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(15, 95, 95, 0.08);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* When sticky */
+nav.homepage-nav.homepage-nav-sticky {
+    position: fixed !important;
+    top: 0 !important;
+    animation: slideDown 0.3s ease-out;
+    box-shadow: 0 2px 20px rgba(15, 95, 95, 0.08);
+    background: rgba(250, 248, 245, 0.98);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Spacer to prevent content jump when nav becomes sticky */
+.nav-spacer {
+    height: 0;
+    /*transition: height 0.3s ease;*/
+}
+
+.nav-spacer.active {
+    height: 82px; /* Adjust based on your nav height */
+}
+
+/* Mobile responsive nav adjustments */
+@media (max-width: 768px) {
+    nav.homepage-nav {
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav.homepage-nav {
+        padding: 12px 20px;
+    }
+}
+
+/* ==========================================
    HERO SECTION
 ========================================== */
 
 .hero {
     background:
-        url('../images/hero/tropical-leaves-pattern3.webp') repeat,
-        linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
-    background-size: 600px 600px, cover; /* Optimized pattern size */
-    background-blend-mode: luminosity; /* Better for parchment effect */
+            url('../images/hero/tropical-leaves-pattern3.webp') repeat,
+            linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
+    background-size: 600px 600px, cover;
+    background-blend-mode: luminosity;
     position: relative;
-    /*filter: brightness(1.1) contrast(0.95);*/
-
-    /* Enhanced for parchment texture */
-    background-attachment: fixed; /* Subtle parallax effect */
+    background-attachment: fixed;
 }
 
 .hero::before {
@@ -32,27 +271,27 @@
     /* Subtle embossed parchment */
     background:
         /* Fine paper grain */
-        repeating-linear-gradient(45deg,
+            repeating-linear-gradient(45deg,
             transparent,
             transparent 1px,
             rgba(255, 255, 255, 0.02) 1px,
             rgba(255, 255, 255, 0.02) 2px
-        ),
+            ),
 
-        /* Gentle embossed lighting */
-        linear-gradient(145deg,
+                /* Gentle embossed lighting */
+            linear-gradient(145deg,
             rgba(255, 255, 255, 0.1) 0%,
             transparent 40%,
             rgba(0, 0, 0, 0.02) 100%
-        ),
+            ),
 
-        /* Aged parchment base */
-        rgba(250, 248, 245, 0.88);
+                /* Aged parchment base */
+            rgba(250, 248, 245, 0.88);
 
     /* Soft embossed border */
     box-shadow:
-        inset 0 0 30px rgba(0, 0, 0, 0.03),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            inset 0 0 30px rgba(0, 0, 0, 0.03),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .hero-container {
@@ -64,6 +303,7 @@
     gap: 80px;
     align-items: center;
 }
+
 .hero-content {
     /* Will be animated by JS */
 }
@@ -148,7 +388,6 @@
 /* ==========================================
    HERO VISUAL SECTION
 ========================================== */
-
 
 .hero-visual {
     position: relative;
@@ -388,39 +627,18 @@
 
 .services-preview {
     background:
-        url('../images/hero/tropical-leaves-pattern3.webp') repeat,
-        linear-gradient(135deg,
+            url('../images/hero/tropical-leaves-pattern3.webp') repeat,
+            linear-gradient(135deg,
             rgba(15, 25, 35, 0.92) 0%,
             rgba(25, 35, 45, 0.94) 50%,
             rgba(15, 25, 35, 0.96) 100%
-        );
+            );
     background-size: 600px 600px, cover;
-    background-blend-mode: luminosity, normal; /* Keep luminosity for B&W effect */
+    background-blend-mode: luminosity, normal;
     position: relative;
     padding: 120px 60px;
     background-attachment: fixed;
 }
-
-/* MUCH DARKER OVERLAY */
-/*.services-preview::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.75) 0%,        !* Much darker *!
-        rgba(15, 25, 35, 0.85) 30%,    !* Darker blue-black *!
-        rgba(0, 0, 0, 0.8) 70%,        !* Very dark *!
-        rgba(10, 20, 30, 0.9) 100%     !* Nearly black *!
-    );
-    pointer-events: none;
-    z-index: 1;
-}*/
-
-/* Alternative - Even Darker Option (use this if you want it almost black) */
 
 .services-preview::before {
     content: '';
@@ -430,22 +648,21 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.85) 0%,
-        rgba(5, 15, 25, 0.9) 30%,
-        rgba(0, 0, 0, 0.88) 70%,
-        rgba(5, 10, 20, 0.95) 100%
+            135deg,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(5, 15, 25, 0.9) 30%,
+            rgba(0, 0, 0, 0.88) 70%,
+            rgba(5, 10, 20, 0.95) 100%
     );
     pointer-events: none;
     z-index: 1;
 }
 
-
 .services-container {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
+    z-index: 2;
 }
 
 .services-intro {
@@ -458,13 +675,13 @@
     font-weight: 400;
     margin-bottom: 20px;
     letter-spacing: -0.5px;
-    color: rgba(255, 255, 255, 0.95); /* Brighter white for better contrast */
+    color: rgba(255, 255, 255, 0.95);
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .services-subtitle {
     font-size: clamp(15px, 2vw, 17px);
-    color: rgba(255, 255, 255, 0.85); /* Slightly more opaque */
+    color: rgba(255, 255, 255, 0.85);
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     line-height: 1.7;
@@ -481,27 +698,22 @@
 
 .service-card {
     display: block;
-    /* Enhanced glassmorphism background */
     background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.08) 0%,
-        rgba(255, 255, 255, 0.04) 100%
+            135deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.04) 100%
     );
 
-    /* Glassmorphic backdrop filter */
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
 
     padding: 50px 40px;
-    border-radius: 20px; /* Slightly more rounded for modern look */
-
-    /* Enhanced border with gradient */
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 
-    /* Enhanced shadow for depth */
     box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     text-align: center;
@@ -514,23 +726,21 @@
 
 .service-card:hover,
 .service-card:focus {
-    transform: translateY(-12px); /* More dramatic lift */
+    transform: translateY(-12px);
 
-    /* Enhanced hover glassmorphism */
     background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.12) 0%,
-        rgba(255, 255, 255, 0.08) 100%
+            135deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.08) 100%
     );
 
-    border-color: rgba(212, 149, 107, 0.6); /* Accent orange border */
+    border-color: rgba(212, 149, 107, 0.6);
     outline: none;
 
-    /* Enhanced hover shadow */
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(212, 149, 107, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            0 20px 60px rgba(0, 0, 0, 0.4),
+            0 0 0 1px rgba(212, 149, 107, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .service-card:focus {
@@ -541,13 +751,12 @@
 .service-icon {
     width: 80px;
     height: 80px;
-    border-radius: 16px; /* More rounded */
+    border-radius: 16px;
 
-    /* Enhanced glassmorphic icon background */
     background: linear-gradient(
-        135deg,
-        rgba(212, 149, 107, 0.9) 0%,
-        rgba(212, 149, 107, 0.7) 100%
+            135deg,
+            rgba(212, 149, 107, 0.9) 0%,
+            rgba(212, 149, 107, 0.7) 100%
     );
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -559,10 +768,9 @@
     color: white;
     margin: 0 auto 25px;
 
-    /* Subtle glow effect */
     box-shadow:
-        0 8px 25px rgba(212, 149, 107, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            0 8px 25px rgba(212, 149, 107, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
 
     transition: all 0.3s ease;
 }
@@ -570,13 +778,13 @@
 .service-card:hover .service-icon,
 .service-card:focus .service-icon {
     background: linear-gradient(
-        135deg,
-        rgba(212, 149, 107, 1) 0%,
-        rgba(212, 149, 107, 0.8) 100%
+            135deg,
+            rgba(212, 149, 107, 1) 0%,
+            rgba(212, 149, 107, 0.8) 100%
     );
     box-shadow:
-        0 12px 35px rgba(212, 149, 107, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            0 12px 35px rgba(212, 149, 107, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
 }
 
@@ -610,13 +818,12 @@
 
 .service-button {
     display: inline-block;
-    padding: 14px 28px; /* Slightly larger for better presence */
+    padding: 14px 28px;
 
-    /* Primary glassmorphic button */
     background: linear-gradient(
-        135deg,
-        rgba(212, 149, 107, 0.8) 0%,
-        rgba(212, 149, 107, 0.6) 100%
+            135deg,
+            rgba(212, 149, 107, 0.8) 0%,
+            rgba(212, 149, 107, 0.6) 100%
     );
     backdrop-filter: blur(15px) saturate(150%);
     -webkit-backdrop-filter: blur(15px) saturate(150%);
@@ -633,49 +840,46 @@
     margin-top: 5px;
     text-decoration: none;
 
-    /* Enhanced button shadow */
     box-shadow:
-        0 8px 25px rgba(212, 149, 107, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            0 8px 25px rgba(212, 149, 107, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
-    /* Subtle text glow */
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .service-card:hover .service-button,
 .service-card:focus .service-button {
-    /* Enhanced hover state for glassmorphic button */
     background: linear-gradient(
-        135deg,
-        rgba(212, 149, 107, 0.95) 0%,
-        rgba(212, 149, 107, 0.8) 100%
+            135deg,
+            rgba(212, 149, 107, 0.95) 0%,
+            rgba(212, 149, 107, 0.8) 100%
     );
 
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
 
     box-shadow:
-        0 12px 40px rgba(212, 149, 107, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            0 12px 40px rgba(212, 149, 107, 0.4),
+            0 0 0 1px rgba(255, 255, 255, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 /* Additional enhancement for better readability on mobile */
 @media (max-width: 768px) {
     .services-preview::before {
         background: linear-gradient(
-            135deg,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(15, 25, 35, 0.7) 50%,
-            rgba(0, 0, 0, 0.6) 100%
+                135deg,
+                rgba(0, 0, 0, 0.5) 0%,
+                rgba(15, 25, 35, 0.7) 50%,
+                rgba(0, 0, 0, 0.6) 100%
         );
     }
 
     .service-card {
         background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.12) 0%,
-            rgba(255, 255, 255, 0.08) 100%
+                135deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.08) 100%
         );
 
         border: 1px solid rgba(255, 255, 255, 0.25);
