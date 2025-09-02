@@ -23,39 +23,85 @@ class AisleToIslandsCore {
     // INITIALIZATION
     // ==========================================
 
+// Replace the initHomepageNav() method in your core.js file with this improved version:
+
+// Update the initHomepageNav() method in core.js with mobile-first approach
+
     initHomepageNav() {
         const nav = document.querySelector('nav.homepage-nav');
         const splash = document.querySelector('.splash');
-        const main = document.querySelector('main');
 
-        if (!nav || !splash || !main) return;
+        if (!nav || !splash) return;
 
-        // Get EXACT nav height including padding and borders
-        const navHeight = nav.getBoundingClientRect().height;
-        console.log('Actual nav height:', navHeight); // Check this value!
-
+        const navHeight = nav.offsetHeight;
         const stickyPoint = splash.offsetHeight;
         let isSticky = false;
 
+        // Check if mobile device
+        const isMobile = window.innerWidth <= 768;
+
+        // Create a spacer element to prevent content jump
+        const spacer = document.createElement('div');
+        spacer.className = 'nav-spacer';
+        spacer.style.height = '0';
+        spacer.style.overflow = 'hidden';
+        nav.parentNode.insertBefore(spacer, nav.nextSibling);
+
+        // For mobile, make nav sticky immediately
+        if (isMobile) {
+            nav.classList.add('homepage-nav-sticky');
+            spacer.style.height = navHeight + 'px';
+            isSticky = true;
+            console.log('📱 Mobile navigation set to always sticky');
+            return; // Exit early for mobile
+        }
+
         const handleScroll = () => {
-            const scrollTop = window.pageYOffset;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
             if (scrollTop >= stickyPoint && !isSticky) {
-                // Set padding and position in ONE operation
-                main.style.cssText = `padding-top: ${navHeight}px !important`;
-                nav.style.cssText = `position: fixed !important; top: 0 !important; width: 100% !important;`;
-                nav.classList.add('homepage-nav-sticky');
-                isSticky = true;
+                // Set spacer height BEFORE making nav sticky
+                spacer.style.height = navHeight + 'px';
+
+                // Use requestAnimationFrame to ensure DOM updates properly
+                requestAnimationFrame(() => {
+                    nav.classList.add('homepage-nav-sticky');
+                    isSticky = true;
+                });
             } else if (scrollTop < stickyPoint && isSticky) {
-                main.style.cssText = '';
-                nav.style.cssText = '';
                 nav.classList.remove('homepage-nav-sticky');
+                spacer.style.height = '0';
+                isSticky = false;
+            }
+        };
+
+        // Handle window resize to switch between mobile and desktop behavior
+        const handleResize = () => {
+            const newIsMobile = window.innerWidth <= 768;
+
+            if (newIsMobile && !isSticky) {
+                // Switching to mobile - make sticky immediately
+                nav.classList.add('homepage-nav-sticky');
+                spacer.style.height = navHeight + 'px';
+                isSticky = true;
+            } else if (!newIsMobile && isSticky && window.pageYOffset < stickyPoint) {
+                // Switching to desktop and not scrolled past splash - remove sticky
+                nav.classList.remove('homepage-nav-sticky');
+                spacer.style.height = '0';
                 isSticky = false;
             }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('resize', handleResize, { passive: true });
+
+        this.eventListeners.set('homepageNavScroll', { element: window, event: 'scroll', handler: handleScroll });
+        this.eventListeners.set('homepageNavResize', { element: window, event: 'resize', handler: handleResize });
+
+        // Check initial state
         handleScroll();
+
+        console.log('🏠 Homepage navigation initialized with mobile-first approach');
     }
 
     init(pageConfig = {}) {

@@ -164,29 +164,6 @@
     }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .splash-content {
-        padding: 40px 30px;
-        margin: 0 20px;
-    }
-
-    .splash-scroll-indicator {
-        bottom: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .splash-content {
-        padding: 30px 20px;
-        border-radius: 15px;
-    }
-
-    .splash-scroll-indicator {
-        bottom: 25px;
-    }
-}
-
 /* ==========================================
    HOMEPAGE-SPECIFIC NAVIGATION
 ========================================== */
@@ -230,19 +207,6 @@ nav.homepage-nav.homepage-nav-sticky {
 
 .nav-spacer.active {
     height: 82px; /* Adjust based on your nav height */
-}
-
-/* Mobile responsive nav adjustments */
-@media (max-width: 768px) {
-    nav.homepage-nav {
-        padding: 15px 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    nav.homepage-nav {
-        padding: 12px 20px;
-    }
 }
 
 /* ==========================================
@@ -864,28 +828,6 @@ nav.homepage-nav.homepage-nav-sticky {
             inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Additional enhancement for better readability on mobile */
-@media (max-width: 768px) {
-    .services-preview::before {
-        background: linear-gradient(
-                135deg,
-                rgba(0, 0, 0, 0.5) 0%,
-                rgba(15, 25, 35, 0.7) 50%,
-                rgba(0, 0, 0, 0.6) 100%
-        );
-    }
-
-    .service-card {
-        background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.12) 0%,
-                rgba(255, 255, 255, 0.08) 100%
-        );
-
-        border: 1px solid rgba(255, 255, 255, 0.25);
-    }
-}
-
 /* ==========================================
    SOCIAL PROOF SECTION
 ========================================== */
@@ -949,13 +891,334 @@ nav.homepage-nav.homepage-nav-sticky {
 }
 
 /* ==========================================
-   RESPONSIVE DESIGN - HOMEPAGE
+   RESPONSIVE DESIGN - HOMEPAGE WITH MOBILE-FIRST NAVIGATION
 ========================================== */
+
+/* Large Desktop (1441px+) */
+@media (min-width: 1441px) {
+    .hero-container,
+    .problem-solution-container,
+    .services-container,
+    .proof-container {
+        max-width: 1600px;
+    }
+
+    .hero {
+        padding: 140px 80px 80px;
+    }
+
+    .problem-solution,
+    .services-preview,
+    .social-proof {
+        padding: 140px 80px;
+    }
+
+    nav.homepage-nav {
+        padding: 20px 80px;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .hero-container {
+        gap: 60px;
+    }
+
+    .split-content {
+        gap: 50px;
+    }
+
+    nav.homepage-nav {
+        padding: 18px 40px;
+    }
+
+    /* Keep original behavior on tablet but with earlier sticky trigger */
+    nav.homepage-nav {
+        position: static !important;
+    }
+
+    /* Reduce splash height on tablet so nav becomes sticky sooner */
+    .splash {
+        height: 85vh;
+        min-height: 500px;
+    }
+}
+
+/* Replace the mobile responsive section in homepage.css with this corrected version */
+
+/* ==========================================
+   RESPONSIVE DESIGN - HOMEPAGE WITH MOBILE-FIRST NAVIGATION (CORRECTED)
+========================================== */
+
+/* Large Desktop (1441px+) */
+@media (min-width: 1441px) {
+    .hero-container,
+    .problem-solution-container,
+    .services-container,
+    .proof-container {
+        max-width: 1600px;
+    }
+
+    .hero {
+        padding: 140px 80px 80px;
+    }
+
+    .problem-solution,
+    .services-preview,
+    .social-proof {
+        padding: 140px 80px;
+    }
+
+    nav.homepage-nav {
+        padding: 20px 80px;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .hero-container {
+        gap: 60px;
+    }
+
+    .split-content {
+        gap: 50px;
+    }
+
+    nav.homepage-nav {
+        padding: 18px 40px;
+    }
+
+    /* Keep original behavior on tablet but with earlier sticky trigger */
+    nav.homepage-nav {
+        position: static !important;
+    }
+
+    /* Reduce splash height on tablet so nav becomes sticky sooner */
+    .splash {
+        height: 85vh;
+        min-height: 500px;
+    }
+}
+
+/* Mobile (481px - 768px) */
+@media (max-width: 768px) {
+    /* Enhanced mobile navigation - always sticky on mobile */
+    nav.homepage-nav {
+        position: fixed !important;
+        top: 0 !important;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(250, 248, 245, 0.98) !important;
+        backdrop-filter: blur(25px);
+        box-shadow: 0 2px 20px rgba(15, 95, 95, 0.08);
+        padding: 15px 30px;
+        transition: all 0.3s ease;
+    }
+
+    /* CORRECTED: Ensure splash section accounts for fixed nav but no extra gaps */
+    .splash {
+        /* Keep the full viewport but account for nav height */
+        height: 100vh;
+        min-height: 100vh;
+        /* Remove the padding-top that was causing issues */
+        padding-top: 0;
+        /* Instead, use margin-top to push content down behind the nav */
+        margin-top: 70px;
+        /* Adjust total height to compensate */
+        height: calc(100vh - 70px);
+        min-height: calc(100vh - 70px);
+    }
+
+    /* IMPORTANT: Disable nav spacer on mobile since nav is always fixed */
+    .nav-spacer {
+        height: 0 !important;
+        display: none !important;
+    }
+
+    /* Improve mobile nav styling */
+    nav.homepage-nav .nav-content {
+        padding: 0;
+    }
+
+    nav.homepage-nav .logo-text {
+        font-size: 18px;
+    }
+
+    nav.homepage-nav .logo-mark {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Enhanced mobile menu for better UX */
+    .mobile-nav {
+        top: 70px;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+
+    .mobile-nav.active {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+        backdrop-filter: blur(25px);
+    }
+
+    /* Improve mobile nav link spacing */
+    .mobile-nav a {
+        padding: 18px 0;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(15, 95, 95, 0.08);
+    }
+
+    /* Add subtle animation for mobile nav transitions */
+    nav.homepage-nav .mobile-menu-toggle span {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Splash responsive adjustments */
+    .splash-content {
+        padding: 40px 30px;
+        margin: 0 20px;
+    }
+
+    .splash-scroll-indicator {
+        bottom: 30px;
+    }
+
+    /* Hero section mobile adjustments - ensure no gap */
+    .hero {
+        padding: 120px 30px 60px;
+        /* Remove any top margin that might create gaps */
+        margin-top: 0;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .hero-visual {
+        height: 350px;
+        margin: 0 auto;
+        max-width: 350px;
+        position: relative;
+    }
+
+    .main-card {
+        width: 250px;
+        height: 300px;
+        top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .accent-card {
+        width: 160px;
+        height: 130px;
+        padding: 20px;
+        top: -10px;
+        right: 10px;
+    }
+
+    .detail-card {
+        width: 150px;
+        height: 100px;
+        padding: 15px;
+        bottom: -10px;
+        right: 0;
+    }
+
+    .problem-solution,
+    .services-preview,
+    .social-proof {
+        padding: 80px 30px;
+    }
+
+    .split-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .services-grid {
+        gap: 30px;
+    }
+
+    /* Additional enhancement for better readability on mobile */
+    .services-preview::before {
+        background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.5) 0%,
+                rgba(15, 25, 35, 0.7) 50%,
+                rgba(0, 0, 0, 0.6) 100%
+        );
+    }
+
+    .service-card {
+        background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.08) 100%
+        );
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
 
 /* Small Mobile (320px - 480px) */
 @media (max-width: 480px) {
+    /* Enhanced mobile navigation - always sticky on mobile */
+    nav.homepage-nav {
+        padding: 12px 20px;
+        position: fixed !important;
+        top: 0 !important;
+        background: rgba(250, 248, 245, 0.98) !important;
+    }
+
+    /* CORRECTED: Adjust splash for smaller nav height */
+    .splash {
+        margin-top: 65px;
+        height: calc(100vh - 65px);
+        min-height: calc(100vh - 65px);
+        padding-top: 0;
+    }
+
+    /* Ensure nav spacer is disabled on mobile */
+    .nav-spacer {
+        height: 0 !important;
+        display: none !important;
+    }
+
+    .mobile-nav {
+        top: 65px;
+        max-height: calc(100vh - 65px);
+    }
+
+    nav.homepage-nav .logo-text {
+        font-size: 16px;
+    }
+
+    nav.homepage-nav .logo-mark {
+        width: 30px;
+        height: 30px;
+    }
+
+    .splash-content {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .splash-scroll-indicator {
+        bottom: 25px;
+    }
+
     .hero {
         padding: 100px 20px 40px;
+        margin-top: 0;
     }
 
     .hero-container {
@@ -1022,97 +1285,13 @@ nav.homepage-nav.homepage-nav-sticky {
     }
 }
 
-/* Mobile (481px - 768px) */
-@media (max-width: 768px) {
-    .hero {
-        padding: 120px 30px 60px;
+/* Ensure smooth transitions */
+@media (prefers-reduced-motion: no-preference) {
+    nav.homepage-nav {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
-        text-align: center;
-    }
-
-    .hero-visual {
-        height: 350px;
-        margin: 0 auto;
-        max-width: 350px;
-        position: relative;
-    }
-
-    .main-card {
-        width: 250px;
-        height: 300px;
-        top: 25px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .accent-card {
-        width: 160px;
-        height: 130px;
-        padding: 20px;
-        top: -10px;
-        right: 10px;
-    }
-
-    .detail-card {
-        width: 150px;
-        height: 100px;
-        padding: 15px;
-        bottom: -10px;
-        right: 0;
-    }
-
-    .problem-solution,
-    .services-preview,
-    .social-proof {
-        padding: 80px 30px;
-    }
-
-    .split-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .services-grid {
-        gap: 30px;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-    }
-}
-
-/* Tablet (769px - 1024px) */
-@media (max-width: 1024px) {
-    .hero-container {
-        gap: 60px;
-    }
-
-    .split-content {
-        gap: 50px;
-    }
-}
-
-/* Large Desktop (1441px+) */
-@media (min-width: 1441px) {
-    .hero-container,
-    .problem-solution-container,
-    .services-container,
-    .proof-container {
-        max-width: 1600px;
-    }
-
-    .hero {
-        padding: 140px 80px 80px;
-    }
-
-    .problem-solution,
-    .services-preview,
-    .social-proof {
-        padding: 140px 80px;
+    .nav-spacer {
+        transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
