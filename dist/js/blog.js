@@ -404,12 +404,76 @@ class BlogManager {
         this.updatePagination();
         this.showDataSource();
 
-        // Trigger animations if available
+        // Ensure posts start hidden, then trigger animations
+        this.preparePostsForAnimation();
+        
+        // Small delay to ensure DOM is ready
         setTimeout(() => {
-            if (window.AisleToIslands && window.AisleToIslands.initScrollAnimations) {
-                window.AisleToIslands.initScrollAnimations();
-            }
-        }, 100);
+            this.initPostAnimations();
+        }, 50);
+    }
+
+    // ==========================================
+    // ANIMATION MANAGEMENT
+    // ==========================================
+
+    preparePostsForAnimation() {
+        // Ensure all new posts start in hidden state
+        const newPosts = document.querySelectorAll('.post-card.blog-fade-element:not(.animation-prepared)');
+        newPosts.forEach(post => {
+            post.classList.add('animation-prepared');
+            // Force initial hidden state
+            post.style.opacity = '0';
+            post.style.transform = 'translateY(30px)';
+        });
+    }
+
+    initPostAnimations() {
+        // Use core animation system if available
+        if (window.AisleToIslands && window.AisleToIslands.config) {
+            const newPostCards = document.querySelectorAll('.post-card.blog-fade-element:not(.animation-observed)');
+            
+            if (newPostCards.length === 0) return;
+
+            // Create intersection observer for new posts
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            // Smooth transition to visible state
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            entry.target.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                            entry.target.classList.add('is-visible');
+                        }, index * 150); // Stagger animation with more delay
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            // Observe new post cards
+            newPostCards.forEach((card, index) => {
+                card.classList.add('animation-observed');
+                card.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(card);
+            });
+        } else {
+            // Fallback animation
+            setTimeout(() => {
+                document.querySelectorAll('.post-card.blog-fade-element:not(.is-visible)').forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                        card.style.transition = 'all 0.8s ease-out';
+                        card.classList.add('is-visible');
+                    }, index * 150);
+                });
+            }, 200);
+        }
     }
 
     // FIXED: Simplified createPostCard method with cleaner date logic
@@ -430,7 +494,7 @@ class BlogManager {
             }
 
             return `
-                <article class="post-card featured-post fade-in-element clickable-card" data-href="${postUrl}">
+                <article class="post-card featured-post blog-fade-element clickable-card" data-href="${postUrl}">
                     <div class="post-image" style="background-image: url('${imageUrl}')"></div>
                     <div class="post-content">
                         <div class="featured-badge">Featured</div>
@@ -443,9 +507,9 @@ class BlogManager {
             `;
         }
 
-        // Regular post card
+        // Regular post card - use blog-fade-element instead of fade-in-element to avoid core.js conflicts
         return `
-            <article class="post-card fade-in-element clickable-card" data-href="${postUrl}">
+            <article class="post-card blog-fade-element clickable-card" data-href="${postUrl}">
                 <div class="post-image" style="background-image: url('${imageUrl}')">
                     <span class="post-category">${categoryTitle}</span>
                 </div>

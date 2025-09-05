@@ -370,10 +370,49 @@
                 return '<p>No content available.</p>';
             }
 
+            // Add debugging
+            console.log('🔍 Full Sanity body data:', JSON.stringify(body, null, 2));
+
             return body.map(block => {
                 if (block._type === 'block') {
-                    const text = block.children?.map(child => child.text).join('') || '';
+                    console.log('📝 Processing block:', block);
+                    console.log('👶 Block children:', block.children);
 
+                    const text = block.children?.map(child => {
+                        console.log('🔤 Processing child:', child);
+                        let text = child.text || '';
+
+                        // Check if marks exist and log them
+                        if (child.marks) {
+                            console.log('✨ Found marks:', child.marks);
+                            child.marks.forEach(mark => {
+                                console.log('🏷️ Applying mark:', mark);
+                                switch (mark) {
+                                    case 'strong':
+                                        text = `<strong>${text}</strong>`;
+                                        break;
+                                    case 'em':
+                                        text = `<em>${text}</em>`;
+                                        break;
+                                    case 'underline':
+                                        text = `<u>${text}</u>`;
+                                        break;
+                                    case 'strike-through':
+                                        text = `<del>${text}</del>`;
+                                        break;
+                                    case 'code':
+                                        text = `<code>${text}</code>`;
+                                        break;
+                                }
+                            });
+                        } else {
+                            console.log('❌ No marks found on this child');
+                        }
+
+                        return text;
+                    }).join('') || '';
+
+                    // Handle block styles
                     switch (block.style) {
                         case 'h1':
                             return `<h1>${text}</h1>`;
