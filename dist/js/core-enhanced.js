@@ -78,6 +78,21 @@ class AisleToIslandsEnhanced {
 
         const handleScroll = () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Calculate when navbar is halfway through the splash section (earlier trigger)
+            const halfwayPoint = splash.offsetHeight * 0.7; // Trigger at 70% through splash
+
+            // Trigger hero animation when we're 70% through the splash section
+            const heroContainer = document.querySelector('.hero-container.fade-in-element');
+            if (scrollTop >= halfwayPoint && heroContainer && !heroContainer.classList.contains('is-visible')) {
+                console.log('🎭 Triggering hero animation at scroll:', scrollTop, 'halfway point:', halfwayPoint);
+                setTimeout(() => {
+                    heroContainer.classList.add('is-visible');
+                }, 100); // Reduced delay for more responsive feel
+            } else if (scrollTop < halfwayPoint && heroContainer && heroContainer.classList.contains('is-visible')) {
+                // Reset hero animation if scrolling back up
+                heroContainer.classList.remove('is-visible');
+            }
 
             if (scrollTop >= stickyPoint && !isSticky) {
                 // Set spacer height and add active class to prevent content jump
@@ -86,14 +101,6 @@ class AisleToIslandsEnhanced {
                 requestAnimationFrame(() => {
                     nav.classList.add('homepage-nav-sticky');
                     isSticky = true;
-                    
-                    // Trigger hero content fade-in animation when navbar becomes sticky
-                    const heroContainer = document.querySelector('.hero-container.fade-in-element');
-                    if (heroContainer && !heroContainer.classList.contains('is-visible')) {
-                        setTimeout(() => {
-                            heroContainer.classList.add('is-visible');
-                        }, 150); // Small delay for smoother transition
-                    }
                 });
             } else if (scrollTop < stickyPoint && isSticky) {
                 // Remove sticky state and reset spacer
@@ -101,12 +108,6 @@ class AisleToIslandsEnhanced {
                 spacer.classList.remove('active');
                 spacer.style.height = '0';
                 isSticky = false;
-                
-                // Reset hero animation if scrolling back up
-                const heroContainer = document.querySelector('.hero-container.fade-in-element');
-                if (heroContainer) {
-                    heroContainer.classList.remove('is-visible');
-                }
             }
         };
 
