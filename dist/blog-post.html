@@ -370,23 +370,15 @@
                 return '<p>No content available.</p>';
             }
 
-            // Add debugging
-            console.log('🔍 Full Sanity body data:', JSON.stringify(body, null, 2));
-
             return body.map(block => {
+                // Handle text blocks
                 if (block._type === 'block') {
-                    console.log('📝 Processing block:', block);
-                    console.log('👶 Block children:', block.children);
-
                     const text = block.children?.map(child => {
-                        console.log('🔤 Processing child:', child);
                         let text = child.text || '';
 
-                        // Check if marks exist and log them
+                        // Apply text formatting marks
                         if (child.marks) {
-                            console.log('✨ Found marks:', child.marks);
                             child.marks.forEach(mark => {
-                                console.log('🏷️ Applying mark:', mark);
                                 switch (mark) {
                                     case 'strong':
                                         text = `<strong>${text}</strong>`;
@@ -405,8 +397,6 @@
                                         break;
                                 }
                             });
-                        } else {
-                            console.log('❌ No marks found on this child');
                         }
 
                         return text;
@@ -428,6 +418,29 @@
                             return text ? `<p>${text}</p>` : '';
                     }
                 }
+                
+                // Handle image blocks
+                else if (block._type === 'image') {
+                    const imageUrl = block.asset?.url || '';
+                    const alt = block.alt || '';
+                    const caption = block.caption || '';
+                    const alignment = block.alignment || 'center';
+                    const size = block.size || 'medium';
+                    
+                    if (!imageUrl) return '';
+
+                    // Generate CSS classes based on formatting options
+                    const alignmentClass = `image-align-${alignment}`;
+                    const sizeClass = `image-size-${size}`;
+                    
+                    return `
+                        <figure class="content-image ${alignmentClass} ${sizeClass}">
+                            <img src="${imageUrl}" alt="${alt}" loading="lazy" />
+                            ${caption ? `<figcaption class="image-caption">${caption}</figcaption>` : ''}
+                        </figure>
+                    `;
+                }
+                
                 return '';
             }).filter(Boolean).join('');
         }
@@ -499,7 +512,7 @@
                     <div class="article-content-container">
                         <div class="featured-image fade-in-element" style="background-image: url('${imageUrl}')"></div>
 
-                        <div class="article-body fade-in-element">
+                        <div class="article-body">
                             ${typeof post.body === 'string' ? post.body : renderPortableText(post.body)}
                         </div>
 
@@ -583,7 +596,20 @@
                         style,
                         children[]{
                             _type,
-                            text
+                            text,
+                            marks
+                        },
+                        // Handle image blocks
+                        _type == "image" => {
+                            _type,
+                            asset->{
+                                _id,
+                                url
+                            },
+                            alt,
+                            caption,
+                            alignment,
+                            size
                         }
                     },
                     featured

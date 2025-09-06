@@ -48,6 +48,53 @@ export default defineType({
                         {title: 'Bullet', value: 'bullet'},
                         {title: 'Numbered', value: 'number'}
                     ]
+                },
+                // Add image support with formatting options
+                {
+                    type: 'image',
+                    fields: [
+                        {
+                            name: 'alt',
+                            title: 'Alternative Text',
+                            type: 'string',
+                            description: 'Important for SEO and accessibility',
+                            validation: (rule: any) => rule.required()
+                        },
+                        {
+                            name: 'caption',
+                            title: 'Caption',
+                            type: 'string',
+                            description: 'Optional caption displayed below the image'
+                        },
+                        {
+                            name: 'alignment',
+                            title: 'Image Alignment',
+                            type: 'string',
+                            options: {
+                                list: [
+                                    {title: 'Left', value: 'left'},
+                                    {title: 'Center', value: 'center'},
+                                    {title: 'Right', value: 'right'},
+                                    {title: 'Full Width', value: 'full'}
+                                ]
+                            },
+                            initialValue: 'center'
+                        },
+                        {
+                            name: 'size',
+                            title: 'Image Size',
+                            type: 'string',
+                            options: {
+                                list: [
+                                    {title: 'Small (300px)', value: 'small'},
+                                    {title: 'Medium (600px)', value: 'medium'},
+                                    {title: 'Large (900px)', value: 'large'},
+                                    {title: 'Full Width', value: 'full'}
+                                ]
+                            },
+                            initialValue: 'medium'
+                        }
+                    ]
                 }
             ]
         }),
