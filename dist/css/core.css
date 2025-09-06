@@ -121,18 +121,18 @@ body.has-splash.nav-is-sticky main {
 .hero-animate.loaded {
     opacity: 1;
     transform: translateY(0);
-    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-visual {
     opacity: 0;
-    transform: translateX(60px);
+    transform: translateX(30px);
 }
 
 .hero-visual.loaded {
     opacity: 1;
     transform: translateX(0);
-    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
 }
 
 /* ==========================================
@@ -166,10 +166,12 @@ nav {
 }
 
 .logo-mark {
-    width: 42px;
-    height: 42px;
-    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
-    border-radius: 6px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 70%, #5ba3a3 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(15, 95, 95, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -178,6 +180,11 @@ nav {
     font-weight: 400;
     overflow: hidden;
     position: relative;
+}
+
+.logo-mark:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(15, 95, 95, 0.25);
 }
 
 .logo-mark-foot {
@@ -240,9 +247,9 @@ nav {
     font-weight: 400;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.6px;
     position: relative;
-    transition: color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 8px 0;
 }
 
@@ -253,14 +260,16 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-orange-muted);
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, var(--accent-orange-muted) 0%, var(--accent-orange) 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1px;
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
     color: var(--primary-dark);
     outline: none;
+    transform: translateY(-1px);
 }
 
 .nav-links a:hover::after,

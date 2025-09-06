@@ -22,11 +22,10 @@
     <link rel="preload" href="Josefin_Sans/JosefinSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
     <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
 
-    <!-- Google Analytics - handled by core.js -->
+    <!-- Google Analytics - handled by core-enhanced.js -->
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>
 
     <link rel="stylesheet" href="css/core.css">
@@ -219,7 +218,7 @@
 
     <main>
         <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-container">
+            <div class="hero-container fade-in-element">
                 <div class="hero-content hero-animate">
                     <h1 id="hero-title" class="hero-title">Where Every <span class="title-emphasis">'I Do'</span> Honors Every Generation Before</h1>
 
@@ -369,14 +368,14 @@
         </div>
     </footer>
 
-    <!-- Core JavaScript Module -->
-    <script src="js/core.js"></script>
+    <!-- Core Essential JavaScript Module (loads immediately) -->
+    <script src="js/core-essential.js"></script>
 
     <!-- Page-specific initialization -->
     <script>
-        // Page-specific configuration
+        // Enhanced homepage configuration
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize core with homepage-specific config
+            // Initialize essential core with homepage-specific config
             if (window.AisleToIslands && !window.AisleToIslands.isInitialized) {
                 window.AisleToIslands.init({
                     // Homepage-specific settings
@@ -385,15 +384,12 @@
                 });
             }
 
-            // Initialize Google Analytics
-            window.AisleToIslands.initGoogleAnalytics();
-
-            console.log('🏠 Homepage fully loaded and initialized');
+            console.log('🏠 Homepage essential features loaded');
         });
 
-        // Page fully loaded
+        // Page fully loaded - enhanced features will auto-load via requestIdleCallback
         window.addEventListener('load', () => {
-            console.log('🎉 Homepage assets loaded');
+            console.log('🎉 Homepage fully loaded - enhanced features loading when idle');
         });
     </script>
 </body>

@@ -2,6 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**IMPORTANT**: Always confirm the working environment and Git branch before making changes. Ask the user which branch they want to work on (dev/main) and whether changes should be made to development files (`/dev/`) for testing or production files (`/dist/`) which are deployed by Netlify.
 ## Project Overview
 
 This is a luxury travel website for "Aisle to Islands" - a destination wedding and honeymoon planning service. The project consists of:

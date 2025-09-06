@@ -429,51 +429,24 @@ class BlogManager {
     }
 
     initPostAnimations() {
-        // Use core animation system if available
-        if (window.AisleToIslands && window.AisleToIslands.config) {
-            const newPostCards = document.querySelectorAll('.post-card.blog-fade-element:not(.animation-observed)');
+        const newPostCards = document.querySelectorAll('.post-card.blog-fade-element:not(.animation-observed)');
+        
+        if (newPostCards.length === 0) return;
+
+        // Show posts immediately on page load with staggered delays
+        newPostCards.forEach((card, index) => {
+            card.classList.add('animation-observed');
             
-            if (newPostCards.length === 0) return;
-
-            // Create intersection observer for new posts
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            // Smooth transition to visible state
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                            entry.target.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                            entry.target.classList.add('is-visible');
-                        }, index * 150); // Stagger animation with more delay
-                        
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
-            });
-
-            // Observe new post cards
-            newPostCards.forEach((card, index) => {
-                card.classList.add('animation-observed');
-                card.style.transitionDelay = `${index * 0.1}s`;
-                observer.observe(card);
-            });
-        } else {
-            // Fallback animation
+            // Set transition timing
+            card.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            
+            // Animate in with delay
             setTimeout(() => {
-                document.querySelectorAll('.post-card.blog-fade-element:not(.is-visible)').forEach((card, index) => {
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                        card.style.transition = 'all 0.8s ease-out';
-                        card.classList.add('is-visible');
-                    }, index * 150);
-                });
-            }, 200);
-        }
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+                card.classList.add('is-visible');
+            }, 200 + (index * 150)); // Start after 200ms, then stagger by 150ms each
+        });
     }
 
     // FIXED: Simplified createPostCard method with cleaner date logic

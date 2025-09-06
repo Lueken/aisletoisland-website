@@ -411,8 +411,8 @@ class AisleToIslandsCore {
             transport_type: 'beacon'
         });
 
-        // Load GA after page loads
-        window.addEventListener('load', function() {
+        // Load GA when browser is idle for better performance
+        const loadGA = () => {
             const script = document.createElement('script');
             script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z92QX7TK22';
             script.async = true;
@@ -423,9 +423,19 @@ class AisleToIslandsCore {
                 page_title: document.title,
                 page_location: window.location.href
             });
-        });
 
-        console.log('📊 Google Analytics initialized');
+            console.log('📊 Google Analytics script loaded via idle callback');
+        };
+
+        // Use requestIdleCallback for optimal performance, fallback to timeout
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadGA, { timeout: 3000 });
+        } else {
+            // Fallback for browsers without requestIdleCallback
+            setTimeout(loadGA, 2000);
+        }
+
+        console.log('📊 Google Analytics initialized with idle loading');
     }
 
     // ==========================================
