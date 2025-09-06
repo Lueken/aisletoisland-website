@@ -48,8 +48,8 @@
 
 
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="ywcRht9p5oOpmSuHT2WXlQ" async></script>
-    <link rel="stylesheet" href="../dist/css/core.css">
-    <link rel="stylesheet" href="blog-post.css">
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/blog-post.css">
     <link rel="canonical" href="https://Aisle-to-Island.com/blog-post.html">
 
 
@@ -66,12 +66,13 @@
                 </div>
 
                 <ul class="nav-links" role="menubar">
-                    <li role="none"><a href="../dist/index.html" role="menuitem">Home</a></li>
-                    <li role="none"><a href="../dist/destination-wedding.html" role="menuitem">Destination Wedding</a></li>
-                    <li role="none"><a href="../dist/curated-honeymoon.html" role="menuitem">Luxury Honeymoon</a></li>
-                    <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
-                <li role="none"><a href="../dist/inquire.html" role="menuitem">Inquire</a></li>
+                    <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                    <li role="none"><a href="destination-wedding.html" role="menuitem">Destination Wedding</a></li>
+                    <li role="none"><a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
+                    <li role="none"><a href="blog.html" role="menuitem" aria-current="page">Blog</a></li>
+                    <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
                 </ul>
+
 
                 <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                     <span></span>
@@ -81,11 +82,11 @@
             </div>
 
             <div class="mobile-nav" role="menu">
-                <a href="../dist/index.html" role="menuitem">Home</a>
-                <a href="../dist/destination-wedding.html" role="menuitem">Destination Wedding</a>
-                <a href="../dist/curated-honeymoon.html" role="menuitem">Luxury Honeymoon</a>
-                <a href="blog.html" role="menuitem">Blog</a>
-                <a href="../dist/inquire.html" role="menuitem">Inquire</a>
+                <a href="index.html" role="menuitem">Home</a>
+                <a href="destination-wedding.html" role="menuitem">Destination Wedding</a>
+                <a href="curated-honeymoon.html" role="menuitem">Luxury Honeymoon</a>
+                <a href="blog.html" role="menuitem" aria-current="page">Blog</a>
+                <a href="inquire.html" role="menuitem">Inquire</a>
             </div>
         </nav>
 
@@ -109,18 +110,18 @@
             <div class="footer-section">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="../dist/destination-wedding.html">Destination Wedding Planning</a></li>
-                    <li><a href="../dist/curated-honeymoon.html">Luxury Honeymoon Planning</a></li>
-                    <li><a href="../dist/inquire.html">Consultation</a></li>
+                    <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
+                    <li><a href="curated-honeymoon.html">Luxury Honeymoon Planning</a></li>
+                    <li><a href="inquire.html">Consultation</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="../dist/index.html">Home</a></li>
-                    <li><a href="../dist/inquire.html">Inquire</a></li>
-                    <li><a href="../dist/privacy.html">Privacy Policy</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="inquire.html">Inquire</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
 <!--                    <li><a href="terms-of-service.html">Terms of Service</a></li>-->
                 </ul>
             </div>
@@ -369,10 +370,49 @@
                 return '<p>No content available.</p>';
             }
 
+            // Add debugging
+            console.log('🔍 Full Sanity body data:', JSON.stringify(body, null, 2));
+
             return body.map(block => {
                 if (block._type === 'block') {
-                    const text = block.children?.map(child => child.text).join('') || '';
+                    console.log('📝 Processing block:', block);
+                    console.log('👶 Block children:', block.children);
 
+                    const text = block.children?.map(child => {
+                        console.log('🔤 Processing child:', child);
+                        let text = child.text || '';
+
+                        // Check if marks exist and log them
+                        if (child.marks) {
+                            console.log('✨ Found marks:', child.marks);
+                            child.marks.forEach(mark => {
+                                console.log('🏷️ Applying mark:', mark);
+                                switch (mark) {
+                                    case 'strong':
+                                        text = `<strong>${text}</strong>`;
+                                        break;
+                                    case 'em':
+                                        text = `<em>${text}</em>`;
+                                        break;
+                                    case 'underline':
+                                        text = `<u>${text}</u>`;
+                                        break;
+                                    case 'strike-through':
+                                        text = `<del>${text}</del>`;
+                                        break;
+                                    case 'code':
+                                        text = `<code>${text}</code>`;
+                                        break;
+                                }
+                            });
+                        } else {
+                            console.log('❌ No marks found on this child');
+                        }
+
+                        return text;
+                    }).join('') || '';
+
+                    // Handle block styles
                     switch (block.style) {
                         case 'h1':
                             return `<h1>${text}</h1>`;
@@ -428,7 +468,7 @@
                 <article class="article-header">
                     <div class="article-header-container">
                         <nav class="breadcrumb">
-                            <a href="../dist/index.html">Home</a> / <a href="blog.html">Blog</a> / <span>${post.title}</span>
+                            <a href="index.html">Home</a> / <a href="blog.html">Blog</a> / <span>${post.title}</span>
                         </nav>
 
                         <div class="hero-animate">
