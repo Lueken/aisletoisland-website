@@ -5,7 +5,68 @@ export default defineType({
     title: 'Blog Post',
     type: 'document',
     fields: [
-        // ... other fields ...
+        defineField({
+            name: 'title',
+            title: 'Title',
+            type: 'string',
+            validation: (rule) => rule.required()
+        }),
+        defineField({
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            options: {
+                source: 'title',
+                maxLength: 96
+            },
+            validation: (rule) => rule.required()
+        }),
+        defineField({
+            name: 'excerpt',
+            title: 'Excerpt',
+            type: 'text',
+            rows: 4,
+            description: 'Short description for blog listing and meta tags'
+        }),
+        defineField({
+            name: 'mainImage',
+            title: 'Main Image',
+            type: 'image',
+            options: {
+                hotspot: true
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alternative Text',
+                    type: 'string',
+                    description: 'Important for SEO and accessibility'
+                }
+            ]
+        }),
+        defineField({
+            name: 'category',
+            title: 'Category',
+            type: 'reference',
+            to: [{type: 'category'}]
+        }),
+        defineField({
+            name: 'author',
+            title: 'Author',
+            type: 'reference',
+            to: [{type: 'author'}]
+        }),
+        defineField({
+            name: 'publishedAt',
+            title: 'Published At',
+            type: 'datetime'
+        }),
+        defineField({
+            name: 'featured',
+            title: 'Featured Post',
+            type: 'boolean',
+            description: 'Show this post prominently on the blog page'
+        }),
         defineField({
             name: 'body',
             title: 'Body',
