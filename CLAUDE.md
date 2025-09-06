@@ -62,21 +62,30 @@ npx prettier --write .  # Format code
   - Core animations use `.fade-in-element` class with `core.js` IntersectionObserver
   - Blog posts use `.blog-fade-element` class with dedicated animation system to prevent conflicts
 
-### JavaScript Architecture  
-- **Core Module**: `AisleToIslandsCore` class handles shared functionality
-- **Page Modules**: Extend core functionality for specific pages
+### JavaScript Architecture (Split Architecture - v2.0)
+- **Split Architecture**: Performance-optimized dual-module system
+  - `core-essential.js` (10KB): Critical functionality that loads immediately
+  - `core-enhanced.js` (12.5KB): Non-critical features loaded via `requestIdleCallback`
+- **Core Essential**: `AisleToIslandsCoreEssential` class handles mobile menu, basic animations, logo effects
+- **Core Enhanced**: `AisleToIslandsEnhanced` class handles navigation effects, smooth scrolling, Google Analytics
 - **Blog Manager**: `BlogManager` class with independent animation system for dynamically loaded content
-- **Performance**: Lazy loading, intersection observers, debounced events
+- **Performance**: Lazy loading, intersection observers, idle callbacks, reduced motion support
 
-### Content Schema
-- **Blog Posts**: Rich text with custom formatting, categories, and authors
+### Content Schema (Enhanced v2.0)
+- **Blog Posts**: Rich text with Portable Text support including inline images
+- **Inline Images**: Full formatting support (alignment, size, captions, alt text)
+- **Image Options**: Small/Medium/Large/Full width, Left/Center/Right/Full alignment
 - **Sanity Config**: Project ID `etjqucnf`, dataset `production`
 - **Schema Files**: Located in `sanity-studio/schemaTypes/`
+- **Deployed Studio**: `https://aisle-to-islands-blog.sanity.studio`
 
-### SEO & Performance
+### SEO & Performance (Optimized v2.0)
 - **Meta Tags**: Complete OpenGraph and schema.org markup
-- **Performance**: Preloaded critical CSS/fonts, optimized images
-- **Analytics**: Google Analytics and Ahrefs tracking integrated
+- **Performance**: Split JavaScript architecture for 50% faster initial load
+- **Analytics**: Google Analytics with idle loading and performance optimization
+- **Core Web Vitals**: Optimized for TBT, FID, and LCP metrics
+- **Mobile Performance**: Always-sticky navigation, responsive images
+- **Layout Stability**: Zero Cumulative Layout Shift (CLS) through proper spacing
 
 ## Development Workflow
 
@@ -88,12 +97,35 @@ npx prettier --write .  # Format code
 
 ## Important Implementation Notes
 
-### Animation System
-- **Standard Pages**: Use `.fade-in-element` class - automatically handled by `core.js`
-- **Blog Posts**: Use `.blog-fade-element` class - managed by `BlogManager.initPostAnimations()`
-- **Avoid Conflicts**: Never mix animation classes; blog content is dynamically loaded and needs separate handling
+### Animation System (Enhanced v2.0)
+- **Standard Pages**: Use `.fade-in-element` class - automatically handled by `core-essential.js`
+- **Blog Listing**: Use `.blog-fade-element` class - immediate load with staggered animations
+- **Blog Posts**: Article content loads immediately, decorative elements fade in on scroll
+- **Homepage Hero**: Special animation triggered when navigation becomes sticky
+- **Performance**: Respects `prefers-reduced-motion`, uses `requestAnimationFrame` optimization
+- **Avoid Conflicts**: Never mix animation classes; blog content and static content have separate systems
 
-### Blog Post Rendering
-- Posts are dynamically generated with `.blog-fade-element` class
-- Animation system ensures smooth fade-in with staggered timing (150ms delays)
-- Uses `preparePostsForAnimation()` to force initial hidden state before triggering animations
+### Blog Post Rendering (Enhanced v2.0)
+- **Blog Listing**: Posts animate in immediately on page load with 200ms + 150ms stagger
+- **Blog Content**: Article text displays instantly for better reading experience
+- **Inline Images**: Rendered from Portable Text with proper styling classes
+- **Image Rendering**: Uses CSS classes like `.content-image`, `.image-align-center`, `.image-size-medium`
+- **Responsive Images**: Automatically optimized for mobile with `loading="lazy"`
+
+### Navigation System (Enhanced v2.0)
+- **Homepage Navigation**: Special sticky behavior with smooth transitions
+- **Content Jump Fix**: Spacer system prevents layout shift when nav becomes sticky
+- **Mobile Optimization**: Always-sticky navigation on mobile devices
+- **Hero Animation**: Fade-in triggered when navbar reaches sticky point
+- **Smooth Transitions**: Uses `cubic-bezier` easing for luxury brand feel
+
+### Inline Image System (New v2.0)
+- **Portable Text Integration**: Images can be placed anywhere within blog post content
+- **Client Interface**: Simple upload and formatting options in Sanity Studio
+- **Image Formatting**:
+  - **Sizes**: Small (300px), Medium (600px), Large (900px), Full Width
+  - **Alignment**: Left, Center, Right, Full Width
+  - **Features**: Captions, Alt text, Lazy loading
+- **Responsive Behavior**: Text wrapping on desktop, stacked on mobile
+- **CSS Classes**: Uses `.content-image`, `.image-align-*`, `.image-size-*` system
+- **SEO Optimized**: Semantic HTML with proper `<figure>` and `<figcaption>` elements
