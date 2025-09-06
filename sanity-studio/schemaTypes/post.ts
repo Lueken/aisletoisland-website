@@ -67,6 +67,49 @@ export default defineType({
             type: 'boolean',
             description: 'Show this post prominently on the blog page'
         }),
+        // SEO Fields
+        defineField({
+            name: 'seo',
+            title: 'SEO Settings',
+            type: 'object',
+            fields: [
+                {
+                    name: 'metaTitle',
+                    title: 'Meta Title',
+                    type: 'string',
+                    description: 'SEO title for search engines (50-60 characters)',
+                    validation: (rule: any) => rule.max(60).warning('Keep under 60 characters for best SEO')
+                },
+                {
+                    name: 'metaDescription',
+                    title: 'Meta Description',
+                    type: 'text',
+                    rows: 3,
+                    description: 'SEO description for search engines (150-160 characters)',
+                    validation: (rule: any) => rule.max(160).warning('Keep under 160 characters for best SEO')
+                },
+                {
+                    name: 'keywords',
+                    title: 'Keywords',
+                    type: 'array',
+                    of: [{type: 'string'}],
+                    options: {
+                        layout: 'tags'
+                    },
+                    description: 'SEO keywords for this post'
+                },
+                {
+                    name: 'ogImage',
+                    title: 'Social Share Image',
+                    type: 'image',
+                    description: 'Custom image for social media sharing (optional - will use main image if not set)'
+                }
+            ],
+            options: {
+                collapsible: true,
+                collapsed: false
+            }
+        }),
         defineField({
             name: 'body',
             title: 'Body',
