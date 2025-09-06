@@ -322,9 +322,11 @@
         }
 
         function updateMetaTags(post) {
-            const title = `${post.title} | Aisle to Islands`;
-            const description = post.excerpt;
-            const imageUrl = post.mainImage?.asset?.url || '/tailored_experience_logo.png';
+            // Use SEO fields if available, fallback to defaults
+            const seoTitle = post.seo?.metaTitle || post.title;
+            const title = `${seoTitle} | Aisle to Islands`;
+            const description = post.seo?.metaDescription || post.excerpt;
+            const socialImage = post.seo?.ogImage?.asset?.url || post.mainImage?.asset?.url || '/tailored_experience_logo.png';
             const currentUrl = window.location.href;
 
             // Update title and description
@@ -334,13 +336,24 @@
             // Update Open Graph tags
             document.getElementById('og-title').setAttribute('content', title);
             document.getElementById('og-description').setAttribute('content', description);
-            document.getElementById('og-image').setAttribute('content', imageUrl);
+            document.getElementById('og-image').setAttribute('content', socialImage);
             document.getElementById('og-url').setAttribute('content', currentUrl);
 
             // Update Twitter Card tags
             document.getElementById('twitter-title').setAttribute('content', title);
             document.getElementById('twitter-description').setAttribute('content', description);
-            document.getElementById('twitter-image').setAttribute('content', imageUrl);
+            document.getElementById('twitter-image').setAttribute('content', socialImage);
+
+            // Add keywords meta tag if available
+            if (post.seo?.keywords && post.seo.keywords.length > 0) {
+                let keywordsMeta = document.querySelector('meta[name="keywords"]');
+                if (!keywordsMeta) {
+                    keywordsMeta = document.createElement('meta');
+                    keywordsMeta.name = 'keywords';
+                    document.head.appendChild(keywordsMeta);
+                }
+                keywordsMeta.setAttribute('content', post.seo.keywords.join(', '));
+            }
 
             // Update page title
             document.title = title;
@@ -591,6 +604,12 @@
                     mainImage { asset->{ url } },
                     category->{ title, slug },
                     author->{ name, slug, bio },
+                    seo {
+                        metaTitle,
+                        metaDescription,
+                        keywords,
+                        ogImage { asset->{ url } }
+                    },
                     body[]{
                         _type,
                         style,
