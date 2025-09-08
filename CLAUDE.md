@@ -129,3 +129,11 @@ npx prettier --write .  # Format code
 - **Responsive Behavior**: Text wrapping on desktop, stacked on mobile
 - **CSS Classes**: Uses `.content-image`, `.image-align-*`, `.image-size-*` system
 - **SEO Optimized**: Semantic HTML with proper `<figure>` and `<figcaption>` elements
+
+### Mobile Splash Screen Optimization (v2.1 - Sept 2025)
+- **Background Attachment**: Removed `background-attachment: fixed` for mobile compatibility
+- **Mobile Background Positioning**: Optimized to `center 30%` (tablet) and `center 25%` (mobile) for better image framing
+- **Enhanced Readability**: Increased backdrop blur (12px-15px) and opacity (0.5-0.6) on mobile devices
+- **Scroll Behavior**: Forced `background-attachment: scroll` on mobile to prevent display issues
+- **Viewport Calculations**: Proper mobile height calculations with `calc(100vh - 70px)` accounting for fixed navigation
+- **Cross-Device Testing**: Ensures splash screen displays correctly across all mobile viewports
