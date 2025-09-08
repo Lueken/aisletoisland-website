@@ -17,11 +17,10 @@
     background:
             url('../images/hero/couple-sunset.webp'),
             linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
-    background-size: cover, cover; /* Changed from contain to cover */
-    background-position: center center, center center; /* Center the image */
-    background-repeat: no-repeat, no-repeat; /* Prevent repeating */
-    /*background-blend-mode: luminosity, normal;*/
-    background-attachment: fixed;
+    background-size: cover, cover;
+    background-position: center center, center center;
+    background-repeat: no-repeat, no-repeat;
+    /* Removed problematic background-attachment: fixed for mobile compatibility */
 }
 
 .splash::before {
@@ -1076,9 +1075,23 @@ nav.homepage-nav.homepage-nav-sticky {
     }
 
     /* Splash responsive adjustments */
+    .splash {
+        /* Ensure better mobile background display */
+        background-size: cover, cover !important;
+        background-position: center 30%, center center !important;
+        /* Never use fixed attachment on mobile */
+        background-attachment: scroll !important;
+        /* Ensure full mobile coverage */
+        min-height: calc(100vh - 70px);
+    }
+
     .splash-content {
         padding: 40px 30px;
         margin: 0 20px;
+        /* Ensure content is readable on mobile */
+        background: rgba(255, 255, 255, 0.5) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
     }
 
     .splash-scroll-indicator {
@@ -1208,9 +1221,21 @@ nav.homepage-nav.homepage-nav-sticky {
         height: 30px;
     }
 
+    /* Enhanced splash for small mobile */
+    .splash {
+        background-size: cover, cover !important;
+        background-position: center 25%, center center !important;
+        background-attachment: scroll !important;
+        min-height: calc(100vh - 65px);
+    }
+
     .splash-content {
         padding: 30px 20px;
         border-radius: 15px;
+        /* Enhanced readability on small screens */
+        background: rgba(255, 255, 255, 0.6) !important;
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
     }
 
     .splash-scroll-indicator {
