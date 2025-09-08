@@ -1009,10 +1009,10 @@ nav.homepage-nav.homepage-nav-sticky {
         top: 0 !important;
         width: 100%;
         z-index: 1000;
+        padding: 25px 30px;
         background: rgba(250, 248, 245, 0.98) !important;
         backdrop-filter: blur(25px);
         box-shadow: 0 2px 20px rgba(15, 95, 95, 0.08);
-        padding: 15px 30px;
         transition: all 0.3s ease;
     }
 
@@ -1174,7 +1174,7 @@ nav.homepage-nav.homepage-nav-sticky {
 @media (max-width: 480px) {
     /* Enhanced mobile navigation - always sticky on mobile */
     nav.homepage-nav {
-        padding: 12px 20px;
+        padding: 22px 20px;
         position: fixed !important;
         top: 0 !important;
         background: rgba(250, 248, 245, 0.98) !important;
