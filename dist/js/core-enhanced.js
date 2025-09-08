@@ -66,6 +66,9 @@ class AisleToIslandsEnhanced {
         spacer.style.overflow = 'hidden';
         nav.parentNode.insertBefore(spacer, nav.nextSibling);
 
+        // Initialize hero animation for both mobile and desktop
+        this.initHomepageHeroAnimation(splash);
+
         // For mobile, make nav sticky immediately
         if (isMobile) {
             nav.classList.add('homepage-nav-sticky');
@@ -78,21 +81,6 @@ class AisleToIslandsEnhanced {
 
         const handleScroll = () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Calculate when navbar is halfway through the splash section (earlier trigger)
-            const halfwayPoint = splash.offsetHeight * 0.7; // Trigger at 70% through splash
-
-            // Trigger hero animation when we're 70% through the splash section
-            const heroContainer = document.querySelector('.hero-container.fade-in-element');
-            if (scrollTop >= halfwayPoint && heroContainer && !heroContainer.classList.contains('is-visible')) {
-                console.log('🎭 Triggering hero animation at scroll:', scrollTop, 'halfway point:', halfwayPoint);
-                setTimeout(() => {
-                    heroContainer.classList.add('is-visible');
-                }, 100); // Reduced delay for more responsive feel
-            } else if (scrollTop < halfwayPoint && heroContainer && heroContainer.classList.contains('is-visible')) {
-                // Reset hero animation if scrolling back up
-                heroContainer.classList.remove('is-visible');
-            }
 
             if (scrollTop >= stickyPoint && !isSticky) {
                 // Set spacer height and add active class to prevent content jump
@@ -124,6 +112,9 @@ class AisleToIslandsEnhanced {
                 spacer.style.height = '0';
                 isSticky = false;
             }
+            
+            // Re-initialize hero animation on resize to handle orientation changes
+            this.initHomepageHeroAnimation(splash);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -133,6 +124,59 @@ class AisleToIslandsEnhanced {
         this.eventListeners.set('homepageNavResize', { element: window, event: 'resize', handler: handleResize });
 
         console.log('🏠 Homepage navigation enhanced');
+    }
+
+    // ==========================================
+    // HOMEPAGE HERO ANIMATION (ENHANCED)
+    // ==========================================
+
+    initHomepageHeroAnimation(splash) {
+        const heroContainer = document.querySelector('.hero-container.fade-in-element');
+        if (!heroContainer) return;
+
+        const isMobile = window.innerWidth <= 768;
+        
+        // Remove existing hero scroll listener to prevent duplicates
+        const existingListener = this.eventListeners.get('homepageHeroScroll');
+        if (existingListener) {
+            existingListener.element.removeEventListener(existingListener.event, existingListener.handler);
+            this.eventListeners.delete('homepageHeroScroll');
+        }
+        
+        // On mobile, trigger animation immediately or after a short delay
+        if (isMobile) {
+            // Only trigger if not already visible
+            if (!heroContainer.classList.contains('is-visible')) {
+                setTimeout(() => {
+                    heroContainer.classList.add('is-visible');
+                    console.log('📱 Hero animation triggered immediately on mobile');
+                }, 500); // Small delay for better UX
+            }
+            return;
+        }
+
+        // Desktop behavior - trigger based on scroll position
+        const handleHeroScroll = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            // Calculate when navbar is halfway through the splash section (earlier trigger)
+            const halfwayPoint = splash.offsetHeight * 0.7; // Trigger at 70% through splash
+
+            // Trigger hero animation when we're 70% through the splash section
+            if (scrollTop >= halfwayPoint && !heroContainer.classList.contains('is-visible')) {
+                console.log('🎭 Triggering hero animation at scroll:', scrollTop, 'halfway point:', halfwayPoint);
+                setTimeout(() => {
+                    heroContainer.classList.add('is-visible');
+                }, 100); // Reduced delay for more responsive feel
+            } else if (scrollTop < halfwayPoint && heroContainer.classList.contains('is-visible')) {
+                // Reset hero animation if scrolling back up
+                heroContainer.classList.remove('is-visible');
+            }
+        };
+
+        window.addEventListener('scroll', handleHeroScroll, { passive: true });
+        this.eventListeners.set('homepageHeroScroll', { element: window, event: 'scroll', handler: handleHeroScroll });
+
+        console.log('🎭 Homepage hero animation enhanced');
     }
 
     // ==========================================
