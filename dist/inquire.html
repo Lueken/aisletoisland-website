@@ -142,6 +142,27 @@
                                 </div>
                             </div>
 
+                            <!-- Conditional Wedding Package Selection -->
+                            <div class="form-group" id="wedding-package-group" style="display: none;">
+                                <label class="form-label">Which wedding planning package interests you?<span class="required">*</span></label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="radio" name="wedding_package" value="exploration-service" class="checkbox-input" id="exploration-service">
+                                        <label for="exploration-service" class="checkbox-label">
+                                            <strong>Exploration Service</strong><br>
+                                            Initial consultation and destination research ($1,500)
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="radio" name="wedding_package" value="full-service" class="checkbox-input" id="full-service">
+                                        <label for="full-service" class="checkbox-label">
+                                            <strong>Full Service Planning</strong><br>
+                                            Complete wedding coordination (Starting at $5,000 + 10%)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label class="form-label">Where will your celebration take place?<span class="required">*</span></label>
                                 <input type="text" name="celebration_location" class="form-input" placeholder="e.g., Tuscany, Bali, Caribbean, or open to suggestions" required>
@@ -265,6 +286,45 @@
         window.addEventListener('load', () => {
             console.log('✅ Contact page assets loaded');
         });
+
+        // Wedding package conditional logic
+        function setupConditionalPackageSelection() {
+            const serviceInputs = document.querySelectorAll('input[name="services[]"]');
+            const weddingPackageGroup = document.getElementById('wedding-package-group');
+            const weddingPackageInputs = document.querySelectorAll('input[name="wedding_package"]');
+
+            function toggleWeddingPackageField() {
+                const selectedService = document.querySelector('input[name="services[]"]:checked');
+
+                if (selectedService && (selectedService.value === 'destination-wedding' || selectedService.value === 'both-services')) {
+                    // Show wedding package selection for wedding services
+                    weddingPackageGroup.style.display = 'block';
+                    // Make wedding package required
+                    weddingPackageInputs.forEach(input => {
+                        input.setAttribute('required', 'required');
+                    });
+                } else {
+                    // Hide wedding package selection for honeymoon-only or other services
+                    weddingPackageGroup.style.display = 'none';
+                    // Remove required attribute and clear selection
+                    weddingPackageInputs.forEach(input => {
+                        input.removeAttribute('required');
+                        input.checked = false;
+                    });
+                }
+            }
+
+            // Add event listeners to service radio buttons
+            serviceInputs.forEach(input => {
+                input.addEventListener('change', toggleWeddingPackageField);
+            });
+
+            // Initial check in case form is pre-populated
+            toggleWeddingPackageField();
+        }
+
+        // Initialize conditional logic after DOM is ready
+        document.addEventListener('DOMContentLoaded', setupConditionalPackageSelection);
 
         // Debug functions for testing
         window.debugContactForm = function() {

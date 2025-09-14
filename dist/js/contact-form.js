@@ -139,6 +139,26 @@ class ContactFormHandler {
             }
         }
 
+        // Wedding package validation (conditional)
+        if (field.name === 'wedding_package') {
+            const selectedService = document.querySelector('input[name="services[]"]:checked');
+            const weddingPackageGroup = document.getElementById('wedding-package-group');
+
+            // Only validate if wedding services are selected and the field is visible
+            if (selectedService &&
+                (selectedService.value === 'destination-wedding' || selectedService.value === 'both-services') &&
+                weddingPackageGroup && weddingPackageGroup.style.display !== 'none') {
+
+                const weddingPackageInputs = document.querySelectorAll('input[name="wedding_package"]');
+                const checkedPackage = Array.from(weddingPackageInputs).filter(pkg => pkg.checked);
+
+                if (checkedPackage.length === 0) {
+                    FormUtils.setFieldError(weddingPackageInputs[0], 'Please select a wedding package');
+                    return false;
+                }
+            }
+        }
+
         // Investment validation
         if (field.name === 'planned_investment' && value) {
             const investment = parseInt(value);
@@ -177,6 +197,23 @@ class ContactFormHandler {
         if (checkedBoxes.length === 0) {
             FormUtils.setFieldError(checkboxes[0], 'Please select at least one service');
             isValid = false;
+        }
+
+        // Validate wedding package selection (conditional)
+        const selectedService = document.querySelector('input[name="services[]"]:checked');
+        const weddingPackageGroup = document.getElementById('wedding-package-group');
+
+        if (selectedService &&
+            (selectedService.value === 'destination-wedding' || selectedService.value === 'both-services') &&
+            weddingPackageGroup && weddingPackageGroup.style.display !== 'none') {
+
+            const weddingPackageInputs = document.querySelectorAll('input[name="wedding_package"]');
+            const checkedPackage = Array.from(weddingPackageInputs).filter(pkg => pkg.checked);
+
+            if (checkedPackage.length === 0) {
+                FormUtils.setFieldError(weddingPackageInputs[0], 'Please select a wedding package');
+                isValid = false;
+            }
         }
 
         return isValid;
