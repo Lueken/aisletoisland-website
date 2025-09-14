@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding & Honeymoon Planning Services | Aisle to Islands</title>
-    <meta name="description" content="Expert destination wedding and honeymoon planning services for discerning couples. From intimate ceremonies to grand celebrations and curated romantic escapes.">
+    <title>Planning Packages | Destination Wedding & Honeymoon Services</title>
+    <meta name="description" content="Compare our destination wedding and honeymoon planning packages. Transparent pricing, expert coordination, and personalized experiences worldwide.">
 
     <!-- Google tag (gtag.js) -->
     <script>
@@ -31,9 +31,34 @@
 
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>
     <link rel="stylesheet" href="../dist/css/core.css">
-    <link rel="stylesheet" href="services.css">
-    <link rel="canonical" href="https://Aisle-to-Island.com/services.html">
+    <link rel="stylesheet" href="packages.css">
+    <link rel="canonical" href="https://Aisle-to-Island.com/packages.html">
 </head>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all the columns in the interactive grid
+        const valueColumns = document.querySelectorAll('.value-column');
+
+        // Loop through each column
+        valueColumns.forEach(column => {
+            const contentPanel = column.querySelector('.column-content');
+
+            // When the mouse enters a column...
+            column.addEventListener('mouseenter', () => {
+                // ...add the .is-visible class to its content panel to trigger the animation
+                contentPanel.classList.add('is-visible');
+            });
+
+            // When the mouse leaves the column...
+            column.addEventListener('mouseleave', () => {
+                // ...remove the class to reverse the animation
+                contentPanel.classList.remove('is-visible');
+            });
+        });
+    });
+</script>
+
 <body>
 <nav role="navigation" aria-label="Main navigation">
     <div class="nav-content">
@@ -48,7 +73,8 @@
             <li role="none"><a href="../dist/index.html" role="menuitem">Home</a></li>
             <li role="none"><a href="../dist/destination-wedding.html" role="menuitem">Destination Wedding</a></li>
             <li role="none"><a href="../dist/curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
-            <li role="none"><a href="services.html" role="menuitem" aria-current="page">Services</a></li>
+            <li role="none"><a href="packages.html" role="menuitem" aria-current="page">Packages</a></li>
+            <li role="none"><a href="../dist/blog.html" role="menuitem">Blog</a></li>
             <li role="none"><a href="../dist/inquire.html" role="menuitem">Inquire</a></li>
         </ul>
 
@@ -63,7 +89,8 @@
         <a href="../dist/index.html" role="menuitem">Home</a>
         <a href="../dist/destination-wedding.html" role="menuitem">Destination Wedding</a>
         <a href="../dist/curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
-        <a href="services.html" role="menuitem" aria-current="page">Services</a>
+        <a href="packages.html" role="menuitem" aria-current="page">Packages</a>
+        <a href="../dist/blog.html" role="menuitem">Blog</a>
         <a href="../dist/inquire.html" role="menuitem">Inquire</a>
     </div>
 </nav>
@@ -72,191 +99,146 @@
     <section class="hero" aria-labelledby="hero-title">
         <div class="hero-container">
             <div class="breadcrumb">
-                <a href="../dist/index.html">Home</a> / <span>Services</span>
+                <a href="../dist/index.html">Home</a> / <span>Packages</span>
             </div>
 
             <div class="hero-content hero-animate">
-                <h1 id="hero-title" class="hero-title">Bridging Vision to <span class="title-emphasis">Reality</span></h1>
-                <p class="hero-subtitle">We specialize in transforming your unique romantic vision into unforgettable celebrations through practical creativity and seamless organization. From intimate destination weddings to curated honeymoon experiences, we handle every detail so you can focus on what matters most—celebrating your love.</p>
-
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">24</div>
-                        <div class="stat-label">Destination Weddings</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">16</div>
-                        <div class="stat-label">Honeymoons Curated</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">18</div>
-                        <div class="stat-label">Countries</div>
-                    </div>
-                </div>
+                <h1 id="hero-title" class="hero-title">Planning Packages <span class="title-emphasis">&</span> Services</h1>
+                <p class="hero-subtitle">Expert destination wedding planning with transparent pricing and comprehensive service offerings tailored to your celebration style.</p>
             </div>
 
-            <div class="hero-visual">
-                <div class="visual-card main" style="
-                        background-image: url('../dist/images/hero/bridesmaids.webp');
-                        background-size: cover;
-                        background-position: center;
-                    "></div>
-
-                <div class="visual-card accent" style="
-                        background-image: url('../dist/images/hero/married-ocean.webp');
-                        background-size: cover;
-                        background-position: center;
-                    "></div>
-            </div>
         </div>
     </section>
 
     <section class="services-overview" aria-labelledby="services-title">
         <div class="services-container">
             <div class="services-intro">
-                <h2 id="services-title" class="services-title">Comprehensive Wedding & Travel Planning</h2>
-                <p class="services-subtitle">We bridge the gap between your unique romantic vision and bringing it to fruition, helping discerning couples achieve truly memorable celebrations through practical creativity and seamless organization.</p>
             </div>
 
             <div class="services-grid">
-                <!-- Primary Service - Destination Weddings -->
+                <!-- Wedding Exploration Service Package -->
                 <div class="service-section primary-service fade-in-element">
                     <div class="service-header">
-                        <h3 class="service-title">Destination Wedding Planning</h3>
-                        <p class="service-description">From intimate ceremonies to grand celebrations, we thoughtfully create every detail of your perfect day in the world's most distinguished locations.</p>
+                        <h3 class="service-title">Wedding Exploration Service</h3>
+                        <p class="service-description">Comprehensive wedding planning foundation for couples who want expert guidance in the early stages of destination wedding planning.</p>
                     </div>
 
-                    <div class="service-features">
-                        <h4>What's Included:</h4>
-                        <div class="features-grid">
-                            <div class="feature-item">
-                                <h5>Vision & Discovery</h5>
-                                <p>In-depth consultation to understand your dreams, style preferences, guest list, and budget</p>
-                            </div>
-                            <div class="feature-item">
-                                <h5>Venue Selection & Coordination</h5>
-                                <p>Curated venue options that align with your vision, from clifftop ceremonies to beachside celebrations</p>
-                            </div>
-                            <div class="feature-item">
-                                <h5>Vendor Management</h5>
-                                <p>Sourcing, vetting, and coordinating with trusted local vendors who meet our exacting standards</p>
-                            </div>
-                            <div class="feature-item">
-                                <h5>Guest Experience Planning</h5>
-                                <p>Comprehensive guest travel coordination and welcome experiences that exceed expectations</p>
-                            </div>
-                            <div class="feature-item">
-                                <h5>Timeline & Logistics</h5>
-                                <p>Detailed planning and day-of coordination ensuring seamless execution of your celebration</p>
-                            </div>
-                            <div class="feature-item">
-                                <h5>Cultural Integration</h5>
-                                <p>Thoughtful incorporation of local customs and traditions that enhance your celebration</p>
+                    <div class="service-content-grid">
+                        <div class="service-features">
+                            <h4>What's Included:</h4>
+                            <div class="service-list">
+                                <ul>
+                                    <li>Venue sourcing & procurement</li>
+                                    <li>Budget development & Timeline design</li>
+                                    <li>Room block & group rates negotiation & arrangement</li>
+                                    <li>Personalized website for Guest RSVPs & information</li>
+                                    <li>Guest arrival management & professional transportation planning</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="service-process">
-                        <h4>Our Process:</h4>
-                        <div class="process-steps">
-                            <div class="process-step">
-                                <div class="step-number">1</div>
-                                <div class="step-content">
-                                    <h5>Vision & Discovery</h5>
-                                    <span class="step-timeline">12-18 months before</span>
-                                    <p>Understanding your dreams, style, and requirements</p>
+                        <div class="service-pricing">
+                            <div class="price-info">
+                                <div class="price-main">
+                                    <span class="price-label">Planning Investment</span>
+                                    <span class="price-amount">$1,500</span>
                                 </div>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">2</div>
-                                <div class="step-content">
-                                    <h5>Detailed Planning</h5>
-                                    <span class="step-timeline">8-12 months before</span>
-                                    <p>Venue selection, vendor coordination, and design development</p>
-                                </div>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">3</div>
-                                <div class="step-content">
-                                    <h5>Finalization</h5>
-                                    <span class="step-timeline">1-3 months before</span>
-                                    <p>Final details, timelines, and preparation for your celebration</p>
-                                </div>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">4</div>
-                                <div class="step-content">
-                                    <h5>Celebration</h5>
-                                    <span class="step-timeline">Wedding week</span>
-                                    <p>Seamless execution while you enjoy your moment</p>
+                                <div class="price-note">
+                                    <p>Our couples have a typical range of $800+ per guest for multi-day celebrations with accommodations separately tailored for your guests.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="service-cta">
-                        <a href="../dist/destination-wedding.html" class="service-btn primary">Explore Wedding Services</a>
+                        <a href="../dist/destination-wedding.html" class="service-btn secondary">Learn More About Weddings</a>
+                        <a href="../dist/inquire.html?service=destination-wedding" class="service-btn primary">Start Wedding Planning</a>
                     </div>
                 </div>
 
-                <!-- Secondary Service - Honeymoons -->
+                <!-- Full Wedding Service Package -->
                 <div class="service-section secondary-service fade-in-element">
                     <div class="service-header">
-                        <h3 class="service-title">Curated Honeymoon Planning</h3>
-                        <p class="service-description">Begin your married life with a thoughtfully designed journey created exclusively for you, perfectly balancing adventure, relaxation, and intimate moments.</p>
+                        <h3 class="service-title">Full Wedding Service</h3>
+                        <p class="service-description">Complete end-to-end wedding planning and on-site management for couples who want every detail expertly handled.</p>
                     </div>
 
-                    <div class="honeymoon-styles">
-                        <h4>Honeymoon Styles:</h4>
-                        <div class="styles-list">
-                            <div class="style-item">
-                                <h5>Tropical Paradise</h5>
-                                <p>Overwater villas, pristine beaches, and endless azure waters</p>
-                            </div>
-                            <div class="style-item">
-                                <h5>Mountain Romance</h5>
-                                <p>Luxury chateaus with panoramic views and private pools</p>
-                            </div>
-                            <div class="style-item">
-                                <h5>Adventure & Luxury</h5>
-                                <p>Combining thrilling experiences with luxurious comfort</p>
-                            </div>
-                            <div class="style-item">
-                                <h5>Cultural Immersion</h5>
-                                <p>Authentic experiences in historic destinations</p>
+                    <div class="service-content-grid">
+                        <div class="service-features">
+                            <h4>What's Included:</h4>
+                            <div class="service-list">
+                                <ul>
+                                    <li>Full-service, on-site, multi-day event management</li>
+                                    <li>Vendor procurement, contractual oversight, & timeline synchronization</li>
+                                    <li>Budget Development with strategic monitoring & financial transparency</li>
+                                    <li>Destination discovery & assessment with logistical coordination</li>
+                                    <li>Room block & group rates negotiation & arrangement</li>
+                                    <li>Personalized website for Guest RSVPs & information</li>
+                                    <li>Guest arrival management</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="honeymoon-process">
-                        <h4>Our Approach:</h4>
-                        <div class="approach-steps">
-                            <div class="approach-item">
-                                <span class="approach-number">1</span>
-                                <div class="approach-content">
-                                    <h5>Personal Consultation</h5>
-                                    <p>Understanding your relationship and travel aspirations</p>
+                        <div class="service-pricing">
+                            <div class="price-info">
+                                <div class="price-main">
+                                    <span class="price-label">Investment</span>
+                                    <span class="price-amount">
+                                    <span class="price-main-text">Starting at $5,000 + 10%</span>
+                                    <span class="price-sub-text">of total wedding investment</span>
+                                </span>
                                 </div>
-                            </div>
-                            <div class="approach-item">
-                                <span class="approach-number">2</span>
-                                <div class="approach-content">
-                                    <h5>Destination Curation</h5>
-                                    <p>Carefully selected options that align with your style and interests</p>
-                                </div>
-                            </div>
-                            <div class="approach-item">
-                                <span class="approach-number">3</span>
-                                <div class="approach-content">
-                                    <h5>Seamless Execution</h5>
-                                    <p>Every detail coordinated so you can focus on each other</p>
+                                <div class="price-note">
+                                    <p>Pricing is customized based on guest count, location, duration, and specific requirements. Contact us for a detailed consultation and personalized quote.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="service-cta">
-                        <a href="../dist/curated-honeymoon.html" class="service-btn secondary">Discover Honeymoon Experiences</a>
+                        <a href="../dist/destination-wedding.html" class="service-btn secondary">Learn More About Weddings</a>
+                        <a href="../dist/inquire.html?service=destination-wedding" class="service-btn primary">Start Wedding Planning</a>
+                    </div>
+                </div>
+
+                <!-- Curated Honeymoon Package -->
+                <div class="service-section tertiary-service fade-in-element">
+                    <div class="service-header">
+                        <h3 class="service-title">Curated Honeymoon Planning</h3>
+                        <p class="service-description">Personalized honeymoon planning that creates romantic escapes perfectly tailored to your relationship and travel style.</p>
+                    </div>
+
+                    <div class="service-content-grid">
+                        <div class="service-features">
+                            <h4>What's Included:</h4>
+                            <div class="service-list">
+                                <ul>
+                                    <li>Destination curation based on your preferences</li>
+                                    <li>Luxury accommodation sourcing & booking</li>
+                                    <li>Personalized itinerary design & activity coordination</li>
+                                    <li>Travel logistics & transportation arrangements</li>
+                                    <li>Special experience booking & romantic touches</li>
+                                    <li>Travel support during your honeymoon</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="service-pricing">
+                            <div class="price-info">
+                                <div class="price-main">
+                                    <span class="price-label">Planning Investment</span>
+                                    <span class="price-amount">$250</span>
+                                </div>
+                                <div class="price-note">
+                                    <p>Simple flat fee covers planning from booking through post-travel follow-up. No hidden costs or booking fees - just expert planning for your perfect honeymoon.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-cta">
+                        <a href="../dist/curated-honeymoon.html" class="service-btn secondary">Learn More About Honeymoons</a>
+                        <a href="../dist/inquire.html?service=curated-honeymoon" class="service-btn primary">Start Honeymoon Planning</a>
                     </div>
                 </div>
             </div>
@@ -267,41 +249,60 @@
         <div class="value-container">
             <h2 id="value-title" class="value-title">Why Couples Choose Us</h2>
 
-            <div class="value-grid">
-                <div class="value-item fade-in-element">
-                    <div class="value-icon">🎯</div>
-                    <h3>Curated Options</h3>
-                    <p>We filter overwhelming choices into manageable, tailored options that align perfectly with your refined taste and vision.</p>
+            <div class="value-interactive-grid">
+                <div class="value-column">
+                    <div class="column-base">
+                        <div class="column-number">01</div>
+                        <div class="column-title">Curated Options</div>
+                    </div>
+                    <div class="column-content">
+                        <h3>Curated Options</h3>
+                        <p>We filter overwhelming choices into manageable, tailored options that align perfectly with your refined taste and vision.</p>
+                    </div>
                 </div>
 
-                <div class="value-item fade-in-element">
-                    <div class="value-icon">⚡</div>
-                    <h3>Stress-Free Experience</h3>
-                    <p>Triple-checking every detail and solving problems before they arise, so you can enjoy a worry-free celebration.</p>
+                <div class="value-column">
+                    <div class="column-base">
+                        <div class="column-number">02</div>
+                        <div class="column-title">Transparency & Discretion</div>
+                    </div>
+                    <div class="column-content">
+                        <h3>Transparency & Discretion</h3>
+                        <p>Clear communication about costs, timelines, and decisions while maintaining the utmost discretion for your private celebration.</p>
+                    </div>
                 </div>
 
-                <div class="value-item fade-in-element">
-                    <div class="value-icon">✨</div>
-                    <h3>Unexpected Touches</h3>
-                    <p>Adding thoughtful details and special moments that exceed expectations and make your celebration truly memorable.</p>
+                <div class="value-column">
+                    <div class="column-base">
+                        <div class="column-number">03</div>
+                        <div class="column-title">Unexpected Touches</div>
+                    </div>
+                    <div class="column-content">
+                        <h3>Unexpected Touches</h3>
+                        <p>Adding thoughtful details and special moments that exceed expectations and make your celebration truly memorable.</p>
+                    </div>
                 </div>
 
-                <div class="value-item fade-in-element">
-                    <div class="value-icon">🌍</div>
-                    <h3>Global Expertise</h3>
-                    <p>Extensive network of trusted vendors and venues across 18+ countries, ensuring quality wherever you celebrate.</p>
+                <div class="value-column">
+                    <div class="column-base">
+                        <div class="column-number">04</div>
+                        <div class="column-title">Personal Connection</div>
+                    </div>
+                    <div class="column-content">
+                        <h3>Personal Connection</h3>
+                        <p>We listen carefully to transform your abstract ideas into unique, tangible experiences that reflect your love story.</p>
+                    </div>
                 </div>
 
-                <div class="value-item fade-in-element">
-                    <div class="value-icon">👂</div>
-                    <h3>Personal Connection</h3>
-                    <p>We listen carefully to transform your abstract ideas into unique, tangible experiences that reflect your love story.</p>
-                </div>
-
-                <div class="value-item fade-in-element">
-                    <div class="value-icon">🎭</div>
-                    <h3>Controlled Chaos</h3>
-                    <p>Thriving in complex coordination while maintaining seamless organization, so your celebration feels effortless.</p>
+                <div class="value-column">
+                    <div class="column-base">
+                        <div class="column-number">05</div>
+                        <div class="column-title">Controlled Chaos</div>
+                    </div>
+                    <div class="column-content">
+                        <h3>Controlled Chaos</h3>
+                        <p>Thriving in complex coordination while maintaining seamless organization, so your celebration feels effortless.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -367,7 +368,7 @@
             <h4>Company</h4>
             <ul>
                 <li><a href="../dist/index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
                 <li><a href="../dist/inquire.html">Inquire</a></li>
                 <li><a href="../dist/privacy.html">Privacy Policy</a></li>
             </ul>
@@ -432,6 +433,7 @@
             console.log('👀 Services Intersection Observer initialized');
         }
     }
+
 
     // Mobile menu functionality
     function initMobileMenu() {
