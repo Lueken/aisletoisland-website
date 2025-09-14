@@ -61,7 +61,15 @@ class ContactFormHandler {
     // ==========================================
 
     autoSelectService() {
-        const serviceParam = UrlUtils.getParameter('service');
+        // Simple URL parameter extraction (fallback if UrlUtils not available)
+        const getUrlParameter = (name) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        };
+
+        const serviceParam = (window.UrlUtils && window.UrlUtils.getParameter)
+            ? UrlUtils.getParameter('service')
+            : getUrlParameter('service');
 
         if (serviceParam) {
             const radioButton = document.getElementById(serviceParam);

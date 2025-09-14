@@ -507,6 +507,18 @@
     outline: none;
 }
 
+/* Page-specific primary button styling */
+.cta-button.primary {
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-muted) 100%);
+    color: white;
+    box-shadow: 0 15px 40px rgba(212, 149, 107, 0.2);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px rgba(212, 149, 107, 0.3);
+}
+
 /* ==========================================
    RESPONSIVE DESIGN
 ========================================== */
