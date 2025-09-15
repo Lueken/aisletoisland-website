@@ -71,12 +71,33 @@ class ContactFormHandler {
             ? UrlUtils.getParameter('service')
             : getUrlParameter('service');
 
+        const packageParam = (window.UrlUtils && window.UrlUtils.getParameter)
+            ? UrlUtils.getParameter('package')
+            : getUrlParameter('package');
+
+        // Pre-select service
         if (serviceParam) {
             const radioButton = document.getElementById(serviceParam);
             if (radioButton) {
                 radioButton.checked = true;
                 this.highlightPreselectedService(radioButton);
                 console.log(`✅ Auto-selected service: ${serviceParam}`);
+
+                // Trigger the conditional wedding package field to show
+                radioButton.dispatchEvent(new Event('change'));
+
+                // Pre-select wedding package if provided
+                if (packageParam && (serviceParam === 'destination-wedding' || serviceParam === 'both-services')) {
+                    // Wait a moment for the conditional field to show
+                    setTimeout(() => {
+                        const packageRadio = document.getElementById(packageParam);
+                        if (packageRadio) {
+                            packageRadio.checked = true;
+                            this.highlightPreselectedService(packageRadio);
+                            console.log(`✅ Auto-selected wedding package: ${packageParam}`);
+                        }
+                    }, 100);
+                }
             }
         }
     }
