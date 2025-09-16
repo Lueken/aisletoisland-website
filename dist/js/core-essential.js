@@ -312,7 +312,7 @@ class FormUtilsEssential {
         errorDiv.className = 'error-message';
         errorDiv.textContent = message;
         errorDiv.setAttribute('role', 'alert');
-        
+
         input.parentNode.insertBefore(errorDiv, input.nextSibling);
         input.classList.add('error');
     }
@@ -323,6 +323,45 @@ class FormUtilsEssential {
             errorText.remove();
         }
         input.classList.remove('error');
+    }
+
+    // Methods expected by contact-form.js
+    static setFieldError(field, message) {
+        this.clearFieldErrors(field);
+
+        const formGroup = field.closest('.form-group');
+        if (formGroup) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-text';
+            errorDiv.textContent = message;
+            errorDiv.setAttribute('role', 'alert');
+
+            formGroup.appendChild(errorDiv);
+            formGroup.style.borderColor = '#dc3545';
+            field.setAttribute('aria-invalid', 'true');
+        }
+    }
+
+    static clearFieldErrors(field) {
+        const formGroup = field.closest('.form-group');
+        if (formGroup) {
+            const existingErrors = formGroup.querySelectorAll('.error-text');
+            existingErrors.forEach(error => error.remove());
+            formGroup.style.borderColor = '';
+            field.removeAttribute('aria-invalid');
+        }
+    }
+
+    static validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    static validatePhone(phone) {
+        // Remove all non-numeric characters
+        const cleanPhone = phone.replace(/\D/g, '');
+        // Accept 10-15 digit phone numbers
+        return cleanPhone.length >= 10 && cleanPhone.length <= 15;
     }
 }
 
