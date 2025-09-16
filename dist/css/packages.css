@@ -3,7 +3,7 @@
 /* Hero Section */
 .hero {
     min-height: auto !important;
-    padding: 120px 60px 30px;
+    padding: 120px clamp(20px, 5vw, 60px) 30px;
     background: linear-gradient(135deg, var(--cream-bg) 0%, #faf9f7 100%);
     position: relative;
     overflow: hidden;
@@ -144,23 +144,46 @@
 
 /* Services Overview Section */
 .services-overview {
-    padding: 60px 0 120px;
+    padding: clamp(40px, 8vw, 60px) 0 clamp(60px, 12vw, 120px);
     background:
-            url('../dist/images/hero/tropical-leaves-pattern3.webp') repeat,
+            url('../images/hero/tropical-leaves-pattern3.webp') repeat,
             linear-gradient(135deg,
             rgba(15, 25, 35, 0.92) 0%,
             rgba(25, 35, 45, 0.94) 50%,
             rgba(15, 25, 35, 0.96) 100%
             );
-    background-size: 600px 600px, cover;
+    background-size: 400px 400px, cover;
+    background-position: 0 0, center;
     background-blend-mode: luminosity, normal;
     position: relative;
+    overflow: hidden;
 }
 
 .services-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 clamp(15px, 4vw, 20px);
+}
+
+/* Mobile container improvements */
+@media (max-width: 768px) {
+    .services-container {
+        padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-container {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+
+    .services-overview {
+        background-size: 300px 300px, cover;
+        background-position: center, center;
+    }
 }
 
 .services-intro {
@@ -188,7 +211,8 @@
 .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: clamp(30px, 8vw, 60px);
+    width: 100%;
 }
 
 .services-overview::before {
@@ -217,8 +241,8 @@
 /* Service Sections */
 .service-section {
     background: var(--cream-bg, #faf8f5) !important;
-    border-radius: 20px;
-    padding: 40px;
+    border-radius: clamp(12px, 3vw, 20px);
+    padding: clamp(25px, 5vw, 40px);
     box-shadow: 0 10px 30px rgba(15, 95, 95, 0.08);
     opacity: 0;
     transform: translateY(30px);
@@ -250,15 +274,15 @@
 
 .service-title {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 2.2rem;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
     font-weight: 500;
     color: var(--text-dark);
-    margin-bottom: 16px;
+    margin-bottom: clamp(12px, 2vw, 16px);
 }
 
 .service-description {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
     line-height: 1.7;
     color: var(--text-medium);
 }
@@ -267,9 +291,21 @@
 .service-content-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 40px;
+    gap: clamp(20px, 4vw, 40px);
     align-items: start;
-    margin-bottom: 30px;
+    margin-bottom: clamp(20px, 4vw, 30px);
+}
+
+/* Make grid single column on tablets and smaller */
+@media (max-width: 900px) {
+    .service-content-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(15px, 4vw, 25px);
+    }
+
+    .service-pricing {
+        margin-top: 0 !important;
+    }
 }
 
 .service-pricing {
@@ -296,8 +332,8 @@
 /* Service List Styling */
 .service-list {
     background: white;
-    padding: 25px;
-    border-radius: 12px;
+    padding: clamp(15px, 3vw, 25px);
+    border-radius: clamp(8px, 2vw, 12px);
     box-shadow: 0 5px 15px rgba(15, 95, 95, 0.05);
 }
 
@@ -314,7 +350,7 @@
     color: var(--text-medium);
     padding: 12px 0;
     position: relative;
-    padding-left: 24px;
+    padding-left: clamp(35px, 8vw, 40px);
 }
 
 .service-list li:last-child {
@@ -324,11 +360,13 @@
 .service-list li::before {
     content: "✓";
     position: absolute;
-    left: 0;
+    left: 12px;
     top: 12px;
     color: var(--primary-teal);
     font-weight: 600;
     font-size: 1.1rem;
+    width: 18px;
+    text-align: center;
 }
 
 /* Service Pricing */
@@ -338,8 +376,8 @@
 
 .price-info {
     background: linear-gradient(135deg, var(--cream-bg) 0%, #faf9f7 100%);
-    padding: 25px;
-    border-radius: 12px;
+    padding: clamp(15px, 3vw, 25px);
+    border-radius: clamp(8px, 2vw, 12px);
     border-left: 4px solid var(--primary-teal);
 }
 
@@ -599,19 +637,33 @@
 .service-cta {
     display: flex;
     flex-direction: row;
-    gap: 40px;
+    gap: clamp(15px, 4vw, 40px);
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .service-cta {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .service-btn {
+        width: 100%;
+        text-align: center;
+        min-width: 200px;
+    }
 }
 
 .service-btn {
     display: inline-block;
-    padding: 16px 32px;
+    padding: clamp(12px, 2.5vw, 16px) clamp(20px, 4vw, 32px);
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     font-weight: 600;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: clamp(6px, 1.5vw, 8px);
     transition: all 0.3s ease;
 }
 
@@ -639,14 +691,17 @@
 
 /* Value Proposition Section */
 .value-proposition {
-    padding: 100px 0;
+    padding: clamp(60px, 12vw, 100px) 0;
     background: linear-gradient(135deg, var(--cream-bg) 0%, #faf9f7 100%);
+    overflow: hidden;
 }
 
 .value-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 clamp(15px, 4vw, 20px);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .value-title {
@@ -665,6 +720,9 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
     position: relative;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* FORCE ANIMATIONS - Override reduced motion globally */
@@ -1010,73 +1068,234 @@
         max-width: 300px;
     }
 
-    /* Interactive grid disabled on mobile - too complex for touch */
+    /* Mobile value proposition adjustments */
+    .value-proposition {
+        padding: clamp(40px, 8vw, 60px) 0;
+    }
+
+    /* Mobile-specific tap cards design */
     .value-interactive-grid {
-        flex-direction: column;
+        display: block;
         height: auto;
-        pointer-events: none;
+        border: none;
+        margin: 0;
+        width: 100%;
+        background: transparent;
+    }
+
+    .value-container {
+        padding: 0 5px;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+        box-sizing: border-box;
     }
 
     .value-column {
         width: 100% !important;
         height: auto !important;
-        border-right: none !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: none !important;
+        border: none !important;
+        margin: 0 0 15px 0 !important;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(15, 25, 35, 0.95), rgba(25, 35, 45, 0.98));
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        overflow: hidden;
+        position: relative;
+        box-sizing: border-box;
     }
 
-    .value-column:hover {
-        width: 100% !important;
-        height: auto !important;
+    .value-column:hover,
+    .value-column.active {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+        background: linear-gradient(135deg, rgba(15, 25, 35, 1), rgba(25, 35, 45, 1));
     }
 
     .column-base {
         position: relative;
-        flex-direction: row;
-        justify-content: flex-start;
-        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px 20px;
+        background: transparent;
+        z-index: 2;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        min-height: 60px;
+    }
+
+    .column-left {
+        display: flex;
+        align-items: center;
+        flex: 1;
     }
 
     .column-number {
-        margin-right: 20px;
+        margin-right: 15px;
         margin-bottom: 0;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--primary-teal);
+        background: rgba(15, 95, 95, 0.15);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
     }
 
     .column-title {
         text-align: left;
-        font-size: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
         writing-mode: horizontal-tb;
         transform: none;
+        color: white;
+        line-height: 1.4;
+        flex: 1;
+        letter-spacing: 0.02em;
+    }
+
+    .column-expand-icon {
+        width: 24px;
+        height: 24px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .column-expand-icon::after {
+        content: '+';
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+    }
+
+    .value-column.active .column-expand-icon {
+        background: var(--primary-teal);
+        border-color: var(--primary-teal);
+        transform: rotate(45deg);
+    }
+
+    .value-column.active .column-expand-icon::after {
+        transform: rotate(45deg);
     }
 
     .column-content {
         position: relative;
-        top: 0;
-        transform: none !important;
-        opacity: 1 !important;
-        padding: 20px;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s ease;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.3);
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .value-column.active .column-content {
+        height: 350px;
+        padding: 40px 25px;
+        display: flex;
+        flex-direction: column;
         justify-content: flex-start;
-        background: rgba(15, 25, 35, 0.2);
-        margin-top: 15px;
+        align-items: center;
+        gap: 25px;
     }
 
     .column-content h3 {
-        font-size: 1.4rem;
-        margin-bottom: 15px;
+        font-size: 1.6rem;
+        margin: 0;
+        color: white;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+        line-height: 1.3;
+        flex-shrink: 0;
     }
 
     .column-content p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.95);
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        text-align: center;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        padding: 0 10px;
     }
 }
 
 @media (max-width: 480px) {
     .hero {
-        padding: 120px 0 60px;
+        padding: 100px 15px 40px;
     }
 
     .service-section {
-        padding: 25px 20px;
+        padding: 20px 15px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .service-header {
+        margin-bottom: 25px;
+    }
+
+    .service-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .service-description {
+        font-size: 0.95rem;
+    }
+
+    .service-features h4 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .service-list li {
+        font-size: 0.9rem;
+        padding: 8px 0;
+        padding-left: 45px;
+    }
+
+    .service-list li::before {
+        left: 15px;
+        top: 8px;
+        font-size: 1rem;
+        width: 20px;
+    }
+
+    .price-label {
+        font-size: 1rem;
+    }
+
+    .price-amount {
+        font-size: 1.4rem;
+    }
+
+    .service-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        min-width: 160px;
     }
 
     .process-step,
@@ -1088,16 +1307,26 @@
 
     .service-list,
     .price-info {
-        padding: 20px;
-    }
-
-    .price-amount {
-        font-size: 1.6rem;
+        padding: 15px;
     }
 
     .testimonial-stats {
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+    .service-list li {
+        padding-left: 50px;
+        font-size: 0.85rem;
+    }
+
+    .service-list li::before {
+        left: 18px;
+        font-size: 0.95rem;
+        width: 22px;
     }
 }
 

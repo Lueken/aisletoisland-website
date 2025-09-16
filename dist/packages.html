@@ -6,6 +6,20 @@
     <title>Planning Packages | Destination Wedding & Honeymoon Services</title>
     <meta name="description" content="Compare our destination wedding and honeymoon planning packages. Transparent pricing, expert coordination, and personalized experiences worldwide.">
 
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="Planning Packages | Aisle to Islands">
+    <meta property="og:description" content="Compare our destination wedding and honeymoon planning packages. Transparent pricing, expert coordination, and personalized experiences worldwide.">
+    <meta property="og:image" content="https://aisle-to-islands.com/images/hero/packages-hero.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aisle-to-islands.com/packages.html">
+    <meta property="og:site_name" content="Aisle to Islands">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Planning Packages | Aisle to Islands">
+    <meta name="twitter:description" content="Compare our destination wedding and honeymoon planning packages. Transparent pricing, expert coordination, and personalized experiences worldwide.">
+    <meta name="twitter:image" content="https://aisle-to-islands.com/images/hero/packages-hero.webp">
+
     <!-- Google tag (gtag.js) -->
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -32,7 +46,7 @@
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>
     <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/packages.css">
-    <link rel="canonical" href="https://Aisle-to-Island.com/packages.html">
+    <link rel="canonical" href="https://aisle-to-islands.com/packages.html">
 </head>
 
 <script>
@@ -252,8 +266,11 @@
             <div class="value-interactive-grid">
                 <div class="value-column">
                     <div class="column-base">
-                        <div class="column-number">01</div>
-                        <div class="column-title">Curated Options</div>
+                        <div class="column-left">
+                            <div class="column-number">01</div>
+                            <div class="column-title">Curated Options</div>
+                        </div>
+                        <div class="column-expand-icon"></div>
                     </div>
                     <div class="column-content">
                         <h3>Curated Options</h3>
@@ -263,8 +280,11 @@
 
                 <div class="value-column">
                     <div class="column-base">
-                        <div class="column-number">02</div>
-                        <div class="column-title">Transparency & Discretion</div>
+                        <div class="column-left">
+                            <div class="column-number">02</div>
+                            <div class="column-title">Transparency & Discretion</div>
+                        </div>
+                        <div class="column-expand-icon"></div>
                     </div>
                     <div class="column-content">
                         <h3>Transparency & Discretion</h3>
@@ -274,8 +294,11 @@
 
                 <div class="value-column">
                     <div class="column-base">
-                        <div class="column-number">03</div>
-                        <div class="column-title">Unexpected Touches</div>
+                        <div class="column-left">
+                            <div class="column-number">03</div>
+                            <div class="column-title">Unexpected Touches</div>
+                        </div>
+                        <div class="column-expand-icon"></div>
                     </div>
                     <div class="column-content">
                         <h3>Unexpected Touches</h3>
@@ -285,8 +308,11 @@
 
                 <div class="value-column">
                     <div class="column-base">
-                        <div class="column-number">04</div>
-                        <div class="column-title">Personal Connection</div>
+                        <div class="column-left">
+                            <div class="column-number">04</div>
+                            <div class="column-title">Personal Connection</div>
+                        </div>
+                        <div class="column-expand-icon"></div>
                     </div>
                     <div class="column-content">
                         <h3>Personal Connection</h3>
@@ -296,8 +322,11 @@
 
                 <div class="value-column">
                     <div class="column-base">
-                        <div class="column-number">05</div>
-                        <div class="column-title">Controlled Chaos</div>
+                        <div class="column-left">
+                            <div class="column-number">05</div>
+                            <div class="column-title">Controlled Chaos</div>
+                        </div>
+                        <div class="column-expand-icon"></div>
                     </div>
                     <div class="column-content">
                         <h3>Controlled Chaos</h3>
@@ -400,6 +429,77 @@
     }
 
 
+    // Mobile value cards interaction
+    function initMobileValueCards() {
+        // Check if we're on mobile
+        const isMobile = window.innerWidth <= 768;
+        const valueColumns = document.querySelectorAll('.value-column');
+
+        if (isMobile) {
+            console.log('📱 Initializing mobile value cards for', valueColumns.length, 'columns');
+
+            // Remove any existing event listeners and reset states
+            valueColumns.forEach(column => {
+                column.classList.remove('active');
+                // Remove old event listeners by cloning
+                const newColumn = column.cloneNode(true);
+                column.parentNode.replaceChild(newColumn, column);
+            });
+
+            // Get the new columns after cloning
+            const newValueColumns = document.querySelectorAll('.value-column');
+
+            newValueColumns.forEach((column, index) => {
+                // Add event listener to the entire column for better touch area
+                column.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    console.log('📱 Card', index + 1, 'tapped');
+
+                    // Close other open cards
+                    newValueColumns.forEach(otherColumn => {
+                        if (otherColumn !== column) {
+                            otherColumn.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current card
+                    const isActive = column.classList.contains('active');
+                    if (isActive) {
+                        column.classList.remove('active');
+                        console.log('📱 Card', index + 1, 'closed');
+                    } else {
+                        column.classList.add('active');
+                        console.log('📱 Card', index + 1, 'opened');
+                    }
+                });
+
+                // Add touch event for better mobile responsiveness
+                column.addEventListener('touchstart', function(e) {
+                    // Add visual feedback
+                    column.style.transform = 'translateY(-1px)';
+                }, { passive: true });
+
+                column.addEventListener('touchend', function(e) {
+                    // Reset visual feedback
+                    setTimeout(() => {
+                        if (!column.classList.contains('active')) {
+                            column.style.transform = '';
+                        }
+                    }, 150);
+                }, { passive: true });
+            });
+
+            console.log('📱 Mobile value cards initialized successfully');
+        } else {
+            // On desktop, ensure active states are cleared
+            valueColumns.forEach(column => {
+                column.classList.remove('active');
+            });
+        }
+    }
+
     // Mobile menu functionality
     function initMobileMenu() {
         const toggle = document.querySelector('.mobile-menu-toggle');
@@ -472,6 +572,7 @@
 
         initMobileMenu();
         initSmoothScrolling();
+        initMobileValueCards();
 
         setTimeout(() => {
             initBulletproofAnimations();
@@ -481,6 +582,16 @@
 
     window.addEventListener('load', () => {
         console.log('🎯 Services page fully loaded');
+    });
+
+    // Handle resize/orientation changes
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            console.log('📱 Window resized, reinitializing cards');
+            initMobileValueCards();
+        }, 250);
     });
 </script>
 </body>
