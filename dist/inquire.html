@@ -91,8 +91,13 @@
                         <form id="contactForm" method="POST" action="https://formspree.io/f/xkgzlykr" novalidate>
                             <!-- Formspree Configuration -->
                             <input type="hidden" name="_subject" value="New Wedding & Travel Inquiry - Aisle to Islands">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+                            <input type="hidden" name="_next" value="https://aisle-to-island.com/inquire.html#success">
+
+                            <!-- Honeypot field - invisible to users, visible to bots -->
+                            <div style="position: absolute; left: -5000px; opacity: 0; pointer-events: none;" aria-hidden="true">
+                                <label for="website">Please leave this field empty:</label>
+                                <input type="checkbox" name="website" id="website" tabindex="-1" autocomplete="off">
+                            </div>
 
                             <div class="form-row">
                                 <div class="form-group">

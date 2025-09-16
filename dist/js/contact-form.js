@@ -247,6 +247,13 @@ class ContactFormHandler {
     async handleSubmit() {
         if (this.isSubmitting) return;
 
+        // Check honeypot field - if checked, silently block submission
+        const honeypot = this.form.querySelector('input[name="website"]');
+        if (honeypot && honeypot.checked) {
+            console.log('🍯 Honeypot triggered - bot detected');
+            return; // Silently fail for bots
+        }
+
         if (!this.validateForm()) {
             this.scrollToFirstError();
             return;
@@ -256,11 +263,6 @@ class ContactFormHandler {
 
         try {
             const formData = new FormData(this.form);
-
-            // Add metadata
-            formData.append('form_submitted_at', new Date().toISOString());
-            formData.append('user_agent', navigator.userAgent);
-            formData.append('page_url', window.location.href);
 
             console.log('📤 Submitting form to Formspree:', Object.fromEntries(formData));
 
