@@ -23,6 +23,47 @@
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>
     <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/honeymoon.css">
+    <link rel="stylesheet" href="css/packages.css">
+    <style>
+        /* Override packages.css hero styles for honeymoon page */
+        .hero .hero-content {
+            grid-column: auto !important;
+            text-align: left !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        .hero .hero-visual {
+            opacity: 1 !important;
+            transform: none !important;
+            position: relative !important;
+            display: block !important;
+            height: 600px !important;
+            width: 100% !important;
+            max-width: 550px !important;
+            margin: 0 auto !important;
+            grid-template-columns: unset !important;
+            gap: unset !important;
+        }
+        /* Fix process steps - override packages.css white background */
+        .process .process-step {
+            background: rgba(255, 255, 255, 0.03) !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        /* Mobile-only order fix to prevent images appearing above breadcrumb */
+        @media (max-width: 768px) {
+            .hero .breadcrumb {
+                order: 1 !important;
+            }
+            .hero .hero-content {
+                order: 2 !important;
+            }
+            .hero .hero-visual {
+                order: 3 !important;
+            }
+        }
+    </style>
     <link rel="canonical" href="https://aisle-to-islands.com/curated-honeymoon.html">
 
     <!-- Service Schema Markup -->
@@ -87,7 +128,8 @@
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="destination-wedding.html" role="menuitem">Destination Wedding</a></li>
                 <li role="none"><a href="curated-honeymoon.html" role="menuitem" aria-current="page">Curated Honeymoon</a></li>
-                <li role="none"><a href="packages.html" role="menuitem">Packages</a></li>
+                <li role="none"><a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
+                <!-- <li role="none"><a href="packages.html" role="menuitem">Packages</a></li> -->
                 <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
                 <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
             </ul>
@@ -105,7 +147,8 @@
             <a href="index.html" role="menuitem">Home</a>
             <a href="destination-wedding.html" role="menuitem">Destination Wedding</a>
             <a href="curated-honeymoon.html" role="menuitem" aria-current="page">Curated Honeymoon</a>
-            <a href="packages.html" role="menuitem">Packages</a>
+            <a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a>
+            <!-- <a href="packages.html" role="menuitem">Packages</a> -->
             <a href="blog.html" role="menuitem">Blog</a>
             <a href="inquire.html" role="menuitem">Inquire</a>
         </div>
@@ -119,8 +162,8 @@
                 </div>
 
                 <div class="hero-content hero-animate">
-                    <h1 id="hero-title" class="hero-title">Your <span class="title-emphasis">Honeymoon</span>, The First Chapter</h1>
-                    <p class="hero-description">Your married life begins with an extraordinary journey that reflects the depth of your commitment. Be truly present with each other while creating core memories of your marriage.</p>
+                    <h1 id="hero-title" class="hero-title">Your <span class="title-emphasis">Honeymoon</span>, Your Next Adventure</h1>
+                    <p class="hero-description">Your married life begins with an extraordinary journey that honors this milestone moment. Focus on each other while creating core memories of your new beginning.</p>
 
 <!--                    <a href="inquire.html" class="cta-button" target="_blank" rel="noopener noreferrer">Design Your Honeymoon</a>-->
 
@@ -154,6 +197,26 @@
                         background-position: center;
                     ">
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: More Than Travel Planning -->
+        <section class="honeymoon-difference" aria-labelledby="difference-title">
+            <div class="difference-container">
+                <div class="section-header">
+                    <h2 id="difference-title" class="section-title">More Than Travel Planning: Complete Honeymoon Experience Design</h2>
+                </div>
+
+                <div class="difference-content fade-in-element">
+                    <p class="difference-intro">Your honeymoon shouldn't feel like another trip - it should feel like the intentional beginning of your marriage. We don't just book accommodations and flights; we curate complete experiences that honor this milestone moment while reflecting who you are as a couple.</p>
+
+                    <p class="difference-highlight">What makes our approach different: We design honeymoons with the same thoughtful attention we bring to weddings - understanding your story, your values, and creating experiences worthy of this sacred transition.</p>
+                </div>
+
+                <div class="testimonial-card fade-in-element">
+                    <p class="testimonial-text">"Jessica L. was knowledgeable, kind and most importantly patient when tailoring my perfect honeymoon to Ireland! I would not have seen or experienced as much in my international travel without her expertise."</p>
+                    <p class="testimonial-author">— Ariel C.</p>
                 </div>
             </div>
         </section>
@@ -227,24 +290,24 @@
         <section class="process" aria-labelledby="process-title">
             <div class="process-container">
                 <div class="process-header">
-                    <h2 id="process-title" class="process-title">Begin Your Legacy</h2>
-                    <p class="process-subtitle">Experience a honeymoon that truly honors this milestone in your marriage. Complete our inquiry form to explore creating something worthy of this moment.</p>
+                    <h2 id="process-title" class="process-title">Our Three-Phase Approach</h2>
+                    <p class="process-subtitle">This isn't just a vacation - it's the intentional beginning of your married life together. When every detail is thoughtfully curated you can be fully present with each other and focus on what matters most: your connection.</p>
                 </div>
 
                 <div class="process-grid">
-                    <div class="process-step fade-in-element">
+                    <div class="process-step">
                         <div class="step-number">1</div>
                         <h3 class="step-title">Personal Consultation</h3>
                         <p class="step-description">We begin with an intimate conversation about your aspirations, preferences, and what makes your relationship unique in order to design the perfect honeymoon experience just for you.</p>
                     </div>
 
-                    <div class="process-step fade-in-element">
+                    <div class="process-step">
                         <div class="step-number">2</div>
                         <h3 class="step-title">Destination Curation</h3>
                         <p class="step-description">Based on your vision, we present carefully selected destinations and adventures that align perfectly with your style, interests, and budget.</p>
                     </div>
 
-                    <div class="process-step fade-in-element">
+                    <div class="process-step">
                         <div class="step-number">3</div>
                         <h3 class="step-title">Seamless Execution</h3>
                         <p class="step-description">Travel worry-free knowing every aspect is coordinated behind the scenes, allowing you to focus on each other and creating beautiful memories together.</p>
@@ -253,14 +316,59 @@
             </div>
         </section>
 
+        <section class="services-overview" aria-labelledby="services-title">
+            <div class="services-container">
+                <div class="services-grid">
+                    <!-- Curated Honeymoon Package -->
+                    <div class="service-section tertiary-service fade-in-element">
+                        <div class="service-header">
+                            <h3 class="service-title">Curated Honeymoon Planning</h3>
+                            <p class="service-description">Personalized honeymoon planning that creates romantic escapes perfectly tailored to your relationship and travel style.</p>
+                        </div>
+
+                        <div class="service-content-grid">
+                            <div class="service-features">
+                                <h4>What's Included:</h4>
+                                <div class="service-list">
+                                    <ul>
+                                        <li>Destination curation based on your preferences</li>
+                                        <li>Luxury accommodation sourcing & booking</li>
+                                        <li>Personalized itinerary design & activity coordination</li>
+                                        <li>Travel logistics & transportation arrangements</li>
+                                        <li>Special experience booking & romantic touches</li>
+                                        <li>Travel support during your honeymoon</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="service-pricing">
+                                <div class="price-info">
+                                    <div class="price-main">
+                                        <span class="price-label">Planning Investment</span>
+                                        <span class="price-amount">$250</span>
+                                    </div>
+                                    <div class="price-note">
+                                        <p>Simple flat fee covers planning from booking through post-travel follow-up. No hidden costs or booking fees - just expert planning for your perfect honeymoon.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-cta">
+                            <!-- <a href="inquire.html?service=curated-honeymoon" class="service-btn primary">Start Honeymoon Planning</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="cta" aria-labelledby="cta-title">
             <div class="cta-container">
-                <h2 id="cta-title" class="cta-title">Begin Your Love Story</h2>
-                <p class="cta-description">Let's create a honeymoon that's as unique and beautiful as your love. Schedule a consultation to start planning your extraordinary journey together as newlyweds.</p>
+                <h2 id="cta-title" class="cta-title">Your Honeymoon Awaits</h2>
+                <p class="cta-description">Because the way you begin your marriage matters - so let's make it extraordinary.</p>
 
                 <div class="cta-buttons">
-                    <a href="packages.html" class="cta-button secondary">View All Packages</a>
-                    <a href="inquire.html?service=curated-honeymoon" class="cta-button primary">Design Your Honeymoon</a>
+                    <a href="inquire.html?service=curated-honeymoon" class="cta-button primary">Complete Our Inquiry Form</a>
                 </div>
             </div>
         </section>
@@ -279,7 +387,7 @@
                 <ul>
                     <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
                     <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
-                    <li><a href="packages.html">Packages</a></li>
+                    <!-- <li><a href="packages.html">Packages</a></li> -->
                     <li><a href="inquire.html">Inquire</a></li>
                 </ul>
             </div>

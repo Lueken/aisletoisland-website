@@ -83,13 +83,14 @@ class AisleToIslandsEnhanced {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
             if (scrollTop >= stickyPoint && !isSticky) {
-                // Set spacer height and add active class to prevent content jump
-                spacer.style.height = navHeight + 'px';
+                // Get fresh nav height right before transition to ensure accuracy
+                const currentNavHeight = nav.offsetHeight;
+                // Set spacer height FIRST to fill the space the nav will vacate
+                spacer.style.height = currentNavHeight + 'px';
                 spacer.classList.add('active');
-                requestAnimationFrame(() => {
-                    nav.classList.add('homepage-nav-sticky');
-                    isSticky = true;
-                });
+                // Then make nav sticky in the same frame (no delay) to prevent jump
+                nav.classList.add('homepage-nav-sticky');
+                isSticky = true;
             } else if (scrollTop < stickyPoint && isSticky) {
                 // Remove sticky state and reset spacer
                 nav.classList.remove('homepage-nav-sticky');

@@ -224,6 +224,77 @@
 }
 
 /* ==========================================
+   HONEYMOON DIFFERENCE SECTION
+========================================== */
+
+.honeymoon-difference {
+    padding: 100px 60px;
+    background: var(--background-cream);
+}
+
+.difference-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.difference-container .section-header {
+    text-align: center;
+    margin: 0 auto 50px;
+}
+
+.difference-container .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.difference-content {
+    margin-bottom: 60px;
+}
+
+.difference-intro {
+    font-size: clamp(17px, 2.5vw, 20px);
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.difference-highlight {
+    font-size: clamp(16px, 2.5vw, 19px);
+    color: var(--primary-teal);
+    line-height: 1.8;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(15, 95, 95, 0.08);
+    border-left: 4px solid var(--accent-orange);
+}
+
+.testimonial-text {
+    font-size: clamp(16px, 2.5vw, 18px);
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-size: 15px;
+    color: var(--primary-teal);
+    font-weight: 600;
+    text-align: right;
+    margin: 0;
+}
+
+/* ==========================================
    EXPERIENCES SECTION
 ========================================== */
 
@@ -421,18 +492,18 @@
 
 .step-number {
     position: absolute;
-    top: -20px;
+    top: -19px;
     left: 50%;
     transform: translateX(-50%);
-    width: 45px;
-    height: 45px;
+    width: 38px;
+    height: 38px;
     background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-muted) 100%);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
 }
@@ -609,10 +680,15 @@
         transform: none;
     }
 
+    .honeymoon-difference,
     .experiences,
     .process,
     .cta {
         padding: 80px 30px;
+    }
+
+    .testimonial-card {
+        padding: 30px 35px;
     }
 
     .experiences-grid {
@@ -670,10 +746,15 @@
         transform: none;
     }
 
+    .honeymoon-difference,
     .experiences,
     .process,
     .cta {
         padding: 60px 20px;
+    }
+
+    .testimonial-card {
+        padding: 25px 20px;
     }
 
     .experience-content {
