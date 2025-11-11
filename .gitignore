@@ -55,4 +55,4 @@ jspm_packages/
 
 # Temporary files
 *.tmp
-*.temp
+*.temp.gcp-saved-tokens.json
