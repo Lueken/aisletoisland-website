@@ -27,263 +27,503 @@
 
     <!-- Service Schema Markup -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://aisle-to-islands.com/destination-wedding.html#service",
-      "name": "Destination Wedding Planning",
-      "description": "Expert destination wedding planning for discerning couples. Seamless coordination transforms your vision into celebrations worldwide.",
-      "provider": {
-        "@type": "LocalBusiness",
-        "@id": "https://aisle-to-islands.com/#business",
-        "name": "Aisle to Islands"
-      },
-      "areaServed": [
         {
-          "@type": "Place",
-          "name": "Worldwide"
-        },
-        {
-          "@type": "Place",
-          "name": "Caribbean"
-        },
-        {
-          "@type": "Place",
-          "name": "South America"
-        },
-        {
-          "@type": "Place",
-          "name": "Central America"
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://aisle-to-islands.com/destination-wedding.html#service",
+            "name": "Destination Wedding Planning",
+            "description": "Expert destination wedding planning for discerning couples. Seamless coordination transforms your vision into celebrations worldwide.",
+            "provider": {
+                "@type": "LocalBusiness",
+                "@id": "https://aisle-to-islands.com/#business",
+                "name": "Aisle to Islands"
+            },
+            "areaServed": [
+                {
+                    "@type": "Place",
+                    "name": "Worldwide"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Caribbean"
+                },
+                {
+                    "@type": "Place",
+                    "name": "South America"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Central America"
+                }
+            ],
+            "serviceType": "Destination Wedding Planning",
+            "category": "Wedding Planning",
+            "offers": {
+                "@type": "Offer",
+                "name": "Destination Wedding Planning Services",
+                "description": "Complete wedding planning and coordination for destination celebrations",
+                "priceCurrency": "USD",
+                "priceRange": "$$$$$"
+            }
         }
-      ],
-      "serviceType": "Destination Wedding Planning",
-      "category": "Wedding Planning",
-      "offers": {
-        "@type": "Offer",
-        "name": "Destination Wedding Planning Services",
-        "description": "Complete wedding planning and coordination for destination celebrations",
-        "priceCurrency": "USD",
-        "priceRange": "$$$$$"
-      }
-    }
     </script>
 </head>
 <body>
-    <nav role="navigation" aria-label="Main navigation">
-        <div class="nav-content">
-            <div class="logo-container">
-                <div class="logo-mark logo-bg" role="img" aria-label="Aisle to Islands logo"></div>
-                <div>
-                    <div class="logo-text">Aisle to Islands</div>
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-content">
+        <div class="logo-container">
+            <div class="logo-mark logo-bg" role="img" aria-label="Aisle to Islands logo"></div>
+            <div>
+                <div class="logo-text">Aisle to Islands</div>
+            </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <ul class="nav-links" role="menubar">
+            <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+            <li role="none"><a href="destination-wedding.html" role="menuitem" aria-current="page">Destination Wedding</a></li>
+            <li role="none"><a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
+            <li role="none"><a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
+            <!-- <li role="none"><a href="packages.html" role="menuitem">Packages</a></li> -->
+            <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+            <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
+        </ul>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" role="menu">
+        <a href="index.html" role="menuitem">Home</a>
+        <a href="destination-wedding.html" role="menuitem" aria-current="page">Destination Wedding</a>
+        <a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
+        <a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a>
+        <a href="blog.html" role="menuitem">Blog</a>
+        <a href="inquire.html" role="menuitem">Inquire</a>
+    </div>
+</nav>
+
+<main>
+    <!-- HERO SECTION (Existing) -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Destination Weddings</span>
+            </div>
+
+            <div class="hero-content hero-animate">
+                <h1 id="hero-title" class="hero-title">Your <span class="title-emphasis">Wedding</span>, Foundation to Forever</h1>
+
+                <p class="hero-subtitle">You stand on your family's foundation. Celebrate in a way that honors the generations who brought you here while authentically reflecting who you are as a couple.</p>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-box" role="img" aria-label="Beautiful destination wedding setting">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR APPROACH SECTION (New) -->
+    <section class="approach" aria-labelledby="approach-title">
+        <div class="approach-container">
+            <div class="section-header">
+                <div class="section-subtitle">Beyond Beautiful</div>
+                <h2 id="approach-title" class="section-title">Comprehensive Destination Wedding Orchestration</h2>
+                <p class="section-description">From ceremony design to guest room blocks, from welcome events to day-of coordination - we orchestrate every element across three key areas:</p>
+            </div>
+
+            <div class="approach-areas">
+                <div class="approach-card fade-in-element">
+<!--                    <div class="card-icon" aria-hidden="true">✨</div>-->
+                    <h3 class="card-title">Wedding Design & Coordination</h3>
+                    <p class="card-description">Every aesthetic detail and vendor relationship crafted to reflect your unique love story.</p>
+                </div>
+
+                <div class="approach-card fade-in-element">
+<!--                    <div class="card-icon" aria-hidden="true">🌍</div>-->
+                    <h3 class="card-title">Destination & Travel Logistics</h3>
+                    <p class="card-description">Meticulous coordination of flights, accommodations, and transfers with contingency plans for every scenario.</p>
+                </div>
+
+                <div class="approach-card fade-in-element">
+<!--                    <div class="card-icon" aria-hidden="true">💫</div>-->
+                    <h3 class="card-title">Complete Guest Journey Management</h3>
+                    <p class="card-description">Thoughtful touchpoints from arrival to departure, making everyone feel genuinely cared for.</p>
                 </div>
             </div>
 
-            <!-- Desktop Navigation -->
-            <ul class="nav-links" role="menubar">
-                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                <li role="none"><a href="destination-wedding.html" role="menuitem" aria-current="page">Destination Wedding</a></li>
-                <li role="none"><a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
-                <li role="none"><a href="packages.html" role="menuitem">Packages</a></li>
-                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
-                <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
+            <div class="approach-cta">
+                <a href="#packages-title" class="approach-link">View detailed services and pricing →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT SETS US APART SECTION (New) -->
+    <section class="differentiators" aria-labelledby="differentiators-title">
+        <div class="differentiators-container">
+            <div class="section-header">
+                <div class="section-subtitle">The Difference</div>
+                <h2 id="differentiators-title" class="section-title">What Sets Us Apart</h2>
+            </div>
+
+            <div class="differentiator-grid">
+                <div class="differentiator-item fade-in-element">
+                    <h3 class="differentiator-title">Single-Point Coordination</h3>
+                    <p class="differentiator-text">One dedicated team managing both wedding design and travel logistics eliminates vendor miscommunication and maintains your vision across every element.</p>
+                </div>
+
+                <div class="differentiator-item fade-in-element">
+                    <h3 class="differentiator-title">Crisis Management Expertise</h3>
+                    <p class="differentiator-text">When flights cancel or vendors face challenges, we're already three steps ahead with solutions - not scrambling for answers.</p>
+                </div>
+
+                <div class="differentiator-item fade-in-element">
+                    <h3 class="differentiator-title">Established Global Relationships</h3>
+                    <p class="differentiator-text">Our vetted vendor network and preferred partnerships ensure consistent quality and seamless execution across all destinations.</p>
+                </div>
+
+                <div class="differentiator-item fade-in-element">
+                    <h3 class="differentiator-title">Complete Guest Journey</h3>
+                    <p class="differentiator-text">From arrival transfers to departure details, we orchestrate every touchpoint so your loved ones feel genuinely cared for.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION (Existing) -->
+    <section class="process" aria-labelledby="process-title">
+        <div class="process-container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Process</div>
+                <h2 id="process-title" class="section-title">From Consultation to Celebration</h2>
+                <p class="section-description">Enjoy watching every intentional detail unfold and focus on what matters most—being present with the people who brought you to this moment.</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="timeline-line" aria-hidden="true"></div>
+
+                <div class="process-step fade-in-element">
+                    <div class="step-content">
+                        <div class="step-phase">Phase 1</div>
+                        <h3 class="step-title">Vision & Discovery</h3>
+                        <p class="step-description">We begin with an in-depth consultation to understand your dreams, style preferences, guest list, and budget. This foundation guides every decision throughout the process.</p>
+                    </div>
+                </div>
+
+                <div class="process-step fade-in-element">
+                    <div class="step-content">
+                        <div class="step-phase">Phase 2</div>
+                        <h3 class="step-title">Detailed Planning & Coordination</h3>
+                        <p class="step-description">With your vision clear, we dive into the intricate details. Every vendor is vetted, every contract negotiated, and every element designed to reflect your unique style and love story.</p>
+                    </div>
+                </div>
+
+                <div class="process-step fade-in-element">
+                    <div class="step-content">
+                        <div class="step-phase">Phase 3</div>
+                        <h3 class="step-title">Finalization & Preparation</h3>
+                        <p class="step-description">As your wedding approaches, we finalize all details, confirm arrangements, and prepare comprehensive timelines with your venue to ensure seamless execution of your celebration.</p>
+                    </div>
+                </div>
+
+                <div class="process-step fade-in-element">
+                    <div class="step-content">
+                        <div class="step-phase">Phase 4 • Wedding Week</div>
+                        <h3 class="step-title">Execution & Celebration</h3>
+                        <p class="step-description">Your wedding week is where all our orchestration comes together. We've managed every detail behind the scenes while your venue handles all the logistics, ensuring you can be fully present for your celebration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTINATIONS SECTION (New) -->
+    <section class="destinations" aria-labelledby="destinations-title">
+        <div class="destinations-container">
+            <div class="section-header">
+                <div class="section-subtitle">Where Dreams Come True</div>
+                <h2 id="destinations-title" class="section-title">Destinations We Love</h2>
+                <p class="section-description">We work in locations where luxury meets authenticity, creating celebrations in settings that enhance rather than overshadow your love story.</p>
+            </div>
+
+            <div class="destinations-grid">
+                <div class="destination-card fade-in-element">
+                    <h3 class="destination-title">Caribbean Islands</h3>
+                    <p class="destination-description">Established luxury hospitality meets pristine beaches and turquoise waters.</p>
+                </div>
+
+                <div class="destination-card fade-in-element">
+                    <h3 class="destination-title">European Venues</h3>
+                    <p class="destination-description">Rich history and timeless culture create unforgettable romantic backdrops.</p>
+                </div>
+
+                <div class="destination-card fade-in-element">
+                    <h3 class="destination-title">Exotic Islands</h3>
+                    <p class="destination-description">Bali and beyond - incredible natural beauty meets spiritual serenity.</p>
+                </div>
+
+                <div class="destination-card fade-in-element">
+                    <h3 class="destination-title">Mountain Retreats</h3>
+                    <p class="destination-description">Intimate tropical mountain settings offering privacy and breathtaking views.</p>
+                </div>
+            </div>
+
+            <p class="destinations-note">Not seeing your dream destination? We love exploring new locations that align with your vision and values.</p>
+        </div>
+    </section>
+
+    <!-- WEDDING PACKAGES SECTION (New) -->
+    <section class="wedding-packages" aria-labelledby="packages-title">
+        <div class="packages-container">
+            <div class="section-header">
+                <div class="section-subtitle">Investment</div>
+                <h2 id="packages-title" class="section-title">Wedding Planning Services</h2>
+                <p class="section-description">Two comprehensive service levels designed to meet you where you are in your planning journey.</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Wedding Exploration Service Package -->
+                <div class="package-card fade-in-element">
+                    <div class="package-header">
+                        <h3 class="package-title">Wedding Exploration Service</h3>
+                        <p class="package-description">Comprehensive wedding planning foundation for couples who want expert guidance in the early stages of destination wedding planning.</p>
+                    </div>
+
+                    <div class="package-content">
+                        <div class="package-features">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Venue sourcing & procurement</li>
+                                <li>Budget development & Timeline design</li>
+                                <li>Room block & group rates negotiation & arrangement</li>
+                                <li>Personalized website for Guest RSVPs & information</li>
+                                <li>Guest arrival management & professional transportation planning</li>
+                            </ul>
+                        </div>
+
+                        <div class="package-pricing">
+                            <div class="price-info">
+                                <div class="price-main">
+                                    <span class="price-label">Planning Investment</span>
+                                    <span class="price-amount">$1,500</span>
+                                </div>
+                                <div class="price-note">
+                                    <p>Our couples have a typical range of $800+ per guest for multi-day celebrations with accommodations separately tailored for your guests.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="package-cta">
+                        <a href="inquire.html?service=destination-wedding&package=exploration-service" class="package-btn primary">Start Planning</a>
+                    </div>
+                </div>
+
+                <!-- Full Wedding Service Package -->
+                <div class="package-card fade-in-element">
+                    <div class="package-header">
+                        <h3 class="package-title">Full Wedding Service</h3>
+                        <p class="package-description">Complete end-to-end wedding planning and on-site management for couples who want every detail expertly handled.</p>
+                    </div>
+
+                    <div class="package-content">
+                        <div class="package-features">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Full-service, on-site, multi-day event management</li>
+                                <li>Vendor procurement, contractual oversight, & timeline synchronization</li>
+                                <li>Budget Development with strategic monitoring & financial transparency</li>
+                                <li>Destination discovery & assessment with logistical coordination</li>
+                                <li>Room block & group rates negotiation & arrangement</li>
+                                <li>Personalized website for Guest RSVPs & information</li>
+                                <li>Guest arrival management</li>
+                            </ul>
+                        </div>
+
+                        <div class="package-pricing">
+                            <div class="price-info">
+                                <div class="price-main">
+                                    <span class="price-label">Investment</span>
+                                    <span class="price-amount">
+                                        <span class="price-main-text">Starting at $5,000 + 10%</span>
+                                        <span class="price-sub-text">of total wedding investment</span>
+                                    </span>
+                                </div>
+                                <div class="price-note">
+                                    <p>Pricing is customized based on guest count, location, duration, and specific requirements. Contact us for a detailed consultation and personalized quote.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="package-cta">
+                        <a href="inquire.html?service=destination-wedding&package=full-service" class="package-btn primary">Start Planning</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERFECT FOR SECTION (New) -->
+    <section class="perfect-for" aria-labelledby="perfect-for-title">
+        <div class="perfect-for-container">
+            <div class="section-header">
+<!--                <div class="section-subtitle">Is This For You?</div>-->
+                <h2 id="perfect-for-title" class="section-title">If You're A Couple Who Values</h2>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-item fade-in-element">
+                    <div class="value-icon">♦</div>
+                    <p class="value-text">Meaningful celebrations over performative displays</p>
+                </div>
+
+                <div class="value-item fade-in-element">
+                    <div class="value-icon">♦</div>
+                    <p class="value-text">Comprehensive planning that reduces your stress</p>
+                </div>
+
+                <div class="value-item fade-in-element">
+                    <div class="value-icon">♦</div>
+                    <p class="value-text">Quality and substance over status symbols</p>
+                </div>
+
+                <div class="value-item fade-in-element">
+                    <div class="value-icon">♦</div>
+                    <p class="value-text">Efficient coordination that respects your time</p>
+                </div>
+
+                <div class="value-item fade-in-element">
+                    <div class="value-icon">♦</div>
+                    <p class="value-text">Trusted guidance that honors your values</p>
+                </div>
+
+                <div class="value-item fade-in-element">
+                    <div class="value-icon">♦</div>
+                    <p class="value-text">Celebrations worthy of the investment made in you</p>
+                </div>
+            </div>
+
+            <p class="perfect-for-footer">Then you're exactly who we love working with.</p>
+        </div>
+    </section>
+
+    <!-- CTA SECTION (Existing) -->
+    <section class="cta" aria-labelledby="cta-title">
+        <div class="cta-container">
+            <h2 id="cta-title" class="cta-title">Let's Begin.</h2>
+            <p class="cta-description">Share your journey with us. Complete our inquiry form to explore a celebration that reflects the depth of your story.</p>
+
+            <div class="cta-buttons">
+                <!-- <a href="packages.html" class="cta-button secondary">View All Packages</a> -->
+                <a href="inquire.html?service=destination-wedding" class="cta-button primary">Plan Your Wedding</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <div class="logo-mark-foot logo-bg-foot"></div>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
+                <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
+                <!-- <li><a href="packages.html">Packages</a></li> -->
+                <li><a href="inquire.html">Inquire</a></li>
             </ul>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
 
-        <!-- Mobile Navigation -->
-        <div class="mobile-nav" role="menu">
-            <a href="index.html" role="menuitem">Home</a>
-            <a href="destination-wedding.html" role="menuitem" aria-current="page">Destination Wedding</a>
-            <a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
-            <a href="blog.html" role="menuitem">Blog</a>
-            <a href="inquire.html" role="menuitem">Inquire</a>
-        </div>
-    </nav>
-
-    <main>
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-container">
-                <div class="breadcrumb">
-                    <a href="index.html">Home</a> / <span>Destination Weddings</span>
-                </div>
-
-                <div class="hero-content hero-animate">
-                    <h1 id="hero-title" class="hero-title">Your <span class="title-emphasis">Wedding</span>, Foundation to Forever</h1>
-
-                    <p class="hero-subtitle">You stand on your family's foundation. Celebrate in a way that honors the generations who brought you here while authentically reflecting who you are as a couple.</p>
-
-                    <!--<div class="cta-group">
-                        <a href="inquire.html" class="cta-primary" target="_blank" rel="noopener noreferrer">Plan Your Wedding</a>
-                    </div>-->
-
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <div class="stat-number">24</div>
-                            <div class="stat-label">Weddings Planned</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">18</div>
-                            <div class="stat-label">Countries</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Client Satisfaction</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="hero-image-box" role="img" aria-label="Beautiful destination wedding setting">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="process" aria-labelledby="process-title">
-            <div class="process-container">
-                <div class="section-header">
-                    <div class="section-subtitle">Our Process</div>
-                    <h2 id="process-title" class="section-title">From Consultation to Celebration</h2>
-                    <p class="section-description">Enjoy watching every intentional detail unfold and focus on what matters most—being present with the people who brought you to this moment.</p>
-                </div>
-
-                <div class="process-timeline">
-                    <div class="timeline-line" aria-hidden="true"></div>
-
-                    <div class="process-step fade-in-element">
-<!--                        <div class="step-indicator" aria-hidden="true">1</div>-->
-                        <div class="step-content">
-                            <div class="step-phase">Phase 1</div>
-                            <h3 class="step-title">Vision & Discovery</h3>
-                            <p class="step-description">We begin with an in-depth consultation to understand your dreams, style preferences, guest list, and budget. This foundation guides every decision throughout the process.</p>
-                        </div>
-                    </div>
-
-                    <div class="process-step fade-in-element">
-<!--                        <div class="step-indicator" aria-hidden="true">2</div>-->
-                        <div class="step-content">
-                            <div class="step-phase">Phase 2</div>
-                            <h3 class="step-title">Detailed Planning & Coordination</h3>
-                            <p class="step-description">With your vision clear, we dive into the intricate details. Every vendor is vetted, every contract negotiated, and every element designed to reflect your unique style and love story.</p>
-                        </div>
-                    </div>
-
-                    <div class="process-step fade-in-element">
-<!--                        <div class="step-indicator" aria-hidden="true">3</div>-->
-                        <div class="step-content">
-                            <div class="step-phase">Phase 3</div>
-                            <h3 class="step-title">Finalization & Preparation</h3>
-                            <p class="step-description">As your wedding approaches, we finalize all details, confirm arrangements, and prepare comprehensive timelines with your venue to ensure seamless execution of your celebration.</p>
-                        </div>
-                    </div>
-
-                    <div class="process-step fade-in-element">
-<!--                        <div class="step-indicator" aria-hidden="true">4</div>-->
-                        <div class="step-content">
-                            <div class="step-phase">Phase 4 • Wedding Week</div>
-                            <h3 class="step-title">Execution & Celebration</h3>
-                            <p class="step-description">Your wedding week is where all our orchestration comes together. We've managed every detail behind the scenes while your venue handles all the logistics, ensuring you can be fully present for your celebration.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta" aria-labelledby="cta-title">
-            <div class="cta-container">
-                <h2 id="cta-title" class="cta-title">Let's Begin.</h2>
-                <p class="cta-description">Share your journey with us. Complete our inquiry form to explore a celebration that reflects the depth of your story.</p>
-
-                <div class="cta-buttons">
-                    <a href="packages.html" class="cta-button secondary">View All Packages</a>
-                    <a href="inquire.html?service=destination-wedding" class="cta-button primary">Plan Your Wedding</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <div class="logo-mark-foot logo-bg-foot"></div>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
-                    <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
-                    <li><a href="packages.html">Packages</a></li>
-                    <li><a href="inquire.html">Inquire</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="inquire.html">Inquire</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-            </div>
+        <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="inquire.html">Inquire</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
         </div>
 
-        <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <p>&copy; 2025 Aisle to Islands. All rights reserved. | <a href="https://lueken-good.design" target="_blank" rel="noopener" title="A sustainable system designed for longevity and evolution." style="color: inherit; text-decoration: none;">Digital Foundation by Lueken Good Design</a></p>
-            </div>
+        <div class="footer-section">
         </div>
-    </footer>
+    </div>
 
-    <!-- Core JavaScript Module -->
-    <script src="js/core-essential.js"></script>
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <p>&copy; 2025 Aisle to Islands. All rights reserved. | <a href="https://lueken-good.design" target="_blank" rel="noopener" title="A sustainable system designed for longevity and evolution." style="color: inherit; text-decoration: none;">Digital Foundation by Lueken Good Design</a></p>
+        </div>
+    </div>
+</footer>
 
-    <!-- Page-specific initialization -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('💒 Destination Wedding page initialization starting...');
+<!-- Core JavaScript Module -->
+<script src="js/core-essential.js"></script>
 
-            // Initialize core with destination wedding specific config
-            if (window.AisleToIslands && !window.AisleToIslands.isInitialized) {
-                window.AisleToIslands.init({
-                    // Destination wedding page specific settings
-                    animationDelay: 300,
-                    staggerDelay: 150,
-                    intersectionThreshold: 0.2
-                });
-            }
+<!-- Page-specific initialization -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('💍 Destination Wedding page initialization starting...');
 
-            // Initialize Google Analytics
-            window.AisleToIslands.initGoogleAnalytics();
-
-            console.log('💒 Destination Wedding page fully initialized');
-        });
-
-        // Page fully loaded
-        window.addEventListener('load', () => {
-            console.log('✅ Destination Wedding page assets loaded');
-        });
-
-        // Debug function specific to this page
-        window.testDestinationWeddingAnimations = function() {
-            console.log('🧪 DESTINATION WEDDING ANIMATION TEST');
-            const elements = document.querySelectorAll('.fade-in-element');
-            elements.forEach((element, index) => {
-                console.log(`Testing destination wedding element ${index + 1}:`, element);
-                element.classList.toggle('is-visible');
+        // Initialize core with destination wedding specific config
+        if (window.AisleToIslands && !window.AisleToIslands.isInitialized) {
+            window.AisleToIslands.init({
+                // Destination wedding page specific settings
+                animationDelay: 300,
+                staggerDelay: 150,
+                intersectionThreshold: 0.2
             });
-        };
-    </script>
+        }
+
+        // Note: Google Analytics will be initialized automatically by core-enhanced.js
+
+        // Immediate smooth scroll handler (runs before core-enhanced loads)
+        const approachLink = document.querySelector('.approach-link[href="#packages-title"]');
+        if (approachLink) {
+            approachLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const target = document.getElementById('packages-title');
+                if (target) {
+                    const nav = document.querySelector('nav');
+                    const navHeight = nav ? nav.offsetHeight : 70;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 30;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, { capture: true });
+        }
+
+        console.log('💍 Destination Wedding page fully initialized');
+    });
+
+    // Page fully loaded
+    window.addEventListener('load', () => {
+        console.log('✅ Destination Wedding page assets loaded');
+    });
+
+    // Debug function specific to this page
+    window.testDestinationWeddingAnimations = function() {
+        console.log('🧪 DESTINATION WEDDING ANIMATION TEST');
+        const elements = document.querySelectorAll('.fade-in-element');
+        elements.forEach((element, index) => {
+            console.log(`Testing destination wedding element ${index + 1}:`, element);
+            element.classList.toggle('is-visible');
+        });
+    };
+</script>
 </body>
 </html>
