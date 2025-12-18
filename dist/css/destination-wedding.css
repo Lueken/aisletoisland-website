@@ -93,23 +93,42 @@
 
 .cta-primary {
     display: inline-block;
-    padding: 16px 32px;
-    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+    padding: 18px 40px;
+    background: var(--primary-teal);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 25px rgba(15, 95, 95, 0.15);
+    border-radius: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(15, 95, 95, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease-out;
+}
+
+.cta-primary:hover::before {
+    left: 100%;
 }
 
 .cta-primary:hover,
 .cta-primary:focus {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(15, 95, 95, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(15, 95, 95, 0.25);
     outline: none;
 }
 
@@ -258,23 +277,34 @@
 }
 
 .section-subtitle {
-    font-size: 20px;
-    color: var(--primary-teal);
-    margin-bottom: 15px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-family: var(--font-eyesome);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--accent-orange);
+    margin-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
 }
 
 /* Updated text color for readability on the new dark background */
 .section-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.95);
     margin-bottom: 25px;
-    letter-spacing: -0.5px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Eyesome accent for short titles only */
+.section-title.eyesome-accent {
+    font-family: var(--font-eyesome);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--accent-orange);
+    letter-spacing: 0;
+    text-transform: none;
 }
 
 /* Updated text color for readability on the new dark background */
@@ -374,7 +404,6 @@
     color: rgba(255, 255, 255, 0.95);
     margin-bottom: 20px;
     letter-spacing: -0.3px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Updated text color for readability */
@@ -403,10 +432,12 @@
 }
 
 .cta-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-family: var(--font-eyesome);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 400;
+    color: var(--accent-orange);
     margin-bottom: 25px;
-    letter-spacing: -0.5px;
+    letter-spacing: 0;
 }
 
 .cta-description {
@@ -420,23 +451,42 @@
 
 .cta-button-final {
     display: inline-block;
-    padding: 20px 40px;
-    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+    padding: 20px 48px;
+    background: var(--primary-teal);
     color: white;
     text-decoration: none;
-    border-radius: 12px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    transition: all 0.4s ease;
-    letter-spacing: 0.5px;
-    box-shadow: 0 15px 40px rgba(15, 95, 95, 0.2);
+    border-radius: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(15, 95, 95, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button-final::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease-out;
+}
+
+.cta-button-final:hover::before {
+    left: 100%;
 }
 
 .cta-button-final:hover,
 .cta-button-final:focus {
     transform: translateY(-3px);
-    box-shadow: 0 20px 50px rgba(15, 95, 95, 0.3);
+    box-shadow: 0 15px 40px rgba(15, 95, 95, 0.25);
     outline: none;
 }
 
@@ -474,7 +524,7 @@
 
 /* Fix text colors for approach section */
 .approach .section-subtitle {
-    color: var(--primary-teal);
+    color: var(--accent-orange);
 }
 
 .approach .section-title {
@@ -493,19 +543,13 @@
 }
 
 .approach-card {
-    background: white;
     padding: 45px 35px;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(44, 44, 44, 0.06);
-    border: 1px solid rgba(15, 95, 95, 0.05);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 .approach-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 60px rgba(15, 95, 95, 0.12);
-    border-color: rgba(15, 95, 95, 0.1);
+    transform: translateY(-2px);
 }
 
 .card-icon {
@@ -593,7 +637,7 @@
 
 /* Fix text colors for differentiators section */
 .differentiators .section-subtitle {
-    color: var(--primary-teal);
+    color: var(--accent-orange);
 }
 
 .differentiators .section-title {
@@ -661,7 +705,7 @@
 
 /* Fix text colors for destinations section */
 .destinations .section-subtitle {
-    color: var(--primary-teal);
+    color: var(--accent-orange);
 }
 
 .destinations .section-title {
@@ -680,39 +724,13 @@
 }
 
 .destination-card {
-    background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.85) 100%
-    );
-    backdrop-filter: blur(10px);
     padding: 35px 30px;
-    border-radius: 12px;
-    border: 1px solid rgba(15, 95, 95, 0.08);
-    box-shadow: 0 8px 30px rgba(44, 44, 44, 0.05);
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.destination-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
 .destination-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(15, 95, 95, 0.1);
-}
-
-.destination-card:hover::before {
-    opacity: 1;
+    transform: translateY(-2px);
 }
 
 .destination-title {
@@ -724,11 +742,11 @@
 }
 
 .destination-description {
-    font-size: clamp(14px, 1.8vw, 15px);
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
     color: var(--text-light);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .destinations-note {
@@ -798,12 +816,11 @@
 
 /* Fix text colors for perfect-for section */
 .perfect-for .section-subtitle {
-    color: var(--primary-teal);
+    color: var(--accent-orange);
 }
 
 .perfect-for .section-title {
     color: rgba(255, 255, 255, 0.95);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .values-grid {
@@ -1178,7 +1195,7 @@
 
 /* Fix text colors for packages section */
 .wedding-packages .section-subtitle {
-    color: var(--primary-teal);
+    color: var(--accent-orange);
 }
 
 .wedding-packages .section-title {
@@ -1198,15 +1215,11 @@
 
 /* Package Cards */
 .package-card {
-    background: linear-gradient(135deg, #e8e6e1 0%, #ebe9e4 100%) !important;
-    border-radius: clamp(12px, 3vw, 20px);
     padding: clamp(25px, 5vw, 40px);
-    box-shadow: 0 10px 30px rgba(15, 95, 95, 0.08);
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    border-left: 4px solid var(--primary-teal);
 }
 
 .package-card.is-visible {
@@ -1215,7 +1228,7 @@
 }
 
 .package-card:nth-child(2) {
-    border-left-color: var(--accent-orange);
+    /* Same styling */
 }
 
 .package-header {
@@ -1317,14 +1330,11 @@
 
 /* Package Pricing */
 .price-info {
-    background: rgba(255, 255, 255, 0.5);
-    padding: clamp(15px, 3vw, 25px);
-    border-radius: clamp(8px, 2vw, 12px);
-    border-left: 4px solid var(--primary-teal);
+    padding: clamp(15px, 3vw, 25px) 0;
 }
 
 .package-card:nth-child(2) .price-info {
-    border-left-color: var(--accent-orange);
+    /* Same styling */
 }
 
 .price-main {
@@ -1378,9 +1388,10 @@
 }
 
 .price-note p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 0.95rem;
-    line-height: 1.6;
+    font-weight: 300;
+    line-height: 1.7;
     color: var(--text-medium);
     margin: 0;
     font-style: italic;

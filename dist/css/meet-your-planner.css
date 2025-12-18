@@ -229,11 +229,13 @@
 }
 
 .section-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 300;
     color: var(--primary-dark);
     margin-bottom: 20px;
-    letter-spacing: -1px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
 .section-description {
@@ -262,9 +264,10 @@
 }
 
 .approach-text {
-    font-size: clamp(17px, 2.5vw, 20px);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.95);
-    font-weight: 500;
 }
 
 .approach-grid {
@@ -277,30 +280,29 @@
 }
 
 .approach-card {
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(15, 95, 95, 0.06);
+    padding: 40px 30px;
+    text-align: center;
     transition: all 0.3s ease;
 }
 
 .approach-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(15, 95, 95, 0.12);
+    transform: translateY(-2px);
 }
 
 .card-title {
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-    font-weight: 500;
-    color: var(--primary-teal);
+    font-family: var(--font-eyesome);
+    font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+    font-weight: 400;
+    color: var(--accent-orange);
     margin-bottom: 20px;
-    letter-spacing: -0.5px;
 }
 
 .card-description {
-    font-size: clamp(15px, 2vw, 17px);
-    color: var(--text-dark);
-    line-height: 1.7;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
 }
 
 /* ==========================================
@@ -322,7 +324,9 @@
 }
 
 .difference-paragraph {
-    font-size: clamp(16px, 2.5vw, 19px);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 300;
     color: var(--text-dark);
     line-height: 1.8;
     margin-bottom: 30px;
@@ -337,9 +341,11 @@
     position: relative;
     padding-left: 35px;
     margin-bottom: 25px;
-    font-size: clamp(15px, 2vw, 17px);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    font-weight: 300;
     color: var(--text-dark);
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 .difference-list li::before {
@@ -411,9 +417,10 @@
 }
 
 .working-text {
-    font-size: clamp(17px, 2.5vw, 20px);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.95);
-    font-weight: 500;
 }
 
 .working .section-title {
@@ -433,9 +440,11 @@
     position: relative;
     padding-left: 45px;
     margin-bottom: 30px;
-    font-size: clamp(16px, 2.2vw, 19px);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.95);
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 .working-list li::before {
@@ -458,7 +467,9 @@
 }
 
 .closing-text {
-    font-size: clamp(16px, 2.5vw, 19px);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.8;
     font-style: italic;
@@ -480,17 +491,20 @@
 }
 
 .talk-title {
+    font-family: var(--font-eyesome);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 400;
-    color: white;
+    color: var(--accent-orange);
     margin-bottom: 20px;
-    letter-spacing: -1px;
+    letter-spacing: 0;
 }
 
 .talk-description {
-    font-size: clamp(16px, 2.5vw, 19px);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.95);
-    line-height: 1.7;
+    line-height: 1.8;
     margin-bottom: 40px;
 }
 
@@ -500,23 +514,26 @@
     background: white;
     color: var(--primary-teal);
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: clamp(15px, 2vw, 17px);
-    letter-spacing: 0.5px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .cta-button:hover,
 .cta-button:focus {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+    background: var(--primary-teal);
+    color: white;
     outline: none;
 }
 
 .talk-tagline {
-    font-size: clamp(15px, 2vw, 17px);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.9);
     margin-top: 40px;
     font-style: italic;

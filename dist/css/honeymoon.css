@@ -66,7 +66,7 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary-teal) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--accent-orange) 0%, transparent 100%);
     opacity: 0.6;
 }
 
@@ -103,27 +103,25 @@
 }
 
 .hero-quote {
-    background: white;
-    padding: 30px 25px;
-    border-radius: 16px;
-    box-shadow: 0 15px 40px rgba(44, 44, 44, 0.06);
-    border-left: 5px solid var(--accent-orange);
+    padding: 30px 0;
+    border-left: 1px solid rgba(212, 149, 107, 0.3);
+    padding-left: 25px;
 }
 
 .quote-text {
-    font-size: clamp(14px, 1.8vw, 16px);
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
     color: var(--text-light);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
     font-style: italic;
-    line-height: 1.7;
+    line-height: 1.8;
     margin-bottom: 15px;
 }
 
 .quote-author {
     font-size: 14px;
-    color: var(--accent-orange-muted);
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
+    color: var(--accent-orange);
+    font-family: var(--font-eyesome);
 }
 
 /* ==========================================
@@ -271,11 +269,7 @@
 }
 
 .testimonial-card {
-    background: white;
     padding: 40px 50px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(15, 95, 95, 0.08);
-    border-left: 4px solid var(--accent-orange);
 }
 
 .testimonial-text {
@@ -314,21 +308,23 @@
 }
 
 .section-subtitle {
-    font-size: 14px;
-    color: var(--primary-teal);
-    margin-bottom: 15px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-family: var(--font-eyesome);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--accent-orange);
+    margin-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
 }
 
 .section-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 300;
     color: var(--primary-dark);
     margin-bottom: 25px;
-    letter-spacing: -0.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
 .section-description {
@@ -346,20 +342,13 @@
 }
 
 .experience-card {
-    background: var(--background-gray);
-    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.3s ease;
     cursor: default;
-    border: 1px solid rgba(15, 95, 95, 0.05);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
 }
 
 .experience-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 60px rgba(15, 95, 95, 0.15);
-    border-color: var(--primary-teal);
+    transform: translateY(-2px);
 }
 
 .experience-image {
@@ -373,6 +362,8 @@
     position: relative;
     background-size: cover;
     background-position: center;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
 }
 
 .experience-image::before {
@@ -398,9 +389,9 @@
 }
 
 .experience-description {
-    font-size: clamp(14px, 1.8vw, 15px);
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
     color: var(--text-light);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     margin-bottom: 20px;
@@ -410,7 +401,8 @@
     list-style: none;
     font-size: 14px;
     color: var(--text-light);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
 }
 
 .experience-features li {
@@ -449,18 +441,21 @@
 }
 
 .process-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
     margin-bottom: 25px;
-    letter-spacing: -0.5px;
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .process-subtitle {
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(1rem, 2vw, 1.1rem);
     color: rgba(255, 255, 255, 0.8);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
-    line-height: 1.7;
+    line-height: 1.8;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -472,56 +467,40 @@
 }
 
 .process-step {
-    background: rgba(255, 255, 255, 0.03);
     padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     text-align: center;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
+    transition: all 0.3s ease;
 }
 
 .process-step:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--accent-orange);
+    transform: translateY(-2px);
 }
 
 .step-number {
-    position: absolute;
-    top: -19px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 38px;
-    height: 38px;
-    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-muted) 100%);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-eyesome);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--accent-orange);
+    margin-bottom: 10px;
+    opacity: 0.6;
 }
 
 .step-title {
-    font-size: clamp(1.2rem, 2vw, 1.4rem);
-    font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     margin-bottom: 20px;
-    letter-spacing: -0.3px;
-    margin-top: 15px;
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .step-description {
-    font-size: clamp(14px, 1.8vw, 15px);
-    color: rgba(255, 255, 255, 0.8);
-    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+    color: rgba(255, 255, 255, 0.75);
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 /* ==========================================
@@ -541,10 +520,12 @@
 }
 
 .cta-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-family: var(--font-eyesome);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 400;
+    color: var(--accent-orange);
     margin-bottom: 25px;
-    letter-spacing: -0.5px;
+    letter-spacing: 0;
 }
 
 .cta-description {
@@ -559,16 +540,16 @@
 .cta-primary-final {
     display: inline-block;
     padding: 20px 40px;
-    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-muted) 100%);
+    background: var(--accent-orange);
     color: white;
     text-decoration: none;
-    border-radius: 12px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    transition: all 0.4s ease;
-    letter-spacing: 0.5px;
-    box-shadow: 0 15px 40px rgba(212, 149, 107, 0.2);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(212, 149, 107, 0.2);
 }
 
 .cta-primary-final:hover,

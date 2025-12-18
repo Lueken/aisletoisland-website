@@ -44,11 +44,41 @@
             grid-template-columns: unset !important;
             gap: unset !important;
         }
-        /* Fix process steps - override packages.css white background */
+        /* Fix process steps - override packages.css */
         .process .process-step {
-            background: rgba(255, 255, 255, 0.03) !important;
+            background: transparent !important;
             opacity: 1 !important;
             transform: none !important;
+            display: block !important;
+            text-align: center !important;
+        }
+        .process .step-number {
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            font-family: var(--font-eyesome) !important;
+            font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+            color: var(--accent-orange) !important;
+            opacity: 0.5 !important;
+            margin-bottom: 10px !important;
+            display: block !important;
+        }
+        .process .step-title {
+            font-family: 'Josefin Sans', sans-serif !important;
+            font-size: clamp(1.1rem, 2vw, 1.25rem) !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.1em !important;
+            text-transform: uppercase !important;
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .process .step-description {
+            font-family: 'Josefin Sans', sans-serif !important;
+            font-size: clamp(0.9rem, 1.8vw, 1rem) !important;
+            font-weight: 300 !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+            line-height: 1.8 !important;
         }
 
         /* Mobile-only order fix to prevent images appearing above breadcrumb */
@@ -62,6 +92,48 @@
             .hero .hero-visual {
                 order: 3 !important;
             }
+        }
+
+        /* Glassmorphic package container - mirrors homepage service cards */
+        .service-section {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.08) 0%,
+                rgba(255, 255, 255, 0.04) 100%
+            ) !important;
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.18) !important;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        }
+        .service-section .service-list {
+            background: transparent !important;
+        }
+        .service-section .service-title {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .service-section .service-description {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+        .service-section .service-features h4 {
+            color: var(--accent-orange) !important;
+        }
+        .service-section .service-list li {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        .service-section .service-list li::before {
+            color: var(--accent-orange) !important;
+        }
+        .service-section .price-label {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        .service-section .price-amount {
+            color: var(--accent-orange) !important;
+        }
+        .service-section .price-note p {
+            color: rgba(255, 255, 255, 0.8) !important;
         }
     </style>
     <link rel="canonical" href="https://aisle-to-islands.com/curated-honeymoon.html">
@@ -114,7 +186,7 @@
     </script>
 </head>
 <body>
-    <nav role="navigation" aria-label="Main navigation">
+    <nav role="navigation" aria-label="Main navigation" class="header-sticky">
         <div class="nav-content">
             <div class="logo-container">
                 <div class="logo-mark logo-bg" role="img" aria-label="Aisle to Island logo"></div>
@@ -128,6 +200,7 @@
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="destination-wedding.html" role="menuitem">Destination Wedding</a></li>
                 <li role="none"><a href="curated-honeymoon.html" role="menuitem" aria-current="page">Curated Honeymoon</a></li>
+                <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
                 <li role="none"><a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
                 <!-- <li role="none"><a href="packages.html" role="menuitem">Packages</a></li> -->
                 <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
@@ -147,6 +220,7 @@
             <a href="index.html" role="menuitem">Home</a>
             <a href="destination-wedding.html" role="menuitem">Destination Wedding</a>
             <a href="curated-honeymoon.html" role="menuitem" aria-current="page">Curated Honeymoon</a>
+            <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
             <a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a>
             <!-- <a href="packages.html" role="menuitem">Packages</a> -->
             <a href="blog.html" role="menuitem">Blog</a>
@@ -169,7 +243,7 @@
 
                     <div class="hero-quote">
                         <p class="quote-text">"Jessica from Aisle to Islands was amazing. She was friendly, extremely helpful, and communicated promptly. We booked an over the water bungalow in Mexico. She did all the leg work for us. Made the whole process go smoothly, from booking, to pick up, to returning home and everything in between. She customized our room to our requests."</p>
-                        <p class="quote-author">— Brian & Denise</p>
+                        <p class="quote-author testimonial-signature">— Brian & Denise</p>
                     </div>
                 </div>
 
@@ -216,7 +290,7 @@
 
                 <div class="testimonial-card fade-in-element">
                     <p class="testimonial-text">"Jessica L. was knowledgeable, kind and most importantly patient when tailoring my perfect honeymoon to Ireland! I would not have seen or experienced as much in my international travel without her expertise."</p>
-                    <p class="testimonial-author">— Ariel C.</p>
+                    <p class="testimonial-author testimonial-signature">— Ariel C.</p>
                 </div>
             </div>
         </section>
@@ -230,7 +304,7 @@
                 </div>
 
                 <div class="experiences-grid">
-                    <div class="experience-card fade-in-element">
+                    <div class="experience-card fade-in-element hover-lift">
                         <div class="experience-image" style="
                             background-image: url('images/hero/island-bungalos.webp');
                             background-size: cover;
@@ -248,7 +322,7 @@
                         </div>
                     </div>
 
-                    <div class="experience-card fade-in-element">
+                    <div class="experience-card fade-in-element hover-lift">
                         <div class="experience-image" style="
                             background-image: url('images/hero/mountain-pool.webp');
                             background-size: cover;
@@ -266,7 +340,7 @@
                         </div>
                     </div>
 
-                    <div class="experience-card fade-in-element">
+                    <div class="experience-card fade-in-element hover-lift">
                         <div class="experience-image" style="
                             background-image: url('images/hero/carrying-wife.webp');
                             background-size: cover;
@@ -368,7 +442,7 @@
                 <p class="cta-description">Because the way you begin your marriage matters - so let's make it extraordinary.</p>
 
                 <div class="cta-buttons">
-                    <a href="inquire.html?service=curated-honeymoon" class="cta-button primary">Complete Our Inquiry Form</a>
+                    <a href="inquire.html?service=curated-honeymoon" class="cta-button primary btn-shine">Complete Our Inquiry Form</a>
                 </div>
             </div>
         </section>

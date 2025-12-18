@@ -26,6 +26,9 @@
     --text-dark: #1a1a1a;
     --success-green: #10b981;
     --error-red: #ef4444;
+
+    /* Typography */
+    --font-eyesome: 'Eyesome Script', cursive;
 }
 
 /* ==========================================
@@ -48,12 +51,19 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Eyesome Script';
+    src: url('../Eyesome Script/Eyesome-Script.otf') format('opentype');
+    font-display: swap;
+}
+
 /* ==========================================
    BASE STYLES
 ========================================== */
 
 body {
     font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
     background: var(--background-cream);
     color: var(--text-dark);
     line-height: 1.6;
@@ -143,12 +153,11 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px 60px;
+    padding: 12px 60px;
     background: rgba(250, 248, 245, 0.97);
     backdrop-filter: blur(25px);
     border-bottom: 1px solid rgba(15, 95, 95, 0.08);
     z-index: 1000;
-    transition: all 0.3s ease;
 }
 
 .nav-content {
@@ -166,8 +175,8 @@ nav {
 }
 
 .logo-mark {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 70%, #5ba3a3 100%);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(15, 95, 95, 0.15);
@@ -219,7 +228,7 @@ nav {
 }
 
 .logo-text {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 400;
     color: var(--primary-dark);
     letter-spacing: -0.3px;
@@ -1015,4 +1024,395 @@ nav {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* ==========================================
+   DESIGN LANGUAGE UTILITIES
+   Carried over from wedding assessment
+========================================== */
+
+/* Header Scroll Behavior - disabled, using compact nav by default */
+.header-sticky {
+    /* No animation - compact size is default */
+}
+
+/* Diamond Accent Elements */
+.diamond {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-orange);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+}
+
+.diamond-sm { width: 6px; height: 6px; }
+.diamond-lg { width: 10px; height: 10px; }
+
+/* Diamond Divider */
+.divider-diamond {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 3rem 0;
+    width: 100%;
+}
+
+.divider-diamond::before,
+.divider-diamond::after {
+    content: '';
+    height: 1px;
+    width: 3rem;
+    background: linear-gradient(90deg, transparent, var(--accent-orange));
+}
+
+.divider-diamond::after {
+    background: linear-gradient(90deg, var(--accent-orange), transparent);
+}
+
+.divider-diamond .diamond {
+    margin: 0 0.75rem;
+}
+
+/* Section Label with Eyesome Font */
+.section-label-eyesome {
+    font-family: var(--font-eyesome);
+    font-size: 2rem;
+    color: var(--accent-orange);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Testimonial Signature */
+.testimonial-signature {
+    font-family: var(--font-eyesome);
+    font-size: 1.5rem;
+    color: var(--accent-orange);
+}
+
+/* Button Shine Effect */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    transform: skewX(-20deg);
+    transition: left 0.8s ease-out;
+}
+
+.btn-shine:hover::after {
+    left: 100%;
+}
+
+/* Elegant Form Inputs */
+.input-elegant,
+.select-elegant,
+.textarea-elegant {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid rgba(15, 95, 95, 0.15);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    background: white;
+    transition: all 0.3s ease;
+    color: var(--text-dark);
+}
+
+.input-elegant::placeholder,
+.textarea-elegant::placeholder {
+    font-style: italic;
+    color: var(--text-light);
+}
+
+.input-elegant:focus,
+.select-elegant:focus,
+.textarea-elegant:focus {
+    outline: none;
+    border-color: var(--primary-teal);
+    box-shadow: 0 0 0 3px rgba(15, 95, 95, 0.08);
+}
+
+.select-elegant {
+    cursor: pointer;
+    appearance: none;
+    padding-right: 40px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%230f5f5f' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+}
+
+.textarea-elegant {
+    min-height: 120px;
+    line-height: 1.7;
+    resize: vertical;
+}
+
+/* Diamond Radio Buttons */
+.checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.checkbox-item .checkbox-input {
+    /* Hide default radio */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-item .checkbox-label {
+    position: relative;
+    padding-left: 24px;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.checkbox-item .checkbox-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid var(--primary-teal);
+    background: transparent;
+    transform: rotate(45deg);
+    transition: all 0.2s ease;
+}
+
+.checkbox-item .checkbox-input:checked + .checkbox-label::before {
+    background: var(--accent-orange);
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 8px rgba(212, 149, 107, 0.4);
+}
+
+.checkbox-item .checkbox-input:focus + .checkbox-label::before {
+    box-shadow: 0 0 0 3px rgba(15, 95, 95, 0.15);
+}
+
+.checkbox-item .checkbox-label:hover::before {
+    border-color: var(--accent-orange);
+}
+
+/* Utility Classes */
+.tracking-wide { letter-spacing: 0.05em; }
+.tracking-wider { letter-spacing: 0.15em; }
+.tracking-widest { letter-spacing: 0.4em; }
+.font-light { font-weight: 300; }
+.font-medium { font-weight: 500; }
+.uppercase { text-transform: uppercase; }
+.font-eyesome { font-family: var(--font-eyesome); }
+
+/* ============================================
+   DESIGN ELEVATION SYSTEM
+   Refined luxury styling from wedding assessment
+   ============================================ */
+
+/* Button Refinements */
+.btn-refined {
+    border-radius: 0;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 300;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-refined:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(15, 95, 95, 0.2);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-teal);
+    color: var(--primary-teal);
+    padding: 16px 32px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--primary-teal);
+    color: white;
+}
+
+.btn-ghost {
+    background: none;
+    border: none;
+    border-bottom: 1px solid currentColor;
+    padding: 0.5rem 0;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+    opacity: 0.7;
+}
+
+/* Subtle Containers - Minimal styling, let content breathe */
+.container-subtle {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(15, 95, 95, 0.06);
+    transition: all 0.3s ease;
+}
+
+.container-subtle:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Thin keyline separator - use instead of thick accent bars */
+.keyline-top {
+    border-top: 1px solid rgba(15, 95, 95, 0.12);
+    padding-top: 2rem;
+}
+
+.keyline-bottom {
+    border-bottom: 1px solid rgba(15, 95, 95, 0.12);
+    padding-bottom: 2rem;
+}
+
+/* Hover Enhancement System */
+.hover-lift {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.hover-glow {
+    transition: all 0.4s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 40px rgba(15, 95, 95, 0.15);
+}
+
+/* Testimonial Styling */
+.testimonial-quote {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(15, 95, 95, 0.3);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.testimonial-quote::before {
+    content: '"';
+    font-family: var(--font-eyesome);
+    font-size: 4rem;
+    color: var(--accent-orange);
+    opacity: 0.3;
+    position: absolute;
+    left: -0.5rem;
+    top: -1rem;
+    line-height: 1;
+}
+
+.testimonial-author {
+    font-family: var(--font-eyesome);
+    font-size: 1.25rem;
+    color: var(--accent-orange);
+}
+
+.quote-mark {
+    font-family: var(--font-eyesome);
+    font-size: 4rem;
+    color: var(--accent-orange);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+/* Stagger Animation Delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Elegant Focus States */
+.focus-elegant:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #faf8f5, 0 0 0 4px var(--primary-teal);
+}
+
+/* Price Display Refinement */
+.price-display {
+    font-weight: 300;
+    letter-spacing: 0.1em;
+}
+
+.price-currency {
+    font-size: 0.6em;
+    vertical-align: super;
+    opacity: 0.7;
+}
+
+.price-value {
+    font-size: 2.5rem;
+    color: var(--primary-teal);
+}
+
+/* Section Label Pattern */
+.section-label {
+    font-family: var(--font-eyesome);
+    font-size: 2rem;
+    color: var(--accent-orange);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+/* Corner Flourish for Premium Cards */
+.corner-flourish {
+    position: relative;
+}
+
+.corner-flourish::before,
+.corner-flourish::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: var(--accent-orange);
+    border-style: solid;
+    opacity: 0.6;
+}
+
+.corner-flourish::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+}
+
+.corner-flourish::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
 }

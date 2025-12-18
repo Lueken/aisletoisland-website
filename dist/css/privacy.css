@@ -66,11 +66,9 @@
 .last-updated {
     font-size: 14px;
     color: var(--text-light);
-    font-family: 'Inter', sans-serif;
-    padding: 15px 20px;
-    background: var(--background-gray);
-    border-radius: 8px;
-    border-left: 4px solid var(--accent-orange);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    padding: 15px 0;
 }
 
 /* ==========================================
@@ -217,11 +215,9 @@
 ========================================== */
 
 .highlight-box {
-    background: var(--background-gray);
-    border: 1px solid rgba(15, 95, 95, 0.1);
-    border-left: 4px solid var(--primary-teal);
-    border-radius: 8px;
-    padding: 25px;
+    border-top: 1px solid rgba(15, 95, 95, 0.15);
+    border-bottom: 1px solid rgba(15, 95, 95, 0.15);
+    padding: 25px 0;
     margin: 30px 0;
 }
 

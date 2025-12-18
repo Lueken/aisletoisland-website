@@ -308,11 +308,9 @@
 }
 
 .article-body blockquote {
-    background: var(--background-gray);
-    border-left: 4px solid var(--accent-orange);
-    padding: 30px;
+    border-left: 1px solid rgba(212, 149, 107, 0.4);
+    padding: 20px 0 20px 30px;
     margin: 40px 0;
-    border-radius: 12px;
     font-style: italic;
     font-size: 20px;
     color: var(--primary-dark);

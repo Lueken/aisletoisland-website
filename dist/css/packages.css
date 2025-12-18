@@ -257,15 +257,15 @@
 }
 
 .service-section.primary-service {
-    border-left: 4px solid var(--primary-teal);
+    /* Differentiated by content, not accent bars */
 }
 
 .service-section.secondary-service {
-    border-left: 4px solid var(--accent-orange);
+    /* Differentiated by content, not accent bars */
 }
 
 .service-section.tertiary-service {
-    border-left: 4px solid var(--secondary-teal);
+    /* Differentiated by content, not accent bars */
 }
 
 .service-header {
@@ -375,18 +375,15 @@
 }
 
 .price-info {
-    background: linear-gradient(135deg, var(--cream-bg) 0%, #faf9f7 100%);
-    padding: clamp(15px, 3vw, 25px);
-    border-radius: clamp(8px, 2vw, 12px);
-    border-left: 4px solid var(--primary-teal);
+    padding: clamp(15px, 3vw, 25px) 0;
 }
 
 .secondary-service .price-info {
-    border-left-color: var(--accent-orange);
+    /* Same styling */
 }
 
 .tertiary-service .price-info {
-    border-left-color: var(--secondary-teal);
+    /* Same styling */
 }
 
 .price-main {
@@ -444,9 +441,10 @@
 }
 
 .price-note p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 0.95rem;
-    line-height: 1.6;
+    font-weight: 300;
+    line-height: 1.7;
     color: var(--text-medium);
     margin: 0;
     font-style: italic;
@@ -566,11 +564,7 @@
 }
 
 .style-item {
-    background: white;
     padding: 20px;
-    border-radius: 12px;
-    border-left: 3px solid var(--accent-orange);
-    box-shadow: 0 5px 15px rgba(15, 95, 95, 0.05);
 }
 
 .style-item h5 {
@@ -901,17 +895,17 @@
 }
 
 .testimonial-quote {
-    background: var(--cream-bg);
-    padding: 40px;
-    border-radius: 16px;
-    border-left: 4px solid var(--primary-teal);
+    padding: 40px 0;
     margin-bottom: 40px;
+    border-left: 1px solid rgba(15, 95, 95, 0.2);
+    padding-left: 30px;
 }
 
 .testimonial-quote p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 1.1rem;
-    line-height: 1.7;
+    font-weight: 300;
+    line-height: 1.8;
     color: var(--text-medium);
     font-style: italic;
     margin-bottom: 20px;

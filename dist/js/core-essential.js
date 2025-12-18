@@ -37,7 +37,7 @@ class AisleToIslandsCoreEssential {
         this.initPerformanceOptimizations();
         this.initMobileMenu();
         this.initLogoAnimation();
-        
+
         // Initialize basic animations immediately
         this.initScrollAnimations();
         this.initHeroAnimations();
@@ -100,6 +100,54 @@ class AisleToIslandsCoreEssential {
         }
         
         console.log('✨ Logo animation initialized (subtle)');
+    }
+
+    // ==========================================
+    // HEADER SCROLL SHRINK (NON-HOMEPAGE ONLY)
+    // ==========================================
+
+    initHeaderScroll() {
+        const nav = document.querySelector('nav.header-sticky');
+
+        // Skip if no nav found or if it's the homepage (has homepage-nav class)
+        if (!nav || nav.classList.contains('homepage-nav')) {
+            console.log('📍 Header scroll: skipped (homepage or no nav)');
+            return;
+        }
+
+        let ticking = false;
+        let lastScrolled = false;
+
+        const updateHeader = () => {
+            const shouldBeScrolled = window.scrollY > this.config.scrollThreshold;
+
+            // Only update DOM if state changed
+            if (shouldBeScrolled !== lastScrolled) {
+                if (shouldBeScrolled) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                lastScrolled = shouldBeScrolled;
+            }
+            ticking = false;
+        };
+
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        };
+
+        // Check initial scroll position
+        updateHeader();
+
+        // Listen for scroll events
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        this.eventListeners.set('headerScroll', { element: window, event: 'scroll', handler: handleScroll });
+
+        console.log('📜 Header scroll shrink initialized');
     }
 
     // ==========================================
