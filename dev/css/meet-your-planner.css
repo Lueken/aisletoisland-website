@@ -1,0 +1,651 @@
+/* ==========================================
+   MEET-YOUR-PLANNER.CSS - ABOUT PAGE STYLES
+   For: meet-your-planner.html
+========================================== */
+
+/* ==========================================
+   FONT DECLARATIONS
+========================================== */
+
+@font-face {
+    font-family: 'Eyesome Script';
+    src: url('../Eyesome Script/Eyesome-Script.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 60px 120px;
+    background: linear-gradient(135deg, var(--background-cream) 0%, var(--background-gray) 100%);
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(15, 95, 95, 0.02) 100%);
+}
+
+.hero-container {
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.breadcrumb {
+    grid-column: 1 / -1;
+}
+
+.hero-content {
+    /* Will be animated by JS */
+}
+
+.hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: var(--primary-dark);
+    letter-spacing: -1px;
+}
+
+.planner-name {
+    font-family: 'Eyesome Script', cursive;
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    color: var(--primary-teal);
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.planner-name .first-name,
+.planner-name .last-name {
+    display: block;
+}
+
+.planner-name .last-name {
+    padding-left: 1.8em; /* Offset to align L with i in Jessica */
+}
+
+/* ==========================================
+   HERO VISUAL SECTION
+========================================== */
+
+.hero-visual {
+    position: relative;
+    height: 450px;
+}
+
+.hero-image-box {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    background-image: url('../images/hero/Jessica_Lueken.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(44, 44, 44, 0.15);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.hero-image-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 95, 95, 0.1) 0%, rgba(212, 149, 107, 0.1) 100%);
+    border-radius: 16px;
+}
+
+/* ==========================================
+   INTRODUCTION SECTION
+========================================== */
+
+.introduction {
+    padding: 100px 60px 100px 60px;
+    background:
+        url('../images/hero/tropical-leaves-pattern3.webp') repeat,
+        linear-gradient(180deg,
+            rgba(15, 25, 35, 0.92) 0%,
+            rgba(25, 35, 45, 0.94) 100%
+        );
+    background-size: 600px 600px, cover;
+    background-blend-mode: luminosity, normal;
+    background-attachment: fixed;
+    position: relative;
+    cursor: default;
+    margin-bottom: 0;
+}
+
+/* Dark overlay for depth */
+.introduction::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(5, 15, 25, 0.9) 30%,
+        rgba(0, 0, 0, 0.88) 70%,
+        rgba(5, 10, 20, 0.95) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.introduction-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.intro-content {
+    /* Will be animated by JS */
+    position: relative;
+    z-index: 2;
+}
+
+.intro-paragraph {
+    font-size: clamp(16px, 2.5vw, 19px);
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   APPROACH SECTION
+========================================== */
+
+.approach {
+    padding: 100px 60px 100px 60px;
+    margin-top: 0;
+    background:
+        url('../images/hero/tropical-leaves-pattern3.webp') repeat,
+        linear-gradient(180deg,
+            rgba(25, 35, 45, 0.94) 0%,
+            rgba(15, 25, 35, 0.96) 100%
+        );
+    background-size: 600px 600px, cover;
+    background-blend-mode: luminosity, normal;
+    background-attachment: fixed;
+    position: relative;
+    cursor: default;
+}
+
+/* Dark overlay for depth */
+.approach::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(5, 15, 25, 0.9) 30%,
+        rgba(0, 0, 0, 0.88) 70%,
+        rgba(5, 10, 20, 0.95) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.approach-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 300;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.section-description {
+    font-size: clamp(16px, 2.5vw, 19px);
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Dark section overrides */
+.approach .section-title,
+.working .section-title {
+    color: white;
+}
+
+.approach .section-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.approach-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.approach-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.approach-card {
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.approach-card:hover {
+    transform: translateY(-2px);
+}
+
+.card-title {
+    font-family: var(--font-eyesome);
+    font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+    font-weight: 400;
+    color: var(--accent-orange);
+    margin-bottom: 20px;
+}
+
+.card-description {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+/* ==========================================
+   DIFFERENCE SECTION
+========================================== */
+
+.difference {
+    padding: 100px 60px;
+    background: var(--background-cream);
+}
+
+.difference-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.difference-content {
+    /* Will be animated by JS */
+}
+
+.difference-paragraph {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.difference-list {
+    list-style: none;
+    padding: 0;
+}
+
+.difference-list li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 25px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+.difference-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-teal);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+/* ==========================================
+   WORKING WITH ME SECTION
+========================================== */
+
+.working {
+    padding: 100px 60px;
+    background:
+        url('../images/hero/tropical-leaves-pattern3.webp') repeat,
+        linear-gradient(135deg,
+            rgba(15, 25, 35, 0.92) 0%,
+            rgba(25, 35, 45, 0.94) 50%,
+            rgba(15, 25, 35, 0.96) 100%
+        );
+    background-size: 600px 600px, cover;
+    background-blend-mode: luminosity, normal;
+    background-attachment: fixed;
+    position: relative;
+    cursor: default;
+}
+
+/* Dark overlay for depth */
+.working::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(5, 15, 25, 0.9) 30%,
+        rgba(0, 0, 0, 0.88) 70%,
+        rgba(5, 10, 20, 0.95) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.working-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.working .section-header {
+    position: relative;
+    z-index: 2;
+}
+
+.working-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.working-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.working .section-title {
+    color: white;
+}
+
+.working-list {
+    list-style: none;
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.working-list li {
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.8;
+}
+
+.working-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-orange);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.7;
+}
+
+.working-closing {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.closing-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* ==========================================
+   LET'S TALK SECTION
+========================================== */
+
+.lets-talk {
+    padding: 100px 60px;
+    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+    text-align: center;
+}
+
+.talk-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.talk-title {
+    font-family: var(--font-eyesome);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--accent-orange);
+    margin-bottom: 20px;
+    letter-spacing: 0;
+}
+
+.talk-description {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 18px 40px;
+    background: white;
+    color: var(--primary-teal);
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    transform: translateY(-2px);
+    background: var(--primary-teal);
+    color: white;
+    outline: none;
+}
+
+.talk-tagline {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 40px;
+    font-style: italic;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: 50px;
+    }
+
+    .hero-visual {
+        height: 450px;
+    }
+
+    .hero-image-box {
+        min-height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 30px 60px;
+        min-height: auto;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-visual {
+        height: 400px;
+    }
+
+    .hero-image-box {
+        min-height: 400px;
+    }
+
+    .introduction,
+    .approach,
+    .difference,
+    .working,
+    .lets-talk {
+        padding: 60px 30px;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .approach-grid {
+        gap: 25px;
+    }
+
+    .approach-card {
+        padding: 30px 25px;
+    }
+
+    .working-list li {
+        padding-left: 40px;
+        margin-bottom: 25px;
+    }
+
+    .planner-name {
+        font-size: clamp(3rem, 10vw, 5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 20px 40px;
+    }
+
+    .hero-visual {
+        height: 350px;
+    }
+
+    .hero-image-box {
+        min-height: 350px;
+    }
+
+    .introduction,
+    .approach,
+    .difference,
+    .working,
+    .lets-talk {
+        padding: 50px 20px;
+    }
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .working-list li {
+        padding-left: 35px;
+        font-size: 16px;
+    }
+
+    .working-list li::before {
+        font-size: 20px;
+    }
+
+    .planner-name {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .difference-list li {
+        padding-left: 30px;
+        font-size: 15px;
+    }
+}

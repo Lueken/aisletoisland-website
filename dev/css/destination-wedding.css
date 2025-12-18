@@ -1,0 +1,1587 @@
+/* ==========================================
+   DESTINATION-WEDDING.CSS - WEDDING PLANNING PAGE STYLES
+   For: destination-wedding.html
+========================================== */
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 60px 120px;
+    background: linear-gradient(135deg, var(--background-cream) 0%, var(--background-gray) 100%);
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(15, 95, 95, 0.02) 100%);
+}
+
+.hero-container {
+    /*max-width: 1400px;*/
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    /*grid-template-areas: 1fr 1fr;*/
+    /*align-items: center;*/
+}
+
+.hero-container {
+    grid-template-columns: 1fr 1fr;
+}
+
+.breadcrumb {
+    grid-column: 1 / -1;
+}
+
+.hero-content {
+    /* Will be animated by JS */
+}
+
+.hero-title {
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: var(--primary-dark);
+    letter-spacing: -1px;
+}
+
+.title-emphasis {
+    color: var(--primary-teal);
+    position: relative;
+}
+
+.title-emphasis::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-orange-muted) 0%, transparent 100%);
+    opacity: 0.6;
+}
+
+.hero-subtitle {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 620px;
+}
+
+.cta-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.cta-primary {
+    display: inline-block;
+    padding: 18px 40px;
+    background: var(--primary-teal);
+    color: white;
+    text-decoration: none;
+    border-radius: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(15, 95, 95, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease-out;
+}
+
+.cta-primary:hover::before {
+    left: 100%;
+}
+
+.cta-primary:hover,
+.cta-primary:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(15, 95, 95, 0.25);
+    outline: none;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: left;
+}
+
+.stat-number {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 300;
+    color: var(--primary-teal);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   HERO VISUAL SECTION
+========================================== */
+
+.hero-visual {
+    position: relative;
+    height: 550px;
+}
+
+.hero-image-box {
+    width: 100%;
+    height: 100%;
+    min-height: 550px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(44, 44, 44, 0.08);
+    border: 1px solid rgba(15, 95, 95, 0.05);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background-image: url('../images/hero/rings-in-sand.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+.hero-image-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.image-overlay {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    margin: 25px;
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+}
+
+.overlay-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+}
+
+.overlay-subtitle {
+    font-size: 13px;
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* ==========================================
+   PROCESS SECTION
+========================================== */
+
+.process {
+    /* Copied from homepage.css .services-preview for a dark, textured background */
+    background:
+            url('../images/hero/tropical-leaves-pattern3.webp') repeat,
+            linear-gradient(135deg,
+            rgba(15, 25, 35, 0.92) 0%,
+            rgba(25, 35, 45, 0.94) 50%,
+            rgba(15, 25, 35, 0.96) 100%
+            );
+    background-size: 600px 600px, cover;
+    background-blend-mode: luminosity, normal;
+    background-attachment: fixed;
+    position: relative;
+    padding: 120px 60px;
+    cursor: default;
+}
+
+/* Dark overlay copied from homepage.css .services-preview::before */
+.process::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(5, 15, 25, 0.9) 30%,
+            rgba(0, 0, 0, 0.88) 70%,
+            rgba(5, 10, 20, 0.95) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.process-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Added to ensure content appears above the dark overlay */
+    position: relative;
+    z-index: 2;
+}
+
+.section-header {
+    max-width: 1000px;
+    margin-bottom: 80px;
+}
+
+.section-subtitle {
+    font-family: var(--font-eyesome);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--accent-orange);
+    margin-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+/* Updated text color for readability on the new dark background */
+.section-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 25px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Eyesome accent for short titles only */
+.section-title.eyesome-accent {
+    font-family: var(--font-eyesome);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--accent-orange);
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+/* Updated text color for readability on the new dark background */
+.section-description {
+    font-size: clamp(16px, 2vw, 18px);
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.process-timeline {
+    position: relative;
+}
+
+/* Increased opacity for better visibility on the dark background */
+.timeline-line {
+    position: absolute;
+    left: 50px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--secondary-teal) 0%, var(--accent-orange-muted) 100%);
+    opacity: 0.6;
+}
+
+.process-step {
+    position: relative;
+    padding: 0 0 60px 140px;
+    /*margin-bottom: 0px;*/
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.process-step:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.step-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+    box-shadow: 0 15px 40px rgba(15, 95, 95, 0.2);
+}
+
+/* --- Transformed into a cream-colored glassmorphic card --- */
+.step-content {
+    /* Cream-colored, semi-transparent background for the glass effect */
+    background: linear-gradient(
+            135deg,
+            rgba(250, 248, 245, 0.2) 0%, /* --background-cream at 10% opacity */
+            rgba(250, 248, 245, 0.02) 100%  /* --background-cream at 5% opacity */
+    );
+
+    /* Glassmorphic backdrop filter */
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+
+    padding: 40px 35px;
+    border-radius: 20px;
+
+    /* Subtle border to catch the light */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    /* Shadow for depth */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    transition: all 0.3s ease;
+}
+
+
+.step-phase {
+    font-size: 18px;
+    color: var(--accent-orange-muted); /* This color works well on the new background */
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Updated text color for readability */
+.step-title {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+}
+
+/* Updated text color for readability */
+.step-description {
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   CTA SECTION
+========================================== */
+
+.cta {
+    padding: 120px 60px;
+    background: var(--primary-dark);
+    color: white;
+    text-align: center;
+}
+
+.cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-family: var(--font-eyesome);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--accent-orange);
+    margin-bottom: 25px;
+    letter-spacing: 0;
+}
+
+.cta-description {
+    font-size: clamp(16px, 2vw, 18px);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    margin-bottom: 50px;
+    line-height: 1.7;
+}
+
+.cta-button-final {
+    display: inline-block;
+    padding: 20px 48px;
+    background: var(--primary-teal);
+    color: white;
+    text-decoration: none;
+    border-radius: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(15, 95, 95, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button-final::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease-out;
+}
+
+.cta-button-final:hover::before {
+    left: 100%;
+}
+
+.cta-button-final:hover,
+.cta-button-final:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(15, 95, 95, 0.25);
+    outline: none;
+}
+
+/* Page-specific primary button styling */
+.cta-button.primary {
+    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+    color: white;
+    box-shadow: 0 15px 40px rgba(15, 95, 95, 0.2);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px rgba(15, 95, 95, 0.3);
+}
+
+/* ==========================================
+   NEW SECTIONS CSS - Add to destination-wedding.css
+   Maintains brand consistency with existing styles
+========================================== */
+
+/* ==========================================
+   OUR APPROACH SECTION
+========================================== */
+
+.approach {
+    padding: 120px 60px;
+    background: linear-gradient(135deg, var(--background-cream) 0%, var(--background-gray) 100%);
+    position: relative;
+}
+
+.approach-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Fix text colors for approach section */
+.approach .section-subtitle {
+    color: var(--accent-orange);
+}
+
+.approach .section-title {
+    color: var(--primary-dark);
+}
+
+.approach .section-description {
+    color: var(--text-light);
+}
+
+.approach-areas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.approach-card {
+    padding: 45px 35px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.approach-card:hover {
+    transform: translateY(-2px);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    display: block;
+    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-title {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    letter-spacing: -0.3px;
+}
+
+.card-description {
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.approach-cta {
+    text-align: center;
+}
+
+.approach-link {
+    color: var(--primary-teal);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.approach-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-orange-muted) 0%, var(--accent-orange) 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.approach-link:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   WHAT SETS US APART SECTION
+========================================== */
+
+.differentiators {
+    padding: 120px 60px;
+    background: white;
+    position: relative;
+}
+
+.differentiators::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(15, 95, 95, 0.1) 50%, transparent 100%);
+}
+
+.differentiators-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Fix text colors for differentiators section */
+.differentiators .section-subtitle {
+    color: var(--accent-orange);
+}
+
+.differentiators .section-title {
+    color: var(--primary-dark);
+}
+
+.differentiators .section-description {
+    color: var(--text-light);
+}
+
+.differentiator-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.differentiator-item {
+    position: relative;
+    padding-left: 25px;
+}
+
+.differentiator-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 4px;
+    height: 40px;
+    background:  var(--primary-teal);
+    border-radius: 2px;
+}
+
+.differentiator-title {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    font-weight: 400;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+}
+
+.differentiator-text {
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   DESTINATIONS SECTION
+========================================== */
+
+.destinations {
+    padding: 120px 60px;
+    background: linear-gradient(135deg, var(--background-gray) 0%, var(--background-cream) 100%);
+    position: relative;
+}
+
+.destinations-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Fix text colors for destinations section */
+.destinations .section-subtitle {
+    color: var(--accent-orange);
+}
+
+.destinations .section-title {
+    color: var(--primary-dark);
+}
+
+.destinations .section-description {
+    color: var(--text-light);
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.destination-card {
+    padding: 35px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-2px);
+}
+
+.destination-title {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    font-weight: 400;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+}
+
+.destination-description {
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+    color: var(--text-light);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.destinations-note {
+    text-align: center;
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* ==========================================
+   PERFECT FOR SECTION
+========================================== */
+
+.perfect-for {
+    padding: 120px 60px;
+    /* Copy the exact same background treatment as the Process section for consistency */
+    background:
+            url('../images/hero/tropical-leaves-pattern3.webp') repeat,
+            linear-gradient(135deg,
+            rgba(15, 25, 35, 0.92) 0%,
+            rgba(25, 35, 45, 0.94) 50%,
+            rgba(15, 25, 35, 0.96) 100%
+            );
+    background-size: 600px 600px, cover;
+    background-blend-mode: luminosity, normal;
+    background-attachment: fixed; /* This creates the parallax effect */
+    position: relative;
+    color: white;
+}
+
+/* Dark overlay matching Process section */
+.perfect-for::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(5, 15, 25, 0.9) 30%,
+            rgba(0, 0, 0, 0.88) 70%,
+            rgba(5, 10, 20, 0.95) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.perfect-for-container {
+    max-width: 1400px;  /* Match other sections */
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-align: center;  /* Center all content */
+}
+
+.perfect-for .section-header {
+    text-align: center;  /* Center the header */
+    margin-bottom: 60px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Fix text colors for perfect-for section */
+.perfect-for .section-subtitle {
+    color: var(--accent-orange);
+}
+
+.perfect-for .section-title {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 50px;
+    margin-bottom: 50px;
+    max-width: 1000px;
+    margin-left: auto;  /* Center the grid */
+    margin-right: auto;
+    text-align: left;  /* Keep value items left-aligned for readability */
+}
+
+.value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.value-icon {
+    color: var(--accent-orange-muted);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.value-text {
+    font-size: clamp(15px, 2vw, 18px);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.perfect-for-footer {
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 1.75rem);  /* Half the size of section-title */
+    color: var(--accent-orange-muted);
+    font-weight: 400;
+    font-style: italic;  /* Added italics */
+    letter-spacing: -0.3px;
+    margin: 0 auto;
+    max-width: 600px;  /* Add constraint for better readability */
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN FOR NEW SECTIONS
+========================================== */
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .approach,
+    .differentiators,
+    .destinations,
+    .perfect-for {
+        padding: 60px 20px;
+    }
+
+    .approach-areas {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .approach-card {
+        padding: 30px 20px;
+    }
+
+    .card-icon {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .differentiator-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .differentiator-item {
+        padding-left: 20px;
+    }
+
+    .differentiator-item::before {
+        height: 30px;
+    }
+
+    .destinations-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .destination-card {
+        padding: 25px 20px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .value-item {
+        gap: 15px;
+    }
+
+    .perfect-for-footer {
+        margin-top: 30px;
+    }
+}
+
+/* Mobile (481px - 768px) */
+@media (max-width: 768px) {
+    .approach,
+    .differentiators,
+    .destinations,
+    .perfect-for {
+        padding: 80px 30px;
+    }
+
+    .approach-areas {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .approach-card {
+        padding: 35px 25px;
+    }
+
+    .differentiator-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .destinations-grid {
+        gap: 30px;
+    }
+
+    .destination-card {
+        padding: 30px 25px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) {
+    .approach-areas {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        max-width: 700px;
+        margin: 0 auto 50px;
+    }
+
+    .differentiator-grid {
+        gap: 40px 50px;
+    }
+
+    .destinations-grid {
+        gap: 35px;
+    }
+}
+
+/* Large Desktop (1441px+) */
+@media (min-width: 1441px) {
+    .approach-container,
+    .differentiators-container,
+    .destinations-container,
+    .perfect-for-container {
+        max-width: 1600px;
+    }
+
+    .approach,
+    .differentiators,
+    .destinations,
+    .perfect-for {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .differentiator-grid {
+        max-width: 1400px;
+    }
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 20px 40px;
+    }
+
+    .hero-container {
+        gap: 40px;
+    }
+
+    .hero-visual {
+        height: 300px;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .hero-image-box {
+        min-height: 300px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-overlay {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .overlay-title {
+        font-size: 1.1rem;
+    }
+
+    .hero-stats {
+        gap: 30px;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .process,
+    .cta {
+        padding: 60px 20px;
+    }
+
+    .process-step {
+        padding-left: 100px;
+    }
+
+    .step-indicator {
+        width: 70px;
+        height: 70px;
+        font-size: 1.4rem;
+    }
+
+    .timeline-line {
+        left: 35px;
+    }
+
+    .step-content {
+        padding: 25px 20px;
+    }
+}
+
+/* Mobile (481px - 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 120px 30px 60px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .hero-visual {
+        height: 400px;
+        margin: 0 auto;
+        max-width: 100%;
+        width: 100%;
+        position: relative;
+    }
+
+    .hero-image-box {
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+    }
+
+    .image-overlay {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .hero-stats {
+        justify-content: center;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .process,
+    .cta {
+        padding: 80px 30px;
+    }
+
+    .process-step {
+        padding-left: 120px;
+    }
+
+    .step-indicator {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+
+    .timeline-line {
+        left: 40px;
+    }
+
+    .step-content {
+        padding: 30px 25px;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: 60px;
+    }
+
+    .hero-stats {
+        gap: 50px;
+    }
+}
+
+/* Large Desktop (1441px+) */
+@media (min-width: 1441px) {
+    .hero-container,
+    .process-container,
+    .cta-container {
+        max-width: 1600px;
+    }
+
+    .hero,
+    .process,
+    .cta {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+/* ==========================================
+   WEDDING PACKAGES SECTION
+   Adapted from packages.css service sections
+========================================== */
+
+.wedding-packages {
+    padding: clamp(60px, 12vw, 120px) 0;
+    background: white;
+    position: relative;
+}
+
+.wedding-packages::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(15, 95, 95, 0.1) 50%, transparent 100%);
+}
+
+.packages-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(15px, 4vw, 20px);
+}
+
+/* Fix text colors for packages section */
+.wedding-packages .section-subtitle {
+    color: var(--accent-orange);
+}
+
+.wedding-packages .section-title {
+    color: var(--primary-dark);
+}
+
+.wedding-packages .section-description {
+    color: var(--text-light);
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(30px, 8vw, 60px);
+    width: 100%;
+}
+
+/* Package Cards */
+.package-card {
+    padding: clamp(25px, 5vw, 40px);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.package-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.package-card:nth-child(2) {
+    /* Same styling */
+}
+
+.package-header {
+    margin-bottom: 40px;
+}
+
+.package-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: clamp(12px, 2vw, 16px);
+}
+
+.package-description {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
+    line-height: 1.7;
+    color: var(--text-medium);
+}
+
+/* Package Content Grid */
+.package-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: clamp(20px, 4vw, 40px);
+    align-items: start;
+    margin-bottom: clamp(20px, 4vw, 30px);
+}
+
+/* Make grid single column on tablets and smaller */
+@media (max-width: 900px) {
+    .package-content {
+        grid-template-columns: 1fr;
+        gap: clamp(15px, 4vw, 25px);
+    }
+
+    .package-pricing {
+        margin-top: 0 !important;
+    }
+}
+
+.package-pricing {
+    align-self: start;
+    margin-top: 62px;
+}
+
+.package-pricing .price-info {
+    margin-top: 0;
+}
+
+/* Package Features */
+.package-features {
+    margin-bottom: 0;
+}
+
+.package-features h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+}
+
+.package-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.5);
+    padding: clamp(15px, 3vw, 25px);
+    border-radius: clamp(8px, 2vw, 12px);
+    box-shadow: 0 5px 15px rgba(15, 95, 95, 0.05);
+}
+
+.package-features li {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-medium);
+    padding: 12px 0;
+    position: relative;
+    padding-left: clamp(35px, 8vw, 40px);
+}
+
+.package-features li:last-child {
+    border-bottom: none;
+}
+
+.package-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    color: var(--primary-teal);
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 18px;
+    text-align: center;
+}
+
+/* Package Pricing */
+.price-info {
+    padding: clamp(15px, 3vw, 25px) 0;
+}
+
+.package-card:nth-child(2) .price-info {
+    /* Same styling */
+}
+
+.price-main {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(15, 95, 95, 0.1);
+}
+
+.price-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.price-amount {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-teal);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+}
+
+.price-main-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.price-sub-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-top: 2px;
+    opacity: 0.9;
+}
+
+.package-card:nth-child(2) .price-amount {
+    color: var(--accent-orange);
+}
+
+.price-note {
+    margin-top: 16px;
+}
+
+.price-note p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-medium);
+    margin: 0;
+    font-style: italic;
+}
+
+/* Package CTA Buttons */
+.package-cta {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(15px, 4vw, 40px);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .package-cta {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .package-btn {
+        width: 100%;
+        text-align: center;
+        min-width: 200px;
+    }
+}
+
+.package-btn {
+    display: inline-block;
+    padding: clamp(12px, 2.5vw, 16px) clamp(20px, 4vw, 32px);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: clamp(6px, 1.5vw, 8px);
+    transition: all 0.3s ease;
+}
+
+.package-btn.primary {
+    background: var(--primary-teal);
+    color: white;
+}
+
+.package-btn.primary:hover {
+    background: var(--secondary-teal);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(15, 95, 95, 0.25);
+}
+
+/* Packages Footer Link */
+.packages-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.packages-link {
+    color: var(--primary-teal);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.packages-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-orange-muted) 0%, var(--accent-orange) 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.packages-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile container improvements */
+@media (max-width: 768px) {
+    .packages-container {
+        padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .package-card {
+        padding: 30px 25px;
+    }
+
+    .package-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .price-main {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .price-amount {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .packages-container {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+
+    .wedding-packages {
+        padding: clamp(40px, 8vw, 60px) 0;
+    }
+
+    .package-card {
+        padding: 20px 15px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .package-header {
+        margin-bottom: 25px;
+    }
+
+    .package-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .package-description {
+        font-size: 0.95rem;
+    }
+
+    .package-features h4 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .package-features li {
+        font-size: 0.9rem;
+        padding: 8px 0;
+        padding-left: 45px;
+    }
+
+    .package-features li::before {
+        left: 15px;
+        top: 8px;
+        font-size: 1rem;
+        width: 20px;
+    }
+
+    .price-label {
+        font-size: 1rem;
+    }
+
+    .price-amount {
+        font-size: 1.4rem;
+    }
+
+    .package-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        min-width: 160px;
+    }
+
+    .package-features ul,
+    .price-info {
+        padding: 15px;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+    .package-features li {
+        padding-left: 50px;
+        font-size: 0.85rem;
+    }
+
+    .package-features li::before {
+        left: 18px;
+        font-size: 0.95rem;
+        width: 22px;
+    }
+}

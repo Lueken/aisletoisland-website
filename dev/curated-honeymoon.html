@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Honeymoon Planning | Tailored Experience</title>
+    <meta name="description" content="Curated honeymoon planning for discerning couples. From tropical paradises to cultural adventures - perfectly tailored romantic escapes.">
+
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="Curated Honeymoon Planning | Aisle to Islands">
+    <meta property="og:description" content="Curated honeymoon planning for discerning couples. From tropical paradises to cultural adventures - perfectly tailored romantic escapes.">
+    <meta property="og:image" content="https://aisle-to-islands.com/images/hero/honeymoon-hero.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aisle-to-islands.com/curated-honeymoon.html">
+    <meta property="og:site_name" content="Aisle to Islands">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Curated Honeymoon Planning | Aisle to Islands">
+    <meta name="twitter:description" content="Curated honeymoon planning for discerning couples. From tropical paradises to cultural adventures - perfectly tailored romantic escapes.">
+    <meta name="twitter:image" content="https://aisle-to-islands.com/images/hero/honeymoon-hero.webp">
+
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/honeymoon.css">
+    <link rel="stylesheet" href="css/packages.css">
+    <style>
+        /* Override packages.css hero styles for honeymoon page */
+        .hero .hero-content {
+            grid-column: auto !important;
+            text-align: left !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        .hero .hero-visual {
+            opacity: 1 !important;
+            transform: none !important;
+            position: relative !important;
+            display: block !important;
+            height: 600px !important;
+            width: 100% !important;
+            max-width: 550px !important;
+            margin: 0 auto !important;
+            grid-template-columns: unset !important;
+            gap: unset !important;
+        }
+        /* Fix process steps - override packages.css */
+        .process .process-step {
+            background: transparent !important;
+            opacity: 1 !important;
+            transform: none !important;
+            display: block !important;
+            text-align: center !important;
+        }
+        .process .step-number {
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            font-family: var(--font-eyesome) !important;
+            font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+            color: var(--accent-orange) !important;
+            opacity: 0.5 !important;
+            margin-bottom: 10px !important;
+            display: block !important;
+        }
+        .process .step-title {
+            font-family: 'Josefin Sans', sans-serif !important;
+            font-size: clamp(1.1rem, 2vw, 1.25rem) !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.1em !important;
+            text-transform: uppercase !important;
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .process .step-description {
+            font-family: 'Josefin Sans', sans-serif !important;
+            font-size: clamp(0.9rem, 1.8vw, 1rem) !important;
+            font-weight: 300 !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+            line-height: 1.8 !important;
+        }
+
+        /* Mobile-only order fix to prevent images appearing above breadcrumb */
+        @media (max-width: 768px) {
+            .hero .breadcrumb {
+                order: 1 !important;
+            }
+            .hero .hero-content {
+                order: 2 !important;
+            }
+            .hero .hero-visual {
+                order: 3 !important;
+            }
+        }
+
+        /* Glassmorphic package container - mirrors homepage service cards */
+        .service-section {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.08) 0%,
+                rgba(255, 255, 255, 0.04) 100%
+            ) !important;
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.18) !important;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        }
+        .service-section .service-list {
+            background: transparent !important;
+        }
+        .service-section .service-title {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .service-section .service-description {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+        .service-section .service-features h4 {
+            color: var(--accent-orange) !important;
+        }
+        .service-section .service-list li {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        .service-section .service-list li::before {
+            color: var(--accent-orange) !important;
+        }
+        .service-section .price-label {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        .service-section .price-amount {
+            color: var(--accent-orange) !important;
+        }
+        .service-section .price-note p {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+    </style>
+    <link rel="canonical" href="https://aisle-to-islands.com/curated-honeymoon.html">
+
+    <!-- Service Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://aisle-to-islands.com/curated-honeymoon.html#service",
+      "name": "Curated Honeymoon Planning",
+      "description": "Curated honeymoon planning for discerning couples. From tropical paradises to cultural adventures - perfectly tailored romantic escapes.",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://aisle-to-islands.com/#business",
+        "name": "Aisle to Islands"
+      },
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Worldwide"
+        },
+        {
+          "@type": "Place",
+          "name": "Caribbean"
+        },
+        {
+          "@type": "Place",
+          "name": "South America"
+        },
+        {
+          "@type": "Place",
+          "name": "Europe"
+        },
+        {
+          "@type": "Place",
+          "name": "Asia"
+        }
+      ],
+      "serviceType": "Honeymoon Planning",
+      "category": "Travel Planning",
+      "offers": {
+        "@type": "Offer",
+        "name": "Curated Honeymoon Planning Services",
+        "description": "Personalized romantic travel experiences and honeymoon coordination",
+        "priceCurrency": "USD",
+        "priceRange": "$$$$$"
+      }
+    }
+    </script>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation" class="header-sticky">
+        <div class="nav-content">
+            <div class="logo-container">
+                <div class="logo-mark logo-bg" role="img" aria-label="Aisle to Island logo"></div>
+                <div>
+                    <div class="logo-text">Aisle to Islands</div>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="destination-wedding.html" role="menuitem">Destination Wedding</a></li>
+                <li role="none"><a href="curated-honeymoon.html" role="menuitem" aria-current="page">Curated Honeymoon</a></li>
+                <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
+                <li role="none"><a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
+                <!-- <li role="none"><a href="packages.html" role="menuitem">Packages</a></li> -->
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" role="menu">
+            <a href="index.html" role="menuitem">Home</a>
+            <a href="destination-wedding.html" role="menuitem">Destination Wedding</a>
+            <a href="curated-honeymoon.html" role="menuitem" aria-current="page">Curated Honeymoon</a>
+            <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
+            <a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a>
+            <!-- <a href="packages.html" role="menuitem">Packages</a> -->
+            <a href="blog.html" role="menuitem">Blog</a>
+            <a href="inquire.html" role="menuitem">Inquire</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> / <span>Curated Honeymoons</span>
+                </div>
+
+                <div class="hero-content hero-animate">
+                    <h1 id="hero-title" class="hero-title">Your <span class="title-emphasis">Honeymoon</span>, Your Next Adventure</h1>
+                    <p class="hero-description">Your married life begins with an extraordinary journey that honors this milestone moment. Focus on each other while creating core memories of your new beginning.</p>
+
+<!--                    <a href="inquire.html" class="cta-button" target="_blank" rel="noopener noreferrer">Design Your Honeymoon</a>-->
+
+                    <div class="hero-quote">
+                        <p class="quote-text">"Jessica from Aisle to Islands was amazing. She was friendly, extremely helpful, and communicated promptly. We booked an over the water bungalow in Mexico. She did all the leg work for us. Made the whole process go smoothly, from booking, to pick up, to returning home and everything in between. She customized our room to our requests."</p>
+                        <p class="quote-author testimonial-signature">— Brian & Denise</p>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- LARGE CARD - Main focal point -->
+                    <div class="visual-card large with-image" style="
+                        background-image: url('images/hero/couple-on-beach.webp');
+                        background-size: cover;
+                        background-position: center;
+                    ">
+                    </div>
+
+                    <!-- SMALL CARD 1 - Top right -->
+                    <div class="visual-card small with-image" style="
+                        background-image: url('images/hero/couple-in-hut.webp');
+                        background-size: cover;
+                        background-position: center;
+                    ">
+                    </div>
+
+                    <!-- SMALL CARD 2 - Bottom right -->
+                    <div class="visual-card small with-image" style="
+                        background-image: url('images/hero/married-ocean.webp');
+                        background-size: cover;
+                        background-position: center;
+                    ">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: More Than Travel Planning -->
+        <section class="honeymoon-difference" aria-labelledby="difference-title">
+            <div class="difference-container">
+                <div class="section-header">
+                    <h2 id="difference-title" class="section-title">More Than Travel Planning: Complete Honeymoon Experience Design</h2>
+                </div>
+
+                <div class="difference-content fade-in-element">
+                    <p class="difference-intro">Your honeymoon shouldn't feel like another trip - it should feel like the intentional beginning of your marriage. We don't just book accommodations and flights; we curate complete experiences that honor this milestone moment while reflecting who you are as a couple.</p>
+
+                    <p class="difference-highlight">What makes our approach different: We design honeymoons with the same thoughtful attention we bring to weddings - understanding your story, your values, and creating experiences worthy of this sacred transition.</p>
+                </div>
+
+                <div class="testimonial-card fade-in-element">
+                    <p class="testimonial-text">"Jessica L. was knowledgeable, kind and most importantly patient when tailoring my perfect honeymoon to Ireland! I would not have seen or experienced as much in my international travel without her expertise."</p>
+                    <p class="testimonial-author testimonial-signature">— Ariel C.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="experiences" aria-labelledby="experiences-title">
+            <div class="experiences-container">
+                <div class="section-header">
+                    <div class="section-subtitle">Honeymoon Styles</div>
+                    <h2 id="experiences-title" class="section-title">Uniquely Yours</h2>
+                    <p class="section-description">Adventure, relaxation, cultural, romance, or all of the above - your honeymoon can be whatever speaks to you as a couple.</p>
+                </div>
+
+                <div class="experiences-grid">
+                    <div class="experience-card fade-in-element hover-lift">
+                        <div class="experience-image" style="
+                            background-image: url('images/hero/island-bungalos.webp');
+                            background-size: cover;
+                            background-position: center 30%;
+                        "></div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">Tropical Paradise</h3>
+                            <p class="experience-description">Pristine beaches, overwater villas, and endless azure waters create the ultimate romantic escape for newlyweds seeking pure relaxation.</p>
+                            <ul class="experience-features">
+                                <li>Overwater bungalow accommodations with ocean views</li>
+                                <li>Private beach dinners under starlit skies</li>
+                                <li>Couples spa treatments and wellness journeys</li>
+                                <li>Sunset sailing adventures and snorkeling excursions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-card fade-in-element hover-lift">
+                        <div class="experience-image" style="
+                            background-image: url('images/hero/mountain-pool.webp');
+                            background-size: cover;
+                            background-position: center 30%;
+                        "></div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">Mountain Romance</h3>
+                            <p class="experience-description">Exceptional chateaus, lush landscapes, and private pools create moments in stunning tropical settings perfect for intimate connections.</p>
+                            <ul class="experience-features">
+                                <li>Luxury tropical mountain chateaus with panoramic views</li>
+                                <li>Private pool getaways and spa treatments</li>
+                                <li>Helicopter scenic tours and adventure activities</li>
+                                <li>Artisanal tastings and gourmet dining experiences</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-card fade-in-element hover-lift">
+                        <div class="experience-image" style="
+                            background-image: url('images/hero/carrying-wife.webp');
+                            background-size: cover;
+                            background-position: center 40%;
+                        "></div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">Adventure & Luxury</h3>
+                            <p class="experience-description">Combine thrilling adventures with luxurious comfort for couples who seek excitement and new experiences together.</p>
+                            <ul class="experience-features">
+                                <li>Private guided tours of historic sites and landmarks</li>
+                                <li>Luxury accommodations in unique venues</li>
+                                <li>Adventure activity coordination and expert guides</li>
+                                <li>Cultivated excursions tailored to your interests</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process" aria-labelledby="process-title">
+            <div class="process-container">
+                <div class="process-header">
+                    <h2 id="process-title" class="process-title">Our Three-Phase Approach</h2>
+                    <p class="process-subtitle">This isn't just a vacation - it's the intentional beginning of your married life together. When every detail is thoughtfully curated you can be fully present with each other and focus on what matters most: your connection.</p>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Personal Consultation</h3>
+                        <p class="step-description">We begin with an intimate conversation about your aspirations, preferences, and what makes your relationship unique in order to design the perfect honeymoon experience just for you.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Destination Curation</h3>
+                        <p class="step-description">Based on your vision, we present carefully selected destinations and adventures that align perfectly with your style, interests, and budget.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Seamless Execution</h3>
+                        <p class="step-description">Travel worry-free knowing every aspect is coordinated behind the scenes, allowing you to focus on each other and creating beautiful memories together.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-overview" aria-labelledby="services-title">
+            <div class="services-container">
+                <div class="services-grid">
+                    <!-- Curated Honeymoon Package -->
+                    <div class="service-section tertiary-service fade-in-element">
+                        <div class="service-header">
+                            <h3 class="service-title">Curated Honeymoon Planning</h3>
+                            <p class="service-description">Personalized honeymoon planning that creates romantic escapes perfectly tailored to your relationship and travel style.</p>
+                        </div>
+
+                        <div class="service-content-grid">
+                            <div class="service-features">
+                                <h4>What's Included:</h4>
+                                <div class="service-list">
+                                    <ul>
+                                        <li>Destination curation based on your preferences</li>
+                                        <li>Luxury accommodation sourcing & booking</li>
+                                        <li>Personalized itinerary design & activity coordination</li>
+                                        <li>Travel logistics & transportation arrangements</li>
+                                        <li>Special experience booking & romantic touches</li>
+                                        <li>Travel support during your honeymoon</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="service-pricing">
+                                <div class="price-info">
+                                    <div class="price-main">
+                                        <span class="price-label">Planning Investment</span>
+                                        <span class="price-amount">$250</span>
+                                    </div>
+                                    <div class="price-note">
+                                        <p>Simple flat fee covers planning from booking through post-travel follow-up. No hidden costs or booking fees - just expert planning for your perfect honeymoon.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-cta">
+                            <!-- <a href="inquire.html?service=curated-honeymoon" class="service-btn primary">Start Honeymoon Planning</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" aria-labelledby="cta-title">
+            <div class="cta-container">
+                <h2 id="cta-title" class="cta-title">Your Honeymoon Awaits</h2>
+                <p class="cta-description">Because the way you begin your marriage matters - so let's make it extraordinary.</p>
+
+                <div class="cta-buttons">
+                    <a href="inquire.html?service=curated-honeymoon" class="cta-button primary btn-shine">Complete Our Inquiry Form</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-mark-foot logo-bg-foot"></div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
+                    <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
+                    <!-- <li><a href="packages.html">Packages</a></li> -->
+                    <li><a href="inquire.html">Inquire</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="inquire.html">Inquire</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 Aisle to Islands. All rights reserved. | <a href="https://lueken-good.design" target="_blank" rel="noopener" title="A sustainable system designed for longevity and evolution." style="color: inherit; text-decoration: none;">Digital Foundation by Lueken Good Design</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core JavaScript Module -->
+    <script src="js/core-essential.js"></script>
+
+    <!-- Page-specific initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🌙 Curated Honeymoon page initialization starting...');
+
+            // Initialize core with honeymoon specific config
+            if (window.AisleToIslands && !window.AisleToIslands.isInitialized) {
+                window.AisleToIslands.init({
+                    // Honeymoon page specific settings
+                    animationDelay: 300,
+                    staggerDelay: 150,
+                    intersectionThreshold: 0.2
+                });
+            }
+
+            // Initialize Google Analytics
+            window.AisleToIslands.initGoogleAnalytics();
+
+            console.log('🌙 Curated Honeymoon page fully initialized');
+        });
+
+        // Page fully loaded
+        window.addEventListener('load', () => {
+            console.log('✅ Curated Honeymoon page assets loaded');
+        });
+
+        // Debug function specific to this page
+        window.testHoneymoonAnimations = function() {
+            console.log('🧪 HONEYMOON ANIMATION TEST');
+            const elements = document.querySelectorAll('.fade-in-element');
+            elements.forEach((element, index) => {
+                console.log(`Testing honeymoon element ${index + 1}:`, element);
+                element.classList.toggle('is-visible');
+            });
+        };
+    </script>
+</body>
+</html>
