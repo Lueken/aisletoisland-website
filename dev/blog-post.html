@@ -393,28 +393,46 @@
             return body.map(block => {
                 // Handle text blocks
                 if (block._type === 'block') {
+                    // Build a lookup map for mark definitions (links, etc.)
+                    const markDefs = {};
+                    if (block.markDefs) {
+                        block.markDefs.forEach(def => {
+                            markDefs[def._key] = def;
+                        });
+                    }
+
                     const text = block.children?.map(child => {
                         let text = child.text || '';
 
                         // Apply text formatting marks
-                        if (child.marks) {
+                        if (child.marks && child.marks.length > 0) {
                             child.marks.forEach(mark => {
-                                switch (mark) {
-                                    case 'strong':
-                                        text = `<strong>${text}</strong>`;
-                                        break;
-                                    case 'em':
-                                        text = `<em>${text}</em>`;
-                                        break;
-                                    case 'underline':
-                                        text = `<u>${text}</u>`;
-                                        break;
-                                    case 'strike-through':
-                                        text = `<del>${text}</del>`;
-                                        break;
-                                    case 'code':
-                                        text = `<code>${text}</code>`;
-                                        break;
+                                // Check if this mark is a reference to a markDef (like a link)
+                                if (markDefs[mark]) {
+                                    const def = markDefs[mark];
+                                    if (def._type === 'link' && def.href) {
+                                        // Wrap text in anchor tag
+                                        text = `<a href="${def.href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+                                    }
+                                } else {
+                                    // Standard formatting marks
+                                    switch (mark) {
+                                        case 'strong':
+                                            text = `<strong>${text}</strong>`;
+                                            break;
+                                        case 'em':
+                                            text = `<em>${text}</em>`;
+                                            break;
+                                        case 'underline':
+                                            text = `<u>${text}</u>`;
+                                            break;
+                                        case 'strike-through':
+                                            text = `<del>${text}</del>`;
+                                            break;
+                                        case 'code':
+                                            text = `<code>${text}</code>`;
+                                            break;
+                                    }
                                 }
                             });
                         }
@@ -620,6 +638,11 @@
                     body[]{
                         _type,
                         style,
+                        markDefs[]{
+                            _key,
+                            _type,
+                            href
+                        },
                         children[]{
                             _type,
                             text,
