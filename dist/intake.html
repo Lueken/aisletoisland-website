@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Call Questionnaire | Aisle to Islands</title>
+    <meta name="description" content="Complete this questionnaire before your discovery call with Aisle to Islands. Help us understand your story and vision for your destination celebration.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/intake.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation" class="header-sticky">
+        <div class="nav-content">
+            <div class="logo-container">
+                <div class="logo-mark logo-bg" role="img" aria-label="Aisle to Islands logo"></div>
+                <div>
+                    <div class="logo-text">Aisle to Islands</div>
+                </div>
+            </div>
+
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="destination-wedding.html" role="menuitem">Destination Wedding</a></li>
+                <li role="none"><a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
+                <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
+                <li role="none"><a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
+            </ul>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="mobile-nav" role="menu">
+            <a href="index.html" role="menuitem">Home</a>
+            <a href="destination-wedding.html" role="menuitem">Destination Wedding</a>
+            <a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
+            <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
+            <a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a>
+            <a href="blog.html" role="menuitem">Blog</a>
+            <a href="inquire.html" role="menuitem">Inquire</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> / <span>Pre-Call Questionnaire</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Questionnaire Section -->
+        <section class="questionnaire-section">
+            <div class="questionnaire-container">
+                <!-- Header -->
+                <div class="questionnaire-header hero-animate">
+                    <h1 id="hero-title" class="questionnaire-title">Pre-Call Questionnaire</h1>
+                    <p class="questionnaire-intro">We're genuinely excited you're considering partnering with us for your celebration. This questionnaire helps us prepare for our conversation and ensures we're the right fit for each other.</p>
+                    <p class="questionnaire-intro">Please complete this thoughtfully and fully - your responses help us understand your story, your values, and what matters most to you. <strong>We ask that you submit this at least 24 hours before our scheduled call in order to hold your consultation date and time.</strong></p>
+                </div>
+
+                <!-- Success Message -->
+                <div class="message success" id="successMessage" style="display: none;">
+                    <h3>Thank You!</h3>
+                    <p>We've received your questionnaire and look forward to our conversation about creating a celebration worthy of your journey.</p>
+                </div>
+
+                <!-- Error Message -->
+                <div class="message error" id="errorMessage" style="display: none;">
+                    <h3>Something Went Wrong</h3>
+                    <p>Please try again or contact us directly at hello@aisle-to-islands.com</p>
+                </div>
+
+                <!-- Questionnaire Form -->
+                <div class="questionnaire-form">
+                    <form id="intakeForm" method="POST" action="https://formspree.io/f/meelqrop">
+                        <!-- Formspree Configuration -->
+                        <input type="hidden" name="_subject" value="Pre-Call Questionnaire - Aisle to Islands">
+                        <input type="hidden" name="_next" value="https://aisle-to-islands.com/intake.html#success">
+
+                        <!-- Honeypot field -->
+                        <div style="position: absolute; left: -5000px; opacity: 0; pointer-events: none;" aria-hidden="true">
+                            <label for="website">Please leave this field empty:</label>
+                            <input type="checkbox" name="website" id="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <!-- ==================== ABOUT YOU ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">About You</h2>
+
+                            <div class="form-group">
+                                <label class="form-label">Your Names<span class="required">*</span></label>
+                                <input type="text" name="names" class="form-input" placeholder="e.g., Sarah & Michael" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Expected Wedding Date<span class="required">*</span></label>
+                                <input type="date" name="wedding_date" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">How did you discover Aisle to Islands?<span class="required">*</span></label>
+                                <span class="form-label-hint">Please share who referred you, or how you found us (Instagram, Google search, vendor recommendation, etc.)</span>
+                                <input type="text" name="how_discovered" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <!-- ==================== YOUR STORY & VALUES ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">Your Story & Values</h2>
+
+                            <div class="form-group">
+                                <label class="form-label">Tell us about your story and the family foundation that brought you to this moment.<span class="required">*</span></label>
+                                <span class="form-label-hint">We believe every couple's journey includes the people who invested in, sacrificed for, and believed in them. Share what you're comfortable with - we'd love to understand the foundation your celebration will honor.</span>
+                                <textarea name="success_story" class="form-textarea form-textarea-large" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">What about our work or messaging resonated, and why does that appeal to you?<span class="required">*</span></label>
+                                <span class="form-label-hint">What specifically caught your attention about Aisle to Islands? What made you reach out?</span>
+                                <textarea name="what_resonated" class="form-textarea" required></textarea>
+                            </div>
+
+                            <!--<div class="form-group">
+                                <label class="form-label">Why is it important to you to invest in Aisle to Islands specifically?<span class="required">*</span></label>
+                                <span class="form-label-hint">What about our approach, values, or expertise speaks to you versus working with another planner?</span>
+                                <textarea name="why_invest" class="form-textarea" required></textarea>
+                            </div>-->
+                        </div>
+
+                        <!-- ==================== WHAT MATTERS MOST ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">What Matters Most</h2>
+
+                            <div class="form-group">
+                                <label class="form-label">What qualities do you value most in your wedding planner?<span class="required">*</span></label>
+                                <span class="form-label-hint">Think about what matters to you in this partnership - transparency, expertise, cultural understanding, attention to detail, etc. What do you need from us to feel confident and cared for?</span>
+                                <textarea name="planner_qualities" class="form-textarea" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">When making big decisions (like choosing where to live or accepting a job offer), what's your natural approach?<span class="required">*</span></label>
+                                <span class="form-label-hint">We want to understand how you typically make important choices so we can support you in the way that works best for you.</span>
+                                <textarea name="decision_approach" class="form-textarea" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">What are you most concerned about when planning a destination celebration?<span class="required">*</span></label>
+                                <span class="form-label-hint">Be honest - what keeps you up at night about this process? Understanding your concerns helps us address them thoughtfully.</span>
+                                <textarea name="planning_concerns" class="form-textarea" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">What's your biggest worry or fear about planning a destination wedding specifically?<span class="required">*</span></label>
+                                <span class="form-label-hint">Distance, vendor relationships, family dynamics, logistics - what worries you most about planning from afar?</span>
+                                <textarea name="biggest_worry" class="form-textarea" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- ==================== YOUR CELEBRATION VISION ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">Your Celebration Vision</h2>
+
+                            <div class="form-group">
+                                <label class="form-label">Close your eyes and imagine your perfect wedding day. What matters most to you about that day? How do you want to feel?<span class="required">*</span></label>
+                                <textarea name="perfect_day_vision" class="form-textarea form-textarea-large" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">What do you most want your guests to experience or feel at your wedding?<span class="required">*</span></label>
+                                <textarea name="guest_experience" class="form-textarea" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Desired wedding location or type of destination<span class="required">*</span></label>
+                                <span class="form-label-hint">Beach, mountains, specific country/region, still deciding, etc.</span>
+                                <input type="text" name="desired_location" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Estimated guest count<span class="required">*</span></label>
+                                <span class="form-label-hint">For Comprehensive Package: Minimum 32 guests to ensure celebrations that feel substantial and worthy of a destination experience. No minimum for Exploratory Package.</span>
+                                <input type="number" name="guest_count" class="form-input" min="1" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Total celebration investment (excluding planner fee)<span class="required">*</span></label>
+                                <span class="form-label-hint">This is your estimated budget for the entire wedding - venue, catering, florals, photography, accommodations, etc. Our couples typically invest $800+ per guest for the celebration itself. The estimated range for 32-40 guests: $25,600-$32,000+</span>
+                                <input type="text" name="celebration_budget" class="form-input" placeholder="e.g., $30,000" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Are you planning to cover guest accommodations?<span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" name="guest_accommodations" id="acc_all" value="Yes, we'll cover all guest rooms" required>
+                                        <label for="acc_all">Yes, we'll cover all guest rooms</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="guest_accommodations" id="acc_family" value="Yes, we'll cover immediate family/wedding party">
+                                        <label for="acc_family">Yes, we'll cover immediate family/wedding party</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="guest_accommodations" id="acc_blocks" value="We'll provide room blocks but guests will pay">
+                                        <label for="acc_blocks">We'll provide room blocks but guests will pay</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="guest_accommodations" id="acc_deciding" value="Still deciding">
+                                        <label for="acc_deciding">Still deciding</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="guest_accommodations" id="acc_no" value="No, guests will arrange their own">
+                                        <label for="acc_no">No, guests will arrange their own</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==================== INVESTMENT & DECISION MAKING ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">Investment & Decision Making</h2>
+
+                            <div class="package-info">
+                                <h4>We offer two planning packages:</h4>
+                                <div class="package-item">
+                                    <div class="package-name">Exploratory Package - Starting at $1,500</div>
+                                    <div class="package-desc">Ideal for couples planning at all-inclusive resorts or venues with strong on-site coordination teams. Includes planning support, vendor curation, timeline creation, and guest experience design. We work closely with the resort team to ensure seamless execution, but we are not on-site for your wedding day.</div>
+                                </div>
+                                <div class="package-item">
+                                    <div class="package-name">Comprehensive Package - Starting at $5,000 + 10% of total celebration budget</div>
+                                    <div class="package-desc">Our signature high-touch service from vision to execution. Includes everything in Exploratory plus refined curation, full vendor management, detailed coordination, and on-site management of your entire wedding weekend.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Which package are you most interested in exploring?<span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" name="package_interest" id="pkg_comprehensive" value="Comprehensive Package (with on-site coordination)" required>
+                                        <label for="pkg_comprehensive">Comprehensive Package (with on-site coordination)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="package_interest" id="pkg_exploratory" value="Exploratory Package (planning only, no on-site coordination)">
+                                        <label for="pkg_exploratory">Exploratory Package (planning only, no on-site coordination)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="package_interest" id="pkg_unsure" value="Not sure yet, want to discuss both options">
+                                        <label for="pkg_unsure">Not sure yet, want to discuss both options</label>
+                                    </div>
+                                    <!--<div class="radio-item">
+                                        <input type="radio" name="package_interest" id="pkg_budget" value="This investment level is outside our budget range">
+                                        <label for="pkg_budget">This investment level is outside our budget range</label>
+                                    </div>-->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Who will be making the final decision to hire us?<span class="required">*</span></label>
+                                <span class="form-label-hint">If parents or others are involved in the hiring decision or covering costs, we kindly ask that they join our call. This ensures everyone is aligned and starts our partnership on solid ground.</span>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" name="decision_maker" id="dm_couple" value="Just us as a couple" required>
+                                        <label for="dm_couple">Just us as a couple</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="decision_maker" id="dm_parents_input" value="Us with input from my/our parents">
+                                        <label for="dm_parents_input">Us with input from my/our parents</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="decision_maker" id="dm_parents" value="Parents are making the final decision">
+                                        <label for="dm_parents">Parents are making the final decision</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="decision_maker" id="dm_other" value="Other">
+                                        <label for="dm_other">Other</label>
+                                    </div>
+                                </div>
+
+                                <!-- Conditional field for "Other" -->
+                                <div class="form-group" id="decision_maker_other_group" style="display: none; margin-top: 15px;">
+                                    <label class="form-label">Please explain:<span class="required">*</span></label>
+                                    <input type="text" name="decision_maker_other" id="decision_maker_other" class="form-input" placeholder="Who will be involved in the decision?">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==================== PLANNING & SERVICE PRIORITIES ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">Planning & Service Priorities</h2>
+                            <p class="section-subtitle">On a scale of 1-5 (with 5 being most important), rate the importance of:</p>
+
+                            <div class="rating-group">
+                                <span class="rating-label">Design & Aesthetics<span class="required">*</span></span>
+                                <span class="rating-hint">How vital is the visual beauty, details, and overall look/feel of your celebration?</span>
+                                <div class="rating-scale">
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_design" id="design_1" value="1" required>
+                                        <label for="design_1">1</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_design" id="design_2" value="2">
+                                        <label for="design_2">2</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_design" id="design_3" value="3">
+                                        <label for="design_3">3</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_design" id="design_4" value="4">
+                                        <label for="design_4">4</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_design" id="design_5" value="5">
+                                        <label for="design_5">5</label>
+                                    </div>
+                                </div>
+                                <div class="rating-labels">
+                                    <span>Not Important</span>
+                                    <span>Most Important</span>
+                                </div>
+                            </div>
+
+                            <div class="rating-group">
+                                <span class="rating-label">Planning & Guidance<span class="required">*</span></span>
+                                <span class="rating-hint">How vital is having someone guide you through the process, handle vendor communication, and manage all the behind-the-scenes coordination?</span>
+                                <div class="rating-scale">
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_planning" id="planning_1" value="1" required>
+                                        <label for="planning_1">1</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_planning" id="planning_2" value="2">
+                                        <label for="planning_2">2</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_planning" id="planning_3" value="3">
+                                        <label for="planning_3">3</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_planning" id="planning_4" value="4">
+                                        <label for="planning_4">4</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_planning" id="planning_5" value="5">
+                                        <label for="planning_5">5</label>
+                                    </div>
+                                </div>
+                                <div class="rating-labels">
+                                    <span>Not Important</span>
+                                    <span>Most Important</span>
+                                </div>
+                            </div>
+
+                            <div class="rating-group">
+                                <span class="rating-label">Day-Of Management<span class="required">*</span></span>
+                                <span class="rating-hint">How vital is having someone orchestrate your wedding weekend so you can be fully present with your guests and family?</span>
+                                <div class="rating-scale">
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_dayof" id="dayof_1" value="1" required>
+                                        <label for="dayof_1">1</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_dayof" id="dayof_2" value="2">
+                                        <label for="dayof_2">2</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_dayof" id="dayof_3" value="3">
+                                        <label for="dayof_3">3</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_dayof" id="dayof_4" value="4">
+                                        <label for="dayof_4">4</label>
+                                    </div>
+                                    <div class="rating-option">
+                                        <input type="radio" name="rating_dayof" id="dayof_5" value="5">
+                                        <label for="dayof_5">5</label>
+                                    </div>
+                                </div>
+                                <div class="rating-labels">
+                                    <span>Not Important</span>
+                                    <span>Most Important</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==================== YOUR PLANNING APPROACH ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">Your Planning Approach</h2>
+
+                            <div class="form-group">
+                                <label class="form-label">What excites you most about wedding planning?<span class="required">*</span></label>
+                                <textarea name="planning_excitement" class="form-textarea" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">What concerns you most about the planning process?<span class="required">*</span></label>
+                                <textarea name="planning_process_concerns" class="form-textarea" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">How do you prefer to communicate during the planning process (phone, email, text, video calls), and how often?<span class="required">*</span></label>
+                                <textarea name="communication_preference" class="form-textarea" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">How involved do you want to be in the planning process?<span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" name="involvement_level" id="inv_handson" value="Very hands-on - we want to collaborate on most decisions" required>
+                                        <label for="inv_handson">Very hands-on - we want to collaborate on most decisions</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="involvement_level" id="inv_moderate" value="Moderately involved - guide us but we trust your expertise">
+                                        <label for="inv_moderate">Moderately involved - guide us but we trust your expertise</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="involvement_level" id="inv_minimal" value="Minimally involved - we're busy and want you to handle most of it">
+                                        <label for="inv_minimal">Minimally involved - we're busy and want you to handle most of it</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="involvement_level" id="inv_showup" value="We just want to show up - handle everything and present us with refined options">
+                                        <label for="inv_showup">We just want to show up - you handle everything and present us with refined options</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">What's your timeline for making a decision about hiring a planner?<span class="required">*</span></label>
+                                <span class="form-label-hint">Understanding your timeline helps us ensure we can dedicate the attention your celebration deserves.</span>
+                                <input type="text" name="decision_timeline" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">How many other planners are you considering?<span class="required">*</span></label>
+                                <span class="form-label-hint">This helps us understand where you are in your decision process and how we can best serve you, even if that means recommending someone else who might be a better fit.</span>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" name="other_planners" id="planners_just" value="Just Aisle to Islands" required>
+                                        <label for="planners_just">Just Aisle to Islands</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="other_planners" id="planners_one" value="One other planner">
+                                        <label for="planners_one">One other planner</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="other_planners" id="planners_two" value="Two other planners">
+                                        <label for="planners_two">Two other planners</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="other_planners" id="planners_three" value="Three or more planners">
+                                        <label for="planners_three">Three or more planners</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="other_planners" id="planners_research" value="Still researching and not sure yet">
+                                        <label for="planners_research">Still researching and not sure yet</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==================== HONEYMOON PLANNING ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">Honeymoon Planning</h2>
+
+                            <div class="form-group">
+                                <label class="form-label">Are you interested in honeymoon planning services?<span class="required">*</span></label>
+                                <span class="form-label-hint">We create curated honeymoon experiences that honor this milestone and give you the sophisticated beginning your marriage deserves.</span>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" name="honeymoon_interest" id="hm_yes" value="Yes, definitely interested" required>
+                                        <label for="hm_yes">Yes, definitely interested</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="honeymoon_interest" id="hm_maybe" value="Maybe, want to learn more">
+                                        <label for="hm_maybe">Maybe, want to learn more</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="honeymoon_interest" id="hm_no" value="No, we have that handled">
+                                        <label for="hm_no">No, we have that handled</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="honeymoon_interest" id="hm_later" value="Haven't thought about it yet">
+                                        <label for="hm_later">Haven't thought about it yet</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==================== FINAL THOUGHTS ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">Final Thoughts</h2>
+
+                            <div class="form-group">
+                                <label class="form-label">Is there anything else you'd like us to know before our call?</label>
+                                <span class="form-label-hint">Any additional context about your story, your vision, your family dynamics, your concerns, or what you're hoping for in this partnership.</span>
+                                <textarea name="additional_info" class="form-textarea form-textarea-large"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">What questions do you have for us?</label>
+                                <span class="form-label-hint">We'll address these on our call, but knowing what's on your mind helps us prepare.</span>
+                                <textarea name="questions_for_us" class="form-textarea"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- ==================== CONFIRMATION ==================== -->
+                        <div class="form-section">
+                            <h2 class="section-title">Confirmation</h2>
+
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="confirmation" id="confirmation" value="Yes, I've completed this thoughtfully and understand the 24-hour requirement" required>
+                                    <label for="confirmation">I understand that completing this questionnaire thoughtfully and submitting it at least 24 hours before our call is required to hold our consultation date and time.<span class="required">*</span></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn btn-shine" id="submitBtn">
+                            Submit Questionnaire
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Thank You Message (shown after submission) -->
+                <div class="thank-you-section" id="thankYouSection" style="display: none;">
+                    <h2>Thank You</h2>
+                    <p>We're honored you've shared your story with us. We look forward to our conversation about creating a celebration worthy of your journey.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-mark-foot logo-bg-foot"></div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
+                    <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
+                    <li><a href="inquire.html">Inquire</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="inquire.html">Inquire</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 Aisle to Islands. All rights reserved. | <a href="https://lueken-good.design" target="_blank" rel="noopener" title="A sustainable system designed for longevity and evolution." style="color: inherit; text-decoration: none;">Digital Foundation by Lueken Good Design</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core JavaScript Module -->
+    <script src="js/core-essential.js"></script>
+
+    <!-- Page-specific initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize core
+            if (window.AisleToIslands && !window.AisleToIslands.isInitialized) {
+                window.AisleToIslands.init({
+                    animationDelay: 200,
+                    staggerDelay: 100
+                });
+            }
+
+            // Check for success hash
+            if (window.location.hash === '#success') {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('intakeForm').style.display = 'none';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Form submission handling
+            const form = document.getElementById('intakeForm');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', function(e) {
+                // Check for honeypot
+                const honeypot = document.getElementById('website');
+                if (honeypot && honeypot.checked) {
+                    e.preventDefault();
+                    return false;
+                }
+
+                // Add loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+            });
+
+            // Conditional field for "Other" decision maker
+            const decisionMakerRadios = document.querySelectorAll('input[name="decision_maker"]');
+            const otherGroup = document.getElementById('decision_maker_other_group');
+            const otherInput = document.getElementById('decision_maker_other');
+
+            decisionMakerRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.id === 'dm_other' && this.checked) {
+                        otherGroup.style.display = 'block';
+                        otherInput.required = true;
+                    } else {
+                        otherGroup.style.display = 'none';
+                        otherInput.required = false;
+                        otherInput.value = '';
+                    }
+                });
+            });
+
+            // Make entire radio-item containers clickable
+            document.querySelectorAll('.radio-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // Don't double-trigger if clicking directly on input or label
+                    if (e.target.tagName === 'INPUT') return;
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) {
+                        radio.checked = true;
+                        radio.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                });
+            });
+
+            // Make entire checkbox-item containers clickable
+            document.querySelectorAll('.checkbox-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'INPUT') return;
+                    const checkbox = this.querySelector('input[type="checkbox"]');
+                    if (checkbox) {
+                        checkbox.checked = !checkbox.checked;
+                        checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
