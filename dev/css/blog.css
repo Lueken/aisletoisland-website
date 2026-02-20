@@ -358,18 +358,15 @@
     color: inherit;
 }
 
-/* Override any existing link styles within cards */
-.clickable-card * {
+/* Override link styles within cards — target specific elements instead of wildcard */
+.clickable-card .post-title,
+.clickable-card .post-excerpt,
+.clickable-card .post-meta,
+.clickable-card .post-date,
+.clickable-card .read-more,
+.clickable-card .post-content {
     color: inherit;
     text-decoration: none;
-}
-
-/* Ensure category pill and featured badge keep white text inside clickable cards */
-.post-category,
-.clickable-card .post-category,
-.featured-badge,
-.clickable-card .featured-badge {
-    color: white !important;
 }
 
 /* ==========================================
