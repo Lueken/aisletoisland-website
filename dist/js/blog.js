@@ -60,6 +60,7 @@ class BlogManager {
             postsContainer: document.getElementById('postsContainer'),
             pagination: document.getElementById('pagination'),
             searchInput: document.getElementById('searchInput'),
+            categoryFilter: document.getElementById('categoryFilter'),
             filterBtns: document.querySelectorAll('.filter-btn')
         };
 
@@ -181,6 +182,11 @@ class BlogManager {
             this.state.filteredPosts = posts;
             this.state.currentPage = 1;
 
+            // Build dynamic category pills on initial load (all posts, no search)
+            if (category === 'all' && !searchTerm && !this.state.categoriesBuilt) {
+                this.buildCategoryPills(posts);
+            }
+
             this.displayPosts();
 
         } catch (error) {
@@ -188,6 +194,45 @@ class BlogManager {
             this.showErrorState();
         } finally {
             this.setLoadingState(false);
+        }
+    }
+
+    buildCategoryPills(posts) {
+        if (!this.elements.categoryFilter) return;
+
+        // Extract unique categories from posts
+        const categoryMap = new Map();
+        posts.forEach(post => {
+            const slug = post.category?.slug?.current;
+            const title = post.category?.title;
+            if (slug && title) {
+                categoryMap.set(slug, title);
+            }
+        });
+
+        // Sort categories alphabetically by title
+        const sortedCategories = [...categoryMap.entries()].sort((a, b) => a[1].localeCompare(b[1]));
+
+        // Build pill HTML — "All Posts" is already in the HTML
+        let html = '<button class="filter-btn active" data-category="all">All Posts</button>';
+        sortedCategories.forEach(([slug, title]) => {
+            html += `<button class="filter-btn" data-category="${slug}">${title}</button>`;
+        });
+
+        this.elements.categoryFilter.innerHTML = html;
+
+        // Re-cache and rebind filter buttons
+        this.elements.filterBtns = document.querySelectorAll('.filter-btn');
+        this.elements.filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.handleCategoryFilter(btn.dataset.category);
+            });
+        });
+
+        this.state.categoriesBuilt = true;
+
+        if (this.config.debug) {
+            console.log('🏷️ Dynamic category pills built:', sortedCategories.map(c => c[1]));
         }
     }
 
@@ -727,8 +772,9 @@ class BlogManager {
 
     refresh() {
         this.state.sanityConnected = false;
+        this.state.categoriesBuilt = false;
         this.testSanityConnection().then(() => {
-            this.loadPosts(this.state.currentCategory, this.state.currentSearch);
+            this.loadPosts('all', this.state.currentSearch);
         });
     }
 
