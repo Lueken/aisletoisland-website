@@ -50,7 +50,7 @@
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="ywcRht9p5oOpmSuHT2WXlQ" async></script>
     <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/blog-post.css">
-    <link rel="canonical" href="https://aisle-to-islands.com/blog-post.html">
+    <link rel="canonical" id="canonical-url" href="https://aisle-to-islands.com/blog-post.html">
 
 
     </head>
@@ -314,9 +314,15 @@
         // UTILITY FUNCTIONS
         // ==========================================
 
-        function getUrlParameter(name) {
+        function getSlugFromUrl() {
+            // First try clean URL path: /blog/my-post-slug
+            const pathMatch = window.location.pathname.match(/^\/blog\/([^\/]+)\/?$/);
+            if (pathMatch) {
+                return pathMatch[1];
+            }
+            // Fallback to query parameter: ?slug=my-post-slug
             const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
+            return urlParams.get('slug');
         }
 
         function formatDate(dateString) {
@@ -334,7 +340,9 @@
             const title = `${seoTitle} | Aisle to Islands`;
             const description = post.seo?.metaDescription || post.excerpt;
             const socialImage = post.seo?.ogImage?.asset?.url || post.mainImage?.asset?.url || '/tailored_experience_logo.png';
-            const currentUrl = window.location.href;
+            const slug = post.slug?.current || '';
+            const canonicalUrl = slug ? `https://aisle-to-islands.com/blog/${slug}` : window.location.href;
+            const currentUrl = canonicalUrl;
 
             // Update title and description
             document.getElementById('page-title').textContent = title;
@@ -350,6 +358,9 @@
             document.getElementById('twitter-title').setAttribute('content', title);
             document.getElementById('twitter-description').setAttribute('content', description);
             document.getElementById('twitter-image').setAttribute('content', socialImage);
+
+            // Update canonical URL to the clean blog URL
+            document.getElementById('canonical-url').setAttribute('href', canonicalUrl);
 
             // Add keywords meta tag if available
             if (post.seo?.keywords && post.seo.keywords.length > 0) {
@@ -374,7 +385,7 @@
             }
 
             return posts.map(post => `
-                <a href="blog-post.html?slug=${post.slug}" class="related-post-card fade-in-element">
+                <a href="/blog/${post.slug}" class="related-post-card fade-in-element">
                     <div class="related-post-image" style="background-image: url('${post.image}')"></div>
                     <div class="related-post-content">
                         <h3 class="related-post-title">${post.title}</h3>
@@ -799,8 +810,15 @@
 
             initMobileMenu();
 
-            // Get post slug from URL
-            const slug = getUrlParameter('slug');
+            // Get post slug from URL (supports /blog/slug and ?slug=slug)
+            const slug = getSlugFromUrl();
+
+            // Redirect old ?slug= URLs to clean /blog/slug format
+            const querySlug = new URLSearchParams(window.location.search).get('slug');
+            if (querySlug && !window.location.pathname.match(/^\/blog\/[^\/]+/)) {
+                window.location.replace('/blog/' + querySlug);
+                return;
+            }
 
             if (slug) {
                 loadBlogPost(slug);
