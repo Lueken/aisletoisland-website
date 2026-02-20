@@ -65,18 +65,6 @@
             </div>
         </section>
 
-        <section class="search-section">
-            <div class="search-container">
-                <div class="search-box">
-                    <input type="text" class="search-input input-elegant" placeholder="Search articles..." id="searchInput" aria-label="Search blog posts">
-                    <span class="search-icon" aria-hidden="true">🔍</span>
-                </div>
-                <div class="category-filter" id="categoryFilter">
-                    <button class="filter-btn active" data-category="all">All Posts</button>
-                </div>
-            </div>
-        </section>
-
         <section class="blog-posts">
             <div class="blog-container">
                 <div id="postsContainer" class="posts-grid">
@@ -160,51 +148,11 @@
             console.log('✅ Blog page assets loaded');
         });
 
-        // Debug functions specific to blog page
         window.debugBlogPage = function() {
             if (window.BlogManager) {
                 console.log('📊 Blog Manager Status:', window.BlogManager.getState());
-                console.log('🔍 Available Debug Commands:');
-                console.log('  • window.BlogManager.search("term")');
-                console.log('  • window.BlogManager.filterByCategory("category")');
-                console.log('  • window.BlogManager.changePage(pageNumber)');
-                console.log('  • window.BlogManager.refresh()');
-            } else {
-                console.log('❌ Blog Manager not initialized');
             }
         };
-
-        window.testBlogSearch = function(term = 'wedding') {
-            if (window.BlogManager) {
-                console.log(`🔍 Testing search with term: "${term}"`);
-                window.BlogManager.search(term);
-            }
-        };
-
-        window.testBlogFilter = function(category = 'destination-weddings') {
-            if (window.BlogManager) {
-                console.log(`🏷️ Testing filter with category: "${category}"`);
-                window.BlogManager.filterByCategory(category);
-            }
-        };
-
-        window.testBlogAnimations = function() {
-            console.log('🧪 BLOG ANIMATION TEST');
-            const elements = document.querySelectorAll('.fade-in-element');
-            elements.forEach((element, index) => {
-                console.log(`Testing blog element ${index + 1}:`, element);
-                element.classList.toggle('is-visible');
-            });
-        };
-
-        // Add helpful console hints after page loads
-        setTimeout(() => {
-            console.log('💡 Blog Debug Commands Available:');
-            console.log('  • debugBlogPage() - Show blog manager status');
-            console.log('  • testBlogSearch("term") - Test search functionality');
-            console.log('  • testBlogFilter("category") - Test category filtering');
-            console.log('  • testBlogAnimations() - Test page animations');
-        }, 3000);
     </script>
 </body>
 </html>
