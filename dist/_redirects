@@ -5,6 +5,9 @@
 /inquire                   /inquire.html                    301
 /blog                      /blog.html                       301
 
+# Clean blog post URLs (rewrite so /blog/post-slug serves blog-post.html)
+/blog/:slug                /blog-post.html                  200
+
 # Legacy URL redirects (old website structure)
 /destination-wedding-planning.html  /destination-wedding.html  301
 /luxury-honeymoon-planning.html     /curated-honeymoon.html    301

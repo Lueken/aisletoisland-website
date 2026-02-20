@@ -454,7 +454,7 @@ class BlogManager {
         const imageUrl = post.mainImage?.asset?.url || '/images/blog/default-post-image.jpg';
         const categoryTitle = post.category?.title || 'General';
         const formattedDate = this.formatDate(post.publishedAt);
-        const postUrl = `blog-post.html?slug=${post.slug.current}`;
+        const postUrl = `/blog/${post.slug.current}`;
 
         if (featured) {
             // Build meta content for featured posts
