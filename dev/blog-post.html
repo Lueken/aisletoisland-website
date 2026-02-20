@@ -813,6 +813,13 @@
             // Get post slug from URL (supports /blog/slug and ?slug=slug)
             const slug = getSlugFromUrl();
 
+            // Redirect old ?slug= URLs to clean /blog/slug format
+            const querySlug = new URLSearchParams(window.location.search).get('slug');
+            if (querySlug && !window.location.pathname.match(/^\/blog\/[^\/]+/)) {
+                window.location.replace('/blog/' + querySlug);
+                return;
+            }
+
             if (slug) {
                 loadBlogPost(slug);
             } else {
