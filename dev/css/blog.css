@@ -364,6 +364,11 @@
     text-decoration: none;
 }
 
+/* Ensure category pill keeps white text inside clickable cards */
+.clickable-card .post-category {
+    color: white;
+}
+
 /* ==========================================
    PAGINATION
    ========================================== */
