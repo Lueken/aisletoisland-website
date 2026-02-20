@@ -200,23 +200,26 @@ class BlogManager {
     buildCategoryPills(posts) {
         if (!this.elements.categoryFilter) return;
 
-        // Extract unique categories from posts
-        const categoryMap = new Map();
+        // Extract unique categories from posts using title as the key
+        // (Sanity categories may not have slugs generated)
+        const categories = new Set();
         posts.forEach(post => {
-            const slug = post.category?.slug?.current;
             const title = post.category?.title;
-            if (slug && title) {
-                categoryMap.set(slug, title);
+            if (title) {
+                categories.add(title);
             }
         });
 
-        // Sort categories alphabetically by title
-        const sortedCategories = [...categoryMap.entries()].sort((a, b) => a[1].localeCompare(b[1]));
+        // Only render if we found categories
+        if (categories.size === 0) return;
 
-        // Build pill HTML — "All Posts" is already in the HTML
+        // Sort categories alphabetically
+        const sortedCategories = [...categories].sort((a, b) => a.localeCompare(b));
+
+        // Build pill HTML using title as data-category value
         let html = '<button class="filter-btn active" data-category="all">All Posts</button>';
-        sortedCategories.forEach(([slug, title]) => {
-            html += `<button class="filter-btn" data-category="${slug}">${title}</button>`;
+        sortedCategories.forEach(title => {
+            html += `<button class="filter-btn" data-category="${title}">${title}</button>`;
         });
 
         this.elements.categoryFilter.innerHTML = html;
@@ -232,7 +235,7 @@ class BlogManager {
         this.state.categoriesBuilt = true;
 
         if (this.config.debug) {
-            console.log('🏷️ Dynamic category pills built:', sortedCategories.map(c => c[1]));
+            console.log('🏷️ Dynamic category pills built:', sortedCategories);
         }
     }
 
@@ -285,7 +288,7 @@ class BlogManager {
         let query = `*[_type == "post" && publishedAt <= now()`;
 
         if (category !== 'all') {
-            query += ` && category->slug.current == "${category}"`;
+            query += ` && category->title == "${category}"`;
         }
 
         if (searchTerm) {
@@ -393,7 +396,7 @@ class BlogManager {
 
         if (category !== 'all') {
             filtered = filtered.filter(post =>
-                post.category?.slug?.current === category
+                post.category?.title === category
             );
         }
 
