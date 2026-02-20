@@ -364,9 +364,12 @@
     text-decoration: none;
 }
 
-/* Ensure category pill keeps white text inside clickable cards */
-.clickable-card .post-category {
-    color: white;
+/* Ensure category pill and featured badge keep white text inside clickable cards */
+.post-category,
+.clickable-card .post-category,
+.featured-badge,
+.clickable-card .featured-badge {
+    color: white !important;
 }
 
 /* ==========================================
