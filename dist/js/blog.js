@@ -15,7 +15,6 @@ class BlogManager {
                 useCdn: true
             },
             postsPerPage: 9,
-            searchDelay: 300,
             debug: true,
             showDates: false  // Set to false to hide dates, true to show them
         };
@@ -24,15 +23,12 @@ class BlogManager {
             currentPosts: [],
             filteredPosts: [],
             currentPage: 1,
-            currentCategory: 'all',
-            currentSearch: '',
             isLoading: false,
             sanityConnected: false,
             lastError: null
         };
 
         this.elements = {};
-        this.searchTimeout = null;
     }
 
     // ==========================================
@@ -58,10 +54,7 @@ class BlogManager {
     cacheElements() {
         this.elements = {
             postsContainer: document.getElementById('postsContainer'),
-            pagination: document.getElementById('pagination'),
-            searchInput: document.getElementById('searchInput'),
-            categoryFilter: document.getElementById('categoryFilter'),
-            filterBtns: document.querySelectorAll('.filter-btn')
+            pagination: document.getElementById('pagination')
         };
 
         // Validate required elements
@@ -74,17 +67,7 @@ class BlogManager {
     }
 
     bindEvents() {
-        // Search functionality
-        if (this.elements.searchInput) {
-            this.elements.searchInput.addEventListener('input', () => this.handleSearch());
-        }
-
-        // Category filters
-        this.elements.filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                this.handleCategoryFilter(btn.dataset.category);
-            });
-        });
+        // No search or filter events needed
     }
 
     // ==========================================
@@ -169,23 +152,16 @@ class BlogManager {
         await this.loadPosts();
     }
 
-    async loadPosts(category = 'all', searchTerm = '') {
+    async loadPosts() {
         if (this.state.isLoading) return;
 
         this.setLoadingState(true);
-        this.state.currentCategory = category;
-        this.state.currentSearch = searchTerm;
 
         try {
-            const posts = await this.fetchPosts(category, searchTerm);
+            const posts = await this.fetchPosts();
             this.state.currentPosts = posts;
             this.state.filteredPosts = posts;
             this.state.currentPage = 1;
-
-            // Build dynamic category pills on initial load (all posts, no search)
-            if (category === 'all' && !searchTerm && !this.state.categoriesBuilt) {
-                this.buildCategoryPills(posts);
-            }
 
             this.displayPosts();
 
@@ -197,66 +173,24 @@ class BlogManager {
         }
     }
 
-    buildCategoryPills(posts) {
-        if (!this.elements.categoryFilter) return;
-
-        // Extract unique categories from posts using title as the key
-        // (Sanity categories may not have slugs generated)
-        const categories = new Set();
-        posts.forEach(post => {
-            const title = post.category?.title;
-            if (title) {
-                categories.add(title);
-            }
-        });
-
-        // Only render if we found categories
-        if (categories.size === 0) return;
-
-        // Sort categories alphabetically
-        const sortedCategories = [...categories].sort((a, b) => a.localeCompare(b));
-
-        // Build pill HTML using title as data-category value
-        let html = '<button class="filter-btn active" data-category="all">All Posts</button>';
-        sortedCategories.forEach(title => {
-            html += `<button class="filter-btn" data-category="${title}">${title}</button>`;
-        });
-
-        this.elements.categoryFilter.innerHTML = html;
-
-        // Re-cache and rebind filter buttons
-        this.elements.filterBtns = document.querySelectorAll('.filter-btn');
-        this.elements.filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                this.handleCategoryFilter(btn.dataset.category);
-            });
-        });
-
-        this.state.categoriesBuilt = true;
-
-        if (this.config.debug) {
-            console.log('🏷️ Dynamic category pills built:', sortedCategories);
-        }
-    }
-
-    async fetchPosts(category = 'all', searchTerm = '') {
+    async fetchPosts() {
         // Try Sanity first, then fallback to mock data
         if (this.state.sanityConnected) {
             try {
-                return await this.fetchFromSanity(category, searchTerm);
+                return await this.fetchFromSanity();
             } catch (error) {
                 console.warn('⚠️ Sanity fetch failed, using mock data:', error.message);
-                this.state.sanityConnected = false; // Mark as disconnected for this session
-                return this.getMockPosts(category, searchTerm);
+                this.state.sanityConnected = false;
+                return this.getMockPosts();
             }
         } else {
             console.log('📝 Using mock data (Sanity not connected)');
-            return this.getMockPosts(category, searchTerm);
+            return this.getMockPosts();
         }
     }
 
-    async fetchFromSanity(category = 'all', searchTerm = '') {
-        const query = this.buildSanityQuery(category, searchTerm);
+    async fetchFromSanity() {
+        const query = this.buildSanityQuery();
         const url = `https://${this.config.sanityClient.projectId}.api.sanity.io/v${this.config.sanityClient.apiVersion}/data/query/${this.config.sanityClient.dataset}?query=${encodeURIComponent(query)}`;
 
         if (this.config.debug) {
@@ -284,16 +218,8 @@ class BlogManager {
         return data.result || [];
     }
 
-    buildSanityQuery(category = 'all', searchTerm = '') {
+    buildSanityQuery() {
         let query = `*[_type == "post" && publishedAt <= now()`;
-
-        if (category !== 'all') {
-            query += ` && category->title == "${category}"`;
-        }
-
-        if (searchTerm) {
-            query += ` && (title match "${searchTerm}*" || excerpt match "${searchTerm}*")`;
-        }
 
         query += `] | order(publishedAt desc) {
             _id,
@@ -321,7 +247,7 @@ class BlogManager {
         return query;
     }
 
-    getMockPosts(category = 'all', searchTerm = '') {
+    getMockPosts() {
         const mockPosts = [
             {
                 _id: '1',
@@ -391,24 +317,7 @@ class BlogManager {
             }
         ];
 
-        // Apply filtering
-        let filtered = mockPosts;
-
-        if (category !== 'all') {
-            filtered = filtered.filter(post =>
-                post.category?.title === category
-            );
-        }
-
-        if (searchTerm) {
-            const term = searchTerm.toLowerCase();
-            filtered = filtered.filter(post =>
-                post.title.toLowerCase().includes(term) ||
-                post.excerpt.toLowerCase().includes(term)
-            );
-        }
-
-        return filtered;
+        return mockPosts;
     }
 
     // ==========================================
@@ -664,26 +573,6 @@ class BlogManager {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    handleSearch() {
-        const searchTerm = this.elements.searchInput?.value || '';
-
-        clearTimeout(this.searchTimeout);
-        this.searchTimeout = setTimeout(() => {
-            this.loadPosts(this.state.currentCategory, searchTerm);
-        }, this.config.searchDelay);
-    }
-
-    handleCategoryFilter(category) {
-        // Update active filter button
-        this.elements.filterBtns.forEach(btn => btn.classList.remove('active'));
-        const activeBtn = document.querySelector(`[data-category="${category}"]`);
-        if (activeBtn) {
-            activeBtn.classList.add('active');
-        }
-
-        this.loadPosts(category, this.state.currentSearch);
-    }
-
     // ==========================================
     // UI STATES
     // ==========================================
@@ -703,7 +592,7 @@ class BlogManager {
             this.elements.postsContainer.innerHTML = `
                 <div class="empty-state">
                     <h3>No posts found</h3>
-                    <p>Try adjusting your search or filter criteria.</p>
+                    <p>Please check back soon for new content.</p>
                     ${!this.state.sanityConnected ? '<p><em>Using mock data - check Sanity connection.</em></p>' : ''}
                 </div>
             `;
@@ -775,21 +664,9 @@ class BlogManager {
 
     refresh() {
         this.state.sanityConnected = false;
-        this.state.categoriesBuilt = false;
         this.testSanityConnection().then(() => {
-            this.loadPosts('all', this.state.currentSearch);
+            this.loadPosts();
         });
-    }
-
-    search(term) {
-        if (this.elements.searchInput) {
-            this.elements.searchInput.value = term;
-        }
-        this.loadPosts(this.state.currentCategory, term);
-    }
-
-    filterByCategory(category) {
-        this.handleCategoryFilter(category);
     }
 
     getState() {
@@ -922,19 +799,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
 
-        // Testing functions
-        window.testBlogSearch = function(term) {
-            if (window.BlogManager) {
-                window.BlogManager.search(term);
-            }
-        };
-
-        window.testBlogFilter = function(category) {
-            if (window.BlogManager) {
-                window.BlogManager.filterByCategory(category);
-            }
-        };
-
         window.debugBlogPage = function() {
             if (window.BlogManager) {
                 console.log('Blog Manager State:', window.BlogManager.getState());
@@ -966,8 +830,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('  • debugBlogPage() - Check blog status');
     console.log('  • debugSanity() - Debug Sanity connection');
     console.log('  • showDates() / hideDates() / toggleDates() - Control date display');
-    console.log('  • testBlogSearch("term") - Test search');
-    console.log('  • testBlogFilter("category") - Test filters');
 });
 
 // Export for global access
