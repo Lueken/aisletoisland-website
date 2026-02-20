@@ -420,7 +420,7 @@ class BlogManager {
                 metaContent += `<span class="post-date">📅 ${formattedDate}</span>`;
             }
             if (categoryTitle) {
-                metaContent += `<span class="post-category">${categoryTitle}</span>`;
+                metaContent += `<span class="post-category" style="color: white">${categoryTitle}</span>`;
             }
 
             return `
@@ -441,7 +441,7 @@ class BlogManager {
         return `
             <article class="post-card blog-fade-element clickable-card" data-href="${postUrl}">
                 <div class="post-image" style="background-image: url('${imageUrl}')">
-                    <span class="post-category">${categoryTitle}</span>
+                    <span class="post-category" style="color: white">${categoryTitle}</span>
                 </div>
                 <div class="post-content">
                     ${this.config.showDates ? `<div class="post-meta"><span class="post-date">📅 ${formattedDate}</span></div>` : ''}
