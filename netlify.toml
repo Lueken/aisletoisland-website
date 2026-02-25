@@ -11,13 +11,19 @@
   node_bundler = "esbuild"
 
 # Headers for caching static assets
+# Use shorter cache with revalidation so updates deploy properly
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
 
 [[headers]]
   for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
