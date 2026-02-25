@@ -48,9 +48,9 @@
 
 
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="ywcRht9p5oOpmSuHT2WXlQ" async></script>
-    <link rel="stylesheet" href="css/core.css">
-    <link rel="stylesheet" href="css/blog-post.css">
-    <link rel="canonical" href="https://aisle-to-islands.com/blog-post.html">
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/blog-post.css">
+    <link rel="canonical" id="canonical-url" href="https://aisle-to-islands.com/blog-post.html">
 
 
     </head>
@@ -66,14 +66,14 @@
                 </div>
 
                 <ul class="nav-links" role="menubar">
-                    <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                    <li role="none"><a href="destination-wedding.html" role="menuitem">Destination Wedding</a></li>
-                    <li role="none"><a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
+                    <li role="none"><a href="/index.html" role="menuitem">Home</a></li>
+                    <li role="none"><a href="/destination-wedding.html" role="menuitem">Destination Wedding</a></li>
+                    <li role="none"><a href="/curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
                     <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
-                    <li role="none"><a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
+                    <li role="none"><a href="/meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
                     <!-- <li role="none"><a href="packages.html" role="menuitem">Packages</a></li> -->
-                    <li role="none"><a href="blog.html" role="menuitem" aria-current="page">Blog</a></li>
-                    <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
+                    <li role="none"><a href="/blog.html" role="menuitem" aria-current="page">Blog</a></li>
+                    <li role="none"><a href="/inquire.html" role="menuitem">Inquire</a></li>
                 </ul>
 
 
@@ -85,14 +85,14 @@
             </div>
 
             <div class="mobile-nav" role="menu">
-                <a href="index.html" role="menuitem">Home</a>
-                <a href="destination-wedding.html" role="menuitem">Destination Wedding</a>
-                <a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
+                <a href="/index.html" role="menuitem">Home</a>
+                <a href="/destination-wedding.html" role="menuitem">Destination Wedding</a>
+                <a href="/curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
                 <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
-                <a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a>
+                <a href="/meet-your-planner.html" role="menuitem">Meet Your Planner</a>
                 <!-- <a href="packages.html" role="menuitem">Packages</a> -->
-                <a href="blog.html" role="menuitem" aria-current="page">Blog</a>
-                <a href="inquire.html" role="menuitem">Inquire</a>
+                <a href="/blog.html" role="menuitem" aria-current="page">Blog</a>
+                <a href="/inquire.html" role="menuitem">Inquire</a>
             </div>
         </nav>
 
@@ -116,19 +116,19 @@
             <div class="footer-section">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
-                    <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
+                    <li><a href="/destination-wedding.html">Destination Wedding Planning</a></li>
+                    <li><a href="/curated-honeymoon.html">Curated Honeymoon Planning</a></li>
                     <!-- <li><a href="packages.html">Packages</a></li> -->
-                    <li><a href="inquire.html">Inquire</a></li>
+                    <li><a href="/inquire.html">Inquire</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="inquire.html">Inquire</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/inquire.html">Inquire</a></li>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
 <!--                    <li><a href="terms-of-service.html">Terms of Service</a></li>-->
                 </ul>
             </div>
@@ -314,9 +314,15 @@
         // UTILITY FUNCTIONS
         // ==========================================
 
-        function getUrlParameter(name) {
+        function getSlugFromUrl() {
+            // First try clean URL path: /blog/my-post-slug
+            const pathMatch = window.location.pathname.match(/^\/blog\/([^\/]+)\/?$/);
+            if (pathMatch) {
+                return pathMatch[1];
+            }
+            // Fallback to query parameter: ?slug=my-post-slug
             const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
+            return urlParams.get('slug');
         }
 
         function formatDate(dateString) {
@@ -334,7 +340,9 @@
             const title = `${seoTitle} | Aisle to Islands`;
             const description = post.seo?.metaDescription || post.excerpt;
             const socialImage = post.seo?.ogImage?.asset?.url || post.mainImage?.asset?.url || '/tailored_experience_logo.png';
-            const currentUrl = window.location.href;
+            const slug = post.slug?.current || '';
+            const canonicalUrl = slug ? `https://aisle-to-islands.com/blog/${slug}` : window.location.href;
+            const currentUrl = canonicalUrl;
 
             // Update title and description
             document.getElementById('page-title').textContent = title;
@@ -350,6 +358,9 @@
             document.getElementById('twitter-title').setAttribute('content', title);
             document.getElementById('twitter-description').setAttribute('content', description);
             document.getElementById('twitter-image').setAttribute('content', socialImage);
+
+            // Update canonical URL to the clean blog URL
+            document.getElementById('canonical-url').setAttribute('href', canonicalUrl);
 
             // Add keywords meta tag if available
             if (post.seo?.keywords && post.seo.keywords.length > 0) {
@@ -374,7 +385,7 @@
             }
 
             return posts.map(post => `
-                <a href="blog-post.html?slug=${post.slug}" class="related-post-card fade-in-element">
+                <a href="/blog/${post.slug}" class="related-post-card fade-in-element">
                     <div class="related-post-image" style="background-image: url('${post.image}')"></div>
                     <div class="related-post-content">
                         <h3 class="related-post-title">${post.title}</h3>
@@ -519,7 +530,7 @@
                 <article class="article-header">
                     <div class="article-header-container">
                         <nav class="breadcrumb">
-                            <a href="index.html">Home</a> / <a href="blog.html">Blog</a> / <span>${post.title}</span>
+                            <a href="/index.html">Home</a> / <a href="/blog.html">Blog</a> / <span>${post.title}</span>
                         </nav>
 
                         <div class="hero-animate">
@@ -692,7 +703,7 @@
                     <div class="error-state">
                         <h2>Post Not Found</h2>
                         <p>The blog post you're looking for doesn't exist or has been moved.</p>
-                        <a href="blog.html">← Back to Blog</a>
+                        <a href="/blog.html">← Back to Blog</a>
                     </div>
                 `;
             }
@@ -799,8 +810,15 @@
 
             initMobileMenu();
 
-            // Get post slug from URL
-            const slug = getUrlParameter('slug');
+            // Get post slug from URL (supports /blog/slug and ?slug=slug)
+            const slug = getSlugFromUrl();
+
+            // Redirect old ?slug= URLs to clean /blog/slug format
+            const querySlug = new URLSearchParams(window.location.search).get('slug');
+            if (querySlug && !window.location.pathname.match(/^\/blog\/[^\/]+/)) {
+                window.location.replace('/blog/' + querySlug);
+                return;
+            }
 
             if (slug) {
                 loadBlogPost(slug);

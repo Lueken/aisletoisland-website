@@ -1,0 +1,11 @@
+{
+  "name": "aisletoisland-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Aisle to Islands - Destination Wedding & Honeymoon Planning",
+  "scripts": {
+    "build:blog": "node build-blog.js",
+    "build": "node build-blog.js"
+  },
+  "dependencies": {}
+}

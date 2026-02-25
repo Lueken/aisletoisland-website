@@ -3,7 +3,11 @@
 /destination-wedding        /destination-wedding.html        301
 /curated-honeymoon         /curated-honeymoon.html          301
 /inquire                   /inquire.html                    301
-/blog                      /blog.html                       301
+
+# Blog listing - served by static dist/blog/index.html (built by SSG)
+# Individual posts served from dist/blog/{slug}/index.html (built by SSG)
+# Fallback: if a post wasn't generated, rewrite to client-side renderer
+/blog/:slug                /blog-post.html                  200
 
 # Legacy URL redirects (old website structure)
 /destination-wedding-planning.html  /destination-wedding.html  301
