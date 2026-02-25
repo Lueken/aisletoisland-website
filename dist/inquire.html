@@ -106,10 +106,7 @@
                         </div>
 
                         <!-- Contact Form -->
-                        <form id="contactForm" method="POST" action="https://formspree.io/f/xkgzlykr" novalidate>
-                            <!-- Formspree Configuration -->
-                            <input type="hidden" name="_subject" value="New Wedding & Travel Inquiry - Aisle to Islands">
-                            <input type="hidden" name="_next" value="https://aisle-to-islands.com/inquire.html#success">
+                        <form id="contactForm" method="POST" data-api-endpoint="/.netlify/functions/submit-inquiry" novalidate>
 
                             <!-- Honeypot field - invisible to users, visible to bots -->
                             <div style="position: absolute; left: -5000px; opacity: 0; pointer-events: none;" aria-hidden="true">
@@ -173,14 +170,14 @@
                                         <input type="radio" name="wedding_package" value="exploration-service" class="checkbox-input" id="exploration-service">
                                         <label for="exploration-service" class="checkbox-label">
                                             <strong>Exploration Service</strong><br>
-                                            Initial consultation and destination research ($1,500)
+                                            Initial consultation and destination research ($7,500)
                                         </label>
                                     </div>
                                     <div class="checkbox-item">
                                         <input type="radio" name="wedding_package" value="full-service" class="checkbox-input" id="full-service">
                                         <label for="full-service" class="checkbox-label">
-                                            <strong>Full Service Planning</strong><br>
-                                            Complete wedding coordination (Starting at $5,000 + 10%)
+                                            <strong>Comprehensive Service Planning</strong><br>
+                                            Complete wedding coordination (Starting at $10,000 + 10%)
                                         </label>
                                     </div>
                                 </div>

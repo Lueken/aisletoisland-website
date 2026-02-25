@@ -2,9 +2,13 @@
   base = "/"
   publish = "dist"
   command = "npm install && npm run build"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "22"
+
+[functions]
+  node_bundler = "esbuild"
 
 # Headers for caching static assets
 [[headers]]

@@ -263,29 +263,30 @@ class ContactFormHandler {
 
         try {
             const formData = new FormData(this.form);
+            const jsonData = Object.fromEntries(formData);
 
-            console.log('📤 Submitting form to Formspree:', Object.fromEntries(formData));
+            console.log('📤 Submitting inquiry form:', jsonData);
 
-            const response = await fetch(this.form.action, {
+            // Get API endpoint from form action or use default
+            const apiEndpoint = this.form.dataset.apiEndpoint || this.form.action;
+
+            const response = await fetch(apiEndpoint, {
                 method: 'POST',
-                body: formData,
+                body: JSON.stringify(jsonData),
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 }
             });
 
-            if (response.ok) {
+            const data = await response.json();
+
+            if (response.ok && data.success) {
                 this.showSuccess();
                 this.trackConversion();
             } else {
-                const data = await response.json();
-                console.error('Formspree error:', data);
-
-                if (data && data.errors) {
-                    throw new Error(`Validation error: ${data.errors.map(e => e.message).join(', ')}`);
-                } else {
-                    throw new Error(`Server error: ${response.status}`);
-                }
+                console.error('Form submission error:', data);
+                throw new Error(data.error || `Server error: ${response.status}`);
             }
 
         } catch (error) {

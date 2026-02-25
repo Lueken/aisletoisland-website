@@ -7,5 +7,7 @@
     "build:blog": "node build-blog.js",
     "build": "node build-blog.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "resend": "^2.1.0"
+  }
 }
