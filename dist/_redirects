@@ -4,7 +4,10 @@
 /curated-honeymoon         /curated-honeymoon.html          301
 /inquire                   /inquire.html                    301
 
-# Blog listing - served by static dist/blog/index.html (built by SSG)
+# Blog listing - canonical URL is /blog/ (served from dist/blog/index.html built by SSG)
+# Redirect old blog.html to canonical /blog/ (forced to override existing file)
+/blog.html                 /blog/                           301!
+
 # Individual posts served from dist/blog/{slug}/index.html (built by SSG)
 # Fallback: if a post wasn't generated, rewrite to client-side renderer
 /blog/:slug                /blog-post.html                  200

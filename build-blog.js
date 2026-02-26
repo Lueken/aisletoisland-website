@@ -253,7 +253,7 @@ const NAV_HTML = `
                 <li role="none"><a href="/curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
                 <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
                 <li role="none"><a href="/meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
-                <li role="none"><a href="/blog.html" role="menuitem" aria-current="page">Blog</a></li>
+                <li role="none"><a href="/blog/" role="menuitem" aria-current="page">Blog</a></li>
                 <li role="none"><a href="/inquire.html" role="menuitem">Inquire</a></li>
             </ul>
 
@@ -270,7 +270,7 @@ const NAV_HTML = `
             <a href="/curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
             <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
             <a href="/meet-your-planner.html" role="menuitem">Meet Your Planner</a>
-            <a href="/blog.html" role="menuitem" aria-current="page">Blog</a>
+            <a href="/blog/" role="menuitem" aria-current="page">Blog</a>
             <a href="/inquire.html" role="menuitem">Inquire</a>
         </div>
     </nav>`;
@@ -488,7 +488,7 @@ ${NAV_HTML}
         <article class="article-header">
             <div class="article-header-container">
                 <nav class="breadcrumb">
-                    <a href="/index.html">Home</a> / <a href="/blog.html">Blog</a> / <span>${escapeHtml(post.title)}</span>
+                    <a href="/index.html">Home</a> / <a href="/blog/">Blog</a> / <span>${escapeHtml(post.title)}</span>
                 </nav>
 
                 <div class="hero-animate">
@@ -606,7 +606,7 @@ function generateBlogListingHtml(posts) {
     '@type': 'Blog',
     name: 'Aisle to Islands Blog',
     description: 'Expert insights on destination wedding planning, luxury honeymoon destinations, and travel tips.',
-    url: `${SITE_URL}/blog`,
+    url: `${SITE_URL}/blog/`,
     publisher: {
       '@type': 'Organization',
       name: 'Aisle to Islands',
@@ -622,11 +622,25 @@ function generateBlogListingHtml(posts) {
     <title>Travel Insights & Wedding Planning Tips | Aisle to Islands</title>
     <meta name="description" content="Expert insights on destination wedding planning, luxury honeymoon destinations, and travel tips from Aisle to Islands.">
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="${SITE_URL}/blog/">
+    <meta property="og:title" content="Travel Insights &amp; Wedding Planning Tips | Aisle to Islands">
+    <meta property="og:description" content="Expert insights on destination wedding planning, luxury honeymoon destinations, and travel tips from Aisle to Islands.">
+    <meta property="og:image" content="${SITE_URL}/images/logos/tailored_experience_logo.jpg">
+    <meta property="og:site_name" content="Aisle to Islands">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Travel Insights &amp; Wedding Planning Tips | Aisle to Islands">
+    <meta name="twitter:description" content="Expert insights on destination wedding planning, luxury honeymoon destinations, and travel tips from Aisle to Islands.">
+    <meta name="twitter:image" content="${SITE_URL}/images/logos/tailored_experience_logo.jpg">
+
     ${GA_SCRIPT}
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="ywcRht9p5oOpmSuHT2WXlQ" async></script>
     <link rel="stylesheet" href="/css/core.css">
     <link rel="stylesheet" href="/css/blog.css">
-    <link rel="canonical" href="${SITE_URL}/blog">
+    <link rel="canonical" href="${SITE_URL}/blog/">
 
     <script type="application/ld+json">${schemaJson}</script>
 </head>
@@ -692,7 +706,7 @@ ${FOOTER_HTML}
 function generateSitemap(posts) {
   const staticPages = [
     '',
-    '/blog',
+    '/blog/',
     '/destination-wedding.html',
     '/curated-honeymoon.html',
     '/meet-your-planner.html',
@@ -703,14 +717,14 @@ function generateSitemap(posts) {
   const urls = staticPages.map(page => `
   <url>
     <loc>${SITE_URL}${page}</loc>
-    <changefreq>${page === '/blog' ? 'daily' : 'monthly'}</changefreq>
-    <priority>${page === '' ? '1.0' : page === '/blog' ? '0.9' : '0.7'}</priority>
+    <changefreq>${page === '/blog/' ? 'daily' : 'monthly'}</changefreq>
+    <priority>${page === '' ? '1.0' : page === '/blog/' ? '0.9' : '0.7'}</priority>
   </url>`);
 
   for (const post of posts) {
     urls.push(`
   <url>
-    <loc>${SITE_URL}/blog/${post.slug.current}</loc>
+    <loc>${SITE_URL}/blog/${post.slug.current}/</loc>
     <lastmod>${post.publishedAt ? new Date(post.publishedAt).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
