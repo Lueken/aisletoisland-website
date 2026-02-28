@@ -785,6 +785,11 @@ nav {
         height: 40px;
     }
 
+    .logo-mark-foot {
+        width: 150px;
+        height: 150px;
+    }
+
     .footer-description {
         max-width: 100%;
         text-align: center;
@@ -849,6 +854,11 @@ nav {
     .footer-logo .logo-mark {
         width: 35px;
         height: 35px;
+    }
+
+    .logo-mark-foot {
+        width: 120px;
+        height: 120px;
     }
 
     .footer-tagline {
