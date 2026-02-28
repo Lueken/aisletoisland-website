@@ -265,15 +265,18 @@
 
 .process-container {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 0;
+    width: 100%;
     /* Added to ensure content appears above the dark overlay */
     position: relative;
     z-index: 2;
 }
 
 .section-header {
-    max-width: 1000px;
+    max-width: 800px;
     margin-bottom: 80px;
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .section-subtitle {
@@ -519,7 +522,8 @@
 
 .approach-container {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 0;
+    width: 100%;
 }
 
 /* Fix text colors for approach section */
@@ -632,7 +636,8 @@
 
 .differentiators-container {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 0;
+    width: 100%;
 }
 
 /* Fix text colors for differentiators section */
@@ -700,7 +705,8 @@
 
 .destinations-container {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 0;
+    width: 100%;
 }
 
 /* Fix text colors for destinations section */
@@ -799,8 +805,9 @@
 }
 
 .perfect-for-container {
-    max-width: 1400px;  /* Match other sections */
-    margin: 0 auto;
+    max-width: 1400px;
+    margin: 0;
+    width: 100%;
     position: relative;
     z-index: 2;
     text-align: center;  /* Center all content */
@@ -1172,7 +1179,7 @@
 ========================================== */
 
 .wedding-packages {
-    padding: clamp(60px, 12vw, 120px) 0;
+    padding: 120px 60px;
     background: white;
     position: relative;
 }
@@ -1187,13 +1194,19 @@
     background: linear-gradient(90deg, transparent 0%, rgba(15, 95, 95, 0.1) 50%, transparent 100%);
 }
 
-.packages-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 clamp(15px, 4vw, 20px);
+.packages-header-container {
+    max-width: 1400px;
+    margin: 0;
+    width: 100%;
+    margin-bottom: 60px;
 }
 
-/* Fix text colors for packages section */
+.packages-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .wedding-packages .section-subtitle {
     color: var(--accent-orange);
 }
@@ -1210,12 +1223,15 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: clamp(30px, 8vw, 60px);
-    width: 100%;
 }
 
 /* Package Cards */
 .package-card {
-    padding: clamp(25px, 5vw, 40px);
+    padding: clamp(30px, 5vw, 50px);
+    background: linear-gradient(135deg, var(--background-cream) 0%, var(--background-gray) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(15, 95, 95, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1296,10 +1312,6 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    background: rgba(255, 255, 255, 0.5);
-    padding: clamp(15px, 3vw, 25px);
-    border-radius: clamp(8px, 2vw, 12px);
-    box-shadow: 0 5px 15px rgba(15, 95, 95, 0.05);
 }
 
 .package-features li {
@@ -1307,9 +1319,9 @@
     font-size: 1rem;
     line-height: 1.6;
     color: var(--text-medium);
-    padding: 12px 0;
+    padding: 10px 0;
     position: relative;
-    padding-left: clamp(35px, 8vw, 40px);
+    padding-left: 30px;
 }
 
 .package-features li:last-child {
@@ -1319,13 +1331,11 @@
 .package-features li::before {
     content: "✓";
     position: absolute;
-    left: 12px;
-    top: 12px;
+    left: 0;
+    top: 10px;
     color: var(--primary-teal);
     font-weight: 600;
     font-size: 1.1rem;
-    width: 18px;
-    text-align: center;
 }
 
 /* Package Pricing */
@@ -1478,10 +1488,8 @@
 
 /* Mobile container improvements */
 @media (max-width: 768px) {
-    .packages-container {
-        padding: 0 20px;
-        width: 100%;
-        box-sizing: border-box;
+    .wedding-packages {
+        padding: 80px 30px;
     }
 
     .package-card {
@@ -1505,13 +1513,8 @@
 }
 
 @media (max-width: 480px) {
-    .packages-container {
-        padding: 0 15px;
-        max-width: 100%;
-    }
-
     .wedding-packages {
-        padding: clamp(40px, 8vw, 60px) 0;
+        padding: 60px 20px;
     }
 
     .package-card {
@@ -1542,14 +1545,13 @@
     .package-features li {
         font-size: 0.9rem;
         padding: 8px 0;
-        padding-left: 45px;
+        padding-left: 28px;
     }
 
     .package-features li::before {
-        left: 15px;
+        left: 0;
         top: 8px;
         font-size: 1rem;
-        width: 20px;
     }
 
     .price-label {
@@ -1566,22 +1568,17 @@
         min-width: 160px;
     }
 
-    .package-features ul,
-    .price-info {
-        padding: 15px;
-    }
 }
 
 /* Extra small mobile devices */
 @media (max-width: 375px) {
     .package-features li {
-        padding-left: 50px;
+        padding-left: 26px;
         font-size: 0.85rem;
     }
 
     .package-features li::before {
-        left: 18px;
+        left: 0;
         font-size: 0.95rem;
-        width: 22px;
     }
 }

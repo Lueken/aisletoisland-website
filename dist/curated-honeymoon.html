@@ -23,119 +23,6 @@
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="6HTmP9C8+jW0NY/7x8/a7g" async></script>
     <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/honeymoon.css">
-    <link rel="stylesheet" href="css/packages.css">
-    <style>
-        /* Override packages.css hero styles for honeymoon page */
-        .hero .hero-content {
-            grid-column: auto !important;
-            text-align: left !important;
-            opacity: 1 !important;
-            transform: none !important;
-        }
-        .hero .hero-visual {
-            opacity: 1 !important;
-            transform: none !important;
-            position: relative !important;
-            display: block !important;
-            height: 600px !important;
-            width: 100% !important;
-            max-width: 550px !important;
-            margin: 0 auto !important;
-            grid-template-columns: unset !important;
-            gap: unset !important;
-        }
-        /* Fix process steps - override packages.css */
-        .process .process-step {
-            background: transparent !important;
-            opacity: 1 !important;
-            transform: none !important;
-            display: block !important;
-            text-align: center !important;
-        }
-        .process .step-number {
-            position: static !important;
-            width: auto !important;
-            height: auto !important;
-            background: transparent !important;
-            border-radius: 0 !important;
-            font-family: var(--font-eyesome) !important;
-            font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
-            color: var(--accent-orange) !important;
-            opacity: 0.5 !important;
-            margin-bottom: 10px !important;
-            display: block !important;
-        }
-        .process .step-title {
-            font-family: 'Josefin Sans', sans-serif !important;
-            font-size: clamp(1.1rem, 2vw, 1.25rem) !important;
-            font-weight: 300 !important;
-            letter-spacing: 0.1em !important;
-            text-transform: uppercase !important;
-            color: rgba(255, 255, 255, 0.95) !important;
-        }
-        .process .step-description {
-            font-family: 'Josefin Sans', sans-serif !important;
-            font-size: clamp(0.9rem, 1.8vw, 1rem) !important;
-            font-weight: 300 !important;
-            color: rgba(255, 255, 255, 0.7) !important;
-            line-height: 1.8 !important;
-        }
-
-        /* Mobile-only order fix to prevent images appearing above breadcrumb */
-        @media (max-width: 768px) {
-            .hero .breadcrumb {
-                order: 1 !important;
-            }
-            .hero .hero-content {
-                order: 2 !important;
-            }
-            .hero .hero-visual {
-                order: 3 !important;
-            }
-        }
-
-        /* Glassmorphic package container - mirrors homepage service cards */
-        .service-section {
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.08) 0%,
-                rgba(255, 255, 255, 0.04) 100%
-            ) !important;
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.18) !important;
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-        }
-        .service-section .service-list {
-            background: transparent !important;
-        }
-        .service-section .service-title {
-            color: rgba(255, 255, 255, 0.95) !important;
-        }
-        .service-section .service-description {
-            color: rgba(255, 255, 255, 0.85) !important;
-        }
-        .service-section .service-features h4 {
-            color: var(--accent-orange) !important;
-        }
-        .service-section .service-list li {
-            color: rgba(255, 255, 255, 0.9) !important;
-        }
-        .service-section .service-list li::before {
-            color: var(--accent-orange) !important;
-        }
-        .service-section .price-label {
-            color: rgba(255, 255, 255, 0.9) !important;
-        }
-        .service-section .price-amount {
-            color: var(--accent-orange) !important;
-        }
-        .service-section .price-note p {
-            color: rgba(255, 255, 255, 0.8) !important;
-        }
-    </style>
     <link rel="canonical" href="https://aisle-to-islands.com/curated-honeymoon.html">
 
     <!-- Service Schema Markup -->
@@ -202,7 +89,7 @@
                 <li role="none"><a href="curated-honeymoon.html" role="menuitem" aria-current="page">Curated Honeymoon</a></li>
                 <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
                 <li role="none"><a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
-                <!-- <li role="none"><a href="packages.html" role="menuitem">Packages</a></li> -->
+                <li role="none"><a href="packages.html" role="menuitem">Packages</a></li>
                 <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
                 <li role="none"><a href="inquire.html" role="menuitem">Inquire</a></li>
             </ul>
@@ -222,7 +109,7 @@
             <a href="curated-honeymoon.html" role="menuitem" aria-current="page">Curated Honeymoon</a>
             <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
             <a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a>
-            <!-- <a href="packages.html" role="menuitem">Packages</a> -->
+            <a href="packages.html" role="menuitem">Packages</a>
             <a href="blog.html" role="menuitem">Blog</a>
             <a href="inquire.html" role="menuitem">Inquire</a>
         </div>
@@ -419,17 +306,19 @@
                                 <div class="price-info">
                                     <div class="price-main">
                                         <span class="price-label">Planning Investment</span>
-                                        <span class="price-amount">$250</span>
+                                        <span class="price-amount">Starting at $1,500</span>
+                                        <span class="price-complimentary">Complimentary for wedding clients</span>
                                     </div>
                                     <div class="price-note">
-                                        <p>Simple flat fee covers planning from booking through post-travel follow-up. No hidden costs or booking fees - just expert planning for your perfect honeymoon.</p>
+                                        <p>Professional planning fee covers comprehensive itinerary design, booking coordination, and concierge-level service before and during your trip.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="service-cta">
-                            <!-- <a href="inquire.html?service=curated-honeymoon" class="service-btn primary">Start Honeymoon Planning</a> -->
+                            <a href="inquire.html?service=curated-honeymoon" class="service-btn primary">Start Honeymoon Planning</a>
+                            <a href="packages.html" class="service-btn secondary">See All Curated Honeymoon Packages</a>
                         </div>
                     </div>
                 </div>
@@ -461,7 +350,7 @@
                 <ul>
                     <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
                     <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
-                    <!-- <li><a href="packages.html">Packages</a></li> -->
+                    <li><a href="packages.html">Packages</a></li>
                     <li><a href="inquire.html">Inquire</a></li>
                 </ul>
             </div>
