@@ -166,7 +166,9 @@
 
 /* Override core.css for homepage nav */
 nav.homepage-nav {
-    position: static !important; /* Override fixed positioning from core.css */
+    /* relative (not static) cancels core.css's fixed positioning while
+       keeping z-index active, so the Travel dropdown paints above the hero */
+    position: relative !important;
     top: auto !important;
     width: 100%;
     padding: 20px 60px;
@@ -535,7 +537,7 @@ nav.homepage-nav.homepage-nav-sticky {
 
 .step-label {
     font-family: var(--font-eyesome);
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-size: var(--eyesome-header);
     font-weight: 400;
     text-transform: none;
     letter-spacing: 0;
@@ -630,7 +632,7 @@ nav.homepage-nav.homepage-nav-sticky {
 
 .side-title {
     font-family: var(--font-eyesome);
-    font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+    font-size: var(--eyesome-header);
     font-weight: 400;
     margin-bottom: 25px;
     letter-spacing: 0;
@@ -765,7 +767,11 @@ nav.homepage-nav.homepage-nav-sticky {
 }
 
 .service-card {
-    display: block;
+    /* Flex column so the button pins to the card bottom and all
+       three buttons align regardless of description length */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: linear-gradient(
             135deg,
             rgba(255, 255, 255, 0.08) 0%,
@@ -886,6 +892,7 @@ nav.homepage-nav.homepage-nav-sticky {
 
 .service-button {
     display: inline-block;
+    margin-top: auto;
     padding: 14px 32px;
 
     background: rgba(212, 149, 107, 0.9);
@@ -902,7 +909,6 @@ nav.homepage-nav.homepage-nav-sticky {
     border: 1px solid rgba(255, 255, 255, 0.2);
 
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    margin-top: 5px;
     text-decoration: none;
 
     box-shadow: 0 4px 20px rgba(212, 149, 107, 0.2);
@@ -1105,7 +1111,7 @@ nav.homepage-nav.homepage-nav-sticky {
 
 .legacy-label {
     font-family: var(--font-eyesome);
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: var(--eyesome-header);
     color: var(--accent-orange);
     margin-bottom: 15px;
 }

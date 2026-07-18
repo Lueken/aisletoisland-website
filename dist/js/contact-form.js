@@ -80,7 +80,6 @@ class ContactFormHandler {
             const radioButton = document.getElementById(serviceParam);
             if (radioButton) {
                 radioButton.checked = true;
-                this.highlightPreselectedService(radioButton);
                 console.log(`✅ Auto-selected service: ${serviceParam}`);
 
                 // Trigger the conditional wedding package field to show
@@ -93,28 +92,11 @@ class ContactFormHandler {
                         const packageRadio = document.getElementById(packageParam);
                         if (packageRadio) {
                             packageRadio.checked = true;
-                            this.highlightPreselectedService(packageRadio);
                             console.log(`✅ Auto-selected wedding package: ${packageParam}`);
                         }
                     }, 100);
                 }
             }
-        }
-    }
-
-    highlightPreselectedService(radioButton) {
-        const formGroup = radioButton.closest('.form-group');
-        if (formGroup) {
-            formGroup.style.background = 'rgba(15, 95, 95, 0.05)';
-            formGroup.style.borderRadius = '8px';
-            formGroup.style.padding = '15px';
-            formGroup.style.transition = 'all 0.3s ease';
-
-            // Remove highlight after 3 seconds
-            setTimeout(() => {
-                formGroup.style.background = '';
-                formGroup.style.padding = '';
-            }, 3000);
         }
     }
 

@@ -281,7 +281,7 @@
 
 .section-subtitle {
     font-family: var(--font-eyesome);
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: var(--eyesome-header);
     color: var(--accent-orange);
     margin-bottom: 10px;
     font-weight: 400;
@@ -514,104 +514,20 @@
    OUR APPROACH SECTION
 ========================================== */
 
-.approach {
-    padding: 120px 60px;
-    background: linear-gradient(135deg, var(--background-cream) 0%, var(--background-gray) 100%);
-    position: relative;
+/* ==========================================
+   ARRIVAL IMAGE BAND
+   Full-bleed visual break below the hero
+========================================== */
+
+.arrival-band {
+    padding: 0;
 }
 
-.approach-container {
-    max-width: 1400px;
-    margin: 0;
-    width: 100%;
-}
-
-/* Fix text colors for approach section */
-.approach .section-subtitle {
-    color: var(--accent-orange);
-}
-
-.approach .section-title {
-    color: var(--primary-dark);
-}
-
-.approach .section-description {
-    color: var(--text-light);
-}
-
-.approach-areas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-bottom: 50px;
-}
-
-.approach-card {
-    padding: 45px 35px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.approach-card:hover {
-    transform: translateY(-2px);
-}
-
-.card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 25px;
-    display: block;
-    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.card-title {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    font-weight: 400;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-    letter-spacing: -0.3px;
-}
-
-.card-description {
-    font-size: clamp(14px, 1.8vw, 16px);
-    color: var(--text-light);
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-}
-
-.approach-cta {
-    text-align: center;
-}
-
-.approach-link {
-    color: var(--primary-teal);
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 2px;
-}
-
-.approach-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent-orange-muted) 0%, var(--accent-orange) 100%);
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.approach-link:hover::after {
-    width: 100%;
+.arrival-band-image {
+    height: clamp(380px, 62vh, 620px);
+    background-image: url('../images/hero/palm-boardwalk.jpg');
+    background-size: cover;
+    background-position: center 70%;
 }
 
 /* ==========================================
@@ -655,7 +571,7 @@
 
 .differentiator-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 50px 60px;
     max-width: 1200px;
     margin: 0 auto;
@@ -880,25 +796,10 @@
 
 /* Small Mobile (320px - 480px) */
 @media (max-width: 480px) {
-    .approach,
     .differentiators,
     .destinations,
     .perfect-for {
         padding: 60px 20px;
-    }
-
-    .approach-areas {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .approach-card {
-        padding: 30px 20px;
-    }
-
-    .card-icon {
-        font-size: 2rem;
-        margin-bottom: 20px;
     }
 
     .differentiator-grid {
@@ -939,20 +840,10 @@
 
 /* Mobile (481px - 768px) */
 @media (max-width: 768px) {
-    .approach,
     .differentiators,
     .destinations,
     .perfect-for {
         padding: 80px 30px;
-    }
-
-    .approach-areas {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .approach-card {
-        padding: 35px 25px;
     }
 
     .differentiator-grid {
@@ -976,15 +867,11 @@
 
 /* Tablet (769px - 1024px) */
 @media (max-width: 1024px) {
-    .approach-areas {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        max-width: 700px;
-        margin: 0 auto 50px;
-    }
-
+    /* Three text-heavy cards get too narrow at tablet widths; stack them */
     .differentiator-grid {
+        grid-template-columns: 1fr;
         gap: 40px 50px;
+        max-width: 700px;
     }
 
     .destinations-grid {
@@ -994,14 +881,12 @@
 
 /* Large Desktop (1441px+) */
 @media (min-width: 1441px) {
-    .approach-container,
     .differentiators-container,
     .destinations-container,
     .perfect-for-container {
         max-width: 1600px;
     }
 
-    .approach,
     .differentiators,
     .destinations,
     .perfect-for {

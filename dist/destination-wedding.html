@@ -82,7 +82,13 @@
         <ul class="nav-links" role="menubar">
             <li role="none"><a href="index.html" role="menuitem">Home</a></li>
             <li role="none"><a href="destination-wedding.html" role="menuitem" aria-current="page">Destination Wedding</a></li>
-            <li role="none"><a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
+            <li role="none" class="has-dropdown">
+                <a href="curated-travel.html" role="menuitem" aria-haspopup="true">Curated Travel</a>
+                <ul class="nav-dropdown">
+                    <li role="none"><a href="curated-honeymoon.html" role="menuitem">Honeymoon</a></li>
+                    <li role="none"><a href="curated-travel.html" role="menuitem">Travel</a></li>
+                </ul>
+            </li>
             <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
             <li role="none"><a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
             <li role="none"><a href="packages.html" role="menuitem">Packages</a></li>
@@ -102,7 +108,8 @@
     <div class="mobile-nav" role="menu">
         <a href="index.html" role="menuitem">Home</a>
         <a href="destination-wedding.html" role="menuitem" aria-current="page">Destination Wedding</a>
-        <a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
+        <a href="curated-honeymoon.html" role="menuitem" class="mobile-child">Honeymoon</a>
+        <a href="curated-travel.html" role="menuitem" class="mobile-child">Travel</a>
         <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
         <a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a>
         <a href="packages.html" role="menuitem">Packages</a>
@@ -132,39 +139,9 @@
         </div>
     </section>
 
-    <!-- OUR APPROACH SECTION (New) -->
-    <section class="approach" aria-labelledby="approach-title">
-        <div class="approach-container">
-            <div class="section-header">
-                <div class="section-subtitle">Beyond Beautiful</div>
-                <h2 id="approach-title" class="section-title">Comprehensive Destination Wedding Orchestration</h2>
-                <p class="section-description">From ceremony design to guest room blocks, from welcome events to day-of coordination - we orchestrate every element across three key areas:</p>
-            </div>
-
-            <div class="approach-areas">
-                <div class="approach-card fade-in-element hover-lift">
-<!--                    <div class="card-icon" aria-hidden="true">✨</div>-->
-                    <h3 class="card-title">Wedding Design & Coordination</h3>
-                    <p class="card-description">Every aesthetic detail and vendor relationship crafted to reflect your unique love story.</p>
-                </div>
-
-                <div class="approach-card fade-in-element hover-lift">
-<!--                    <div class="card-icon" aria-hidden="true">🌍</div>-->
-                    <h3 class="card-title">Destination & Travel Logistics</h3>
-                    <p class="card-description">Meticulous coordination of flights, accommodations, and transfers with contingency plans for every scenario.</p>
-                </div>
-
-                <div class="approach-card fade-in-element hover-lift">
-<!--                    <div class="card-icon" aria-hidden="true">💫</div>-->
-                    <h3 class="card-title">Complete Guest Journey Management</h3>
-                    <p class="card-description">Thoughtful touchpoints from arrival to departure, making everyone feel genuinely cared for.</p>
-                </div>
-            </div>
-
-            <div class="approach-cta">
-                <a href="#packages-title" class="approach-link">View detailed service and pricing →</a>
-            </div>
-        </div>
+    <!-- ARRIVAL IMAGE BAND (visual break where "Beyond Beautiful" was) -->
+    <section class="arrival-band" aria-label="A boardwalk through the palms to the sea">
+        <div class="arrival-band-image" role="img" aria-label="A wooden boardwalk through palm trees leading to the ocean"></div>
     </section>
 
     <!-- WHAT SETS US APART SECTION (New) -->
@@ -177,23 +154,18 @@
 
             <div class="differentiator-grid">
                 <div class="differentiator-item fade-in-element">
-                    <h3 class="differentiator-title">Single-Point Coordination</h3>
-                    <p class="differentiator-text">One dedicated team managing both wedding design and travel logistics eliminates vendor miscommunication and maintains your vision across every element.</p>
+                    <h3 class="differentiator-title">One desk, not two.</h3>
+                    <p class="differentiator-text">Most destination weddings run through two businesses: a planner for the wedding, a travel agent for the room block and the flights. They don’t share a budget and they rarely share a phone call. Here, the person designing your ceremony is the person holding your room block. Your event spend and your guests’ comfort are one conversation, not a handoff. It’s also how I know which sixty people are landing when, and that every one of them is met.</p>
                 </div>
 
                 <div class="differentiator-item fade-in-element">
-                    <h3 class="differentiator-title">Crisis Management Expertise</h3>
-                    <p class="differentiator-text">When flights cancel or vendors face challenges, we're already three steps ahead with solutions - not scrambling for answers.</p>
+                    <h3 class="differentiator-title">Three to five weddings a year.</h3>
+                    <p class="differentiator-text">That’s the cap, and it’s deliberate. It’s the reason I’m on site from your first guest’s arrival to your last guest’s departure, and the reason your Thursday welcome dinner gets the same attention as your Saturday ceremony.</p>
                 </div>
 
                 <div class="differentiator-item fade-in-element">
-                    <h3 class="differentiator-title">Established Global Relationships</h3>
-                    <p class="differentiator-text">Our vetted vendor network and preferred partnerships ensure consistent quality and seamless execution across all destinations.</p>
-                </div>
-
-                <div class="differentiator-item fade-in-element">
-                    <h3 class="differentiator-title">Complete Guest Journey</h3>
-                    <p class="differentiator-text">From arrival transfers to departure details, we orchestrate every touchpoint so your loved ones feel genuinely cared for.</p>
+                    <h3 class="differentiator-title">Twelve years running events, not just planning them.</h3>
+                    <p class="differentiator-text">I came up on resort banquet floors, staffing and executing multiple simultaneous events across a property. That’s where you learn what a contract actually protects you from, why the quoted per-person price isn’t the price, and what a room block’s attrition clause can cost a family who signed it without reading it. Weddings are where I put it to work.</p>
                 </div>
             </div>
         </div>
@@ -205,6 +177,7 @@
             <div class="section-header">
                 <div class="section-subtitle">Our Process</div>
                 <h2 id="process-title" class="section-title">From Consultation to Celebration</h2>
+                <p class="section-description process-setup">A wedding weekend is three productions, not one. Welcome dinner, ceremony and reception, farewell brunch. Each one has its own vendors, its own load-in, and its own way of going sideways.</p>
                 <p class="section-description">Enjoy watching every intentional detail unfold and focus on what matters most—being present with the people who brought you to this moment.</p>
             </div>
 
@@ -353,32 +326,32 @@
             <div class="values-grid">
                 <div class="value-item fade-in-element">
                     <div class="value-icon">♦</div>
-                    <p class="value-text">Meaningful celebrations over performative displays</p>
+                    <p class="value-text">A wedding that means something to the people in the room</p>
                 </div>
 
                 <div class="value-item fade-in-element">
                     <div class="value-icon">♦</div>
-                    <p class="value-text">Comprehensive planning that reduces your stress</p>
+                    <p class="value-text">Making the decisions that matter, and handing the execution to someone who’s done it before</p>
                 </div>
 
                 <div class="value-item fade-in-element">
                     <div class="value-icon">♦</div>
-                    <p class="value-text">Quality and substance over status symbols</p>
+                    <p class="value-text">Spending generously on what you care about, and knowing exactly what it bought</p>
                 </div>
 
                 <div class="value-item fade-in-element">
                     <div class="value-icon">♦</div>
-                    <p class="value-text">Efficient coordination that respects your time</p>
+                    <p class="value-text">Guests who are hosted, not just invited</p>
                 </div>
 
                 <div class="value-item fade-in-element">
                     <div class="value-icon">♦</div>
-                    <p class="value-text">Trusted guidance that honors your values</p>
+                    <p class="value-text">A week built for every generation in the room</p>
                 </div>
 
                 <div class="value-item fade-in-element">
                     <div class="value-icon">♦</div>
-                    <p class="value-text">Celebrations worthy of the investment made in you</p>
+                    <p class="value-text">A celebration worthy of the investment your family made in you</p>
                 </div>
             </div>
 
@@ -412,7 +385,8 @@
             <h4>Services</h4>
             <ul>
                 <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
-                <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
+                <li><a href="curated-honeymoon.html">Honeymoon Planning</a></li>
+                <li><a href="curated-travel.html">Curated Travel</a></li>
                 <li><a href="packages.html">Packages</a></li>
                 <li><a href="inquire.html">Inquire</a></li>
             </ul>
@@ -422,6 +396,7 @@
             <h4>Company</h4>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="meet-your-planner.html">Meet Your Planner</a></li>
                 <li><a href="inquire.html">Inquire</a></li>
                 <li><a href="privacy.html">Privacy Policy</a></li>
             </ul>
@@ -457,27 +432,6 @@
         }
 
         // Note: Google Analytics will be initialized automatically by core-enhanced.js
-
-        // Immediate smooth scroll handler (runs before core-enhanced loads)
-        const approachLink = document.querySelector('.approach-link[href="#packages-title"]');
-        if (approachLink) {
-            approachLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const target = document.getElementById('packages-title');
-                if (target) {
-                    const nav = document.querySelector('nav');
-                    const navHeight = nav ? nav.offsetHeight : 70;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 30;
-
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }, { capture: true });
-        }
 
         console.log('💍 Destination Wedding page fully initialized');
     });

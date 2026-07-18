@@ -38,7 +38,13 @@
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="destination-wedding.html" role="menuitem">Destination Wedding</a></li>
-                <li role="none"><a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
+                <li role="none" class="has-dropdown">
+                    <a href="curated-travel.html" role="menuitem" aria-haspopup="true">Curated Travel</a>
+                    <ul class="nav-dropdown">
+                        <li role="none"><a href="curated-honeymoon.html" role="menuitem">Honeymoon</a></li>
+                        <li role="none"><a href="curated-travel.html" role="menuitem">Travel</a></li>
+                    </ul>
+                </li>
                 <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
                 <li role="none"><a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
                 <li role="none"><a href="packages.html" role="menuitem">Packages</a></li>
@@ -57,7 +63,8 @@
         <div class="mobile-nav" role="menu">
             <a href="index.html" role="menuitem">Home</a>
             <a href="destination-wedding.html" role="menuitem">Destination Wedding</a>
-            <a href="curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
+            <a href="curated-honeymoon.html" role="menuitem" class="mobile-child">Honeymoon</a>
+            <a href="curated-travel.html" role="menuitem" class="mobile-child">Travel</a>
             <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
             <a href="meet-your-planner.html" role="menuitem">Meet Your Planner</a>
             <a href="packages.html" role="menuitem">Packages</a>
@@ -136,13 +143,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">What is your celebration date?<span class="required">*</span></label>
-                                <input type="date" name="celebration_date" class="form-input input-elegant" required>
-                            </div>
-
-                            <div class="form-group">
                                 <label class="form-label">Please select all services you are interested in:<span class="required">*</span></label>
                                 <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="radio" name="services[]" value="both-services" class="checkbox-input" id="both-services">
+                                        <label for="both-services" class="checkbox-label">Destination Wedding & Honeymoon</label>
+                                    </div>
                                     <div class="checkbox-item">
                                         <input type="radio" name="services[]" value="destination-wedding" class="checkbox-input" id="destination-wedding">
                                         <label for="destination-wedding" class="checkbox-label">Destination Wedding</label>
@@ -152,12 +158,8 @@
                                         <label for="curated-honeymoon" class="checkbox-label">Honeymoon</label>
                                     </div>
                                     <div class="checkbox-item">
-                                        <input type="radio" name="services[]" value="both-services" class="checkbox-input" id="both-services">
-                                        <label for="both-services" class="checkbox-label">Destination Wedding & Honeymoon</label>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="radio" name="services[]" value="other" class="checkbox-input" id="other-service">
-                                        <label for="other-service" class="checkbox-label">Other</label>
+                                        <input type="radio" name="services[]" value="curated-travel" class="checkbox-input" id="curated-travel">
+                                        <label for="curated-travel" class="checkbox-label">Curated Travel</label>
                                     </div>
                                 </div>
                             </div>
@@ -174,6 +176,11 @@
                                         </label>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">What is your celebration date?<span class="required">*</span></label>
+                                <input type="date" name="celebration_date" class="form-input input-elegant" required>
                             </div>
 
                             <div class="form-group">
@@ -248,7 +255,8 @@
                 <h4>Services</h4>
                 <ul>
                     <li><a href="destination-wedding.html">Destination Wedding Planning</a></li>
-                    <li><a href="curated-honeymoon.html">Curated Honeymoon Planning</a></li>
+                    <li><a href="curated-honeymoon.html">Honeymoon Planning</a></li>
+                    <li><a href="curated-travel.html">Curated Travel</a></li>
                     <li><a href="packages.html">Packages</a></li>
                     <li><a href="inquire.html">Inquire</a></li>
                 </ul>
@@ -258,6 +266,7 @@
                 <h4>Company</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="meet-your-planner.html">Meet Your Planner</a></li>
                     <li><a href="inquire.html">Inquire</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
                 </ul>
@@ -340,6 +349,73 @@
 
         // Initialize conditional logic after DOM is ready
         document.addEventListener('DOMContentLoaded', setupConditionalPackageSelection);
+
+        // Travel-friendly wording when Honeymoon or Curated Travel is selected.
+        // Field names never change, so the backend and email template are untouched.
+        function setupServiceWording() {
+            const REQ = '<span class="required">*</span>';
+
+            const WEDDING_WORDING = {
+                brides_name: { label: "Bride's Name" + REQ },
+                grooms_name: { label: "Groom's Name" + REQ },
+                celebration_date: { label: 'What is your celebration date?' + REQ },
+                celebration_location: {
+                    label: 'Where will your celebration take place?' + REQ,
+                    placeholder: 'e.g., Tuscany, Bali, Caribbean, or open to suggestions'
+                },
+                planned_investment: { label: 'What is your planned total investment (in USD)?' + REQ },
+                guest_count: { label: 'What is your planned total guest count?' + REQ },
+                additional_info: {
+                    label: 'Optional: What is the greatest challenge you have right now with your planning?',
+                    placeholder: 'finding time, vetting vendors, family pressures…'
+                }
+            };
+
+            const TRAVEL_WORDING = {
+                brides_name: { label: 'Your Name' + REQ },
+                grooms_name: { label: 'Traveling With' + REQ },
+                celebration_date: { label: 'When are you hoping to travel? (approximate date is fine)' + REQ },
+                celebration_location: {
+                    label: 'Where would you like to go?' + REQ,
+                    placeholder: 'e.g., Greece, Italy, the Caribbean, or ask us where you should go'
+                },
+                planned_investment: { label: 'What is your planned trip investment (in USD)?' + REQ },
+                guest_count: { label: 'How many people are traveling?' + REQ },
+                additional_info: {
+                    label: 'Optional: Tell us about the trip you have been meaning to take.',
+                    placeholder: 'the occasion, who is coming, what the last trip got right or wrong…'
+                }
+            };
+
+            function applyWording(wording) {
+                Object.keys(wording).forEach(fieldName => {
+                    const field = document.querySelector('[name="' + fieldName + '"]');
+                    if (!field) return;
+                    const group = field.closest('.form-group');
+                    const label = group ? group.querySelector('.form-label') : null;
+                    if (label) label.innerHTML = wording[fieldName].label;
+                    if (wording[fieldName].placeholder !== undefined) {
+                        field.setAttribute('placeholder', wording[fieldName].placeholder);
+                    }
+                });
+            }
+
+            function updateFormWording() {
+                const selected = document.querySelector('input[name="services[]"]:checked');
+                const isTravel = selected &&
+                    (selected.value === 'curated-travel' || selected.value === 'curated-honeymoon');
+                applyWording(isTravel ? TRAVEL_WORDING : WEDDING_WORDING);
+            }
+
+            document.querySelectorAll('input[name="services[]"]').forEach(input => {
+                input.addEventListener('change', updateFormWording);
+            });
+
+            // Initial check in case the form arrives pre-populated via ?service=
+            updateFormWording();
+        }
+
+        document.addEventListener('DOMContentLoaded', setupServiceWording);
 
         // Debug functions for testing
         window.debugContactForm = function() {

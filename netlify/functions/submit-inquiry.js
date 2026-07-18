@@ -16,6 +16,7 @@ const getServiceDescription = (service) => {
     const serviceMap = {
         'destination-wedding': 'Destination Wedding',
         'curated-honeymoon': 'Honeymoon',
+        'curated-travel': 'Curated Travel',
         'both-services': 'Destination Wedding & Honeymoon',
         'other': 'Other Services'
     };

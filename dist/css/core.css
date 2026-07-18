@@ -29,6 +29,8 @@
 
     /* Typography */
     --font-eyesome: 'Eyesome Script', cursive;
+    /* One size for every Eyesome section header / eyebrow across the site */
+    --eyesome-header: clamp(1.9rem, 3.5vw, 2.5rem);
 }
 
 /* ==========================================
@@ -383,6 +385,98 @@ nav {
 .mobile-nav a:focus {
     color: var(--primary-dark);
     outline: none;
+}
+
+/* ==========================================
+   NAV: TRAVEL PARENT DROPDOWN
+========================================== */
+
+.nav-links li.has-dropdown {
+    position: relative;
+}
+
+/* Invisible hover bridge across the gap between the link and the panel */
+.nav-links li.has-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    right: -20px;
+    height: 16px;
+}
+
+.nav-links li.has-dropdown > a::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-orange);
+    transform: rotate(45deg);
+    margin-right: 8px;
+    vertical-align: 2px;
+    opacity: 0.7;
+}
+
+.nav-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 220px;
+    background: rgba(250, 248, 245, 0.98);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(15, 95, 95, 0.1);
+    box-shadow: 0 15px 40px rgba(44, 44, 44, 0.12);
+    border-radius: 0;
+    padding: 10px 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    /* Delay the close slightly so slow mouse travel doesn't dismiss it */
+    transition:
+        opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
+        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
+        visibility 0s linear 0.45s;
+    z-index: 1001;
+}
+
+.nav-links li.has-dropdown:hover .nav-dropdown,
+.nav-links li.has-dropdown:focus-within .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    transition:
+        opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0s;
+}
+
+.nav-dropdown li {
+    list-style: none;
+}
+
+.nav-dropdown a {
+    display: block;
+    padding: 10px 22px;
+}
+
+.nav-dropdown a::after {
+    display: none;
+}
+
+.nav-dropdown a:hover,
+.nav-dropdown a:focus {
+    transform: none;
+    background: rgba(15, 95, 95, 0.05);
+}
+
+.nav-dropdown a[aria-current="page"] {
+    color: var(--primary-teal);
+}
+
+.mobile-nav a.mobile-child {
+    padding-left: 28px;
+    font-size: 15px;
 }
 
 /* ==========================================
@@ -1087,7 +1181,7 @@ nav {
 /* Section Label with Eyesome Font */
 .section-label-eyesome {
     font-family: var(--font-eyesome);
-    font-size: 2rem;
+    font-size: var(--eyesome-header);
     color: var(--accent-orange);
     text-align: center;
     margin-bottom: 1rem;
@@ -1384,7 +1478,7 @@ nav {
 /* Section Label Pattern */
 .section-label {
     font-family: var(--font-eyesome);
-    font-size: 2rem;
+    font-size: var(--eyesome-header);
     color: var(--accent-orange);
     text-align: center;
     margin-bottom: 0.5rem;

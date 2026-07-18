@@ -309,7 +309,7 @@
 
 .section-subtitle {
     font-family: var(--font-eyesome);
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: var(--eyesome-header);
     color: var(--accent-orange);
     margin-bottom: 10px;
     font-weight: 400;

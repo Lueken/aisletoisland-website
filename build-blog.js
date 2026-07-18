@@ -250,9 +250,16 @@ const NAV_HTML = `
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="/index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="/destination-wedding.html" role="menuitem">Destination Wedding</a></li>
-                <li role="none"><a href="/curated-honeymoon.html" role="menuitem">Curated Honeymoon</a></li>
+                <li role="none" class="has-dropdown">
+                    <a href="/curated-travel.html" role="menuitem" aria-haspopup="true">Curated Travel</a>
+                    <ul class="nav-dropdown">
+                        <li role="none"><a href="/curated-honeymoon.html" role="menuitem">Honeymoon</a></li>
+                        <li role="none"><a href="/curated-travel.html" role="menuitem">Travel</a></li>
+                    </ul>
+                </li>
                 <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
                 <li role="none"><a href="/meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
+                <li role="none"><a href="/packages.html" role="menuitem">Packages</a></li>
                 <li role="none"><a href="/blog/" role="menuitem" aria-current="page">Blog</a></li>
                 <li role="none"><a href="/inquire.html" role="menuitem">Inquire</a></li>
             </ul>
@@ -267,9 +274,11 @@ const NAV_HTML = `
         <div class="mobile-nav" role="menu">
             <a href="/index.html" role="menuitem">Home</a>
             <a href="/destination-wedding.html" role="menuitem">Destination Wedding</a>
-            <a href="/curated-honeymoon.html" role="menuitem">Curated Honeymoon</a>
+            <a href="/curated-honeymoon.html" role="menuitem" class="mobile-child">Honeymoon</a>
+            <a href="/curated-travel.html" role="menuitem" class="mobile-child">Travel</a>
             <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
             <a href="/meet-your-planner.html" role="menuitem">Meet Your Planner</a>
+            <a href="/packages.html" role="menuitem">Packages</a>
             <a href="/blog/" role="menuitem" aria-current="page">Blog</a>
             <a href="/inquire.html" role="menuitem">Inquire</a>
         </div>
@@ -288,7 +297,9 @@ const FOOTER_HTML = `
                 <h4>Services</h4>
                 <ul>
                     <li><a href="/destination-wedding.html">Destination Wedding Planning</a></li>
-                    <li><a href="/curated-honeymoon.html">Curated Honeymoon Planning</a></li>
+                    <li><a href="/curated-honeymoon.html">Honeymoon Planning</a></li>
+                    <li><a href="/curated-travel.html">Curated Travel</a></li>
+                    <li><a href="/packages.html">Packages</a></li>
                     <li><a href="/inquire.html">Inquire</a></li>
                 </ul>
             </div>
@@ -297,6 +308,7 @@ const FOOTER_HTML = `
                 <h4>Company</h4>
                 <ul>
                     <li><a href="/index.html">Home</a></li>
+                    <li><a href="/meet-your-planner.html">Meet Your Planner</a></li>
                     <li><a href="/inquire.html">Inquire</a></li>
                     <li><a href="/privacy.html">Privacy Policy</a></li>
                 </ul>
