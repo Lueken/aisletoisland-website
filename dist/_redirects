@@ -2,6 +2,9 @@
 /privacy                    /privacy.html                    301
 /destination-wedding        /destination-wedding.html        301
 /curated-honeymoon         /curated-honeymoon.html          301
+/curated-travel            /curated-travel.html             301
+/packages                  /packages.html                   301
+/meet-your-planner         /meet-your-planner.html          301
 /inquire                   /inquire.html                    301
 
 # Blog listing - canonical URL is /blog/ (served from dist/blog/index.html built by SSG)
@@ -25,16 +28,20 @@
 # Trailing slash consistency (clean URLs)
 /destination-wedding/       /destination-wedding.html        301
 /curated-honeymoon/        /curated-honeymoon.html          301
+/curated-travel/           /curated-travel.html             301
+/packages/                 /packages.html                   301
+/meet-your-planner/        /meet-your-planner.html          301
 /privacy/                  /privacy.html                    301
 /inquire/                  /inquire.html                    301
 
-# Ensure www consistency (prefer non-www for new domain)
-https://www.aisletoisland.com/*  https://aisletoisland.com/:splat  301!
+# Ensure www consistency (prefer non-www)
+https://www.aisle-to-islands.com/*  https://aisle-to-islands.com/:splat  301!
 
 # Handle common typos/variations (optional but helpful)
 /contact                   /inquire.html                    301
 /wedding                   /destination-wedding.html        301
 /honeymoon                 /curated-honeymoon.html          301
+/travel                    /curated-travel.html             301
 /luxury                    /curated-honeymoon.html          301
 /curated                   /curated-honeymoon.html          301
 

@@ -426,7 +426,7 @@ function generateBlogPostHtml(post) {
   const seoTitle = post.seo?.metaTitle || post.title;
   const pageTitle = `${seoTitle} | Aisle to Islands`;
   const description = post.seo?.metaDescription || post.excerpt || '';
-  const socialImage = post.seo?.ogImage?.asset?.url || post.mainImage?.asset?.url || '/tailored_experience_logo.png';
+  const socialImage = post.seo?.ogImage?.asset?.url || post.mainImage?.asset?.url || `${SITE_URL}/images/logos/aisle-to-islands-brand-logo.png`;
   const slug = post.slug?.current || '';
   const canonicalUrl = `${SITE_URL}/blog/${slug}`;
   const imageUrl = post.mainImage?.asset?.url || '/pexels-emma-bauso-1183828-3585806.jpg';
@@ -639,14 +639,14 @@ function generateBlogListingHtml(posts) {
     <meta property="og:url" content="${SITE_URL}/blog/">
     <meta property="og:title" content="Travel Insights &amp; Wedding Planning Tips | Aisle to Islands">
     <meta property="og:description" content="Expert insights on destination wedding planning, luxury honeymoon destinations, and travel tips from Aisle to Islands.">
-    <meta property="og:image" content="${SITE_URL}/images/logos/tailored_experience_logo.jpg">
+    <meta property="og:image" content="${SITE_URL}/images/logos/aisle-to-islands-brand-logo.png">
     <meta property="og:site_name" content="Aisle to Islands">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Travel Insights &amp; Wedding Planning Tips | Aisle to Islands">
     <meta name="twitter:description" content="Expert insights on destination wedding planning, luxury honeymoon destinations, and travel tips from Aisle to Islands.">
-    <meta name="twitter:image" content="${SITE_URL}/images/logos/tailored_experience_logo.jpg">
+    <meta name="twitter:image" content="${SITE_URL}/images/logos/aisle-to-islands-brand-logo.png">
 
     ${GA_SCRIPT}
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="ywcRht9p5oOpmSuHT2WXlQ" async></script>
@@ -720,7 +720,9 @@ function generateSitemap(posts) {
     '',
     '/blog/',
     '/destination-wedding.html',
+    '/curated-travel.html',
     '/curated-honeymoon.html',
+    '/packages.html',
     '/meet-your-planner.html',
     '/inquire.html',
     '/privacy.html',
