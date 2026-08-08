@@ -266,7 +266,7 @@ const NAV_HTML = `
                         <li role="none"><a href="/curated-travel.html" role="menuitem">Travel</a></li>
                     </ul>
                 </li>
-                <li role="none"><a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a></li>
+                <li role="none"><a href="/blueprint.html" role="menuitem">Legacy Blueprint</a></li>
                 <li role="none"><a href="/meet-your-planner.html" role="menuitem">Meet Your Planner</a></li>
                 <li role="none"><a href="/packages.html" role="menuitem">Packages</a></li>
                 <li role="none"><a href="/blog/" role="menuitem" aria-current="page">Blog</a></li>
@@ -285,7 +285,7 @@ const NAV_HTML = `
             <a href="/destination-wedding.html" role="menuitem">Destination Wedding</a>
             <a href="/curated-honeymoon.html" role="menuitem" class="mobile-child">Honeymoon</a>
             <a href="/curated-travel.html" role="menuitem" class="mobile-child">Travel</a>
-            <a href="https://legacy.aisle-to-islands.com" role="menuitem">Legacy Blueprint</a>
+            <a href="/blueprint.html" role="menuitem">Legacy Blueprint</a>
             <a href="/meet-your-planner.html" role="menuitem">Meet Your Planner</a>
             <a href="/packages.html" role="menuitem">Packages</a>
             <a href="/blog/" role="menuitem" aria-current="page">Blog</a>
@@ -746,6 +746,7 @@ function generateSitemap(posts) {
     '/destination-wedding.html',
     '/curated-travel.html',
     '/curated-honeymoon.html',
+    '/blueprint.html',
     '/packages.html',
     '/meet-your-planner.html',
     '/inquire.html',
