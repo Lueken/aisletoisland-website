@@ -111,7 +111,7 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-function renderPortableText(body) {
+function renderPortableText(body, pinDescription = '') {
   if (!body || !Array.isArray(body)) return '<p>No content available.</p>';
 
   const blocks = [];
@@ -158,9 +158,11 @@ function renderPortableText(body) {
       const alignment = block.alignment || 'center';
       const size = block.size || 'medium';
 
+      const pinDesc = caption || pinDescription || block.alt || '';
+
       blocks.push(`
         <figure class="content-image image-align-${alignment} image-size-${size}">
-          <img src="${imageUrl}" alt="${alt}" loading="lazy" />
+          <img src="${imageUrl}" alt="${alt}" loading="lazy"${pinDesc ? ` data-pin-description="${escapeHtml(pinDesc)}"` : ''} />
           ${caption ? `<figcaption class="image-caption">${escapeHtml(caption)}</figcaption>` : ''}
         </figure>`);
     }
@@ -450,7 +452,7 @@ function generateBlogPostHtml(post) {
   const authorBio = post.author?.bio || 'Expert Wedding & Travel Planner';
   const authorInitial = authorName.charAt(0).toUpperCase();
   const readTime = calculateReadTime(post.body);
-  const bodyHtml = renderPortableText(post.body);
+  const bodyHtml = renderPortableText(post.body, `${post.title} | ${description}`);
   const keywordsMeta = (post.seo?.keywords && post.seo.keywords.length > 0)
     ? `\n    <meta name="keywords" content="${escapeHtml(post.seo.keywords.join(', '))}">`
     : '';
