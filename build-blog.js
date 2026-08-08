@@ -528,7 +528,9 @@ ${NAV_HTML}
 
         <section class="article-content">
             <div class="article-content-container">
-                <div class="featured-image fade-in-element" style="background-image: url('${imageUrl}')"></div>
+                <div class="featured-image fade-in-element">
+                    <img src="${imageUrl}" alt="${escapeHtml(post.title)}" data-pin-description="${escapeHtml(`${post.title} | ${description}`)}" />
+                </div>
 
                 <div class="article-body">
                     ${bodyHtml}
@@ -575,7 +577,9 @@ function createPostCardHtml(post, featured = false) {
   if (featured) {
     return `
                 <a href="${postUrl}" class="post-card featured-post blog-fade-element clickable-card" style="text-decoration:none;color:inherit;">
-                    <div class="post-image" style="background-image: url('${imageUrl}')"></div>
+                    <div class="post-image">
+                        <img src="${imageUrl}" alt="${escapeHtml(post.title)}" loading="lazy" data-pin-description="${escapeHtml(`${post.title} | ${post.excerpt || ''}`)}" />
+                    </div>
                     <div class="post-content">
                         <div class="featured-badge">Featured</div>
                         <div class="post-meta"><span class="post-category" style="color: white">${escapeHtml(categoryTitle)}</span></div>
@@ -587,7 +591,8 @@ function createPostCardHtml(post, featured = false) {
 
   return `
                 <a href="${postUrl}" class="post-card blog-fade-element clickable-card" style="text-decoration:none;color:inherit;">
-                    <div class="post-image" style="background-image: url('${imageUrl}')">
+                    <div class="post-image">
+                        <img src="${imageUrl}" alt="${escapeHtml(post.title)}" loading="lazy" data-pin-description="${escapeHtml(`${post.title} | ${post.excerpt || ''}`)}" />
                         <span class="post-category" style="color: white">${escapeHtml(categoryTitle)}</span>
                     </div>
                     <div class="post-content">
