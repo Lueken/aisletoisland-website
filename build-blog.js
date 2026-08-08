@@ -27,6 +27,13 @@ function sanityApiUrl(query) {
   return `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}?query=${encodeURIComponent(query)}`;
 }
 
+// Sanity CDN edge transform: resize instead of shipping multi-MB originals.
+// Oversized originals also break Pinterest's save-picker thumbnails.
+function sanityImage(url, params) {
+  if (!url || !url.includes('cdn.sanity.io')) return url;
+  return url + (url.includes('?') ? '&' : '?') + params;
+}
+
 // ---------------------------------------------------------------------------
 // Sanity Data Fetching
 // ---------------------------------------------------------------------------
@@ -144,7 +151,7 @@ function renderPortableText(body) {
         default: blocks.push(`<p>${text}</p>`);
       }
     } else if (block._type === 'image') {
-      const imageUrl = block.asset?.url || '';
+      const imageUrl = sanityImage(block.asset?.url, 'w=1400&auto=format') || '';
       if (!imageUrl) continue;
       const alt = escapeHtml(block.alt || '');
       const caption = block.caption || '';
@@ -433,10 +440,10 @@ function generateBlogPostHtml(post) {
   const seoTitle = post.seo?.metaTitle || post.title;
   const pageTitle = `${seoTitle} | Aisle to Islands`;
   const description = post.seo?.metaDescription || post.excerpt || '';
-  const socialImage = post.seo?.ogImage?.asset?.url || post.mainImage?.asset?.url || `${SITE_URL}/images/logos/aisle-to-islands-brand-logo.png`;
+  const socialImage = sanityImage(post.seo?.ogImage?.asset?.url || post.mainImage?.asset?.url, 'w=1200&auto=format') || `${SITE_URL}/images/logos/aisle-to-islands-brand-logo.png`;
   const slug = post.slug?.current || '';
   const canonicalUrl = `${SITE_URL}/blog/${slug}`;
-  const imageUrl = post.mainImage?.asset?.url || '/pexels-emma-bauso-1183828-3585806.jpg';
+  const imageUrl = sanityImage(post.mainImage?.asset?.url, 'w=1600&auto=format') || '/pexels-emma-bauso-1183828-3585806.jpg';
   const categoryTitle = post.category?.title || 'General';
   const categorySlug = post.category?.slug?.current || 'general';
   const authorName = post.author?.name || 'Jessica';
@@ -580,7 +587,7 @@ ${BLOG_POST_CLIENT_JS}
 // ---------------------------------------------------------------------------
 
 function createPostCardHtml(post, featured = false) {
-  const imageUrl = post.mainImage?.asset?.url || '/images/blog/default-post-image.jpg';
+  const imageUrl = sanityImage(post.mainImage?.asset?.url, 'w=1200&auto=format') || '/images/blog/default-post-image.jpg';
   const categoryTitle = post.category?.title || 'General';
   const postUrl = `/blog/${post.slug.current}`;
 
