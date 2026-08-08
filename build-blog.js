@@ -410,6 +410,13 @@ const BLOG_POST_CLIENT_JS = `
         var url = encodeURIComponent(window.location.href);
         window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank', 'width=600,height=400');
       };
+      window.shareOnPinterest = function() {
+        var url = encodeURIComponent(window.location.href);
+        var img = document.querySelector('.featured-image img');
+        var media = encodeURIComponent(img ? img.src : '');
+        var desc = encodeURIComponent(img && img.getAttribute('data-pin-description') ? img.getAttribute('data-pin-description') : document.title);
+        window.open('https://www.pinterest.com/pin/create/button/?url=' + url + '&media=' + media + '&description=' + desc, '_blank', 'width=750,height=550');
+      };
       window.shareViaEmail = function() {
         var subject = encodeURIComponent(document.title);
         var body = encodeURIComponent('Check out this article: ' + window.location.href);
@@ -547,6 +554,9 @@ ${NAV_HTML}
                         </button>
                         <button class="share-btn linkedin" onclick="shareOnLinkedIn()">
                             <span>💼</span> LinkedIn
+                        </button>
+                        <button class="share-btn pinterest" onclick="shareOnPinterest()">
+                            <span>📌</span> Pinterest
                         </button>
                         <button class="share-btn email" onclick="shareViaEmail()">
                             <span>📧</span> Email

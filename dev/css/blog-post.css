@@ -401,6 +401,11 @@
     background: #0077b5;
 }
 
+.share-btn.pinterest:hover {
+    border-color: #e60023;
+    background: #e60023;
+}
+
 .share-btn.email:hover {
     border-color: var(--accent-orange);
     background: var(--accent-orange);
